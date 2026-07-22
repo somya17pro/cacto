@@ -13,6 +13,29 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
+  // AI Bot Tracker
+  const AI_BOT_AGENTS = [
+    'GPTBot', 'OAI-SearchBot', 'PerplexityBot', 'ClaudeBot', 
+    'Google-Extended', 'Bytespider', 'CCBot', 'anthropic-ai', 'cohere-ai'
+  ]
+  const userAgent = request.headers.get('user-agent') || ''
+  const botMatch = AI_BOT_AGENTS.find(bot => userAgent.includes(bot))
+
+  if (botMatch) {
+    try {
+      const url = new URL('/api/log-bot', request.url)
+      // Non-blocking fetch to log the bot
+      fetch(url.toString(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          botName: botMatch,
+          path: pathname
+        }),
+      }).catch(err => console.error('Failed to ping bot log API:', err))
+    } catch (e) {}
+  }
+
   return await updateSession(request)
 }
 

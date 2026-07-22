@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import ExitIntentModal from "@/components/ExitIntentModal";
+import ClientReferrerTracker from "@/components/ClientReferrerTracker";
 
 const fraunces = Fraunces({
   variable: "--font-serif",
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <ExitIntentModal />
+        <ClientReferrerTracker />
         
         {/* Google Analytics */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZW7620LS6R" strategy="afterInteractive" />

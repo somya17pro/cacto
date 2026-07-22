@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState } from 'react'
-import { X, Mail, CheckCircle } from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import { X, Mail, CheckCircle, ChevronDown, Sparkles } from 'lucide-react'
 
 interface WaitlistModalProps {
   isOpen: boolean
@@ -10,8 +10,19 @@ interface WaitlistModalProps {
 
 export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
   const [email, setEmail] = useState('')
+  const [source, setSource] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
+
+  useEffect(() => {
+    if (isOpen) {
+      // Check if we captured an AI referrer automatically
+      const capturedSource = sessionStorage.getItem('cacto_attribution_source')
+      if (capturedSource) {
+        setSource(capturedSource)
+      }
+    }
+  }, [isOpen])
 
   if (!isOpen) return null
 
@@ -31,7 +42,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, source }),
       })
       const data = await res.json()
       if (res.ok) {
@@ -90,8 +101,27 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold text-[#1A1510] placeholder:text-zinc-400 bg-white"
+                className="w-full pl-11 pr-4 py-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold text-[#1A1510] placeholder:text-zinc-400 bg-white focus:border-[#16A34A] transition"
               />
+            </div>
+            
+            <div className="relative">
+              <Sparkles className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400" />
+              <select
+                value={source}
+                onChange={(e) => setSource(e.target.value)}
+                className="w-full pl-11 pr-10 py-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold text-[#1A1510] bg-white appearance-none focus:border-[#16A34A] transition cursor-pointer"
+              >
+                <option value="" disabled>How did you hear about us? (Optional)</option>
+                <option value="ChatGPT">ChatGPT</option>
+                <option value="Perplexity AI">Perplexity AI</option>
+                <option value="Claude">Claude</option>
+                <option value="Google AI / Search">Google AI / Search</option>
+                <option value="Social Media (Instagram/Twitter)">Social Media (Instagram/Twitter)</option>
+                <option value="Word of Mouth">Word of Mouth</option>
+                <option value="Other">Other</option>
+              </select>
+              <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400 pointer-events-none" />
             </div>
             <button
               type="submit"

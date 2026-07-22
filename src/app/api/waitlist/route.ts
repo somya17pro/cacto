@@ -17,6 +17,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json()
     const rawEmail = body?.email
+    const source = body?.source || 'Unknown'
 
     if (!rawEmail || typeof rawEmail !== 'string' || rawEmail.length > 500) {
       return NextResponse.json({ error: 'Please enter a valid email address.' }, { status: 400 })
@@ -37,7 +38,7 @@ export async function POST(request: Request) {
       try {
         const { error } = await supabaseAdmin
           .from('waitlist')
-          .insert([{ email: cleanEmail }])
+          .insert([{ email: cleanEmail, source }])
 
         if (error && error.code !== '23505') { // Duplicate unique key is also considered success
           console.error('Supabase waitlist insert error details:', error)
@@ -60,9 +61,10 @@ export async function POST(request: Request) {
         }
       }
       if (!waitlistList.some((item: any) => item.email === cleanEmail)) {
-        console.log(`[WAITLIST_SUCCESS] New signup: ${cleanEmail}`);
+        console.log(`[WAITLIST_SUCCESS] New signup: ${cleanEmail} (Source: ${source})`);
         waitlistList.push({
           email: cleanEmail,
+          source: source,
           createdAt: new Date().toISOString()
         })
         const tempPath = `${localBackupPath}.tmp`
