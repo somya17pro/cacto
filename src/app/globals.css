@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@plugin "@tailwindcss/typography";
 @theme {
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
@@ -60,4 +60,34 @@ body {
 .thick-sticker-hover:active {
   transform: translate(0px, 0px);
   box-shadow: 0px 0px 0 #1A1510;
+}
+
+/* Custom overrides to make Blog Headings significantly larger and bolder */
+.prose h2 {
+  font-size: 2.25rem !important; /* 36px */
+  line-height: 1.2 !important;
+  margin-top: 2.5em !important;
+  margin-bottom: 1em !important;
+  font-weight: 900 !important; /* Black */
+  color: #1A1510 !important;
+  font-family: var(--font-serif) !important;
+  letter-spacing: -0.025em !important;
+}
+
+.prose h3 {
+  font-size: 1.5rem !important; /* 24px */
+  line-height: 1.3 !important;
+  margin-top: 2em !important;
+  margin-bottom: 0.8em !important;
+  font-weight: 800 !important; /* Extra Bold */
+  color: #27272a !important; /* zinc-800 */
+}
+
+.prose a {
+  color: #16A34A !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 4px !important;
+}
+.prose a:hover {
+  color: #15803D !important;
 }
