@@ -110,7 +110,7 @@ async function extractPostPhotos(shortcode: string): Promise<{
   caption: string
   isCarousel: boolean
 }> {
-  let photos: PhotoEntry[] = []
+  const photos: PhotoEntry[] = []
   let author = '@instagram.user'
   let caption = ''
   let isCarousel = false
