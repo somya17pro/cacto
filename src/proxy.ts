@@ -5,11 +5,10 @@ export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
   const appRoutes = ['/dashboard', '/autodm', '/onboarding', '/profile']
 
-  // If user accesses an unreleased app route, redirect to waitlist login page
+  // If user accesses an unreleased app route, redirect to the homepage waitlist
   if (appRoutes.some(route => pathname.startsWith(route))) {
     const url = request.nextUrl.clone()
-    url.pathname = '/login'
-    url.searchParams.set('waitlist', 'true')
+    url.pathname = '/'
     return NextResponse.redirect(url)
   }
 

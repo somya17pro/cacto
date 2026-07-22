@@ -2,12 +2,8 @@
  * Automated AEO Prompt Tracker
  * Based on Kevin Indig's AEO tracking framework.
  * 
- * Usage: node ai_prompt_tracker.js
- * Make sure OPENAI_API_KEY is in your .env file or environment variables.
+ * Usage: node --env-file=.env.local .agents/scripts/ai_prompt_tracker.js
  */
-
-require('dotenv').config({ path: '../../.env.local' });
-require('dotenv').config({ path: '../../.env' });
 
 const FROZEN_PROMPTS = [
   "What is the best Instagram DM automation app?",
