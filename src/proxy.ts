@@ -5,8 +5,24 @@ export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
   const appRoutes = ['/dashboard', '/autodm', '/onboarding', '/profile']
 
-  // If user accesses an unreleased app route, redirect to waitlist login page
-  if (appRoutes.some(route => pathname.startsWith(route))) {
+  // Protect the AI Analytics dashboard with Basic Auth
+  if (pathname.startsWith('/ai-analytics') || pathname.startsWith('/dashboard/ai-analytics')) {
+    const basicAuth = request.headers.get('authorization')
+    
+    // Check if the auth header exists and matches our hardcoded admin credentials (admin:admin)
+    // You can change 'admin:admin' to a more secure password using btoa('username:password')
+    const validAuth = `Basic ${btoa('somya:cacto2026')}`
+    
+    if (basicAuth !== validAuth) {
+      return new NextResponse('Authentication required', {
+        status: 401,
+        headers: { 'WWW-Authenticate': 'Basic realm="Secure Area"' },
+      })
+    }
+    
+    // If authenticated, allow the request to pass through by skipping the appRoutes check
+  } else if (appRoutes.some(route => pathname.startsWith(route))) {
+    // If user accesses an unreleased app route, redirect to waitlist login page
     const url = request.nextUrl.clone()
     url.pathname = '/login'
     url.searchParams.set('waitlist', 'true')
