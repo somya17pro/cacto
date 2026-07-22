@@ -21,6 +21,8 @@ export const metadata: Metadata = {
   description: "Automate Instagram DMs and checkouts when users comment on your posts.",
 };
 
+import Script from "next/script";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,6 +36,17 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <ExitIntentModal />
+        
+        {/* Google Analytics */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZW7620LS6R" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZW7620LS6R');
+          `}
+        </Script>
       </body>
     </html>
   );
