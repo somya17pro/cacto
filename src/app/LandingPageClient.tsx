@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ArrowRight, Check, Sparkles, X, Zap, Link2, RefreshCw, Mail } from 'lucide-react'
+import { ArrowRight, Check, Sparkles, X, Zap, Link2, RefreshCw, Mail, MessageCircle } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WaitlistModal from '@/components/WaitlistModal'
@@ -131,7 +131,7 @@ export default function LandingPageClient() {
             </span>
           </div>
 
-          <div className="pt-3 flex flex-col items-start gap-3">
+          <div className="pt-3 flex flex-col items-start gap-3 md:flex-row md:items-center md:gap-5">
             <button 
               onClick={() => setIsWaitlistModalOpen(true)}
               className="relative inline-flex items-center gap-3 bg-[#1A1510] text-[#FAF6EE] px-8 py-[16px] rounded-full font-bold text-[15px] border-2 border-[#1A1510] hover:bg-[#2C2C2B] transition shadow-[4px_6px_0_#16A34A] cursor-pointer"
@@ -139,6 +139,15 @@ export default function LandingPageClient() {
               Join Waitlist
               <span className="w-6 h-6 rounded-full bg-[#16A34A] text-white grid place-items-center text-[12px] font-bold">→</span>
             </button>
+            
+            <a 
+              href="https://instagram.com" 
+              target="_blank" 
+              rel="noreferrer"
+              className="relative inline-flex items-center gap-2 bg-transparent text-[#1A1510] px-8 py-[16px] rounded-full font-bold text-[15px] border-2 border-[#1A1510] hover:bg-black/5 transition cursor-pointer"
+            >
+              Experience Live Demo
+            </a>
           </div>
         </header>
 
@@ -377,6 +386,81 @@ export default function LandingPageClient() {
       </section>
 
 
+
+      {/* Architecture Tech Diagram */}
+      <section className="py-24 bg-[#FAF6EE] border-t border-[rgba(26,20,16,0.08)]">
+        <div className="max-w-5xl mx-auto px-6 space-y-12">
+          <div className="text-center space-y-3">
+            <h2 className="font-serif font-bold text-3xl md:text-5xl tracking-tight text-[#1A1510]">
+              Built for <span className="text-[#16A34A]">Safety</span>. Engineered for Speed.
+            </h2>
+            <p className="text-zinc-600 text-sm font-bold max-w-2xl mx-auto">See exactly how Cacto routes your DMs securely through Meta's official Graph API.</p>
+          </div>
+
+          <div className="bg-white border-2 border-[#1A1510] rounded-3xl p-8 md:p-12 shadow-[6px_10px_0_#1A1510] overflow-x-auto">
+            <div className="min-w-[800px] flex items-center justify-between gap-4 font-mono text-xs font-bold text-center">
+              
+              {/* Step 1 */}
+              <div className="flex flex-col items-center gap-3 w-40">
+                <div className="w-16 h-16 rounded-2xl border-2 border-[#1A1510] bg-rose-100 flex items-center justify-center text-rose-500 shadow-[2px_3px_0_#1A1510]">
+                  <MessageCircle className="w-8 h-8" />
+                </div>
+                <div>
+                  <div className="text-[#1A1510]">Instagram Follower</div>
+                  <div className="text-zinc-400 font-normal text-[10px] mt-1">Comments "GUIDE"</div>
+                </div>
+              </div>
+
+              <div className="flex-1 h-0.5 bg-dashed bg-zinc-300 border-t-2 border-dashed border-zinc-300 relative">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 text-zinc-300">▶</div>
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex flex-col items-center gap-3 w-40">
+                <div className="w-16 h-16 rounded-2xl border-2 border-[#1A1510] bg-blue-100 flex items-center justify-center text-blue-500 shadow-[2px_3px_0_#1A1510]">
+                  <RefreshCw className="w-8 h-8" />
+                </div>
+                <div>
+                  <div className="text-[#1A1510]">Meta Graph API</div>
+                  <div className="text-zinc-400 font-normal text-[10px] mt-1">Official OAuth Webhook</div>
+                </div>
+              </div>
+
+              <div className="flex-1 h-0.5 bg-dashed bg-zinc-300 border-t-2 border-dashed border-zinc-300 relative">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 text-zinc-300">▶</div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex flex-col items-center gap-3 w-48 relative">
+                <div className="absolute -top-3 -right-2 bg-[#1A1510] text-[#FAF6EE] text-[9px] px-2 py-1 rounded-md tracking-widest z-10">Cacto Engine</div>
+                <div className="w-16 h-16 rounded-2xl border-2 border-[#1A1510] bg-emerald-100 flex items-center justify-center text-emerald-500 shadow-[2px_3px_0_#1A1510]">
+                  <Zap className="w-8 h-8" />
+                </div>
+                <div>
+                  <div className="text-[#1A1510]">Anti-Spam Rotator</div>
+                  <div className="text-zinc-400 font-normal text-[10px] mt-1">Rotates 3 replies + delay</div>
+                </div>
+              </div>
+
+              <div className="flex-1 h-0.5 bg-dashed bg-zinc-300 border-t-2 border-dashed border-zinc-300 relative">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 text-zinc-300">▶</div>
+              </div>
+
+              {/* Step 4 */}
+              <div className="flex flex-col items-center gap-3 w-40">
+                <div className="w-16 h-16 rounded-2xl border-2 border-[#1A1510] bg-purple-100 flex items-center justify-center text-purple-500 shadow-[2px_3px_0_#1A1510]">
+                  <Link2 className="w-8 h-8" />
+                </div>
+                <div>
+                  <div className="text-[#1A1510]">Direct Checkout</div>
+                  <div className="text-zinc-400 font-normal text-[10px] mt-1">Stripe Link Delivered in DM</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 10 High-Intent Search FAQs Section */}
       <section className="py-24 bg-white border-t border-zinc-200 text-left">

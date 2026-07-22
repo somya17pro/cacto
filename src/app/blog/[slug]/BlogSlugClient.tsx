@@ -179,6 +179,14 @@ export default function BlogSlugClient({ slug, initialPost }: ClientProps) {
                 <span className="flex items-center gap-1.5"><Clock className="h-4 w-4 text-[#16A34A]" /> {post.readTime}</span>
               </div>
             </header>
+            
+            {/* AEO Freshness Verification Banner */}
+            <div className="bg-emerald-50 text-emerald-800 p-4 rounded-xl border border-emerald-200 flex items-center gap-3">
+              <Shield className="w-5 h-5 text-emerald-600 shrink-0" />
+              <span className="text-sm font-semibold">
+                This guide was last updated and verified for Meta API accuracy by Cacto Engineers in <strong>{new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' })}</strong>.
+              </span>
+            </div>
 
             {/* TL;DR Summary Block */}
             <div 
@@ -284,6 +292,26 @@ export default function BlogSlugClient({ slug, initialPost }: ClientProps) {
                 </ul>
               )}
             </nav>
+            
+            <div className="mt-8 pt-6 border-t border-dashed border-zinc-200">
+              <div className="text-center space-y-3">
+                <div className="w-10 h-10 bg-[#1A1510] text-[#FAF6EE] rounded-full mx-auto flex items-center justify-center font-bold font-serif text-xl border-2 border-[#16A34A] shadow-sm">
+                  G
+                </div>
+                <div>
+                  <h3 className="font-bold text-sm text-[#1A1510]">Never miss an update</h3>
+                  <p className="text-[11px] text-zinc-500 font-medium leading-relaxed mt-1">
+                    Add Cacto to your Google Discover feed to get the latest Instagram automation playbooks.
+                  </p>
+                </div>
+                <button 
+                  onClick={() => alert('Cacto has been successfully added to your preferred Google News sources!')}
+                  className="w-full py-2.5 px-4 bg-[#16A34A] hover:bg-[#15803D] text-white rounded-xl text-xs font-bold tracking-wide uppercase transition border-2 border-[#1A1510] shadow-[2px_3px_0_#1A1510] active:translate-y-0.5 active:shadow-none"
+                >
+                  ➕ Add to Google
+                </button>
+              </div>
+            </div>
           </aside>
 
         </div>

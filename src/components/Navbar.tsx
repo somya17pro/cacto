@@ -51,7 +51,7 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
           {/* Right CTA Button & Mobile Toggle */}
           <div className="flex items-center gap-3 shrink-0">
             <button
-              onClick={() => onOpenWaitlist && onOpenWaitlist()}
+              onClick={() => onOpenWaitlist ? onOpenWaitlist() : (window.location.href = '/?waitlist=true')}
               type="button"
               className="inline-flex items-center gap-2 bg-[#16A34A] hover:bg-[#15803D] text-white px-4 py-2 rounded-full font-extrabold text-xs transition-all shadow-sm cursor-pointer border-none active:scale-95"
             >
