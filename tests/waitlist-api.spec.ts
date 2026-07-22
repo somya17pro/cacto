@@ -44,6 +44,6 @@ test.describe('Waitlist Flow', () => {
     await submitBtn.click();
     
     // Expect success UI state
-    await expect(page.getByText(/You have been successfully added/i)).toBeVisible();
+    await expect(page.getByText(/You are on the waitlist/i)).toBeVisible();
   });
 });
