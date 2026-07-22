@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
+import Logo from './Logo'
 
 interface NavbarProps {
   onOpenWaitlist?: () => void
@@ -29,7 +30,7 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 select-none group shrink-0">
-            <span className="text-xl group-hover:scale-110 transition-transform">🌵</span>
+            <Logo className="w-6 h-6 group-hover:scale-110 transition-transform" />
             <span className="font-serif text-2xl font-bold tracking-tight text-[#FAF6EE] lowercase">
               cacto
             </span>
