@@ -60,6 +60,7 @@ export async function POST(request: Request) {
         }
       }
       if (!waitlistList.some((item: any) => item.email === cleanEmail)) {
+        console.log(`[WAITLIST_SUCCESS] New signup: ${cleanEmail}`);
         waitlistList.push({
           email: cleanEmail,
           createdAt: new Date().toISOString()
