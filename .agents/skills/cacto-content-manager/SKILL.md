@@ -1,11 +1,11 @@
 ---
 name: cacto-content-manager
-description: Manage, update, write, generate preview graphics, interlink, and QA audit Cacto's 17 growth tools and 17 blogs using the complete AEO + SEO playbook.
+description: Manage, update, write, generate preview graphics, interlink, and QA audit Cacto's 17 growth tools and 50 blogs using the complete AEO + SEO playbook.
 ---
 
 # Cacto Content Manager & AEO/SEO Playbook Skill
 
-This skill provides a standardized blueprint, verification checklists, and automated script pipelines to handle content updates, visual preview assets, AEO (AI Engine Optimization), SEO (Search Engine Optimization), interlinking loops, structured JSON-LD schemas, and QA audits for Cacto's pages, 17 blogs, and 17 tools.
+This skill provides a standardized blueprint, verification checklists, and automated script pipelines to handle content updates, visual preview assets, AEO (AI Engine Optimization), SEO (Search Engine Optimization), interlinking loops, structured JSON-LD schemas, and QA audits for Cacto's pages, 50 blogs, and 17 tools.
 
 ---
 

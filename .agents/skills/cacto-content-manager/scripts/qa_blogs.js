@@ -11,10 +11,10 @@ const content = fs.readFileSync(filePath, 'utf8');
 const slugMatches = content.match(/slug:\s*"([^"]+)"/g) || [];
 const slugs = slugMatches.map(m => m.match(/"([^"]+)"/)[1]);
 
-console.log(`📋 Total blog posts detected in TS file: ${slugs.length}/17`);
+console.log(`📋 Total blog posts detected in TS file: ${slugs.length}/50`);
 
-if (slugs.length !== 17) {
-  console.error(`❌ FAIL: Expected 17 blogs but detected ${slugs.length}.`);
+if (slugs.length !== 50) {
+  console.error(`❌ FAIL: Expected 50 blogs but detected ${slugs.length}.`);
   process.exit(1);
 }
 
@@ -24,7 +24,7 @@ let failed = false;
 
 postsBlocks.forEach((block, index) => {
   const currentSlug = slugs[index];
-  console.log(`\nDocument [${index + 1}/17]: Slug: ${currentSlug}`);
+  console.log(`\nDocument [${index + 1}/50]: Slug: ${currentSlug}`);
 
   // 1. Check title
   const titleMatch = block.match(/title:\s*"([^"]+)"/);
@@ -105,5 +105,5 @@ if (failed) {
   console.log('\n❌ QA AUDIT FAILED. Please resolve the errors detailed above.');
   process.exit(1);
 } else {
-  console.log('\n🏆 ALL 17 BLOGS SUCCESSFULLY PASSED TEXT-BASED AEO/SEO QA AUDIT!');
+  console.log('\n🏆 ALL 50 BLOGS SUCCESSFULLY PASSED TEXT-BASED AEO/SEO QA AUDIT!');
 }
