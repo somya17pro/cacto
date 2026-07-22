@@ -1,0 +1,19 @@
+[
+  {
+    "id": "0.2536491073932856",
+    "triggerKeyword": "FREE",
+    "dmMessageCopy": "Hi there! Appreciate your comment 🙌 As promised, here's the link for you ⬇️",
+    "isActive": true,
+    "createdAt": "2026-07-19T14:00:44.212Z",
+    "runsCount": 1,
+    "clicksCount": 0,
+    "postId": "Da2vQkdEmlA",
+    "postThumbnailGrad": "from-orange-500 to-pink-500",
+    "commentReplies": [],
+    "delayValue": 1,
+    "delayUnit": "Minute",
+    "dmType": "Text + Button",
+    "buttonText": "Click here",
+    "buttonUrl": "https://chttps://www.instagram.com/acto.ai/checkout"
+  }
+]

@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
+  --color-brand-green: #16A34A;
+  --color-brand-green-hover: #15803D;
+  --color-brand-green-light: #E6F4EA;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbars for a premium dark feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(26, 21, 16, 0.08);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 21, 16, 0.15);
+}
+
+/* Callsy-style Flat thick borders and shadow classes */
+.thick-border {
+  border: 2px solid #1A1510;
+}
+
+.thick-shadow-sm {
+  box-shadow: 4px 6px 0 #1A1510;
+}
+
+.thick-shadow-lg {
+  box-shadow: 6px 10px 0 #1A1510;
+}
+
+/* Hover lift transition matching Callsy */
+.thick-sticker-hover {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.thick-sticker-hover:hover {
+  transform: translate(-2px, -4px);
+  box-shadow: 5px 7px 0 #1A1510;
+}
+.thick-sticker-hover:active {
+  transform: translate(0px, 0px);
+  box-shadow: 0px 0px 0 #1A1510;
 }

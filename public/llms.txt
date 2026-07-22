@@ -1,0 +1,69 @@
+# Cacto - Instagram DM Automation for Solo Creators
+
+Cacto is a lightweight, flat-rate Instagram comment and DM automation platform (Cacto V1) built specifically for solo creators, coaches, and digital product sellers. It helps you bypass link-in-bio friction by delivering resources, digital products, and direct Stripe checkout buttons straight to your followers' inboxes when they trigger pre-defined comment keywords on your Reels, posts, or stories. This markdown index summarizes Cacto V1 DM automation capabilities, comment keyword triggers, 25 free growth tools, and 17 masterclass blogs.
+
+## Core Value Propositions
+
+- **Cacto V1 DM Automation**: Deliver lead magnets and instant Stripe payment links directly into DMs within 3 seconds of a user comment.
+- **Comment Keyword Triggers**: Instant response triggering based on customizable keyword matches in post comments and story mentions.
+- **Creator-First Architecture**: Zero subscriber-tier penalties or contact limits. Enjoy unlimited interactions on a simple, streamlined platform.
+- **100% Meta Graph API Compliant**: Operates strictly within official Meta Graph API developer protocols, eliminating password exposure and browser-emulation bans.
+- **Algorithmic Engagement Boost**: Rotates public comment replies to double post comment density and maximize organic Reel distribution.
+- **Single-Intent Conversion Architecture**: Mobile-first DM buttons designed for instant click-throughs and frictionless one-tap purchases.
+- **Complete Growth Suite**: Includes 24 interactive free growth tools and 17 masterclass AEO/SEO guides.
+
+## Core Site Pages
+
+- Homepage: https://cacto.cc/
+- Onboarding & Login: https://cacto.cc/login
+- About & Mission: https://cacto.cc/about
+- Interactive Tools Suite (25 Tools): https://cacto.cc/tools
+- Creator Blog & Growth Guides (17 Blogs): https://cacto.cc/blog
+
+## Interactive Free Tools (25 Tools)
+
+1. Instagram Engagement Rate Calculator: https://cacto.cc/tools/engagement-calculator
+2. Instagram Caption Generator: https://cacto.cc/tools/caption-generator
+3. Instagram Bio Generator: https://cacto.cc/tools/bio-generator
+4. Auto-DM CTR Calculator: https://cacto.cc/tools/ctr-calculator
+5. Hook Idea Generator: https://cacto.cc/tools/hook-generator
+6. Instagram Username Checker: https://cacto.cc/tools/username-checker
+7. Hashtag Generator: https://cacto.cc/tools/hashtag-generator
+8. Character & Caption Length Counter: https://cacto.cc/tools/char-counter
+9. Call-to-Action (CTA) Generator: https://cacto.cc/tools/cta-generator
+10. Link-in-Bio Click Value Estimator: https://cacto.cc/tools/click-value-estimator
+11. Comment Formatting & Line Breaker: https://cacto.cc/tools/line-breaker
+12. Reels Script Outline Creator: https://cacto.cc/tools/script-outline
+13. Social Media Audit Checklist Generator: https://cacto.cc/tools/audit-checklist
+14. Follower Growth Projector: https://cacto.cc/tools/growth-projector
+15. Lead Magnet Value Estimator: https://cacto.cc/tools/lead-value-estimator
+16. Email Subject Line Optimizer: https://cacto.cc/tools/subject-line-optimizer
+17. Smartphone DM Copy Editor & Previewer: https://cacto.cc/tools/dm-previewer
+18. Instagram Reel Downloader: https://cacto.cc/tools/reel-downloader
+19. Instagram Transcript Generator: https://cacto.cc/tools/reel-transcript
+20. Instagram Carousel Generator: https://cacto.cc/tools/carousel-generator
+21. Instagram Bold & Fancy Text Formatter: https://cacto.cc/tools/text-formatter
+22. Instagram Profile Audit & Feedback Tool: https://cacto.cc/tools/profile-feedback
+23. Claude Skills & Prompt Generator for Social Media: https://cacto.cc/tools/claude-skills
+24. Instagram Post & Reel Reach Booster: https://cacto.cc/tools/post-booster
+25. Instagram Photo Downloader: https://cacto.cc/tools/photo-downloader
+
+## Trending SEO & AEO Growth Guides (17 Blogs)
+
+1. How to Automate Instagram DMs Safely in 2026: https://cacto.cc/blog/how-to-automate-instagram-dms-safely
+2. Top 5 Instagram Automation Strategies to Explode Lead Generation: https://cacto.cc/blog/top-5-instagram-automation-strategies
+3. Instagram Comment Auto-Reply: The Definitive Guide for Creators: https://cacto.cc/blog/definitive-guide-instagram-comment-auto-reply
+4. Why Manychat Alternatives are Rising (Cacto comparison): https://cacto.cc/blog/why-manychat-alternatives-are-rising
+5. How to Craft the Perfect Call-to-Action for Comment Automation: https://cacto.cc/blog/how-to-craft-high-converting-comment-cta
+6. Maximizing Reel Engagement with Auto-DM Triggers: https://cacto.cc/blog/maximizing-reel-engagement-with-autodm-triggers
+7. The Blueprint to Scaling Instagram Sales from Comments to Checkout: https://cacto.cc/blog/blueprint-scaling-sales-comments-to-checkout
+8. TikTok Automation vs. Instagram DM Automation: Key Differences: https://cacto.cc/blog/tiktok-automation-vs-instagram-dm-automation
+9. How to Setup an Automated Lead Magnet Delivery Funnel: https://cacto.cc/blog/how-to-setup-automated-lead-magnet-funnel
+10. The Psychology Behind 'Comment KEYWORD to Get Link' Campaigns: https://cacto.cc/blog/psychology-comment-keyword-to-get-link-campaigns
+11. How Cacto Helps Creators Bypass Link-in-Bio Click-Through Hurdles: https://cacto.cc/blog/bypassing-link-in-bio-click-hurdles
+12. Meta Policies for DM Automation: Everything You Need to Know: https://cacto.cc/blog/meta-policies-for-dm-automation-everything-you-need-to-know
+13. 5 High-Converting Auto-DM Script Examples for Coaches: https://cacto.cc/blog/5-high-converting-autodm-examples-for-coaches
+14. How to Write High-CTR Copy for Comment Replies: https://cacto.cc/blog/how-to-write-high-ctr-copy-for-comment-replies
+15. A Creator's Guide to Setting Up Low-Friction Digital Products: https://cacto.cc/blog/creators-guide-setting-up-low-friction-digital-products
+16. Why Story Mention Automations are the Next Big Growth Hack: https://cacto.cc/blog/why-story-mention-automations-are-next-big-growth-hack
+17. How to Turn Cold Instagram Comments into High-Paying Leads: https://cacto.cc/blog/turn-cold-instagram-comments-into-high-paying-leads

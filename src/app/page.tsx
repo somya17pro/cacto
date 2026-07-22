@@ -1,65 +1,150 @@
-import Image from "next/image";
+import type { Metadata } from 'next'
+import LandingPageClient from './LandingPageClient'
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Cacto | Turn Instagram Comments into Automatic Sales & Auto-DMs',
+  description: 'Cacto detects keyword comments on your Reels, Posts, and Stories to deliver direct checkout links, digital downloads, and lead capture messages in under 30 seconds.',
+  keywords: ['Instagram DM automation', 'comment to DM', 'Instagram sales funnel', 'Stripe checkout Instagram', 'lead magnet automation', 'Instagram marketing tools', 'ManyChat alternative'],
+  alternates: {
+    canonical: 'https://cacto.cc',
+  },
+  openGraph: {
+    title: 'Cacto | Turn Instagram Comments into Automatic Sales & Auto-DMs',
+    description: 'Cacto detects keyword comments on your Reels, Posts, and Stories to deliver direct checkout links, digital downloads, and lead capture messages in under 30 seconds.',
+    url: 'https://cacto.cc',
+    siteName: 'Cacto',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cacto | Turn Instagram Comments into Automatic Sales & Auto-DMs',
+    description: 'Cacto detects keyword comments on your Reels, Posts, and Stories to deliver direct checkout links, digital downloads, and lead capture messages in under 30 seconds.',
+  },
+}
+
+export default function HomePage() {
+  const graphSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': 'https://cacto.cc/#website',
+        name: 'Cacto',
+        url: 'https://cacto.cc',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: 'https://cacto.cc/tools?q={search_term_string}',
+          'query-input': 'required name=search_term_string'
+        }
+      },
+      {
+        '@type': 'Organization',
+        '@id': 'https://cacto.cc/#organization',
+        name: 'Cacto',
+        url: 'https://cacto.cc',
+        logo: 'https://cacto.cc/favicon.ico',
+        description: 'Instagram comment-to-DM automation, direct checkout links, and lead email capture for creators.',
+        sameAs: [
+          'https://instagram.com/cacto',
+          'https://twitter.com/cacto'
+        ]
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': 'https://cacto.cc/#faq',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Is Cacto compliant with Meta and Instagram platform rules?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes, Cacto is 100% compliant with Meta platform guidelines. We use official Meta Graph API endpoints with secure OAuth 2.0 token authorization, ensuring your Instagram account is never flagged or shadowbanned.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How does Cacto compare as a ManyChat alternative?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Unlike complex flow-builder tools like ManyChat, Cacto is streamlined specifically for Instagram creators with zero complex flowchart building, 5-minute setup, and native Meta API security.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How fast are DM responses sent when a follower comments?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Cacto triggers instant comment-to-DM responses within 5 to 30 seconds of a user leaving a matching keyword comment on your Instagram Reel, Post, or Story, keeping engagement high while followers are actively online.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I connect direct payment links and store URLs?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes! You can attach direct DM checkout links for Stripe, Stan Store, Shopify, Gumroad, Calendly, or custom lead magnets directly inside Instagram DMs.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What platforms and stores can I connect to Cacto DMs?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Cacto allows you to send direct checkout links to Stripe, Stan Store, Shopify, Gumroad, Calendly, or custom web links directly inside Instagram DMs.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Will automated DMs get my Instagram account flagged or banned?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'No. Cacto includes a Meta Anti-Spam Reply Rotator that rotates between 3 comment reply variations and incorporates natural delay timing to stay fully within Meta API rate limits.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How does instant lead capture work inside Instagram DMs?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Cacto can prompt followers to provide their email address right inside the Instagram DM conversation before delivering digital downloads, instantly syncing leads into your email marketing platform.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Will my followers know they are receiving automated DMs?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Cacto dispatches clean, personalized direct messages with actionable checkout buttons or instant guide links. It operates as a fast, helpful delivery assistant that feels natural to your audience.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How long does it take to set up Cacto for Instagram?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Setup takes under 5 minutes: connect your Instagram account, select your Reel, Post, or Story, set your trigger keyword, configure your 3 rotated comment replies, and add your store link.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I join the early access waitlist?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes! Join our early access waitlist today to get priority onboarding and instant notification as soon as new creator spots open up.'
+            }
+          }
+        ]
+      }
+    ]
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graphSchema) }}
+      />
+      <LandingPageClient />
+    </>
+  )
 }
