@@ -35,7 +35,6 @@ function parseShortcode(inputUrl: string): string | null {
   return null
 }
 
-
 function cleanHtmlText(str: string): string {
   if (!str) return ''
   return str
@@ -51,17 +50,26 @@ function cleanHtmlText(str: string): string {
     .trim()
 }
 
-async function fetchWithTimeout(url: string, headers: Record<string, string> = {}, timeoutMs = 8000) {
+function cleanMediaUrl(rawUrl: string): string {
+  if (!rawUrl) return ''
+  return rawUrl
+    .replace(/\\u0026/g, '&')
+    .replace(/\\/g, '')
+    .replace(/&amp;/g, '&')
+    .trim()
+}
 
+async function fetchWithTimeout(url: string, headers: Record<string, string> = {}, timeoutMs = 8000) {
   const controller = new AbortController()
   const id = setTimeout(() => controller.abort(), timeoutMs)
 
   try {
     const res = await fetch(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
-        'Accept': '*/*',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.9',
+        'Sec-Fetch-Mode': 'cors',
         ...headers
       },
       signal: controller.signal,
@@ -96,9 +104,18 @@ async function downloadMediaFile(url: string, dest: string, maxRedirects = 5): P
       }
     }
 
-    const req = https.get(url, { timeout: 15000 }, (res) => {
-      // Set response data idle timeout (15s) to prevent hung streams
-      res.setTimeout(15000, () => {
+    const options = {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+        'Accept': '*/*',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Referer': 'https://www.instagram.com/'
+      },
+      timeout: 20000
+    }
+
+    const req = https.get(url, options, (res) => {
+      res.setTimeout(20000, () => {
         res.destroy()
         cleanup()
         resolve(false)
@@ -153,7 +170,6 @@ async function getTranscriber() {
   return transcriberPipeline
 }
 
-
 export async function POST(req: Request) {
   const tmpDir = os.tmpdir()
   let mp4Path = ''
@@ -174,44 +190,117 @@ export async function POST(req: Request) {
     let rawCaption = ''
     let durationSeconds = 30
 
-    // TIER 1: GraphQL query
-    try {
-      const doc_id = '10015901848480474'
-      const variables = encodeURIComponent(JSON.stringify({ shortcode }))
-      const res = await fetchWithTimeout(`https://www.instagram.com/graphql/query/?doc_id=${doc_id}&variables=${variables}`, {
-        'X-IG-App-ID': '936619743392459'
-      })
+    // TIER 1: GraphQL query with multiple doc_ids
+    const docIds = ['10015901848480474', '8845758582119845', '7159494324135219']
+    for (const doc_id of docIds) {
+      if (videoUrl) break
+      try {
+        const variables = encodeURIComponent(JSON.stringify({ shortcode }))
+        const res = await fetchWithTimeout(`https://www.instagram.com/graphql/query/?doc_id=${doc_id}&variables=${variables}`, {
+          'X-IG-App-ID': '936619743392459',
+          'Referer': `https://www.instagram.com/reel/${shortcode}/`
+        })
 
-      if (res && res.ok) {
-        const json = await res.json()
-        const media = json?.data?.xdt_shortcode_media || json?.data?.shortcode_media
-        if (media) {
-          videoUrl = media.video_url || media.video_versions?.[0]?.url || ''
-          displayUrl = media.display_url || media.thumbnail_src || ''
-          if (media.owner?.username) author = `@${media.owner.username}`
-          rawCaption = media.edge_media_to_caption?.edges[0]?.node?.text || ''
-          if (media.video_duration) durationSeconds = Math.round(media.video_duration)
+        if (res && res.ok) {
+          const json = await res.json()
+          const media = json?.data?.xdt_shortcode_media || json?.data?.shortcode_media
+          if (media) {
+            videoUrl = cleanMediaUrl(media.video_url || media.video_versions?.[0]?.url || '')
+            displayUrl = cleanMediaUrl(media.display_url || media.thumbnail_src || '')
+            if (media.owner?.username) author = `@${media.owner.username}`
+            rawCaption = media.edge_media_to_caption?.edges[0]?.node?.text || ''
+            if (media.video_duration) durationSeconds = Math.round(media.video_duration)
+          }
         }
+      } catch (e) {
+        console.log(`Tier 1 (${doc_id}) skipped`)
       }
-    } catch (e) {
-      console.log('Tier 1 extraction skipped')
     }
 
-    // TIER 2 Fallback: Embed HTML
+    // TIER 2: ?__a=1 REST API fallback
+    if (!videoUrl) {
+      try {
+        const res = await fetchWithTimeout(`https://www.instagram.com/p/${shortcode}/?__a=1&__d=dis`, {
+          'X-IG-App-ID': '936619743392459',
+          'Referer': `https://www.instagram.com/reel/${shortcode}/`
+        })
+        if (res && res.ok) {
+          const json = await res.json()
+          const item = json.items?.[0] || json.graphql?.shortcode_media
+          if (item) {
+            videoUrl = cleanMediaUrl(item.video_url || item.video_versions?.[0]?.url || '')
+            if (!displayUrl) displayUrl = cleanMediaUrl(item.display_url || item.image_versions2?.candidates?.[0]?.url || '')
+            if (item.user?.username) author = `@${item.user.username}`
+            if (!rawCaption && item.caption?.text) rawCaption = item.caption.text
+            if (item.video_duration) durationSeconds = Math.round(item.video_duration)
+          }
+        }
+      } catch (e) {
+        console.log('Tier 2 skipped')
+      }
+    }
+
+    // TIER 3: Embed HTML extraction
     if (!videoUrl || !rawCaption) {
       try {
         const res = await fetchWithTimeout(`https://www.instagram.com/p/${shortcode}/embed/captioned/`)
         if (res && res.ok) {
           const html = await res.text()
-          const vMatch = html.match(/"video_url"\s*:\s*"([^"]+)"/) || html.match(/<video[^>]+src="([^"]+)"/)
-          if (vMatch && vMatch[1]) videoUrl = vMatch[1].replace(/\\u0026/g, '&').replace(/\\/g, '')
-          const cMatch = html.match(/"caption"\s*:\s*"([^"]+)"/) || html.match(/<div class="Caption"[^>]*>([\s\S]*?)<\/div>/)
-          if (cMatch && cMatch[1] && !rawCaption) rawCaption = cMatch[1].replace(/\\n/g, '\n').replace(/\\"/g, '"')
-          const uMatch = html.match(/"username"\s*:\s*"([^"]+)"/)
-          if (uMatch && uMatch[1] && author === '@instagram.user') author = `@${uMatch[1]}`
+          if (!videoUrl) {
+            const vMatch = html.match(/"video_url"\s*:\s*"([^"]+)"/) ||
+                           html.match(/\\"video_url\\"\s*:\s*\\"([^\\"]+)\\"/) ||
+                           html.match(/video_versions"[\s\S]*?"url"\s*:\s*"([^"]+)"/) ||
+                           html.match(/<video[^>]+src="([^"]+)"/)
+            if (vMatch && vMatch[1]) videoUrl = cleanMediaUrl(vMatch[1])
+          }
+          if (!rawCaption) {
+            const cMatch = html.match(/"caption"\s*:\s*"([^"]+)"/) || html.match(/<div class="Caption"[^>]*>([\s\S]*?)<\/div>/)
+            if (cMatch && cMatch[1]) rawCaption = cleanHtmlText(cMatch[1])
+          }
+          if (author === '@instagram.user') {
+            const uMatch = html.match(/"username"\s*:\s*"([^"]+)"/)
+            if (uMatch && uMatch[1]) author = `@${uMatch[1]}`
+          }
+          if (!displayUrl) {
+            const dMatch = html.match(/"display_url"\s*:\s*"([^"]+)"/) || html.match(/<img[^>]+class="EmbeddedMediaImage"[^>]+src="([^"]+)"/)
+            if (dMatch && dMatch[1]) displayUrl = cleanMediaUrl(dMatch[1])
+          }
         }
       } catch (e) {
-        console.log('Tier 2 extraction skipped')
+        console.log('Tier 3 skipped')
+      }
+    }
+
+    // TIER 4: OpenGraph page scraping fallback
+    if (!videoUrl) {
+      try {
+        const res = await fetchWithTimeout(`https://www.instagram.com/reel/${shortcode}/`, {
+          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+        })
+        if (res && res.ok) {
+          const html = await res.text()
+          const ogMatch = html.match(/<meta\s+property="og:video(?::secure_url)?"\s+content="([^"]+)"/i)
+          if (ogMatch && ogMatch[1]) videoUrl = cleanMediaUrl(ogMatch[1])
+          const descMatch = html.match(/<meta\s+property="og:description"\s+content="([^"]+)"/i)
+          if (!rawCaption && descMatch && descMatch[1]) rawCaption = cleanHtmlText(descMatch[1])
+        }
+      } catch (e) {
+        console.log('Tier 4 skipped')
+      }
+    }
+
+    // TIER 5: Instagram oEmbed metadata backup
+    if (!rawCaption || author === '@instagram.user' || !displayUrl) {
+      try {
+        const res = await fetchWithTimeout(`https://api.instagram.com/oembed/?url=https://www.instagram.com/p/${shortcode}/`)
+        if (res && res.ok) {
+          const oembed = await res.json()
+          if (!rawCaption && oembed.title) rawCaption = cleanHtmlText(oembed.title)
+          if (author === '@instagram.user' && oembed.author_name) author = `@${oembed.author_name}`
+          if (!displayUrl && oembed.thumbnail_url) displayUrl = cleanMediaUrl(oembed.thumbnail_url)
+        }
+      } catch (e) {
+        console.log('Tier 5 skipped')
       }
     }
 
@@ -245,7 +334,7 @@ export async function POST(req: Request) {
             })
 
             if (whisperOutput && whisperOutput.text && whisperOutput.text.trim().length > 0) {
-              fullSpokenText = whisperOutput.text.trim()
+              fullSpokenText = cleanHtmlText(whisperOutput.text.trim())
 
               if (whisperOutput.chunks && whisperOutput.chunks.length > 0) {
                 speechSegments = whisperOutput.chunks.map((chunk: any) => {
@@ -253,7 +342,7 @@ export async function POST(req: Request) {
                   const timeStr = `${Math.floor(startSec / 60)}:${String(startSec % 60).padStart(2, '0')}`
                   return {
                     time: timeStr,
-                    text: chunk.text.trim()
+                    text: cleanHtmlText(chunk.text)
                   }
                 }).filter((s: any) => s.text.length > 0)
               }

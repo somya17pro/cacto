@@ -97,6 +97,7 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
   const [transcriptUrl, setTranscriptUrl] = useState('')
   const [manualTranscriptText, setManualTranscriptText] = useState('')
   const [isGeneratingTranscript, setIsGeneratingTranscript] = useState(false)
+  const [transcriptProgressStep, setTranscriptProgressStep] = useState('📡 Fetching Reel metadata & media stream...')
   const [isEditingTranscript, setIsEditingTranscript] = useState(false)
   const [transcriptError, setTranscriptError] = useState('')
   const [transcriptData, setTranscriptData] = useState<{
@@ -126,7 +127,6 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
   }
 
   const handleManualFormatTranscript = () => {
-
     if (!manualTranscriptText.trim()) return
     const cleanText = manualTranscriptText.replace(/#\w+/g, '').replace(/\[.*?\]/g, '').trim()
     const words = cleanText.split(/\s+/).filter(Boolean)
@@ -156,7 +156,6 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
   }
 
   const handleGenerateTranscript = async () => {
-
     if (!transcriptUrl.trim() || (!transcriptUrl.includes('instagram.com') && !transcriptUrl.includes('instagr.am'))) {
       setTranscriptError('Please enter a valid Instagram Reel or Video link (e.g. https://www.instagram.com/reel/...)')
       return
@@ -164,7 +163,12 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
     checkAndIncrementUsage(async () => {
       setTranscriptError('')
       setIsGeneratingTranscript(true)
+      setTranscriptProgressStep('📡 Resolving Reel video stream...')
       setTranscriptData(null)
+
+      const timer1 = setTimeout(() => setTranscriptProgressStep('🎙️ Extracting audio & running Whisper AI...'), 5000)
+      const timer2 = setTimeout(() => setTranscriptProgressStep('⚡ Generating timestamped speech-to-text...'), 15000)
+
       try {
         const res = await fetch('/api/transcript-reel', {
           method: 'POST',
@@ -181,10 +185,13 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
       } catch (err) {
         setTranscriptError('Network error connecting to transcript engine. Please try again.')
       } finally {
+        clearTimeout(timer1)
+        clearTimeout(timer2)
         setIsGeneratingTranscript(false)
       }
     })
   }
+
 
   const handleDownloadTranscriptTxt = () => {
     if (!transcriptData) return
@@ -2035,12 +2042,13 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
               >
                 {isGeneratingTranscript ? (
                   <span className="flex items-center gap-2">
-                    <RefreshCw className="w-4 h-4 animate-spin" /> Transcribing Audio Stream...
+                    <RefreshCw className="w-4 h-4 animate-spin" /> {transcriptProgressStep}
                   </span>
                 ) : (
                   <span>Extract Transcript & Timestamps 🎙️</span>
                 )}
               </button>
+
 
               {transcriptError && (
                 <div className="space-y-4">
