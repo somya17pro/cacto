@@ -36,7 +36,23 @@ function parseShortcode(inputUrl: string): string | null {
 }
 
 
+function cleanHtmlText(str: string): string {
+  if (!str) return ''
+  return str
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/\\n/g, '\n')
+    .replace(/\\"/g, '"')
+    .replace(/<[^>]*>/g, '')
+    .trim()
+}
+
 async function fetchWithTimeout(url: string, headers: Record<string, string> = {}, timeoutMs = 8000) {
+
   const controller = new AbortController()
   const id = setTimeout(() => controller.abort(), timeoutMs)
 

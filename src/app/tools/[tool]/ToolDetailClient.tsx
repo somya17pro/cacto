@@ -95,6 +95,7 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
 
   // 19. Reel Transcript Generator states
   const [transcriptUrl, setTranscriptUrl] = useState('')
+  const [manualTranscriptText, setManualTranscriptText] = useState('')
   const [isGeneratingTranscript, setIsGeneratingTranscript] = useState(false)
   const [transcriptError, setTranscriptError] = useState('')
   const [transcriptData, setTranscriptData] = useState<{
@@ -108,7 +109,37 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
     segments: { time: string; text: string }[]
   } | null>(null)
 
+  const handleManualFormatTranscript = () => {
+    if (!manualTranscriptText.trim()) return
+    const cleanText = manualTranscriptText.replace(/#\w+/g, '').replace(/\[.*?\]/g, '').trim()
+    const words = cleanText.split(/\s+/).filter(Boolean)
+    const wordCount = words.length
+    const readingTime = `${(wordCount / 200).toFixed(1)} min`
+    const sentences = cleanText.split(/(?<=[.!?\n])\s+/).filter(s => s.trim().length > 0)
+    const timeStep = Math.max(3, Math.floor(30 / Math.max(1, sentences.length)))
+    const segments = sentences.map((sentence, idx) => {
+      const sec = idx * timeStep
+      return {
+        time: `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`,
+        text: sentence.trim()
+      }
+    })
+
+    setTranscriptData({
+      author: '@custom.entry',
+      title: sentences[0] ? (sentences[0].length > 100 ? `${sentences[0].slice(0, 97)}...` : sentences[0]) : 'Custom Transcript Entry',
+      fullTranscript: cleanText,
+      wordCount,
+      readingTime,
+      duration: `${Math.floor((sentences.length * timeStep) / 60)}:${String((sentences.length * timeStep) % 60).padStart(2, '0')}`,
+      thumbnail: '',
+      segments
+    })
+    setTranscriptError('')
+  }
+
   const handleGenerateTranscript = async () => {
+
     if (!transcriptUrl.trim() || (!transcriptUrl.includes('instagram.com') && !transcriptUrl.includes('instagr.am'))) {
       setTranscriptError('Please enter a valid Instagram Reel or Video link (e.g. https://www.instagram.com/reel/...)')
       return
@@ -1995,10 +2026,31 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
               </button>
 
               {transcriptError && (
-                <p className="text-xs font-bold text-rose-600 bg-rose-50 p-3.5 rounded-xl border border-rose-200">
-                  {transcriptError}
-                </p>
+                <div className="space-y-4">
+                  <p className="text-xs font-bold text-rose-600 bg-rose-50 p-3.5 rounded-xl border border-rose-200">
+                    {transcriptError}
+                  </p>
+
+                  <div className="p-4 rounded-2xl bg-amber-50 border-2 border-amber-300 space-y-3">
+                    <span className="text-[10px] font-black text-amber-800 uppercase block">💡 Instant Text & Caption Transcriber</span>
+                    <textarea 
+                      rows={3}
+                      value={manualTranscriptText}
+                      onChange={(e) => setManualTranscriptText(e.target.value)}
+                      placeholder="Paste Reel text or caption here..."
+                      className="w-full p-3 rounded-xl border border-amber-300 text-xs font-semibold outline-none bg-white"
+                    />
+                    <button 
+                      onClick={handleManualFormatTranscript}
+                      disabled={!manualTranscriptText.trim()}
+                      className="py-2 px-4 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-extrabold text-xs transition border-none cursor-pointer disabled:opacity-50"
+                    >
+                      Format Timestamped Transcript & Export ⚡
+                    </button>
+                  </div>
+                </div>
               )}
+
 
               {transcriptData && (
                 <div className="p-6 rounded-2xl bg-zinc-50 border-2 border-[#1A1510] space-y-5">
