@@ -38,6 +38,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/templates`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/open`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/compare/cacto-vs-manychat`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/login`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -45,8 +63,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // 24 Growth Tools
+
+  // 50 Growth Tools
   const toolRoutes: MetadataRoute.Sitemap = freeToolsList.map((t) => ({
+
     url: `${baseUrl}/tools/${t.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
