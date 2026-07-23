@@ -18,7 +18,10 @@ function isValidMediaDomain(urlStr: string): boolean {
 
 function parseShortcode(inputUrl: string): string | null {
   if (!inputUrl || typeof inputUrl !== 'string') return null
-  const clean = inputUrl.trim()
+  let clean = inputUrl.trim()
+  try {
+    clean = decodeURIComponent(clean)
+  } catch {}
 
   const match = clean.match(/(?:reel|reels|p|share\/p|share\/reel|tv)\/([A-Za-z0-9_-]+)/i)
   if (match && match[1]) return match[1]
@@ -31,6 +34,7 @@ function parseShortcode(inputUrl: string): string | null {
 
   return null
 }
+
 
 async function fetchWithTimeout(url: string, headers: Record<string, string> = {}, timeoutMs = 8000) {
   const controller = new AbortController()

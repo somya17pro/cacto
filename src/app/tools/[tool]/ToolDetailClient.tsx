@@ -2009,29 +2009,30 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                     </div>
                     <div className="flex gap-2 text-[10px] font-extrabold text-zinc-500">
                       <span className="px-2.5 py-1 rounded-md bg-zinc-200">{transcriptData.wordCount} Words</span>
-                      <span className="px-2.5 py-1 rounded-md bg-zinc-200">{transcriptData.readingTime} min read</span>
+                      <span className="px-2.5 py-1 rounded-md bg-zinc-200">{transcriptData.readingTime} read</span>
                     </div>
                   </div>
 
                   <div className="space-y-3">
-                    <div className="flex justify-between items-center">
+                    <div className="flex flex-wrap justify-between items-center gap-2">
                       <span className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider">Timestamped Audio Segments</span>
-                      <div className="flex gap-2">
+                      <div className="flex flex-wrap gap-2.5 items-center">
                         <button 
                           onClick={() => checkAndIncrementUsage(() => copyToClipboard(transcriptData.fullTranscript))}
-                          className="text-xs font-extrabold text-[#16A34A] hover:text-[#15803D] transition flex items-center gap-1 cursor-pointer border-none bg-transparent"
+                          className="py-1.5 px-3 rounded-lg bg-emerald-50 border border-emerald-300 text-xs font-extrabold text-[#16A34A] hover:bg-emerald-100 transition flex items-center gap-1.5 cursor-pointer"
                         >
                           <Copy className="w-3.5 h-3.5" />
-                          {copiedText === transcriptData.fullTranscript ? 'Copied' : 'Copy Transcript'}
+                          {copiedText === transcriptData.fullTranscript ? 'Copied!' : 'Copy Transcript'}
                         </button>
                         <button 
                           onClick={() => checkAndIncrementUsage(handleDownloadTranscriptTxt)}
-                          className="text-xs font-extrabold text-zinc-800 hover:text-black transition flex items-center gap-1 cursor-pointer border-none bg-transparent"
+                          className="py-1.5 px-3 rounded-lg bg-zinc-100 border border-zinc-300 text-xs font-extrabold text-zinc-800 hover:bg-zinc-200 transition flex items-center gap-1.5 cursor-pointer"
                         >
-                          <Download className="w-3.5 h-3.5" /> Download .TXT
+                          <Download className="w-3.5 h-3.5 text-zinc-600" /> Download .TXT
                         </button>
                       </div>
                     </div>
+
 
                     <div className="space-y-2 max-h-72 overflow-y-auto pr-1">
                       {transcriptData.segments.map((seg, idx) => (
