@@ -1503,5 +1503,1509 @@ export const freeToolsList: ToolData[] = [
       cacto: "Original HD JPG Without Watermarks or Compression",
       traditional: "Low-Res Screenshot or Watermarked Thumbnail"
     }
+  },
+  {
+    slug: "banned-hashtag-checker",
+    title: "Banned Hashtag Scanner & Shadowban Risk Checker",
+    description: "Scan your post hashtags against Meta's restricted database to prevent shadowbans and algorithmic reach suppression.",
+    category: "Utility",
+    icon: "Shield",
+    faqs: [
+      {
+        q: "What is a banned hashtag on Instagram?",
+        a: "A banned hashtag is a tag that Meta has restricted due to spam, community guideline violations, or abusive posting. Using even one banned hashtag in your caption can prevent your post from appearing on hashtag pages, Explore feeds, or non-follower recommendations."
+      },
+      {
+        q: "How does the Banned Hashtag Scanner work?",
+        a: "Our tool checks your input hashtags against an active database of flagged, restricted, and shadowbanned Instagram hashtags, categorizing them as Safe, Caution, or Banned with replacement suggestions."
+      },
+      {
+        q: "Will using a banned hashtag cause a full account shadowban?",
+        a: "Using a single restricted hashtag typically suppresses reach on that specific post. However, repeatedly posting banned hashtags triggers account-level restrictions and lowers your Account Status score."
+      },
+      {
+        q: "Are temporary banned hashtags different from permanently banned ones?",
+        a: "Yes. Permanently banned hashtags (like #beautycollegen) are restricted indefinitely. Temporarily banned tags (often generic tags hijacked during spam events) are unblocked once Meta's moderation system clears the queue."
+      },
+      {
+        q: "How many hashtags should I use on Instagram in 2026?",
+        a: "Meta recommends 3 to 5 highly relevant, niche-specific hashtags per post. Over-stuffing 30 generic hashtags increases the risk of accidentally including a restricted tag."
+      },
+      {
+        q: "How does Cacto prevent hashtag shadowbans?",
+        a: "Cacto uses official Meta Graph API webhooks that rely on direct comment-to-DM triggers rather than hashtag reach, ensuring your lead generation works regardless of hashtag algorithm shifts."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Paste Your Hashtags", desc: "Enter or paste the list of hashtags you plan to use in your caption or comment." },
+      { step: 2, title: "Run Real-Time Audit", desc: "Our system cross-references each tag against Meta's restricted database." },
+      { step: 3, title: "Replace Flagged Tags", desc: "Remove banned hashtags and copy clean, high-reach alternatives." }
+    ],
+    usecases: [
+      "Pre-Publication Caption Auditing",
+      "Reel Niche Hashtag Optimization",
+      "Shadowban Recovery & Diagnostic Checks",
+      "Brand Campaign Hashtag Vetting"
+    ],
+    benefits: [
+      "Prevents Algorithmic Reach Suppression",
+      "Real-Time Meta Restricted Database Cross-Check",
+      "Provides Safe Niche Hashtag Alternatives",
+      "Protects Instagram Account Trust Score",
+      "Zero Login Required & 100% Free"
+    ],
+    deviceGuide: {
+      mobile: "Paste caption text directly from Instagram on iOS/Android for instant mobile scanning.",
+      desktop: "Audit large hashtag lists and export clean tags formatted for scheduling tools."
+    },
+    comparison: {
+      feature: "Hashtag Safety Verification",
+      cacto: "Instant Meta API Database Scanning with Safe Niche Suggestions",
+      traditional: "Manual Search of Each Hashtag in Instagram App"
+    }
+  },
+  {
+    slug: "meta-24hr-window-calculator",
+    title: "Meta 24-Hour Messaging Window Compliance Calculator",
+    description: "Calculate compliant automated DM send times (Hour 0, Hour 4, Hour 20) under Meta's 24-hour Graph API policy rules.",
+    category: "Calculators",
+    icon: "HelpCircle",
+    faqs: [
+      {
+        q: "What is Meta's 24-hour messaging window policy?",
+        a: "Under Meta Graph API developer guidelines, business and creator accounts are permitted to send automated DMs for up to 24 hours following a user's initial interaction (such as dropping a comment or tagging in a Story)."
+      },
+      {
+        q: "What happens if an automated message is sent after 24 hours?",
+        a: "Messages sent past the 24-hour window without a Message Tag or recurring opt-in will fail to deliver via the Graph API and can trigger API rate-limit penalties."
+      },
+      {
+        q: "How does the 24-Hour Compliance Calculator help creators?",
+        a: "It converts your initial comment timestamp into an exact countdown timeline showing optimal delivery slots for initial asset delivery (Minute 0), soft follow-up (Hour 4), and final offer pitch (Hour 20)."
+      },
+      {
+        q: "Can user replies reset the 24-hour window?",
+        a: "Yes! Every time a user replies to your direct message, the 24-hour communication window resets completely, allowing 24 additional hours of compliant chat interaction."
+      },
+      {
+        q: "Does Meta allow promo links inside the 24-hour window?",
+        a: "Yes. As long as the initial message was user-initiated (e.g. by commenting a keyword), sending checkout links or lead magnet buttons within 24 hours is 100% policy-compliant."
+      },
+      {
+        q: "How does Cacto manage Meta 24-hour window timing?",
+        a: "Cacto automatically tracks interaction timestamps in real-time, staggering follow-ups safely and pausing sequences at Hour 23:50 to prevent policy flags."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Trigger Timestamp", desc: "Set the initial user comment time or select current time." },
+      { step: 2, title: "Generate Compliant Timeline", desc: "View recommended send slots for Minute 0, Hour 4, and Hour 20." },
+      { step: 3, title: "Schedule Sequences", desc: "Copy formatted timestamps directly into your automated sequence settings." }
+    ],
+    usecases: [
+      "Lead Nurturing Follow-Up Planning",
+      "Stripe Checkout DM Flow Timing",
+      "Event Registration Reminder Scheduling",
+      "Meta API Compliance Auditing"
+    ],
+    benefits: [
+      "100% Compliant with Meta Graph API Guidelines",
+      "Prevents API Rate Limiting & Messaging Blocks",
+      "Optimizes Follow-Up Conversion Timing",
+      "Clear Hour-by-Hour Interactive Timeline",
+      "Eliminates Manual Timezone Math"
+    ],
+    deviceGuide: {
+      mobile: "Calculates local user timezone timestamps automatically on mobile devices.",
+      desktop: "Export multi-step nurturing schedules directly for campaign managers."
+    },
+    comparison: {
+      feature: "Messaging Window Tracking",
+      cacto: "Automated Real-Time Staggering & Expiration Safety Stops",
+      traditional: "Manual Tracking & Risky Unregulated Bot Blasts"
+    }
+  },
+  {
+    slug: "shadowban-risk-simulator",
+    title: "Instagram Account Shadowban & Safety Risk Simulator",
+    description: "Evaluate post frequency, DM rate limits, and comment rotator variations to calculate your Account Trust Score (0-100%).",
+    category: "Calculators",
+    icon: "Percent",
+    faqs: [
+      {
+        q: "What causes an Instagram account shadowban?",
+        a: "Shadowbans are triggered by sending rapid un-throttled DMs, repeating identical comment replies, using unsafe third-party automation tools (like Manychat), or violating community guidelines."
+      },
+      {
+        q: "How does the Safety Risk Simulator calculate scores?",
+        a: "It evaluates 5 core behavioral variables: hourly DM volume, comment reply variation count, outbound hyperlink frequency, account age, and API connection protocol to output an Account Trust Score."
+      },
+      {
+        q: "What is a good Account Trust Score?",
+        a: "A score of 85% to 100% indicates safe, human-like activity. Scores below 60% indicate elevated risk of comment blocks or temporary DM restrictions."
+      },
+      {
+        q: "Can unsafe automation tools damage my Instagram reach?",
+        a: "Yes. Older tools like Manychat often trigger anti-spam velocity limits, resulting in suppressed Reel views and zero Story reach."
+      },
+      {
+        q: "How long does an Instagram shadowban last?",
+        a: "Most shadowbans and action blocks expire within 24 to 72 hours if aggressive activity is stopped immediately. Severe violations can take 14 to 30 days."
+      },
+      {
+        q: "Why is Cacto safer than other automation tools?",
+        a: "Cacto uses official Meta API developer webhooks with built-in human-like rate limiting and dynamic comment rotation, ensuring your Account Trust Score stays at 100%."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Automation Parameters", desc: "Select daily DM volume, reply variation count, and posting frequency." },
+      { step: 2, title: "Calculate Trust Score", desc: "View instant Account Trust Score (0-100%) and risk factors." },
+      { step: 3, title: "Apply Safety Tweaks", desc: "Adjust rate limits and add comment variations to maximize safety." }
+    ],
+    usecases: [
+      "Automation Safety Pre-Audit",
+      "High-Volume Campaign Rate Limiting",
+      "Shadowban Recovery Assessment",
+      "Agency Client Account Onboarding"
+    ],
+    benefits: [
+      "Calculates Accurate Account Trust Score (0-100%)",
+      "Identifies High-Risk Anti-Spam Triggers",
+      "Provides Specific Rate-Limit Recommendations",
+      "Protects Organic Reel & Story Reach",
+      "Instant Simulation Without Account Login"
+    ],
+    deviceGuide: {
+      mobile: "Simulate automation safety on mobile before launching campaign flows.",
+      desktop: "Analyze high-volume campaign safety parameters for agency accounts."
+    },
+    comparison: {
+      feature: "Bot Pacing & Safety Protection",
+      cacto: "Official Meta API Webhooks with Smart Human Pacing",
+      traditional: "Aggressive Un-throttled Bot Blasts Triggering Flags"
+    }
+  },
+  {
+    slug: "bio-seo-auditor",
+    title: "Instagram Bio SEO & Searchability Auditor",
+    description: "Audit your Instagram Bio text, Name field keywords, and CTA friction to maximize search ranking and profile conversion.",
+    category: "Utility",
+    icon: "User",
+    faqs: [
+      {
+        q: "What is Instagram Bio SEO?",
+        a: "Instagram Bio SEO involves placing searchable keywords into your Name field (@handle + Name) and bio description so your profile ranks when users search for your niche in the Instagram Search tab."
+      },
+      {
+        q: "Why is the Name field so important for Instagram search?",
+        a: "Instagram's search algorithm specifically indexes the Name field alongside your @username. Placing target keywords (e.g. 'Jane Doe | Real Estate Coach') boosts discovery by up to 300%."
+      },
+      {
+        q: "How does the Bio SEO Auditor work?",
+        a: "Our auditor evaluates keyword density, character limits, line break readability, category relevance, and CTA clarity, returning an SEO Score (0-100) and an optimized bio rewrite."
+      },
+      {
+        q: "What is the optimal Instagram Bio character limit?",
+        a: "Instagram bios allow up to 150 characters. The Name field allows 30 characters. Utilizing 100% of these character limits with concise keyword copy maximizes searchability."
+      },
+      {
+        q: "Why should I replace link-in-bio aggregators with Auto-DM CTAs?",
+        a: "Link-in-bio trees introduce multi-tap friction. Replacing bio link CTAs with a direct comment keyword CTA ('Comment SCALE to get the guide') increases lead conversion by up to 5x."
+      },
+      {
+        q: "How does Cacto integrate with an optimized Instagram Bio?",
+        a: "Cacto automates instant delivery whenever users comment your bio keyword or send a direct message, converting bio traffic into leads 24/7."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Paste Current Bio & Name", desc: "Enter your current Instagram Name field and Bio text." },
+      { step: 2, title: "Analyze Searchability", desc: "View instant SEO Score, keyword density, and friction points." },
+      { step: 3, title: "Copy Optimized Bio", desc: "Copy the AI-recommended bio rewrite with optimized keywords and CTA." }
+    ],
+    usecases: [
+      "Creator Profile Optimization",
+      "Business & E-Commerce Account Auditing",
+      "Local Business In-App Search Ranking",
+      "Bio Link Conversion Acceleration"
+    ],
+    benefits: [
+      "Boosts Profile Discovery in Instagram Search",
+      "Analyzes Name Field Keyword Density",
+      "Evaluates Call-To-Action Friction",
+      "Generates Instant Professional Bio Rewrites",
+      "Free & Easy Interactive Audit Tool"
+    ],
+    deviceGuide: {
+      mobile: "Audit and update your bio directly from your phone in under 60 seconds.",
+      desktop: "Analyze multiple team or client profiles with full keyword density reporting."
+    },
+    comparison: {
+      feature: "Bio Conversion Strategy",
+      cacto: "Zero-Friction Comment-to-DM Call-To-Actions",
+      traditional: "Clunky Multi-Tap Linktree Navigation"
+    }
+  },
+  {
+    slug: "comment-rotator-checker",
+    title: "Instagram Comment Spam Filter & Rotator Auditor",
+    description: "Generate 5-6 natural public comment reply variations to avoid Meta spam filters and double your post comment density.",
+    category: "Utility",
+    icon: "MessageSquare",
+    faqs: [
+      {
+        q: "Why do automated comment replies need variations?",
+        a: "If an automated tool posts the exact same public reply (e.g. 'Check your DMs!') hundreds of times, Instagram's anti-spam algorithm detects bot behavior and restricts commenting."
+      },
+      {
+        q: "How does the Comment Rotator Generator work?",
+        a: "It takes your core message intent and creates 5 to 6 distinct, natural phrasing variations using dynamic placeholders (like {{first_name}} and emojis) so no two replies look identical."
+      },
+      {
+        q: "Does replying to public comments boost Reel reach?",
+        a: "Yes! Every public reply you post doubles your total post comment count (100 user comments + 100 replies = 200 total comments), signaling high engagement velocity to Meta."
+      },
+      {
+        q: "What should a good public comment reply say?",
+        a: "A great reply greets the user, confirms DM delivery, and gives an inbox instruction: 'Just sent to your DMs {{first_name}}! Check your Requests folder if you don't see it! 📩'"
+      },
+      {
+        q: "How many reply variations should I rotate in campaign flows?",
+        a: "Meta recommends rotating at least 4 to 6 variations for low-volume campaigns, and 8+ variations for viral posts getting thousands of comments."
+      },
+      {
+        q: "How does Cacto handle comment rotation?",
+        a: "Cacto features native multi-variant comment rotators that cycle through your reply pool randomly, ensuring 100% human-like behavior and anti-spam compliance."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Core Reply Intent", desc: "Enter your main message (e.g. 'Just sent the guide to your DMs!')." },
+      { step: 2, title: "Generate Rotator Pool", desc: "View 5 distinct reply variations formatted with dynamic tags." },
+      { step: 3, title: "Export to Cacto", desc: "Copy the rotation pool directly into your Cacto automation settings." }
+    ],
+    usecases: [
+      "Automated Campaign Comment Rotation",
+      "Anti-Spam Bot Protection",
+      "Reel Comment Velocity Boosting",
+      "Customer Inbox Direction & Guidance"
+    ],
+    benefits: [
+      "Prevents Meta Comment Action Blocks",
+      "Doubles Reel Total Comment Count & Velocity",
+      "Includes Dynamic Placeholder Formatting",
+      "Generates 5-6 Natural Human-Like Phrases",
+      "Export-Ready for Automation Tools"
+    ],
+    deviceGuide: {
+      mobile: "Generate comment pools on mobile and paste into campaign settings.",
+      desktop: "Build high-volume comment rotation pools for viral launch campaigns."
+    },
+    comparison: {
+      feature: "Public Comment Handling",
+      cacto: "Dynamic Multi-Variant Rotators with Anti-Spam Pacing",
+      traditional: "Repetitive Static Replies Triggering Bot Restrictions"
+    }
+  },
+  {
+    slug: "sponsored-rate-calculator",
+    title: "Sponsored Post & Reel Rate Calculator",
+    description: "Calculate accurate brand collaboration rates for Reels, Stories, and Carousels based on follower count, reach, and niche.",
+    category: "Calculators",
+    icon: "TrendingUp",
+    faqs: [
+      {
+        q: "How much should I charge for a sponsored Instagram Reel in 2026?",
+        a: "Sponsored Reel rates vary based on reach, niche, and engagement rate. Micro-creators (10k followers) typically charge $150 to $400 per Reel, while mid-tier creators (50k-100k) command $750 to $2,500+ per video."
+      },
+      {
+        q: "How does the Sponsored Rate Calculator compute pricing?",
+        a: "Our calculator factors in follower count, average Reel views, niche commercial value (e.g. Finance vs Lifestyle), and engagement rate multiplier to generate baseline, recommended, and premium package rates."
+      },
+      {
+        q: "Why is engagement rate more important than follower count for brand deals?",
+        a: "Brands prioritize active buyer intent. A creator with 15k followers and a 7% engagement rate delivers significantly more clicks and conversions than a 100k account with 1% engagement."
+      },
+      {
+        q: "Should I charge extra for story deliverables and usage rights?",
+        a: "Yes. Industry standards recommend adding +25% for 24-hour Story sets, +50% for 30-day whitelisting/ad usage rights, and +30% for automated DM link delivery included in the deal."
+      },
+      {
+        q: "How can comment-to-DM automation increase my brand deal rates?",
+        a: "Including Cacto automated DM delivery in sponsor packages guarantees brands 5x higher link tap rates compared to static bio links, allowing you to charge 30-50% higher sponsorship fees."
+      },
+      {
+        q: "What niches command the highest sponsored post rates?",
+        a: "Finance, B2B SaaS, Real Estate, and High-Ticket Coaching command the highest CPMs ($25-$60 CPM), whereas Entertainment and Meme pages average lower CPMs ($5-$12 CPM)."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Creator Metrics", desc: "Enter your follower count, average Reel views, and engagement rate." },
+      { step: 2, title: "Select Niche & Deliverable", desc: "Choose your primary category and deliverable format (Reel, Story, or Bundle)." },
+      { step: 3, title: "View Rate Sheet", desc: "Instantly view low, baseline, and premium rate cards to present to sponsors." }
+    ],
+    usecases: [
+      "Brand Sponsorship Pitching & Rate Sheets",
+      "Agency Creator Pricing Audits",
+      "Media Kit Pricing Justification",
+      "Automated Lead Delivery Deal Upselling"
+    ],
+    benefits: [
+      "Calculates Accurate 2026 Industry Sponsorship Rates",
+      "Includes Niche CPM & Engagement Rate Multipliers",
+      "Provides Low, Recommended, and Premium Rate Cards",
+      "Factors in Automated DM Upsell Pricing",
+      "100% Free & No Registration Required"
+    ],
+    deviceGuide: {
+      mobile: "Generate rate sheets instantly on your phone before brand negotiation calls.",
+      desktop: "Export comprehensive pricing matrices directly for media kit PDFs."
+    },
+    comparison: {
+      feature: "Sponsorship Pricing Strategy",
+      cacto: "High-Converting DM Lead Delivery Upsell Justifying Premium Rates",
+      traditional: "Basic Follower-Based Estimates Ignoring Conversion Friction"
+    }
+  },
+  {
+    slug: "dm-funnel-calculator",
+    title: "Comment-to-DM Sales Funnel ROI Calculator",
+    description: "Input Reel views and comment conversion rate to project total DMs delivered, link clicks, Stripe checkouts, and net profit.",
+    category: "Calculators",
+    icon: "Percent",
+    faqs: [
+      {
+        q: "What is a Comment-to-DM sales funnel?",
+        a: "A Comment-to-DM sales funnel invites post scrollers to comment a trigger keyword (e.g. 'PLAYBOOK') on a Reel. Cacto instantly sends a private DM with an offer button leading to a direct Stripe checkout page."
+      },
+      {
+        q: "How does the DM Funnel ROI Calculator work?",
+        a: "It models every step of your chat funnel: Video Views → Comment Trigger Conversion % → DM Open Rate (85-95%) → Link Click Rate (35-50%) → Sales Conversion % = Net Revenue."
+      },
+      {
+        q: "What is the average open rate for automated Instagram DMs?",
+        a: "Automated DMs triggered by user comments achieve open rates between 80% and 95%, compared to traditional email marketing open rates of 18% to 22%."
+      },
+      {
+        q: "Why do comment funnels outperform link-in-bio pages?",
+        a: "Comment funnels deliver value directly into the user's inbox in 3 seconds, eliminating bio navigation taps and reducing bounce rates by up to 75%."
+      },
+      {
+        q: "How much revenue can a 10k view Reel generate using Cacto?",
+        a: "Assuming a 3% comment rate (300 comments), 90% DM open rate (270 opens), 45% click rate (121 clicks), and 5% checkout rate on a $37 digital product, a single Reel yields ~$220 in net sales."
+      },
+      {
+        q: "How do I launch a Cacto comment funnel?",
+        a: "Create your free Cacto account, connect your Instagram handle, pick a comment trigger word, and paste your Stripe checkout or lead magnet URL."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Reel Traffic", desc: "Enter projected or actual video views and comment trigger rate." },
+      { step: 2, title: "Set Product Price", desc: "Input your digital product or service price point ($9 to $497)." },
+      { step: 3, title: "Analyze Revenue Model", desc: "View detailed funnel conversion metrics and net revenue projections." }
+    ],
+    usecases: [
+      "Digital Product Launch Revenue Modeling",
+      "Coach & Creator Lead Magnet ROI Projection",
+      "E-Commerce Comment-to-Checkout Planning",
+      "Campaign Ad Spend ROI Evaluation"
+    ],
+    benefits: [
+      "Projects Multi-Step Chat Funnel Revenue",
+      "Models Realistic DM Open & Click Benchmarks",
+      "Calculates Net Sales & Return on Attention",
+      "Highlights Bottlenecks in Conversion Funnels",
+      "Interactive Real-Time Inputs & Sliders"
+    ],
+    deviceGuide: {
+      mobile: "Model campaign earnings on mobile prior to publishing new Reels.",
+      desktop: "Analyze multi-tier funnel models for course launches and memberships."
+    },
+    comparison: {
+      feature: "Funnel Conversion Efficiency",
+      cacto: "Direct 3-Second DM Delivery with 85%+ Open Rates",
+      traditional: "Clunky Bio Link Trees Losing 80% of Clicks"
+    }
+  },
+  {
+    slug: "bio-link-leakage-calculator",
+    title: "Link-in-Bio vs. Auto-DM Revenue Leakage Calculator",
+    description: "Calculate how much monthly revenue your account loses due to mobile navigation friction on traditional Linktree/bio links.",
+    category: "Calculators",
+    icon: "Percent",
+    faqs: [
+      {
+        q: "What is 'bio link leakage'?",
+        a: "Bio link leakage is the massive drop-off in traffic that occurs when a user is forced to leave a Reel, open your profile, tap a link tree aggregator, and search through multiple buttons to find a link."
+      },
+      {
+        q: "How much traffic do traditional bio link aggregators lose?",
+        a: "Industry data shows that for every 100 people who watch a Reel, fewer than 5 visit the bio link, and fewer than 1 tap the target product button—resulting in up to 80% lost revenue."
+      },
+      {
+        q: "How does the Bio Leakage Calculator measure losses?",
+        a: "It compares your monthly Reel views and current bio link sales against instant Cacto comment-to-DM delivery, calculating exact dollar amounts lost to navigation friction."
+      },
+      {
+        q: "Why do comment-to-DM triggers prevent leakage?",
+        a: "Comment triggers allow users to request a resource without leaving the feed. Value arrives in their inbox in 3 seconds, keeping user attention at peak intent."
+      },
+      {
+        q: "Is Cacto compatible alongside a bio link?",
+        a: "Yes! You can keep your bio link while using Cacto to handle comment keyword triggers on specific high-converting posts and Reels."
+      },
+      {
+        q: "How fast can I plug bio link leakage with Cacto?",
+        a: "Setting up a Cacto comment trigger takes less than 2 minutes and instantly recovers lost traffic on all future Reels."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Monthly Views", desc: "Enter your average monthly Reel views or profile visits." },
+      { step: 2, title: "Set Offer Value", desc: "Input your core lead magnet or digital product price." },
+      { step: 3, title: "Calculate Lost Dollars", desc: "View total monthly dollar revenue leaked to bio link friction." }
+    ],
+    usecases: [
+      "Linktree vs Auto-DM Revenue Auditing",
+      "Creator Funnel Optimization",
+      "Bio Friction Reduction Analysis",
+      "E-Commerce Cart Abandonment Prevention"
+    ],
+    benefits: [
+      "Quantifies Exact Dollar Losses from Bio Friction",
+      "Compares Bio Link Taps vs Instant DM Delivery",
+      "Demonstrates Immediate Revenue Uplift Potential",
+      "Provides Clear Funnel Optimization Steps",
+      "Instant Financial Breakdown Without Login"
+    ],
+    deviceGuide: {
+      mobile: "Calculate monthly bio leakage on mobile to evaluate link performance.",
+      desktop: "Present bio link leakage audits to coaching or agency clients."
+    },
+    comparison: {
+      feature: "Traffic Delivery Method",
+      cacto: "Instant 1-Tap Inbox Delivery Eliminating Bio Bounces",
+      traditional: "Multi-Step Bio Link Trees Losing 80% of Buyers"
+    }
+  },
+  {
+    slug: "digital-product-pricing-calculator",
+    title: "Digital Product Pricing & Conversion Projector",
+    description: "Evaluate product category, niche, and target tier to calculate optimal pricing ($9-$97) and project monthly chat income.",
+    category: "Calculators",
+    icon: "TrendingUp",
+    faqs: [
+      {
+        q: "What is the best price for digital products sold in Instagram DMs?",
+        a: "Impulse digital products sold directly inside Instagram DMs perform best between $9 and $47 (low-friction impulse purchases). High-value template bundles and mini-courses scale well at $67 to $97."
+      },
+      {
+        q: "How does the Digital Product Pricing Calculator determine price points?",
+        a: "It evaluates product format (Notion template, ebook, mini-course, swipe file), niche commercial intent, audience tier, and mobile checkout friction to output an optimal price point."
+      },
+      {
+        q: "What digital products convert highest in mobile chat?",
+        a: "Notion workspaces, Canva template packs, AI prompt libraries, 30-minute mini-courses, and tactical PDF checklists achieve the highest chat conversion rates."
+      },
+      {
+        q: "Should I offer a free lead magnet before pitching a paid product?",
+        a: "Yes. Delivering a free checklist via Cacto DM first establishes trust, enabling automated follow-ups at Hour 12 or 20 to convert 10-15% of free leads into paid buyers."
+      },
+      {
+        q: "How does Stripe Payment Link integration work inside DMs?",
+        a: "Stripe Payment Links open inside Instagram's native browser, allowing users to complete purchase via Apple Pay or Google Pay with FaceID in under 15 seconds."
+      },
+      {
+        q: "Can Cacto fulfill digital downloads automatically after payment?",
+        a: "Yes! Successful Stripe payments trigger automated Cacto DM delivery of download links or course access immediately post-checkout."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Select Product Category", desc: "Choose your format (Notion template, ebook, mini-course, or guide)." },
+      { step: 2, title: "Input Niche & Audience", desc: "Select your target category (Coaching, B2B, Creative, Fitness)." },
+      { step: 3, title: "View Price & Revenue Matrix", desc: "Get recommended price point ($9-$97) and projected monthly income." }
+    ],
+    usecases: [
+      "Digital Product Launch Pricing Strategy",
+      "Notion Template & Canva Pack Monetization",
+      "Mini-Course Impulse Price Testing",
+      "DM Sales Funnel Pricing Optimization"
+    ],
+    benefits: [
+      "Recommends Optimal Impulse Price Points ($9-$97)",
+      "Factors in Mobile Chat Apple Pay Friction",
+      "Projects Monthly Net Revenue Based on Views",
+      "Tailored by Niche & Product Format",
+      "Free Interactive Monetization Tool"
+    ],
+    deviceGuide: {
+      mobile: "Test price points on mobile before configuring Stripe payment links.",
+      desktop: "Analyze product pricing matrices for complete digital product suites."
+    },
+    comparison: {
+      feature: "Mobile Checkout Experience",
+      cacto: "One-Tap Apple Pay / Biometric Stripe DM Checkouts",
+      traditional: "Clunky Desktop Stores Requiring Long Address Forms"
+    }
+  },
+  {
+    slug: "reels-bonus-estimator",
+    title: "Reel Monetization & Bonus Earnings Estimator",
+    description: "Estimate total potential payout per 10k video views across platform bonuses, affiliate offers, and direct product sales.",
+    category: "Calculators",
+    icon: "Percent",
+    faqs: [
+      {
+        q: "How much does Instagram pay for 10,000 Reel views in 2026?",
+        a: "Direct ad revenue payouts on Instagram average $0.05 to $0.25 per 1,000 views ($0.50-$2.50 per 10k views). However, creators combining Reel views with automated Cacto DM funnels earn $50 to $300+ per 10k views."
+      },
+      {
+        q: "How does the Reels Bonus Estimator calculate total earnings?",
+        a: "It combines 3 monetization streams: 1) Base view bonuses/ad revenue, 2) Affiliate link conversions, and 3) Direct DM digital product sales triggered by comment keywords."
+      },
+      {
+        q: "Why is direct DM sales monetization 100x higher than view bonuses?",
+        a: "View bonuses rely on low CPMs ($0.10 CPM). Capturing just 5 sales of a $27 product from a 10k Reel generates $135—dwarfing platform ad revenue payouts."
+      },
+      {
+        q: "How do comment triggers improve Reel algorithm watch time?",
+        a: "When scrollers pause to type a comment keyword (e.g. 'SEND'), the Reel continues to loop in the background, inflating watch time percentages above 100% and boosting distribution."
+      },
+      {
+        q: "What types of Reels get the highest comment conversion?",
+        a: "Tactical 'How-To' Reels with a 3-second screen overlay CTA instructing viewers to comment a specific keyword generate the highest lead velocity."
+      },
+      {
+        q: "How do I monetize my existing Reel views with Cacto?",
+        a: "Connect Cacto to your Instagram account, set a single-word comment trigger on your top Reels, and deliver value directly to your viewers' inbox."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Monthly Reel Views", desc: "Enter your total monthly video view volume (e.g. 50,000 views)." },
+      { step: 2, title: "Select Monetization Mix", desc: "Include digital products, affiliate offers, or consulting calls." },
+      { step: 3, title: "View Earnings Breakdown", desc: "Compare direct ad payouts vs Cacto comment funnel revenue." }
+    ],
+    usecases: [
+      "Reel View Monetization Planning",
+      "Creator Income Stream Diversification",
+      "Short-Form Video ROI Projection",
+      "Content Strategy Financial Auditing"
+    ],
+    benefits: [
+      "Calculates Multi-Stream Short-Form Video Earnings",
+      "Compares Platform Ad Payouts vs DM Funnel Income",
+      "Highlights Algorithmic Watch-Time Loop Multipliers",
+      "Interactive Real-Time View & Revenue Sliders",
+      "100% Free & No Account Required"
+    ],
+    deviceGuide: {
+      mobile: "Calculate Reel view income potential directly on your phone.",
+      desktop: "Analyze monthly video monetization projections for creator businesses."
+    },
+    comparison: {
+      feature: "Short-Form Video Monetization",
+      cacto: "High-Margin Direct Product DM Sales ($50-$300/10k views)",
+      traditional: "Low CPM Platform Ad Revenue Payouts ($0.50-$2.50/10k views)"
+    }
+  },
+  {
+    slug: "giveaway-winner-picker",
+    title: "Instagram Giveaway & Contest Winner Picker",
+    description: "Pick fair, random comment winners for your Instagram giveaways and contests without paying monthly app fees.",
+    category: "Utility",
+    icon: "Award",
+    faqs: [
+      {
+        q: "How does the Instagram Giveaway Winner Picker work?",
+        a: "Paste your giveaway post comments or text entries into our free tool, set rule filters (e.g. must include specific keyword or tag), and generate a verified random winner with a visual proof certificate."
+      },
+      {
+        q: "Do I need to log into my Instagram account to pick a giveaway winner?",
+        a: "No! Cacto's Giveaway Winner Picker works 100% login-free. Simply paste your post comments or candidate list to select winners instantly."
+      },
+      {
+        q: "Can I filter comments by specific keywords or friend tag requirements?",
+        a: "Yes! You can set keyword rules (e.g. comment must contain 'WIN' or '#giveaway') to ensure only eligible entries are included in the random draw."
+      },
+      {
+        q: "How can I automatically deliver giveaway prizes to winners?",
+        a: "Using Cacto DM automation, you can send instant automated congratulatory DMs containing claim links or digital gift codes to contest winners."
+      },
+      {
+        q: "Are giveaway pickers completely random and fair?",
+        a: "Yes. Our tool uses cryptographically secure random number generation algorithms to guarantee 100% unbiased winner selection."
+      },
+      {
+        q: "Why use Cacto over expensive third-party giveaway apps?",
+        a: "Most giveaway apps charge $19-$49/month just to pick a single winner. Cacto provides a 100% free, unlimited giveaway winner picker with zero hidden fees."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Paste Comments / Entries", desc: "Copy and paste your Instagram post comments or username entries." },
+      { step: 2, title: "Set Qualification Rules", desc: "Filter entries by required keywords or tag count." },
+      { step: 3, title: "Draw Verified Winner", desc: "Click Draw to select a random winner with visual certificate proof." }
+    ],
+    usecases: [
+      "Instagram Reel & Post Contest Winner Selection",
+      "E-Commerce Product Giveaway Drawing",
+      "Creator Milestone Celebration Giveaways",
+      "Brand Sponsorship Contest Verification"
+    ],
+    benefits: [
+      "100% Free Unlimited Giveaway Winner Draws",
+      "Cryptographically Secure Random Selection",
+      "Keyword & Tag Filter Rule Enforcement",
+      "Generates Visual Winner Certificate Proof",
+      "Zero Login or Instagram Password Required"
+    ],
+    deviceGuide: {
+      mobile: "Paste comments directly from the Instagram app on iOS/Android to pick winners.",
+      desktop: "Pick winners for high-volume giveaway posts with thousands of comments."
+    },
+    comparison: {
+      feature: "Giveaway Winner Tool Pricing",
+      cacto: "100% Free Unlimited Draws with Certificate Proof",
+      traditional: "Expensive $19-$49/mo Subscriptions for Basic Drawings"
+    }
+  },
+  {
+    slug: "reels-overlay-hook-generator",
+    title: "Viral Reels Scroll-Stopping Overlay Hook Generator",
+    description: "Generate 15 scroll-stopping video overlay text hooks categorized by Curiosity, FOMO, Controversy, and Step-by-Step guides.",
+    category: "Generators",
+    icon: "Sparkles",
+    faqs: [
+      {
+        q: "What is an on-screen video overlay hook on Instagram Reels?",
+        a: "An overlay hook is the bold text displayed on-screen during the first 1.5 to 3 seconds of a Reel. It gives scrollers an immediate visual reason to stop and watch your video."
+      },
+      {
+        q: "Why are visual overlay hooks critical for Reel viral reach?",
+        a: "80% of Instagram users watch short-form videos with sound muted or skim text first. A compelling visual text overlay increases 3-second retention rates by up to 300%."
+      },
+      {
+        q: "How does the Reels Overlay Hook Generator work?",
+        a: "Select your niche (Coaching, SaaS, E-Commerce, Creative) and hook category (Curiosity, FOMO, How-To, Myth Busting) to generate 15 battle-tested text overlay templates."
+      },
+      {
+        q: "Should I include a comment keyword CTA in my overlay text?",
+        a: "Yes! Adding a secondary overlay text prompt (e.g. 'Comment SCALE for the full guide ⬇️') instructs scrollers to take action while watching."
+      },
+      {
+        q: "Where should I position text overlays on Instagram Reels?",
+        a: "Keep text within the 'safe zone'—centered vertically and horizontally, avoiding the top account bar and bottom caption overlay area."
+      },
+      {
+        q: "How does Cacto turn overlay hooks into leads?",
+        a: "Cacto monitors your Reel comments for the exact trigger word shown in your overlay text, instantly sending requested resources to scrollers' inboxes."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Select Niche & Angle", desc: "Choose your topic and desired hook emotion (Curiosity, FOMO, Guide)." },
+      { step: 2, title: "Generate 15 Visual Hooks", desc: "Browse high-performing text overlay copy options." },
+      { step: 3, title: "Copy & Edit Video", desc: "Copy your favorite hook text into CapCut, Premiere, or Instagram Reels Editor." }
+    ],
+    usecases: [
+      "Short-Form Video On-Screen Copywriting",
+      "Reels & TikTok 3-Second Hook Optimization",
+      "Viral Content Script Planning",
+      "Comment Trigger CTA Integration"
+    ],
+    benefits: [
+      "15 High-Converting Text Overlay Hooks per Search",
+      "Categorized by Curiosity, FOMO, How-To, and Controversy",
+      "Includes Integrated Comment Keyword CTAs",
+      "Optimized for 1.5-Second Mobile Attention Spans",
+      "Free & Easy One-Click Copy Tool"
+    ],
+    deviceGuide: {
+      mobile: "Copy overlay hooks on mobile and paste straight into your CapCut editor.",
+      desktop: "Batch generate text overlays for monthly video production calendars."
+    },
+    comparison: {
+      feature: "Video Hook Copywriting",
+      cacto: "Data-Backed 3-Second Hooks Built for Comment Trigger Conversions",
+      traditional: "Generic Boring Captions Causing Instant User Swipes"
+    }
+  },
+  {
+    slug: "story-quiz-generator",
+    title: "Instagram Story Quiz & Poll Lead Magnet Generator",
+    description: "Generate 3-slide interactive Story quiz frameworks with poll sticker questions that spark high-converting DM conversations.",
+    category: "Generators",
+    icon: "HelpCircle",
+    faqs: [
+      {
+        q: "How do Instagram Story poll lead magnets work?",
+        a: "You post an interactive poll sticker on your Story (e.g. 'Want my 2026 DM Playbook? Option A: YES! / Option B: Send it!'). When viewers vote, Cacto automatically triggers a private DM containing the asset."
+      },
+      {
+        q: "How does the Story Quiz Generator work?",
+        a: "It creates structured 3-slide Story storyboards: Slide 1 (The Hook), Slide 2 (The Interactive Poll/Quiz Question), and Slide 3 (The Automated DM Reward)."
+      },
+      {
+        q: "Why do Story polls generate higher engagement than static links?",
+        a: "Tapping a poll sticker requires zero typing or navigation friction. Taps trigger an instant Meta webhook, allowing Cacto to start a DM thread seamlessly."
+      },
+      {
+        q: "What is a good conversion rate for Story poll lead magnets?",
+        a: "Interactive Story poll stickers average a 25% to 40% tap rate among Story viewers, yielding 3x to 5x more lead DMs than static link stickers."
+      },
+      {
+        q: "Can I customize the automated DM response for poll voters?",
+        a: "Yes! Cacto allows you to send custom DMs tailored to which option the user selected on your Story poll."
+      },
+      {
+        q: "How often should I run Story poll lead magnet campaigns?",
+        a: "Running an interactive Story poll sequence 1-2 times per week maintains high Story view retention while generating a steady stream of inbox leads."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Offer & Niche", desc: "Enter your lead magnet topic and target audience." },
+      { step: 2, title: "Generate 3-Slide Storyboard", desc: "View slide text overlays, poll sticker options, and DM script." },
+      { step: 3, title: "Post & Automate", desc: "Post the Story slides and connect the poll trigger in Cacto." }
+    ],
+    usecases: [
+      "Instagram Story Lead Magnet Delivery",
+      "Interactive Audience Segmentation",
+      "High-Converting Story View Monetization",
+      "DM Conversation Kickstarters"
+    ],
+    benefits: [
+      "Complete 3-Slide Storyboard Templates",
+      "Optimized Poll Sticker Copy & Question Frameworks",
+      "Includes Automated DM Response Scripts",
+      "Maximizes Story View Completion Rates",
+      "100% Free Interactive Content Generator"
+    ],
+    deviceGuide: {
+      mobile: "Create Story outlines on your phone and post directly to Instagram Stories.",
+      desktop: "Design weekly Story campaign storyboards for marketing teams."
+    },
+    comparison: {
+      feature: "Story Lead Capture",
+      cacto: "Low-Friction 1-Tap Poll Sticker DM Automation",
+      traditional: "Static Bio Link Reminders Ignored by 90% of Viewers"
+    }
+  },
+  {
+    slug: "carousel-outline-generator",
+    title: "5-Slide Instagram Carousel Outline Generator",
+    description: "Generate slide-by-slide content outlines (Hook -> Problem -> 3 Action Steps -> Final CTA) designed for maximum saves.",
+    category: "Generators",
+    icon: "Layers",
+    faqs: [
+      {
+        q: "Why are Instagram Carousels so powerful for growth in 2026?",
+        a: "Carousels get shown to users twice in the main feed if they don't swipe the first time (Instagram shows Slide 1 first, then Slide 2 later). They also drive the highest save rates of any post format."
+      },
+      {
+        q: "How does the Carousel Outline Generator structure slides?",
+        a: "It generates a battle-tested 5-slide framework: Slide 1 (Viral Hook), Slide 2 (The Problem), Slide 3 (Tactical Step 1), Slide 4 (Tactical Step 2), Slide 5 (Comment Trigger CTA)."
+      },
+      {
+        q: "How many slides should an educational Instagram Carousel have?",
+        a: "5 to 7 slides is the sweet spot for mobile retention. Longer 10-slide carousels work well for mega-guides, but 5 slides minimize swipe drop-off."
+      },
+      {
+        q: "What should the final slide of a Carousel contain?",
+        a: "The final slide must contain a clear, high-contrast CTA instructing scrollers to comment a keyword (e.g. 'Comment GUIDE for the templates') to get instant DM delivery."
+      },
+      {
+        q: "How do I turn Carousel saves into email leads?",
+        a: "Combine high-value educational slides with a Cacto comment trigger on Slide 5. Viewers comment to get your PDF guide, converting passive save traffic into active DM leads."
+      },
+      {
+        q: "Can I use these outlines in Canva or Figma?",
+        a: "Yes! Copy the slide text directly into your favorite Canva or Figma carousel design templates."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Enter Topic / Skill", desc: "Input your core topic or educational concept." },
+      { step: 2, title: "Generate 5-Slide Outline", desc: "View slide-by-slide headlines, body copy, and final CTA." },
+      { step: 3, title: "Design & Publish", desc: "Paste slide text into Canva and publish with Cacto comment automation." }
+    ],
+    usecases: [
+      "Educational Instagram Carousel Scripting",
+      "Canva & Figma Slide Copywriting",
+      "High-Save Educational Content Creation",
+      "Comment Trigger Lead Generation"
+    ],
+    benefits: [
+      "Complete Slide-by-Slide Content Blueprints",
+      "Optimized for Feed Re-distribution & High Saves",
+      "Includes Final Slide Comment Trigger CTA",
+      "Eliminates Carousel Content Block",
+      "Free & Easy One-Click Copy Tool"
+    ],
+    deviceGuide: {
+      mobile: "Generate slide copy on your phone and design in Canva mobile app.",
+      desktop: "Batch generate monthly carousel content calendars for design teams."
+    },
+    comparison: {
+      feature: "Carousel CTA Strategy",
+      cacto: "Slide 5 Comment-to-DM Trigger Delivering Assets Instantly",
+      traditional: "Vague 'Check Bio Link' CTA Resulting in High Swipe Bounces"
+    }
+  },
+  {
+    slug: "comment-trigger-generator",
+    title: "Comment Keyword Trigger Phrase Generator",
+    description: "Generate high-converting, single-word comment triggers (e.g. SCALE, PLAYBOOK, PDF) tailored to your specific niche.",
+    category: "Generators",
+    icon: "Key",
+    faqs: [
+      {
+        q: "What is a comment keyword trigger on Instagram?",
+        a: "A comment trigger is a specific word (e.g. 'PDF' or 'GROW') that you ask followers to type in the comments of your post to receive an automated DM from Cacto."
+      },
+      {
+        q: "Why should comment trigger keywords be short and simple?",
+        a: "Short, 1-word keywords (4 to 8 letters) minimize typing friction on mobile keyboards, resulting in 2x higher comment conversion rates compared to long phrases."
+      },
+      {
+        q: "How does the Comment Trigger Generator suggest words?",
+        a: "It analyzes your offer type (Ebook, Template, Discount Code, Masterclass) and niche to generate memorable, high-converting trigger words."
+      },
+      {
+        q: "Should comment keywords use all CAPITAL letters?",
+        a: "Using all-caps in your Reel overlay or caption (e.g. 'Comment SCALE below') makes the keyword stand out visually, though Cacto triggers are case-insensitive."
+      },
+      {
+        q: "Can Cacto handle misspellings of comment triggers?",
+        a: "Yes! Cacto's smart fuzzy-matching algorithm detects common typos (e.g. 'PLAYBOK' instead of 'PLAYBOOK') and still delivers the automated DM."
+      },
+      {
+        q: "How do I set up my generated trigger word in Cacto?",
+        a: "Copy your favorite generated trigger word, log into Cacto, create a new flow, and paste the word into the Comment Keyword trigger field."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Select Offer Type", desc: "Choose your lead magnet type (Guide, Checklist, Template, Coupon)." },
+      { step: 2, title: "Generate Keyword List", desc: "View top high-converting, single-word trigger phrases." },
+      { step: 3, title: "Copy to Cacto", desc: "Copy your chosen trigger word and configure your Cacto automation flow." }
+    ],
+    usecases: [
+      "Reel & Post Comment Magnet Setup",
+      "Lead Magnet Campaign Trigger Optimization",
+      "E-Commerce Discount Code DM Triggers",
+      "Event & Webinar Registration Keywords"
+    ],
+    benefits: [
+      "Generates Memorable 1-Word Mobile Triggers",
+      "Tailored by Offer Type & Industry Niche",
+      "Includes Reel Screen Overlay Display Copy",
+      "Maximizes Mobile Typing Speed & Velocity",
+      "Direct Export to Cacto Campaign Setup"
+    ],
+    deviceGuide: {
+      mobile: "Pick trigger words on mobile and add to your Reel captions.",
+      desktop: "Build standardized trigger word libraries for brand campaigns."
+    },
+    comparison: {
+      feature: "Comment Trigger Design",
+      cacto: "Short 1-Word Triggers with Fuzzy Misspelling Safety",
+      traditional: "Complex Multi-Word Phrases Causing Typing Bounces"
+    }
+  },
+  {
+    slug: "reel-cta-writer",
+    title: "Instagram Reel Caption Call-To-Action Copy Writer",
+    description: "Generate 5 compelling caption ending CTAs instructing scrollers to drop a comment keyword for instant inbox delivery.",
+    category: "Generators",
+    icon: "Edit",
+    faqs: [
+      {
+        q: "What is a caption Call-To-Action (CTA) on Instagram?",
+        a: "A caption CTA is the final 1-2 lines of your Instagram caption that explicitly tells the reader what exact action to take next (e.g. 'Comment PLAYBOOK to get the free guide')."
+      },
+      {
+        q: "Why do most Reel captions fail to convert viewers into leads?",
+        a: "Most captions provide great info but end passively without a clear instruction. Viewers read, like, and scroll away without taking action."
+      },
+      {
+        q: "How does the Reel CTA Writer work?",
+        a: "Input your offer name and target keyword to generate 5 distinct CTA ending styles: Direct, Value-Add, Urgency/FOMO, Storytelling, and Minimalist."
+      },
+      {
+        q: "Where should the CTA be placed in a Reel caption?",
+        a: "Include your CTA at the very beginning of the caption (the 125-character preview line) AND at the very end as the final closing directive."
+      },
+      {
+        q: "How do caption CTAs boost Reel engagement velocity?",
+        a: "Clear CTAs drive immediate comment velocity, doubling total post comments and signaling strong user interaction to Meta's feed algorithm."
+      },
+      {
+        q: "How does Cacto automate caption CTA fulfillment?",
+        a: "Cacto listens for the exact comment keyword specified in your CTA and delivers the promised link or PDF into the user's inbox in under 3 seconds."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Offer & Keyword", desc: "Enter your lead magnet name and target comment keyword." },
+      { step: 2, title: "Generate 5 CTA Styles", desc: "View Direct, FOMO, Value-Add, and Minimalist caption endings." },
+      { step: 3, title: "Copy & Append Caption", desc: "Copy your favorite CTA ending and append it to your post caption." }
+    ],
+    usecases: [
+      "Reel Caption Ending Copywriting",
+      "Comment Trigger CTA Optimization",
+      "Lead Magnet Campaign Copywriting",
+      "High-CTR Social Media Copy Writing"
+    ],
+    benefits: [
+      "Generates 5 High-Converting Caption CTA Variations",
+      "Includes Direct, FOMO, Value-Add & Minimalist Copy",
+      "Optimized for Mobile Caption Line Breaks & Emojis",
+      "Drives Immediate Post Comment Velocity",
+      "Free One-Click Copy Tool"
+    ],
+    deviceGuide: {
+      mobile: "Copy CTA endings on mobile and paste directly into Instagram caption editor.",
+      desktop: "Batch generate caption CTAs for social media scheduling tools."
+    },
+    comparison: {
+      feature: "Caption Ending Strategy",
+      cacto: "Explicit Comment Keyword CTAs Driving Instant Inbox Deliveries",
+      traditional: "Passive 'Hope You Liked This' Closings Yielding 0 Leads"
+    }
+  },
+  {
+    slug: "story-mention-dm-generator",
+    title: "Story Mention Thank-You DM Generator",
+    description: "Create friendly, high-converting automated DM reply scripts to reward users who mention your account in their Stories.",
+    category: "Generators",
+    icon: "Heart",
+    faqs: [
+      {
+        q: "What is a Story Mention automation?",
+        a: "A Story Mention automation automatically sends a private DM to any user who shares your Reel or post to their Instagram Story and tags your account handle."
+      },
+      {
+        q: "Why are Story Mention automations so effective for viral growth?",
+        a: "Story mentions expose your content to your followers' audiences (powerful user-generated social proof). Rewarding taggers with a bonus DM incentivizes viral sharing."
+      },
+      {
+        q: "How does the Story Mention DM Generator work?",
+        a: "Input your bonus offer (e.g. 15% discount code or secret PDF) to generate 4 warm, appreciative automated DM scripts with dynamic `{{username}}` placeholders."
+      },
+      {
+        q: "Does Meta Graph API allow automated Story Mention replies?",
+        a: "Yes! Meta's Graph API fully supports `messaging_postbacks` for Story mentions on Business and Creator profiles."
+      },
+      {
+        q: "What should a Story Mention thank-you DM say?",
+        a: "Express genuine gratitude, acknowledge their Story share, and deliver an exclusive reward: 'Thanks so much for the Story mention @{{username}}! Here's your exclusive bonus 🎁'"
+      },
+      {
+        q: "How do I set up automated Story Mention replies in Cacto?",
+        a: "Log into Cacto, select 'Story Mention' as your trigger type, and paste your generated thank-you script and bonus link."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Bonus Reward", desc: "Enter your reward offer (Discount code, bonus guide, or VIP link)." },
+      { step: 2, title: "Generate Thank-You Scripts", desc: "View 4 warm, appreciative automated DM reply scripts." },
+      { step: 3, title: "Configure in Cacto", desc: "Paste the script into Cacto's native Story Mention automation trigger." }
+    ],
+    usecases: [
+      "User-Generated Content Incentivization",
+      "Viral Story Tag Growth Loops",
+      "Automated Brand Ambassador Rewards",
+      "Customer Appreciation DM Sequences"
+    ],
+    benefits: [
+      "4 Warm Appreciative DM Reply Scripts",
+      "Includes Dynamic `@{{username}}` Placeholders",
+      "Incentivizes Organic Story Resharing",
+      "100% Compliant with Meta Graph API Guidelines",
+      "Free One-Click Copy Generator"
+    ],
+    deviceGuide: {
+      mobile: "Copy scripts on mobile and set up Story mention flows in Cacto.",
+      desktop: "Build brand ambassador Story mention rewards for launch campaigns."
+    },
+    comparison: {
+      feature: "Story Mention Response",
+      cacto: "Instant Automated DM Reward Delivery 24/7",
+      traditional: "Manual Story Resharing Missing 90% of Taggers"
+    }
+  },
+  {
+    slug: "ai-prompt-generator",
+    title: "ChatGPT & Claude Instagram Prompt Generator",
+    description: "Build hyper-specific, production-ready AI prompt templates for writing viral Reels, comment rotators, and DM sequences.",
+    category: "Generators",
+    icon: "Sparkles",
+    faqs: [
+      {
+        q: "Why do generic AI prompts produce boring Instagram content?",
+        a: "Asking ChatGPT or Claude 'write an Instagram caption' yields generic, robotic text. High-converting AI output requires explicit persona, formatting rules, character bounds, and CTA requirements."
+      },
+      {
+        q: "How does the AI Prompt Generator work?",
+        a: "Select your desired task (Reel Script, Comment Rotator, Bio Rewrite, DM Sequence) and niche to generate a professional system prompt ready to paste into ChatGPT or Claude."
+      },
+      {
+        q: "Can I use these AI prompts directly with Cacto's Claude Skills tool?",
+        a: "Yes! Prompts generated by this tool are formatted to pair seamlessly with Cacto's Claude Skills generator for automated workflow execution."
+      },
+      {
+        q: "What key elements make a great Instagram AI prompt?",
+        a: "A great prompt specifies: 1) Role ('You are an elite Instagram copywriter'), 2) Target audience, 3) Constraints (line breaks, emojis, no hashtags), 4) Comment trigger CTA requirements."
+      },
+      {
+        q: "Will AI-generated captions get my Instagram account shadowbanned?",
+        a: "No. Instagram does not penalize AI-written captions. However, using well-structured prompts ensures your copy sounds natural, human, and engaging."
+      },
+      {
+        q: "Which AI model is best for Instagram copy: ChatGPT or Claude?",
+        a: "Claude 3.5 Sonnet excels at natural human tone and creative hooks. ChatGPT (GPT-4o) excels at structured data, formulas, and hashtag formatting."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Select Content Task", desc: "Choose Reel Script, Comment Rotator, Bio, or DM Sequence." },
+      { step: 2, title: "Set Niche & Tone", desc: "Define your industry category and preferred voice." },
+      { step: 3, title: "Copy Master Prompt", desc: "Copy the production-ready prompt and paste into ChatGPT or Claude." }
+    ],
+    usecases: [
+      "AI Prompt Engineering for Instagram Creators",
+      "ChatGPT & Claude Social Media Copy Generation",
+      "Automated Content Calendar Creation",
+      "Comment Rotator & DM Sequence Scripting"
+    ],
+    benefits: [
+      "Generates Production-Ready AI Master Prompts",
+      "Optimized for ChatGPT (GPT-4o) & Claude 3.5 Sonnet",
+      "Includes Role, Formatting Constraints & CTAs",
+      "Eliminates Generic Robotic AI Output",
+      "Free Unlimited Master Prompt Generator"
+    ],
+    deviceGuide: {
+      mobile: "Copy master prompts on mobile and paste straight into the ChatGPT or Claude mobile apps.",
+      desktop: "Build custom AI prompt libraries for marketing agencies and content teams."
+    },
+    comparison: {
+      feature: "AI Content Generation",
+      cacto: "Structured Master Prompts Engineered for High-Converting Chat Funnels",
+      traditional: "Vague Single-Sentence Prompts Producing Generic AI Slop"
+    }
+  },
+  {
+    slug: "dep-sequence-builder",
+    title: "3-Step DEP (Deliver, Educate, Pitch) DM Sequence Builder",
+    description: "Build battle-tested 3-message DM nurturing chat sequences (Deliver asset -> Soft check-in -> Limited-time offer pitch).",
+    category: "Utility",
+    icon: "MessageSquare",
+    faqs: [
+      {
+        q: "What is the DEP (Deliver, Educate, Pitch) DM nurturing framework?",
+        a: "The DEP framework is a battle-tested 3-stage chat sequence: 1) Deliver the requested lead magnet immediately at Minute 0, 2) Educate with a value-add check-in at Hour 4-12, 3) Pitch your paid product or service at Hour 20."
+      },
+      {
+        q: "Why should creators use a 3-step sequence instead of sending a single DM link?",
+        a: "Single DM links convert at only 2-3%. A 3-step nurturing sequence builds trust, answers objections, and sends a limited-time closing reminder, increasing conversion rates to 10-15%."
+      },
+      {
+        q: "How does the DEP Sequence Builder work?",
+        a: "Select your niche and offer type to generate formatted 3-message copy complete with dynamic `{{first_name}}` placeholders and native CTA button labels."
+      },
+      {
+        q: "Are 3-step DEP sequences compliant with Meta's Graph API rules?",
+        a: "Yes! All 3 messages are delivered strictly within Meta's 24-hour communication window triggered by the user's initial comment."
+      },
+      {
+        q: "Can I customize the timing between messages in Cacto?",
+        a: "Yes. Cacto allows you to set custom delays (e.g. 4 hours after initial delivery, 18 hours after initial delivery) for automated sequence dispatches."
+      },
+      {
+        q: "How do I export my generated DEP sequence into Cacto?",
+        a: "Copy each message block directly from this tool into Cacto's visual flow builder in under 2 minutes."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Niche & Offer", desc: "Define your product or lead magnet category." },
+      { step: 2, title: "Generate 3-Message Sequence", desc: "View Message 1 (Deliver), Message 2 (Educate), and Message 3 (Pitch)." },
+      { step: 3, title: "Paste into Cacto", desc: "Copy messages into your automated Cacto campaign flow." }
+    ],
+    usecases: [
+      "Automated Chat Nurturing Sequences",
+      "High-Ticket Lead Qualification",
+      "Stripe Checkout Conversions via DM",
+      "Course & Membership Launch Campaigns"
+    ],
+    benefits: [
+      "Generates Complete 3-Step Chat Sequences",
+      "Follows Proven DEP Nurturing Architecture",
+      "Includes Dynamic Placeholder Tags",
+      "100% Compliant with Meta 24-Hour Messaging Rules",
+      "Free & Interactive Copy Generator"
+    ],
+    deviceGuide: {
+      mobile: "Build chat sequences on mobile and configure Cacto campaign triggers.",
+      desktop: "Export standardized chat nurturing sequences for launch funnels."
+    },
+    comparison: {
+      feature: "Chat Nurturing Framework",
+      cacto: "Structured 3-Step DEP Sequence Maximizing 24-Hour Conversion",
+      traditional: "Single Unformatted Link Blast Resulting in High Bounces"
+    }
+  },
+  {
+    slug: "best-time-to-post",
+    title: "Best Time to Post Predictor & Timezone Matrix",
+    description: "Generate an optimized weekly Instagram posting schedule matrix based on target audience timezone and niche activity peaks.",
+    category: "Utility",
+    icon: "Clock",
+    faqs: [
+      {
+        q: "Does posting time still matter for Instagram Reels in 2026?",
+        a: "Yes! Posting during your target audience's peak active hours drives initial comment velocity in the first 30 minutes, accelerating distribution to broader Explore feeds."
+      },
+      {
+        q: "How does the Best Time to Post Predictor work?",
+        a: "Input your primary audience region (North America, Europe, Asia-Pacific, Latin America) and niche to calculate optimal weekday and weekend posting time slots."
+      },
+      {
+        q: "What are the universal best times to post on Instagram?",
+        a: "Industry benchmarks indicate peak activity at 7:00 AM - 9:00 AM (morning commute), 12:00 PM - 1:30 PM (lunch break), and 7:00 PM - 9:00 PM (evening downtime) in target local time."
+      },
+      {
+        q: "How does Cacto complement optimal posting times?",
+        a: "When you post during peak traffic hours, Cacto auto-replies handle incoming comment surges instantly 24/7 without delays or rate-limit crashes."
+      },
+      {
+        q: "Should I post Reels at the exact same time every day?",
+        a: "Varying your posting time by 30-60 minutes across weekdays exposes your content to different segments of your audience."
+      },
+      {
+        q: "How do I verify my specific account's top active times?",
+        a: "Check your native Instagram Insights under Profile → Professional Dashboard → Total Followers → Most Active Times."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Select Audience Region", desc: "Choose North America, Europe, Asia-Pacific, or LatAm." },
+      { step: 2, title: "Select Niche Category", desc: "Choose Business/Coaching, Fitness, Creative, or E-Commerce." },
+      { step: 3, title: "View Weekly Matrix", desc: "Get an optimized Monday-Sunday posting hour schedule." }
+    ],
+    usecases: [
+      "Weekly Content Schedule Optimization",
+      "Global Audience Timezone Alignment",
+      "Reel Comment Velocity Acceleration",
+      "Campaign Launch Timing Strategy"
+    ],
+    benefits: [
+      "Optimized Weekly 7-Day Posting Schedule",
+      "Targeted by Audience Region & Timezone",
+      "Drives Maximum Initial Comment Velocity",
+      "Includes Peak Weekday vs Weekend Slots",
+      "Free Interactive Scheduling Matrix"
+    ],
+    deviceGuide: {
+      mobile: "Check optimal posting slots on mobile before publishing new content.",
+      desktop: "Export time matrices directly into social media scheduling calendars."
+    },
+    comparison: {
+      feature: "Posting Time Optimization",
+      cacto: "Timezone-Aligned Posting + 24/7 Instant Auto-DM Response",
+      traditional: "Random Unplanned Posting During Low-Traffic Hours"
+    }
+  },
+  {
+    slug: "story-view-conversion-calculator",
+    title: "Story View-to-DM Conversion Benchmark Calculator",
+    description: "Calculate Story view retention and DM lead conversion percentages against 2026 industry benchmarks.",
+    category: "Calculators",
+    icon: "Percent",
+    faqs: [
+      {
+        q: "What is a good Instagram Story view retention rate?",
+        a: "On average, accounts with 10k followers see 5% to 8% Story view rates (500-800 views per Story). Accounts under 5k followers often see 8% to 12% Story view rates."
+      },
+      {
+        q: "How does the Story Conversion Calculator compute metrics?",
+        a: "Input your total follower count, average Story views, and DM responses to calculate your Story View Rate %, Interactive DM Tap %, and overall conversion rating."
+      },
+      {
+        q: "Why do Story views drop off from Slide 1 to Slide 5?",
+        a: "Natural audience fatigue causes 15-20% drop-off per slide. Using interactive poll stickers or quiz questions on Slide 2 halts drop-off and re-engages scrollers."
+      },
+      {
+        q: "How can Cacto increase Story view conversion?",
+        a: "Cacto automates instant DM delivery whenever viewers tap your Story poll stickers or send a direct keyword, converting casual story skimmers into leads."
+      },
+      {
+        q: "What is a benchmark DM conversion rate from Instagram Stories?",
+        a: "Static Story links average 1-2% tap rates. Interactive poll sticker triggers with Cacto DM automation achieve 15-25% lead conversion rates."
+      },
+      {
+        q: "How often should I audit my Story performance?",
+        a: "Audit your Story metrics weekly to identify high-converting Story sticker formats and maintain account engagement."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Followers & Story Views", desc: "Enter total followers and average 24-hour Story views." },
+      { step: 2, title: "Input DM Responses", desc: "Enter average DMs or poll taps received per Story set." },
+      { step: 3, title: "Analyze Benchmark Rating", desc: "View instant Story View Rate %, DM Conversion %, and benchmark score." }
+    ],
+    usecases: [
+      "Story Content Performance Auditing",
+      "Interactive Story Poll ROI Calculation",
+      "Story Drop-Off Rate Reduction",
+      "Creator Media Kit Metrics Verification"
+    ],
+    benefits: [
+      "Calculates Accurate Story View Rate & Conversion %",
+      "Compares Metrics Against 2026 Industry Benchmarks",
+      "Identifies Story Viewer Drop-Off Points",
+      "Provides Interactive Story Optimization Advice",
+      "Free Interactive Calculator"
+    ],
+    deviceGuide: {
+      mobile: "Calculate Story conversion rates on mobile directly from your Story Insights.",
+      desktop: "Analyze weekly Story retention performance for agency accounts."
+    },
+    comparison: {
+      feature: "Story Lead Conversion",
+      cacto: "15-25% Lead Capture via Interactive Poll DM Triggers",
+      traditional: "1-2% Tap Rate via Static Bio Link Stickers"
+    }
+  },
+  {
+    slug: "competitor-benchmark-tool",
+    title: "Competitor Instagram Account Benchmark Comparison Tool",
+    description: "Compare engagement rate, comment density, and lead magnet conversion gaps between your account and competitors.",
+    category: "Calculators",
+    icon: "Sliders",
+    faqs: [
+      {
+        q: "Why is competitor benchmarking important on Instagram?",
+        a: "Comparing your engagement rate, comment density, and posting frequency against top niche competitors highlights strategic gaps and growth opportunities."
+      },
+      {
+        q: "How does the Competitor Benchmark Tool work?",
+        a: "Input follower counts, average likes, and average comments for your account and a target competitor to compare Engagement Rate %, Comment-to-Like Ratio, and Lead Velocity."
+      },
+      {
+        q: "What is a Comment-to-Like ratio and why does it matter?",
+        a: "Comment-to-Like ratio measures community depth. A high ratio (over 10% comments relative to likes) indicates an active, high-intent audience ready for DM automation."
+      },
+      {
+        q: "How can smaller accounts outperform larger competitors?",
+        a: "Smaller accounts with higher comment density and Cacto DM automation capture significantly more leads and sales than passive 100k accounts with low comment velocity."
+      },
+      {
+        q: "Does Cacto help close the gap against larger competitors?",
+        a: "Yes! Cacto ensures 100% of your incoming comments receive instant automated public replies and DM links, doubling your comment density."
+      },
+      {
+        q: "Is competitor metrics data public on Instagram?",
+        a: "Yes. Public post likes, comments, and follower counts are visible on all public business and creator profiles."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Your Metrics", desc: "Enter your followers, average likes, and average comments." },
+      { step: 2, title: "Input Competitor Metrics", desc: "Enter competitor's followers, average likes, and comments." },
+      { step: 3, title: "Compare Growth Gap", desc: "View side-by-side comparison of ER %, Comment Ratio, and Lead Velocity." }
+    ],
+    usecases: [
+      "Competitor Benchmarking & Niche Auditing",
+      "Agency Client Pitch Preparation",
+      "Growth Opportunity Identification",
+      "Comment Density & Engagement Rate Auditing"
+    ],
+    benefits: [
+      "Side-by-Side Competitor ER % Comparison",
+      "Calculates Comment-to-Like Quality Ratios",
+      "Highlights Lead Generation Competitive Gaps",
+      "Identifies Outperformance Opportunities",
+      "Free Interactive Benchmarking Tool"
+    ],
+    deviceGuide: {
+      mobile: "Run quick competitor checks on your phone before client calls.",
+      desktop: "Generate detailed competitive analysis reports for agency pitch decks."
+    },
+    comparison: {
+      feature: "Competitive Conversion Strategy",
+      cacto: "Instant DM Automation Turning High ER into Direct Cashflow",
+      traditional: "Passive Content Posting Losing Buyers to Faster Competitors"
+    }
+  },
+  {
+    slug: "grid-layout-planner",
+    title: "Instagram Grid Aesthetic & Layout Planner",
+    description: "Plan cohesive grid layout patterns (Checkerboard, Row-by-Row, Column) and preview thumbnail text overlay aesthetics.",
+    category: "Utility",
+    icon: "Image",
+    faqs: [
+      {
+        q: "Why is Instagram grid layout aesthetic important?",
+        a: "When a new scroller taps your profile from an Explore Reel, your 9-grid preview determines whether they tap 'Follow' within 3 seconds."
+      },
+      {
+        q: "How does the Grid Layout Planner work?",
+        a: "Select your preferred grid pattern (Checkerboard, Horizontal Rows, Vertical Column, Diagonal, or Seamless) to preview thumbnail text overlays and visual flow."
+      },
+      {
+        q: "What is the Checkerboard grid layout pattern?",
+        a: "Checkerboard alternates between two distinct visual styles (e.g. Quote Graphic → Photo → Quote Graphic → Photo), creating a clean, structured aesthetic."
+      },
+      {
+        q: "Should every Reel thumbnail have text overlay?",
+        a: "Having high-contrast text on 50-60% of your Reel covers makes your profile look like a resource library, encouraging profile visitors to browse and comment."
+      },
+      {
+        q: "How does grid aesthetic connect with Cacto DM automation?",
+        a: "A clean, educational grid drives higher profile visit conversion, prompting scrollers to tap your pinned Reels and comment your trigger keywords."
+      },
+      {
+        q: "What size should Instagram Reel cover thumbnails be?",
+        a: "Reel covers are uploaded at 1080 x 1920 px (9:16), but crop to a 1080 x 1080 px (1:1) square on your main profile grid. Keep key text inside the central 1:1 safe zone."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Select Layout Pattern", desc: "Choose Checkerboard, Row-by-Row, or Vertical Column." },
+      { step: 2, title: "Preview 9-Grid Layout", desc: "Arrange thumbnail text overlays and color themes." },
+      { step: 3, title: "Export Schedule", desc: "Follow the visual sequence when publishing your upcoming posts." }
+    ],
+    usecases: [
+      "Instagram Profile Grid Aesthetic Planning",
+      "Reel Cover Thumbnail Text Organization",
+      "Brand Aesthetic Consistency Verification",
+      "New Profile Launch Layout Design"
+    ],
+    benefits: [
+      "Interactive 9-Grid Visual Layout Preview",
+      "Supports Checkerboard, Row, and Column Patterns",
+      "Highlights 1:1 Square Thumbnail Safe Zones",
+      "Increases Profile Visitor Follow Conversion %",
+      "Free Interactive Design Tool"
+    ],
+    deviceGuide: {
+      mobile: "Preview grid layouts on mobile before uploading Reel covers.",
+      desktop: "Design 9-grid launch sequences for brand aesthetic guidelines."
+    },
+    comparison: {
+      feature: "Profile Grid Strategy",
+      cacto: "Resource-Focused Grid Driving Pinned Reel Comment Triggers",
+      traditional: "Cluttered Disorganized Grid Confusing Profile Visitors"
+    }
+  },
+  {
+    slug: "reel-loop-calculator",
+    title: "Reel Video Duration & Loop Optimization Calculator",
+    description: "Calculate optimal Reel video duration (5s vs 15s vs 30s) and estimated loop velocity based on caption reading time.",
+    category: "Calculators",
+    icon: "Clock",
+    faqs: [
+      {
+        q: "Why is video loop velocity critical for Instagram Reels?",
+        a: "Loop velocity measures how many times a user rewatches your video. If a user reads a 15-second caption while a 5-second Reel loops 3 times, watch time hits 300%—triggering viral algorithmic push."
+      },
+      {
+        q: "How does the Reel Loop Calculator compute loop velocity?",
+        a: "Input your caption length (word count) and video length (seconds) to calculate estimated reading time, expected loop count, and predicted algorithmic watch time %."
+      },
+      {
+        q: "What is the best Reel video length for high loop rates?",
+        a: "Short 5 to 7-second videos paired with a detailed 50-word caption achieve the highest loop velocity (>200% watch time)."
+      },
+      {
+        q: "How do comment trigger words increase video loop velocity?",
+        a: "When a scroller pauses to type a comment keyword (e.g. 'PLAYBOOK'), the Reel continues looping automatically in the background, further inflating watch time."
+      },
+      {
+        q: "Should I make all my Reels 5 seconds long?",
+        a: "No. Alternate between short 5-7s loop Reels (for quick lead magnet comments) and longer 30-60s storytelling Reels (for deep trust building)."
+      },
+      {
+        q: "How does Cacto leverage high loop velocity Reels?",
+        a: "High loop velocity Reels get pushed to wider Explore feeds, while Cacto handles the resulting surge of comment DMs automatically."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Input Video Length", desc: "Select or enter video duration in seconds (e.g. 6s)." },
+      { step: 2, title: "Input Caption Words", desc: "Enter total word count of your caption (e.g. 60 words)." },
+      { step: 3, title: "View Loop Metrics", desc: "View calculated Watch Time %, expected loops, and algorithm score." }
+    ],
+    usecases: [
+      "Reel Video Length Optimization",
+      "Short-Form Video Loop Velocity Maxing",
+      "Caption Length to Video Duration Alignment",
+      "Algorithmic Watch Time Inflation Strategy"
+    ],
+    benefits: [
+      "Calculates Predicted Reel Watch Time %",
+      "Estimates Video Loop Velocity Based on Caption Reading",
+      "Recommends Optimal Video Length (5s vs 15s vs 30s)",
+      "Highlights Comment Typing Loop Multipliers",
+      "Free Interactive Short-Form Video Tool"
+    ],
+    deviceGuide: {
+      mobile: "Calculate loop velocity on your phone while editing Reel captions.",
+      desktop: "Optimize video editing length targets for video production teams."
+    },
+    comparison: {
+      feature: "Watch Time Strategy",
+      cacto: "Short Loop Video + Comment Trigger Typing Background Loops",
+      traditional: "Long Boring Videos Dropping Off After 3 Seconds"
+    }
+  },
+  {
+    slug: "niche-profitability-estimator",
+    title: "Instagram Creator Niche Profitability Estimator",
+    description: "Score niche commercial intent, average order value (AOV), and DM automation conversion potential.",
+    category: "Calculators",
+    icon: "TrendingUp",
+    faqs: [
+      {
+        q: "What makes an Instagram niche highly profitable for DM automation?",
+        a: "Niches with high commercial intent, solving specific urgent pain points (Coaching, Real Estate, B2B SaaS, Finance, E-Commerce), convert highest in mobile DM chat funnels."
+      },
+      {
+        q: "How does the Niche Profitability Estimator evaluate niches?",
+        a: "It scores 4 commercial factors: Average Order Value (AOV), Audience Buying Power, DM Impulse Conversion Potential, and Content Repeatability to yield a Niche Score (0-100)."
+      },
+      {
+        q: "Can low-CPM entertainment or meme niches make money with DMs?",
+        a: "Yes, but they require high volume. Selling $9-$19 impulse products via Cacto DM enables meme accounts to monetize traffic without relying on low ad CPMs."
+      },
+      {
+        q: "What is the highest-converting digital offer format for coaches?",
+        a: "A $27-$47 mini-course or Notion template bundle delivered via automated Cacto DM yields the highest immediate conversion for coaching accounts."
+      },
+      {
+        q: "How does DM automation increase Average Order Value (AOV)?",
+        a: "Cacto automated follow-up sequences sent 12-24 hours post-download can introduce complementary high-value upsells, increasing average customer value by 30%."
+      },
+      {
+        q: "How do I choose the best offer for my niche score?",
+        a: "Our estimator provides tailored digital product and DM funnel recommendations based on your selected industry niche."
+      }
+    ],
+    steps: [
+      { step: 1, title: "Select Primary Niche", desc: "Choose Coaching, Real Estate, E-Commerce, SaaS, Fitness, or Creative." },
+      { step: 2, title: "Select Audience Size", desc: "Select under 10k, 10k-50k, 50k-100k, or 100k+." },
+      { step: 3, title: "View Niche Score & Funnel Blueprint", desc: "Get Niche Score (0-100), recommended price points, and Cacto funnel strategy." }
+    ],
+    usecases: [
+      "Creator Niche Profitability Auditing",
+      "Digital Product Offer Selection",
+      "Account Monetization Strategy Planning",
+      "DM Sales Funnel Tailoring by Industry"
+    ],
+    benefits: [
+      "Scores Niche Commercial Intent (0-100)",
+      "Recommends Tailored Price Points & Product Formats",
+      "Provides Specific Industry Cacto Funnel Blueprints",
+      "Evaluates Audience Buying Power & AOV",
+      "Free Interactive Monetization Estimator"
+    ],
+    deviceGuide: {
+      mobile: "Audit niche commercial potential on mobile before launching new accounts.",
+      desktop: "Analyze niche profitability benchmarks for business plan presentations."
+    },
+    comparison: {
+      feature: "Niche Monetization Model",
+      cacto: "High-Margin Direct DM Product Checkouts Tailored to Niche Intent",
+      traditional: "Generic Affiliate Links with Pennies per Click"
+    }
   }
 ]
+
+
+
+

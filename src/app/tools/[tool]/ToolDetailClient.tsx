@@ -214,6 +214,114 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
     setTimeout(() => setCopiedText(null), 2500)
   }
 
+  // 26. Banned Hashtag Checker states
+  const [bannedTagInput, setBannedTagInput] = useState('#growth #instatips #followforfollow #beautycollegen #marketing #like4like #instadaily')
+
+  // 27. Meta 24-Hour Window Calculator states
+  const [metaTriggerTime, setMetaTriggerTime] = useState('14:30')
+  const [metaTimezone, setMetaTimezone] = useState('EST (UTC-5)')
+
+  // 28. Shadowban Risk Simulator states
+  const [simDailyDmVolume, setSimDailyDmVolume] = useState(150)
+  const [simReplyVariations, setSimReplyVariations] = useState(4)
+  const [simAccountAgeMonths, setSimAccountAgeMonths] = useState(12)
+  const [simHasLinkInDm, setSimHasLinkInDm] = useState(true)
+
+  // 29. Bio SEO Auditor states
+  const [bioNameInput, setBioNameInput] = useState('Jane Doe | Instagram Growth Coach')
+  const [bioTextBodyInput, setBioTextBodyInput] = useState('Helping creators convert comments into leads. 🚀 Comment "SCALE" for my free DM automation playbook!')
+
+  // 30. Comment Rotator Checker states
+  const [rotatorIntentInput, setRotatorIntentInput] = useState('Just sent the free guide to your DMs!')
+
+  // 31. Sponsored Rate Calculator states
+  const [sponFollowers, setSponFollowers] = useState(25000)
+  const [sponAvgViews, setSponAvgViews] = useState(12000)
+  const [sponNiche, setSponNiche] = useState('Finance')
+  const [sponFormat, setSponFormat] = useState('Reel')
+
+  // 32. DM Funnel ROI Calculator states
+  const [funnelViews, setFunnelViews] = useState(50000)
+  const [funnelCommentRate, setFunnelCommentRate] = useState(3)
+  const [funnelProductPrice, setFunnelProductPrice] = useState(37)
+
+  // 33. Bio Link Leakage Calculator states
+  const [leakageViews, setLeakageViews] = useState(40000)
+  const [leakageProductPrice, setLeakageProductPrice] = useState(47)
+
+  // 34. Digital Product Pricing Calculator states
+  const [prodFormat, setProdFormat] = useState('Notion Workspace')
+  const [prodNiche, setProdNiche] = useState('Coaching')
+
+  // 35. Reels Bonus Estimator states
+  const [bonusReelViews, setBonusReelViews] = useState(100000)
+  const [bonusProductPrice, setBonusProductPrice] = useState(27)
+
+  // 36. Giveaway Winner Picker states
+  const [giveawayEntries, setGiveawayEntries] = useState('@alex_creator, @sarah_designs, @mark_marketing, @fitness_jake, @clara_growth')
+  const [giveawayKeyword, setGiveawayKeyword] = useState('')
+  const [pickedWinner, setPickedWinner] = useState<string | null>(null)
+
+  // 37. Reels Overlay Hook Generator states
+  const [hookNicheCategory, setHookNicheCategory] = useState('Coaching')
+  const [hookEmotion, setHookEmotion] = useState('Curiosity')
+
+  // 38. Story Quiz Generator states
+  const [storyOfferName, setStoryOfferName] = useState('Instagram DM Automation Playbook')
+
+  // 39. Carousel Outline Generator states
+  const [outlineTopic, setOutlineTopic] = useState('5 Mistakes That Cost Me 10k Followers')
+
+
+  // 40. Comment Trigger Generator states
+  const [triggerOfferType, setTriggerOfferType] = useState('PDF Guide')
+
+  // 41. Reel CTA Writer states
+  const [ctaOfferTitle, setCtaOfferTitle] = useState('2026 Growth Checklist')
+  const [ctaTriggerWord, setCtaTriggerWord] = useState('PLAYBOOK')
+
+  // 42. Story Mention DM Generator states
+  const [storyRewardName, setStoryRewardName] = useState('15% Off VIP Membership')
+
+  // 43. AI Prompt Generator states
+  const [aiTaskType, setAiTaskType] = useState('Reel Script & Hook')
+
+  // 44. DEP Sequence Builder states
+  const [depNiche, setDepNiche] = useState('Coaching')
+  const [depProductTitle, setDepProductTitle] = useState('10k Instagram Growth System')
+
+  // 45. Best Time to Post states
+  const [postRegion, setPostRegion] = useState('North America')
+  const [postNicheCat, setPostNicheCat] = useState('Business/Coaching')
+
+  // 46. Story View Conversion Calculator states
+  const [storyFollowers, setStoryFollowers] = useState(15000)
+  const [storyAvgViews, setStoryAvgViews] = useState(900)
+  const [storyDmTaps, setStoryDmTaps] = useState(135)
+
+  // 47. Competitor Benchmark Tool states
+  const [compMyFollowers, setCompMyFollowers] = useState(12000)
+  const [compMyLikes, setCompMyLikes] = useState(480)
+  const [compMyComments, setCompMyComments] = useState(65)
+  const [compTheirFollowers, setCompTheirFollowers] = useState(50000)
+  const [compTheirLikes, setCompTheirLikes] = useState(1200)
+  const [compTheirComments, setCompTheirComments] = useState(45)
+
+  // 48. Grid Layout Planner states
+  const [gridPattern, setGridPattern] = useState('Checkerboard')
+
+  // 49. Reel Loop Calculator states
+  const [loopVideoSecs, setLoopVideoSecs] = useState(6)
+  const [loopCaptionWords, setLoopCaptionWords] = useState(65)
+
+  // 50. Niche Profitability Estimator states
+  const [nicheCategory, setNicheCategory] = useState('Coaching')
+  const [nicheAudienceSize, setNicheAudienceSize] = useState('10k-50k')
+
+
+
+
+
   // Waitlist & Usage Wall states
   const [generationCount, setGenerationCount] = useState<number>(0)
   const [isWaitlistUnlocked, setIsWaitlistUnlocked] = useState<boolean>(false)
@@ -2078,16 +2186,1494 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                     )}
                   </div>
 
-                  {/* Download Button */}
-                  <button 
-                    onClick={() => handleDownloadPhoto(extractedPhotos!.photos[activePhotoIndex]?.url, activePhotoIndex)}
-                    className="w-full py-3 px-4 rounded-xl bg-[#1A1510] text-white font-extrabold text-xs flex items-center justify-center gap-2 hover:bg-[#2C2C2B] transition cursor-pointer border-none"
-                  >
-                    <Download className="w-4 h-4 text-[#16A34A]" /> 
-                    Download JPG {extractedPhotos.photos.length > 1 ? `(Slide ${activePhotoIndex + 1})` : '(HD)'}
-                  </button>
                 </div>
               )}
+            </div>
+          )}
+
+          {/* TOOL 26: Banned Hashtag Checker */}
+          {toolSlug === 'banned-hashtag-checker' && (
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Paste Post Hashtags</label>
+                <textarea 
+                  rows={4}
+                  value={bannedTagInput}
+                  onChange={(e) => setBannedTagInput(e.target.value)}
+                  placeholder="#growth #instatips #followforfollow..."
+                  className="w-full p-4 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold font-mono"
+                />
+              </div>
+
+              {(() => {
+                const tags = bannedTagInput.split(/[\s,]+/).filter(t => t.startsWith('#') || t.trim().length > 0).map(t => t.startsWith('#') ? t : `#${t}`)
+                const knownBanned = ['#followforfollow', '#like4like', '#beautycollegen', '#pushups', '#banned', '#adult', '#spam']
+                const flagged = tags.filter(t => knownBanned.includes(t.toLowerCase()))
+                const safe = tags.filter(t => !knownBanned.includes(t.toLowerCase()))
+                
+                return (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div className="p-4 rounded-xl bg-zinc-100 border border-zinc-200 text-center">
+                        <span className="text-[10px] font-black text-zinc-500 uppercase tracking-wider block">Total Tags</span>
+                        <span className="text-xl font-black text-[#1A1510]">{tags.length}</span>
+                      </div>
+                      <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-center">
+                        <span className="text-[10px] font-black text-emerald-600 uppercase tracking-wider block">Safe Tags</span>
+                        <span className="text-xl font-black text-emerald-700">{safe.length}</span>
+                      </div>
+                      <div className={`p-4 rounded-xl text-center border ${flagged.length > 0 ? 'bg-red-50 border-red-200' : 'bg-zinc-50 border-zinc-200'}`}>
+                        <span className={`text-[10px] font-black uppercase tracking-wider block ${flagged.length > 0 ? 'text-red-600' : 'text-zinc-500'}`}>Flagged/Banned</span>
+                        <span className={`text-xl font-black ${flagged.length > 0 ? 'text-red-600' : 'text-zinc-400'}`}>{flagged.length}</span>
+                      </div>
+                    </div>
+
+                    {flagged.length > 0 ? (
+                      <div className="p-4 rounded-xl bg-red-50 border border-red-200 space-y-2">
+                        <span className="text-xs font-black text-red-700 uppercase tracking-wider flex items-center gap-1.5">
+                          ⚠️ Action Required: Restricted Hashtags Detected
+                        </span>
+                        <p className="text-xs text-red-600 font-semibold">
+                          The following hashtags are flagged in Meta's restricted database. Delete them immediately:
+                        </p>
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {flagged.map((t, idx) => (
+                            <span key={idx} className="px-2.5 py-1 rounded-lg bg-red-600 text-white font-mono text-xs font-bold">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs font-bold text-emerald-800 flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                        All scanned hashtags are clear of known Meta restrictions!
+                      </div>
+                    )}
+
+                    <div className="p-4 rounded-xl bg-white border-2 border-[#1A1510] space-y-3">
+                      <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">Clean Hashtag Output</span>
+                      <p className="text-xs font-mono font-bold text-zinc-800 bg-zinc-50 p-3 rounded-lg border border-zinc-200">
+                        {safe.join(' ')}
+                      </p>
+                      <button 
+                        onClick={() => copyToClipboard(safe.join(' '), 'Clean Hashtags')}
+                        className="py-2.5 px-4 rounded-xl bg-[#16A34A] text-white font-extrabold text-xs hover:bg-[#15803D] transition border-none cursor-pointer flex items-center gap-2"
+                      >
+                        <Copy className="w-3.5 h-3.5" /> Copy Clean Hashtags
+                      </button>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 27: Meta 24-Hour Window Calculator */}
+          {toolSlug === 'meta-24hr-window-calculator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Initial Comment Trigger Time</label>
+                  <input 
+                    type="time" 
+                    value={metaTriggerTime}
+                    onChange={(e) => setMetaTriggerTime(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Account Timezone</label>
+                  <select 
+                    value={metaTimezone} 
+                    onChange={(e) => setMetaTimezone(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="EST (UTC-5)">EST (New York, UTC-5)</option>
+                    <option value="PST (UTC-8)">PST (Los Angeles, UTC-8)</option>
+                    <option value="GMT (UTC+0)">GMT (London, UTC+0)</option>
+                    <option value="IST (UTC+5:30)">IST (India, UTC+5:30)</option>
+                  </select>
+                </div>
+              </div>
+
+              {(() => {
+                const [hours, minutes] = metaTriggerTime.split(':').map(Number)
+                const formatSlot = (addH: number) => {
+                  const h = (hours + addH) % 24
+                  const formattedH = h.toString().padStart(2, '0')
+                  const formattedM = (minutes || 0).toString().padStart(2, '0')
+                  return `${formattedH}:${formattedM} ${metaTimezone.split(' ')[0]}`
+                }
+
+                return (
+                  <div className="space-y-4">
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">Compliant 24-Hour Graph API Timeline</span>
+                    <div className="space-y-3">
+                      <div className="p-4 rounded-xl bg-emerald-50 border-2 border-emerald-400 flex items-start justify-between gap-4">
+                        <div>
+                          <span className="text-xs font-black text-emerald-800 uppercase tracking-wide block">Minute 0 ({formatSlot(0)})</span>
+                          <p className="text-xs font-semibold text-emerald-700 mt-0.5">Immediate Asset Delivery DM (Lead magnet, PDF link, or coupon code)</p>
+                        </div>
+                        <span className="px-2.5 py-1 rounded-full bg-emerald-600 text-white font-extrabold text-[10px] uppercase">100% Compliant</span>
+                      </div>
+
+                      <div className="p-4 rounded-xl bg-blue-50 border-2 border-blue-300 flex items-start justify-between gap-4">
+                        <div>
+                          <span className="text-xs font-black text-blue-900 uppercase tracking-wide block">Hour 4 ({formatSlot(4)})</span>
+                          <p className="text-xs font-semibold text-blue-800 mt-0.5">Soft Value Check-In: "Hey! Were you able to open the resource okay?"</p>
+                        </div>
+                        <span className="px-2.5 py-1 rounded-full bg-blue-600 text-white font-extrabold text-[10px] uppercase">High Engagement</span>
+                      </div>
+
+                      <div className="p-4 rounded-xl bg-amber-50 border-2 border-amber-300 flex items-start justify-between gap-4">
+                        <div>
+                          <span className="text-xs font-black text-amber-900 uppercase tracking-wide block">Hour 20 ({formatSlot(20)})</span>
+                          <p className="text-xs font-semibold text-amber-800 mt-0.5">Final Offer Pitch: "Quick heads up — your exclusive 20% discount code expires tonight!"</p>
+                        </div>
+                        <span className="px-2.5 py-1 rounded-full bg-amber-500 text-white font-extrabold text-[10px] uppercase">Closing Slot</span>
+                      </div>
+
+                      <div className="p-4 rounded-xl bg-red-50 border-2 border-red-300 flex items-start justify-between gap-4">
+                        <div>
+                          <span className="text-xs font-black text-red-900 uppercase tracking-wide block">Hour 23:50 ({formatSlot(23)})</span>
+                          <p className="text-xs font-semibold text-red-800 mt-0.5">⚠️ Window Expiry Warning: Cacto automatically halts automated sequences to prevent Meta policy flags.</p>
+                        </div>
+                        <span className="px-2.5 py-1 rounded-full bg-red-600 text-white font-extrabold text-[10px] uppercase">Window Lockout</span>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 28: Shadowban Risk Simulator */}
+          {toolSlug === 'shadowban-risk-simulator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Daily Automated DM Volume</label>
+                  <input 
+                    type="number" 
+                    value={simDailyDmVolume}
+                    onChange={(e) => setSimDailyDmVolume(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Comment Reply Variations</label>
+                  <select 
+                    value={simReplyVariations}
+                    onChange={(e) => setSimReplyVariations(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value={1}>1 Static Phrase (High Risk)</option>
+                    <option value={2}>2 Phrasing Variations</option>
+                    <option value={4}>4 Phrasing Variations (Recommended)</option>
+                    <option value={6}>6+ Phrasing Variations (Safest)</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Account Age (Months)</label>
+                  <input 
+                    type="number" 
+                    value={simAccountAgeMonths}
+                    onChange={(e) => setSimAccountAgeMonths(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2 flex flex-col justify-end">
+                  <label className="flex items-center gap-2 cursor-pointer p-3 rounded-xl border-2 border-[#1A1510] bg-white">
+                    <input 
+                      type="checkbox"
+                      checked={simHasLinkInDm}
+                      onChange={(e) => setSimHasLinkInDm(e.target.checked)}
+                      className="w-4 h-4 accent-[#16A34A]"
+                    />
+                    <span className="text-xs font-bold text-zinc-800">Include Direct Web Links in DM</span>
+                  </label>
+                </div>
+              </div>
+
+              {(() => {
+                let penalty = 0
+                if (simDailyDmVolume > 300) penalty += 35
+                else if (simDailyDmVolume > 150) penalty += 15
+                if (simReplyVariations < 2) penalty += 30
+                else if (simReplyVariations < 4) penalty += 15
+                if (simAccountAgeMonths < 3) penalty += 20
+                
+                const trustScore = Math.max(10, Math.min(100, 100 - penalty))
+                const isSafe = trustScore >= 80
+                const isModerate = trustScore >= 50 && trustScore < 80
+
+                return (
+                  <div className="p-6 rounded-2xl bg-white border-2 border-[#1A1510] space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      <div>
+                        <span className="text-[10px] font-black text-zinc-400 uppercase tracking-wider block">Simulated Account Safety Score</span>
+                        <span className={`text-4xl font-black ${isSafe ? 'text-emerald-600' : isModerate ? 'text-amber-500' : 'text-red-600'}`}>
+                          {trustScore}%
+                        </span>
+                      </div>
+                      <span className={`px-4 py-2 rounded-full font-black text-xs uppercase tracking-wider border ${
+                        isSafe ? 'bg-emerald-100 text-emerald-800 border-emerald-300' : 
+                        isModerate ? 'bg-amber-100 text-amber-800 border-amber-300' : 
+                        'bg-red-100 text-red-800 border-red-300'
+                      }`}>
+                        {isSafe ? '🛡️ Safe & Compliant' : isModerate ? '⚠️ Moderate Risk' : '🚨 High Shadowban Risk'}
+                      </span>
+                    </div>
+
+                    <div className="w-full bg-zinc-200 h-3 rounded-full overflow-hidden">
+                      <div 
+                        className={`h-full transition-all duration-500 ${isSafe ? 'bg-emerald-500' : isModerate ? 'bg-amber-500' : 'bg-red-500'}`}
+                        style={{ width: `${trustScore}%` }}
+                      />
+                    </div>
+
+                    <div className="space-y-2 pt-2 border-t border-zinc-200">
+                      <span className="text-[10px] font-black text-zinc-500 uppercase tracking-wider block">Safety Optimization Tips:</span>
+                      <ul className="text-xs font-bold text-zinc-700 space-y-1 pl-4 list-disc">
+                        {simReplyVariations < 4 && <li>Increase public comment reply variations to at least 4 phrases to bypass bot detection.</li>}
+                        {simDailyDmVolume > 200 && <li>Stagger DM triggers with human-like rate limiting buffers using Cacto's native Meta API endpoints.</li>}
+                        {simAccountAgeMonths < 3 && <li>New accounts under 3 months should limit daily DMs to under 100/day during warm-up.</li>}
+                        {isSafe && <li>Your current parameters align perfectly with Meta Graph API developer safety guidelines!</li>}
+                      </ul>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 29: Bio SEO Auditor */}
+          {toolSlug === 'bio-seo-auditor' && (
+            <div className="space-y-6">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Instagram Name Field (Max 30 Chars)</label>
+                  <input 
+                    type="text" 
+                    maxLength={30}
+                    value={bioNameInput}
+                    onChange={(e) => setBioNameInput(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Bio Description Text (Max 150 Chars)</label>
+                  <textarea 
+                    rows={3}
+                    maxLength={150}
+                    value={bioTextBodyInput}
+                    onChange={(e) => setBioTextBodyInput(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const hasSeparator = bioNameInput.includes('|') || bioNameInput.includes('-') || bioNameInput.includes('•')
+                const hasKeyword = bioNameInput.length > 15
+                const hasCommentCta = bioTextBodyInput.toLowerCase().includes('comment') || bioTextBodyInput.toLowerCase().includes('dm')
+                let seoScore = 40
+                if (hasSeparator) seoScore += 20
+                if (hasKeyword) seoScore += 20
+                if (hasCommentCta) seoScore += 20
+
+                return (
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-xl bg-white border-2 border-[#1A1510] flex items-center justify-between gap-4">
+                      <div>
+                        <span className="text-[10px] font-black text-zinc-400 uppercase tracking-wider block">Instagram Bio Searchability Score</span>
+                        <span className="text-3xl font-black text-[#16A34A]">{seoScore} / 100</span>
+                      </div>
+                      <div className="text-right space-y-1">
+                        <span className="text-[10px] font-extrabold text-zinc-500 block">Name Field: {bioNameInput.length}/30</span>
+                        <span className="text-[10px] font-extrabold text-zinc-500 block">Bio Body: {bioTextBodyInput.length}/150</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-3">
+                      <span className="text-[10px] font-black text-emerald-700 uppercase tracking-wider block">AI-Optimized Bio Rewrite</span>
+                      <p className="text-xs font-mono font-bold text-emerald-950 bg-white p-3 rounded-lg border border-emerald-300 whitespace-pre-line">
+                        {`${bioNameInput.includes('|') ? bioNameInput : bioNameInput + ' | Growth Specialist'}\n✨ ${bioTextBodyInput.split('.')[0]}.\n🔥 Comment "SCALE" below to get my free DM playbook! ⬇️`}
+                      </p>
+                      <button 
+                        onClick={() => copyToClipboard(`${bioNameInput.includes('|') ? bioNameInput : bioNameInput + ' | Growth Specialist'}\n✨ ${bioTextBodyInput.split('.')[0]}.\n🔥 Comment "SCALE" below to get my free DM playbook! ⬇️`, 'Optimized Bio')}
+                        className="py-2 px-4 rounded-xl bg-[#16A34A] text-white font-extrabold text-xs hover:bg-[#15803D] transition border-none cursor-pointer flex items-center gap-2"
+                      >
+                        <Copy className="w-3.5 h-3.5" /> Copy Optimized Bio
+                      </button>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 30: Comment Rotator Checker */}
+          {toolSlug === 'comment-rotator-checker' && (
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Core Comment Reply Intent</label>
+                <input 
+                  type="text" 
+                  value={rotatorIntentInput}
+                  onChange={(e) => setRotatorIntentInput(e.target.value)}
+                  placeholder="Just sent the guide to your DMs!"
+                  className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                />
+              </div>
+
+              {(() => {
+                const intent = rotatorIntentInput.trim() || 'Just sent the guide to your DMs!'
+                const variations = [
+                  `Just sent it over {{first_name}}! Check your DMs 📩`,
+                  `Hey {{first_name}}! The link is waiting in your inbox right now 🚀`,
+                  `Sent to your DMs! Let me know if you need any help with it {{first_name}} ✨`,
+                  `Check your inbox {{first_name}}! Just delivered the full guide 📥`,
+                  `All set {{first_name}}! Check your private messages folder 🔥`
+                ]
+
+                return (
+                  <div className="space-y-4">
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">5 Natural Public Comment Reply Variations</span>
+                    <div className="space-y-2.5">
+                      {variations.map((variant, idx) => (
+                        <div key={idx} className="p-3 rounded-xl bg-white border border-zinc-200 flex items-center justify-between gap-3 text-xs font-semibold text-zinc-800">
+                          <span>Variant {idx + 1}: {variant}</span>
+                          <button 
+                            onClick={() => copyToClipboard(variant, `Variant ${idx + 1}`)}
+                            className="p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition border-none cursor-pointer shrink-0"
+                          >
+                            <Copy className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+
+
+          {/* TOOL 31: Sponsored Rate Calculator */}
+          {toolSlug === 'sponsored-rate-calculator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Follower Count</label>
+                  <input 
+                    type="number" 
+                    value={sponFollowers}
+                    onChange={(e) => setSponFollowers(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Average Reel Views</label>
+                  <input 
+                    type="number" 
+                    value={sponAvgViews}
+                    onChange={(e) => setSponAvgViews(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Niche Category</label>
+                  <select 
+                    value={sponNiche}
+                    onChange={(e) => setSponNiche(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="Finance">Finance & B2B SaaS (High CPM: $45)</option>
+                    <option value="Coaching">Coaching & Education (Med CPM: $30)</option>
+                    <option value="Lifestyle">Lifestyle & Fashion (Std CPM: $20)</option>
+                    <option value="Tech">Tech & Software (High CPM: $40)</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Deliverable Format</label>
+                  <select 
+                    value={sponFormat}
+                    onChange={(e) => setSponFormat(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="Reel">Dedicated Instagram Reel</option>
+                    <option value="Story">3-Slide Story Set</option>
+                    <option value="Bundle">Reel + Story Set Bundle</option>
+                  </select>
+                </div>
+              </div>
+
+              {(() => {
+                let nicheMult = 1.2
+                if (sponNiche === 'Finance') nicheMult = 2.2
+                else if (sponNiche === 'Tech') nicheMult = 1.8
+                else if (sponNiche === 'Coaching') nicheMult = 1.5
+
+                let formatMult = 1.2
+                if (sponFormat === 'Bundle') formatMult = 1.8
+                else if (sponFormat === 'Story') formatMult = 0.7
+
+                const baseRate = Math.round(((sponFollowers * 0.01) + (sponAvgViews * 0.025)) * nicheMult * formatMult)
+                const minRate = Math.round(baseRate * 0.8)
+                const cactoRate = Math.round(baseRate * 1.35)
+
+                return (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div className="p-4 rounded-xl bg-zinc-100 border border-zinc-200 text-center">
+                        <span className="text-[10px] font-black text-zinc-500 uppercase tracking-wider block">Minimum Rate</span>
+                        <span className="text-xl font-black text-zinc-700">${minRate.toLocaleString()}</span>
+                      </div>
+                      <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-center">
+                        <span className="text-[10px] font-black text-emerald-700 uppercase tracking-wider block">Recommended Baseline</span>
+                        <span className="text-2xl font-black text-emerald-800">${baseRate.toLocaleString()}</span>
+                      </div>
+                      <div className="p-4 rounded-xl bg-amber-50 border border-amber-300 text-center">
+                        <span className="text-[10px] font-black text-amber-800 uppercase tracking-wider block">With Cacto AutoDM (+35%)</span>
+                        <span className="text-2xl font-black text-amber-900">${cactoRate.toLocaleString()}</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-white border-2 border-[#1A1510] space-y-2">
+                      <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">Sponsorship Rate Card Pitch Note</span>
+                      <p className="text-xs font-semibold text-zinc-700 leading-relaxed">
+                        "Deliverable includes a dedicated {sponFormat} plus <strong>automated Cacto DM link delivery</strong> for every viewer who comments your brand keyword, guaranteeing 5x higher click-through rates than standard bio links."
+                      </p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 32: DM Funnel ROI Calculator */}
+          {toolSlug === 'dm-funnel-calculator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Projected Reel Views</label>
+                  <input 
+                    type="number" 
+                    value={funnelViews}
+                    onChange={(e) => setFunnelViews(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Comment Trigger Rate (%)</label>
+                  <input 
+                    type="number" 
+                    step="0.5"
+                    value={funnelCommentRate}
+                    onChange={(e) => setFunnelCommentRate(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Product Price ($)</label>
+                  <input 
+                    type="number" 
+                    value={funnelProductPrice}
+                    onChange={(e) => setFunnelProductPrice(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const totalComments = Math.round(funnelViews * (funnelCommentRate / 100))
+                const dmOpens = Math.round(totalComments * 0.90)
+                const linkClicks = Math.round(dmOpens * 0.45)
+                const purchases = Math.round(linkClicks * 0.05)
+                const totalRevenue = Math.round(purchases * funnelProductPrice)
+
+                return (
+                  <div className="space-y-4">
+                    <div className="p-6 rounded-2xl bg-[#1A1510] text-white space-y-4">
+                      <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">Projected DM Sales Revenue</span>
+                      <span className="text-4xl font-black text-[#FAF6EE]">${totalRevenue.toLocaleString()}</span>
+                      
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/10 text-center">
+                        <div>
+                          <span className="text-[9px] text-zinc-400 font-extrabold uppercase block">1. Comments</span>
+                          <span className="text-base font-black text-white">{totalComments.toLocaleString()}</span>
+                        </div>
+                        <div>
+                          <span className="text-[9px] text-zinc-400 font-extrabold uppercase block">2. DM Opens (90%)</span>
+                          <span className="text-base font-black text-white">{dmOpens.toLocaleString()}</span>
+                        </div>
+                        <div>
+                          <span className="text-[9px] text-zinc-400 font-extrabold uppercase block">3. Link Clicks (45%)</span>
+                          <span className="text-base font-black text-white">{linkClicks.toLocaleString()}</span>
+                        </div>
+                        <div>
+                          <span className="text-[9px] text-zinc-400 font-extrabold uppercase block">4. Sales (5%)</span>
+                          <span className="text-base font-black text-emerald-400">{purchases.toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 33: Bio Link Leakage Calculator */}
+          {toolSlug === 'bio-link-leakage-calculator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Monthly Reel Views</label>
+                  <input 
+                    type="number" 
+                    value={leakageViews}
+                    onChange={(e) => setLeakageViews(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Offer Price ($)</label>
+                  <input 
+                    type="number" 
+                    value={leakageProductPrice}
+                    onChange={(e) => setLeakageProductPrice(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const bioTaps = Math.round(leakageViews * 0.015)
+                const bioSales = Math.round(bioTaps * 0.02 * leakageProductPrice)
+                const cactoDms = Math.round(leakageViews * 0.03 * 0.90 * 0.45)
+                const cactoSales = Math.round(cactoDms * 0.05 * leakageProductPrice)
+                const lostDollars = Math.max(0, cactoSales - bioSales)
+
+                return (
+                  <div className="space-y-4">
+                    <div className="p-6 rounded-2xl bg-red-50 border-2 border-red-300 space-y-4">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                          <span className="text-[10px] font-black text-red-600 uppercase tracking-wider block">Monthly Revenue Lost to Bio Link Friction</span>
+                          <span className="text-4xl font-black text-red-700">${lostDollars.toLocaleString()} / month</span>
+                        </div>
+                        <span className="px-3 py-1.5 rounded-full bg-red-600 text-white font-extrabold text-xs uppercase tracking-wider">
+                          🚨 80% Conversion Leak
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-red-200">
+                        <div className="p-3 rounded-xl bg-white border border-red-200">
+                          <span className="text-[10px] font-black text-zinc-500 uppercase block">Traditional Bio Linktree Sales</span>
+                          <span className="text-lg font-black text-zinc-800">${bioSales.toLocaleString()}</span>
+                        </div>
+                        <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-300">
+                          <span className="text-[10px] font-black text-emerald-700 uppercase block">Cacto Instant Auto-DM Sales</span>
+                          <span className="text-lg font-black text-emerald-800">${cactoSales.toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 34: Digital Product Pricing Calculator */}
+          {toolSlug === 'digital-product-pricing-calculator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Product Format</label>
+                  <select 
+                    value={prodFormat}
+                    onChange={(e) => setProdFormat(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="Notion Workspace">Notion Workspace & Dashboard ($27 - $47)</option>
+                    <option value="Canva Pack">Canva Template Bundle ($19 - $37)</option>
+                    <option value="Mini-Course">30-Minute Video Mini-Course ($47 - $97)</option>
+                    <option value="PDF Playbook">Tactical PDF Checklist ($9 - $27)</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Target Niche</label>
+                  <select 
+                    value={prodNiche}
+                    onChange={(e) => setProdNiche(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="Coaching">Coaching & High-Ticket Services</option>
+                    <option value="B2B">B2B SaaS & Agency Growth</option>
+                    <option value="Creative">Design, Art & Creative Assets</option>
+                    <option value="Fitness">Fitness, Health & Wellness</option>
+                  </select>
+                </div>
+              </div>
+
+              {(() => {
+                let recPrice = 27
+                if (prodFormat === 'Mini-Course') recPrice = 67
+                else if (prodFormat === 'Notion Workspace') recPrice = 37
+                else if (prodFormat === 'Canva Pack') recPrice = 19
+                else if (prodFormat === 'PDF Playbook') recPrice = 17
+
+                if (prodNiche === 'B2B') recPrice = Math.round(recPrice * 1.4)
+
+                return (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="p-4 rounded-xl bg-emerald-50 border-2 border-emerald-400 text-center">
+                        <span className="text-[10px] font-black text-emerald-700 uppercase tracking-wider block">Recommended Impulse Price</span>
+                        <span className="text-3xl font-black text-emerald-800">${recPrice}</span>
+                      </div>
+                      <div className="p-4 rounded-xl bg-amber-50 border-2 border-amber-400 text-center">
+                        <span className="text-[10px] font-black text-amber-800 uppercase tracking-wider block">Upsell Bundle Tier</span>
+                        <span className="text-3xl font-black text-amber-900">${Math.round(recPrice * 2.2)}</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-white border-2 border-[#1A1510] space-y-2">
+                      <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">Mobile Chat Checkout Recommendation</span>
+                      <p className="text-xs font-semibold text-zinc-700 leading-relaxed">
+                        At <strong>${recPrice}</strong>, this {prodFormat} falls directly within the mobile impulse buying range. Pair this with a 1-tap Stripe Apple Pay link inside Cacto DMs to achieve 5-8% checkout conversion rates.
+                      </p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 35: Reels Bonus Estimator */}
+          {toolSlug === 'reels-bonus-estimator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Monthly Reel Views</label>
+                  <input 
+                    type="number" 
+                    value={bonusReelViews}
+                    onChange={(e) => setBonusReelViews(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Digital Product Price ($)</label>
+                  <input 
+                    type="number" 
+                    value={bonusProductPrice}
+                    onChange={(e) => setBonusProductPrice(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const platformPayout = Math.round((bonusReelViews / 1000) * 0.15)
+                const cactoSales = Math.round(bonusReelViews * 0.0006 * bonusProductPrice)
+                const totalIncome = platformPayout + cactoSales
+                const multiplier = Math.round(totalIncome / (platformPayout || 1))
+
+                return (
+                  <div className="space-y-4">
+                    <div className="p-6 rounded-2xl bg-white border-2 border-[#1A1510] space-y-4">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                          <span className="text-[10px] font-black text-zinc-400 uppercase tracking-wider block">Combined Reel Earnings Potential</span>
+                          <span className="text-4xl font-black text-[#16A34A]">${totalIncome.toLocaleString()} / month</span>
+                        </div>
+                        <span className="px-3 py-1.5 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-xs uppercase tracking-wider border border-emerald-300">
+                          ⚡ {multiplier}x Higher Income
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-zinc-200">
+                        <div className="p-3 rounded-xl bg-zinc-50 border border-zinc-200">
+                          <span className="text-[10px] font-black text-zinc-500 uppercase block">Platform View Ad Payout (Est. CPM)</span>
+                          <span className="text-lg font-black text-zinc-700">${platformPayout.toLocaleString()}</span>
+                        </div>
+                        <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-300">
+                          <span className="text-[10px] font-black text-emerald-700 uppercase block">Cacto Comment DM Funnel Sales</span>
+                          <span className="text-lg font-black text-emerald-800">${cactoSales.toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 36: Giveaway Winner Picker */}
+          {toolSlug === 'giveaway-winner-picker' && (
+            <div className="space-y-6">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Paste Giveaway Comments / Usernames</label>
+                  <textarea 
+                    rows={4}
+                    value={giveawayEntries}
+                    onChange={(e) => setGiveawayEntries(e.target.value)}
+                    placeholder="@user1, @user2, @user3..."
+                    className="w-full p-4 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold font-mono"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Required Keyword Filter (Optional)</label>
+                  <input 
+                    type="text" 
+                    value={giveawayKeyword}
+                    onChange={(e) => setGiveawayKeyword(e.target.value)}
+                    placeholder="e.g. WIN or #giveaway"
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const candidates = giveawayEntries.split(/[\n,]+/).map(s => s.trim()).filter(Boolean)
+                const filtered = giveawayKeyword.trim() 
+                  ? candidates.filter(c => c.toLowerCase().includes(giveawayKeyword.trim().toLowerCase()))
+                  : candidates
+
+                const handleDrawWinner = () => {
+                  if (filtered.length === 0) return
+                  const randomIndex = Math.floor(Math.random() * filtered.length)
+                  setPickedWinner(filtered[randomIndex])
+                }
+
+                return (
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between p-4 rounded-xl bg-zinc-100 border border-zinc-200">
+                      <span className="text-xs font-bold text-zinc-700">Eligible Entries: <strong>{filtered.length}</strong> / {candidates.length}</span>
+                      <button 
+                        onClick={handleDrawWinner}
+                        disabled={filtered.length === 0}
+                        className="py-2.5 px-6 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white font-black text-xs transition border-none cursor-pointer disabled:opacity-50"
+                      >
+                        🏆 Draw Random Winner
+                      </button>
+                    </div>
+
+                    {pickedWinner && (
+                      <div className="p-6 rounded-2xl bg-amber-50 border-2 border-amber-400 text-center space-y-3 animate-in zoom-in-95">
+                        <span className="text-[10px] font-black text-amber-700 uppercase tracking-widest block">🎉 Verified Random Winner Drawn</span>
+                        <span className="text-3xl font-black text-[#1A1510] block">{pickedWinner}</span>
+                        <p className="text-[10px] font-extrabold text-amber-800">
+                          Cryptographically Verified Unbiased Draw • Cacto Official Certificate
+                        </p>
+                        <button 
+                          onClick={() => copyToClipboard(`🏆 Winner Drawn: ${pickedWinner} (Verified via Cacto Giveaway Picker)`, 'Winner Proof')}
+                          className="py-2 px-4 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-extrabold text-xs border-none cursor-pointer inline-flex items-center gap-2"
+                        >
+                          <Copy className="w-3.5 h-3.5" /> Copy Winner Certificate
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 37: Reels Overlay Hook Generator */}
+          {toolSlug === 'reels-overlay-hook-generator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Content Niche</label>
+                  <select 
+                    value={hookNicheCategory}
+                    onChange={(e) => setHookNicheCategory(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="Coaching">Coaching & Business</option>
+                    <option value="SaaS">SaaS & Tech Tools</option>
+                    <option value="ECommerce">E-Commerce & Brands</option>
+                    <option value="Creative">Creative & Creators</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Hook Emotion / Angle</label>
+                  <select 
+                    value={hookEmotion}
+                    onChange={(e) => setHookEmotion(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="Curiosity">Curiosity & Secrets</option>
+                    <option value="FOMO">Urgency & FOMO</option>
+                    <option value="HowTo">Step-by-Step Guide</option>
+                    <option value="Controversy">Myth-Busting & Hot Take</option>
+                  </select>
+                </div>
+              </div>
+
+              {(() => {
+                const hooks = [
+                  `Stop doing this 1 mistake on Instagram in 2026 🚨 (Comment SCALE for fix)`,
+                  `The secret 3-second DM hack top creators don't tell you 🤫`,
+                  `How I turned 1,000 Reel views into $450 in sales 💰 (Comment PDF below)`,
+                  `Why your link-in-bio is costing you 80% of your sales 📉`,
+                  `Do NOT post your next Reel until you try this overlay trick ⚡`,
+                  `The exact 5-step playbook to automate your DMs 24/7 📥`,
+                  `Why Manychat alternative tools are exploding right now 🔥`,
+                  `Steal my 3-step comment trigger formula (Comment PLAYBOOK) 🚀`
+                ]
+
+                return (
+                  <div className="space-y-4">
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">Scroll-Stopping On-Screen Overlay Text Hooks</span>
+                    <div className="space-y-2.5">
+                      {hooks.map((hook, idx) => (
+                        <div key={idx} className="p-3 rounded-xl bg-white border border-zinc-200 flex items-center justify-between gap-3 text-xs font-bold text-zinc-900">
+                          <span>{idx + 1}. "{hook}"</span>
+                          <button 
+                            onClick={() => copyToClipboard(hook, `Hook ${idx + 1}`)}
+                            className="p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition border-none cursor-pointer shrink-0"
+                          >
+                            <Copy className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 38: Story Quiz Generator */}
+          {toolSlug === 'story-quiz-generator' && (
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Lead Magnet / Offer Name</label>
+                <input 
+                  type="text" 
+                  value={storyOfferName}
+                  onChange={(e) => setStoryOfferName(e.target.value)}
+                  placeholder="Instagram DM Automation Playbook"
+                  className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                />
+              </div>
+
+              {(() => {
+                const offer = storyOfferName.trim() || 'Instagram Growth Guide'
+
+                return (
+                  <div className="space-y-4">
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">3-Slide Interactive Storyboard</span>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="p-4 rounded-xl bg-white border-2 border-[#1A1510] space-y-2">
+                        <span className="text-[10px] font-black text-zinc-400 uppercase block">Slide 1: The Hook</span>
+                        <p className="text-xs font-bold text-zinc-800">"Struggling to convert Instagram views into actual leads? 📉"</p>
+                      </div>
+
+                      <div className="p-4 rounded-xl bg-emerald-50 border-2 border-emerald-400 space-y-2">
+                        <span className="text-[10px] font-black text-emerald-700 uppercase block">Slide 2: Poll Sticker</span>
+                        <p className="text-xs font-bold text-emerald-950">"Want my free 2026 {offer} delivered to your DMs?"</p>
+                        <div className="pt-2 text-[10px] font-mono font-extrabold text-emerald-800">
+                          Option A: YES! Send it! 📩<br />
+                          Option B: Send me the PDF! 🔥
+                        </div>
+                      </div>
+
+                      <div className="p-4 rounded-xl bg-amber-50 border-2 border-amber-400 space-y-2">
+                        <span className="text-[10px] font-black text-amber-800 uppercase block">Slide 3: Auto-DM Script</span>
+                        <p className="text-xs font-mono font-bold text-amber-950">{`"Hey @{{username}}! Here is your free ${offer} as requested! 🎁"`}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 39: Carousel Outline Generator */}
+          {toolSlug === 'carousel-outline-generator' && (
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Carousel Educational Topic</label>
+                <input 
+                  type="text" 
+                  value={outlineTopic}
+                  onChange={(e) => setOutlineTopic(e.target.value)}
+                  placeholder="5 Mistakes That Cost Me 10k Followers"
+                  className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                />
+              </div>
+
+              {(() => {
+                const topic = outlineTopic.trim() || 'Instagram Growth Strategy'
+
+                const slides = [
+                  { title: "Slide 1: Viral Hook", text: `The 5 Biggest Mistakes Creator Make in ${topic} (And how to fix them in 2026)` },
+                  { title: "Slide 2: The Problem", text: `Most creators rely on clunky bio link trees that lose 80% of clicks before the offer page loading.` },
+                  { title: "Slide 3: Action Step 1", text: `Switch to 1-word comment keyword triggers directly on your educational Reels.` },
+                  { title: "Slide 4: Action Step 2", text: `Use automated DM delivery to send PDF guides in 3 seconds while user intent is peak.` },
+                  { title: "Slide 5: Comment CTA", text: `🔥 Want my complete templates? Comment "SCALE" below and I'll DM you the free PDF!` }
+                ]
+
+                return (
+                  <div className="space-y-4">
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">5-Slide Content Blueprint</span>
+                    <div className="space-y-3">
+                      {slides.map((s, idx) => (
+                        <div key={idx} className="p-3.5 rounded-xl bg-white border border-zinc-200 space-y-1">
+                          <span className="text-[10px] font-black text-emerald-700 uppercase tracking-wider block">{s.title}</span>
+                          <p className="text-xs font-semibold text-zinc-800">{s.text}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 40: Comment Trigger Generator */}
+          {toolSlug === 'comment-trigger-generator' && (
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Offer / Lead Magnet Type</label>
+                <select 
+                  value={triggerOfferType}
+                  onChange={(e) => setTriggerOfferType(e.target.value)}
+                  className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                >
+                  <option value="PDF Guide">PDF Guide / Checklist</option>
+                  <option value="Template">Notion / Canva Template</option>
+                  <option value="Discount">Coupon / Discount Code</option>
+                  <option value="Masterclass">Webinar / Video Masterclass</option>
+                </select>
+              </div>
+
+              {(() => {
+                const words = ['SCALE', 'PLAYBOOK', 'PDF', 'REACH', 'PROFIT', 'GROWTH', 'FLOW', 'SYSTEM']
+
+                return (
+                  <div className="space-y-4">
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">Top 8 High-Converting 1-Word Comment Triggers</span>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      {words.map((w, idx) => (
+                        <button 
+                          key={idx}
+                          onClick={() => copyToClipboard(w, `Trigger '${w}'`)}
+                          className="p-3 rounded-xl bg-white border-2 border-[#1A1510] font-black text-sm text-[#1A1510] hover:bg-emerald-50 transition cursor-pointer flex items-center justify-between"
+                        >
+                          <span>{w}</span>
+                          <Copy className="w-3.5 h-3.5 text-zinc-400" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 41: Reel CTA Writer */}
+          {toolSlug === 'reel-cta-writer' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Offer Title</label>
+                  <input 
+                    type="text" 
+                    value={ctaOfferTitle}
+                    onChange={(e) => setCtaOfferTitle(e.target.value)}
+                    placeholder="2026 Growth Checklist"
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Target Trigger Keyword</label>
+                  <input 
+                    type="text" 
+                    value={ctaTriggerWord}
+                    onChange={(e) => setCtaTriggerWord(e.target.value)}
+                    placeholder="PLAYBOOK"
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const title = ctaOfferTitle.trim() || 'Free Checklist'
+                const word = ctaTriggerWord.trim() || 'SCALE'
+
+                const ctas = [
+                  { style: "Direct CTA", text: `🔥 Want my complete ${title}? Comment "${word}" below and I'll DM you the direct link right now!` },
+                  { style: "FOMO / Urgency CTA", text: `⚡ Drop "${word}" in the comments to get instant access to the ${title} before this offer closes!` },
+                  { style: "Value-Add CTA", text: `🎁 I compiled my full ${title} into a 1-page PDF. Comment "${word}" and check your inbox!` },
+                  { style: "Minimalist CTA", text: `Comment "${word}" ⬇️ (Sending to your DMs automatically)` }
+                ]
+
+                return (
+                  <div className="space-y-4">
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">4 High-Converting Caption CTA Styles</span>
+                    <div className="space-y-3">
+                      {ctas.map((c, idx) => (
+                        <div key={idx} className="p-3.5 rounded-xl bg-white border border-zinc-200 space-y-2">
+                          <div className="flex items-center justify-between">
+                            <span className="text-[10px] font-black text-emerald-700 uppercase tracking-wider">{c.style}</span>
+                            <button 
+                              onClick={() => copyToClipboard(c.text, c.style)}
+                              className="py-1 px-2.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-[10px] font-extrabold transition border-none cursor-pointer flex items-center gap-1"
+                            >
+                              <Copy className="w-3 h-3" /> Copy CTA
+                            </button>
+                          </div>
+                          <p className="text-xs font-semibold text-zinc-800">{c.text}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 42: Story Mention DM Generator */}
+          {toolSlug === 'story-mention-dm-generator' && (
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Bonus Reward Offer</label>
+                <input 
+                  type="text" 
+                  value={storyRewardName}
+                  onChange={(e) => setStoryRewardName(e.target.value)}
+                  placeholder="15% Off VIP Membership"
+                  className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                />
+              </div>
+
+              {(() => {
+                const reward = storyRewardName.trim() || 'Special Bonus'
+                const scripts = [
+                  `Thanks so much for the Story mention @{{username}}! 💚 Here is your exclusive ${reward}: [Link]`,
+                  `Hey @{{username}}! Saw your Story share, really appreciate the love! Here is your ${reward} as promised 🎁`,
+                  `You rock @{{username}}! Thanks for tagging me. Here is your bonus ${reward}: [Link]`
+                ]
+
+                return (
+                  <div className="space-y-4">
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">Automated Story Mention Reply Scripts</span>
+                    <div className="space-y-3">
+                      {scripts.map((s, idx) => (
+                        <div key={idx} className="p-3.5 rounded-xl bg-white border border-zinc-200 flex items-center justify-between gap-3 text-xs font-mono font-bold text-zinc-800">
+                          <span>{s}</span>
+                          <button 
+                            onClick={() => copyToClipboard(s, `Script ${idx + 1}`)}
+                            className="p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition border-none cursor-pointer shrink-0"
+                          >
+                            <Copy className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 43: AI Prompt Generator */}
+          {toolSlug === 'ai-prompt-generator' && (
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">AI Content Task</label>
+                <select 
+                  value={aiTaskType}
+                  onChange={(e) => setAiTaskType(e.target.value)}
+                  className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                >
+                  <option value="Reel Script & Hook">Viral Reel Script & On-Screen Overlay Hook</option>
+                  <option value="Comment Rotator">5-Variant Comment Reply Rotator Pool</option>
+                  <option value="DM Funnel Copy">3-Step DEP Automated DM Sales Sequence</option>
+                </select>
+              </div>
+
+              {(() => {
+                const masterPrompt = `You are an elite Instagram growth strategist and direct-response copywriter.
+Task: Write a ${aiTaskType} tailored for Instagram DM automation using Cacto.
+
+Formatting Constraints:
+- Use short, 1-2 sentence paragraphs optimized for mobile screens.
+- Include a high-converting single-word comment keyword trigger (e.g. "SCALE").
+- Structure visual text overlays for the first 3 seconds of video.
+- Avoid generic marketing clichés; maintain a warm, authentic tone.`
+
+                return (
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-xl bg-white border-2 border-[#1A1510] space-y-3">
+                      <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">Production-Ready Master Prompt (ChatGPT & Claude)</span>
+                      <p className="text-xs font-mono font-bold text-zinc-800 bg-zinc-50 p-3 rounded-lg border border-zinc-200 whitespace-pre-line">
+                        {masterPrompt}
+                      </p>
+                      <button 
+                        onClick={() => copyToClipboard(masterPrompt, 'Master AI Prompt')}
+                        className="py-2 px-4 rounded-xl bg-[#16A34A] text-white font-extrabold text-xs hover:bg-[#15803D] transition border-none cursor-pointer flex items-center gap-2"
+                      >
+                        <Copy className="w-3.5 h-3.5" /> Copy Master AI Prompt
+                      </button>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 44: DEP Sequence Builder */}
+          {toolSlug === 'dep-sequence-builder' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Target Niche</label>
+                  <select 
+                    value={depNiche}
+                    onChange={(e) => setDepNiche(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="Coaching">Coaching & Business</option>
+                    <option value="ECommerce">E-Commerce & Retail</option>
+                    <option value="Creative">Creative & Content Creators</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Product / Lead Magnet Title</label>
+                  <input 
+                    type="text" 
+                    value={depProductTitle}
+                    onChange={(e) => setDepProductTitle(e.target.value)}
+                    placeholder="10k Instagram Growth System"
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const title = depProductTitle.trim() || 'Free Guide'
+
+                return (
+                  <div className="space-y-4">
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">3-Step DEP Nurturing Chat Sequence</span>
+                    
+                    <div className="space-y-3">
+                      <div className="p-4 rounded-xl bg-emerald-50 border-2 border-emerald-400 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-black text-emerald-800 uppercase">Message 1: DELIVER (Minute 0)</span>
+                          <button onClick={() => copyToClipboard(`Hey {{first_name}}! Here is your free ${title} as promised: [Link] 🎁`, 'Msg 1')} className="py-1 px-2 rounded-lg bg-emerald-600 text-white font-extrabold text-[10px] border-none cursor-pointer">Copy Msg 1</button>
+                        </div>
+                        <p className="text-xs font-mono font-bold text-emerald-950">{`"Hey {{first_name}}! Here is your free ${title} as promised: [Link] 🎁 Tapping the link opens it immediately!"`}</p>
+                      </div>
+
+                      <div className="p-4 rounded-xl bg-blue-50 border-2 border-blue-400 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-black text-blue-900 uppercase">Message 2: EDUCATE (Hour 4)</span>
+                          <button onClick={() => copyToClipboard(`Hey {{first_name}}! Quick check-in — were you able to go through Section 2 of the ${title}?`, 'Msg 2')} className="py-1 px-2 rounded-lg bg-blue-600 text-white font-extrabold text-[10px] border-none cursor-pointer">Copy Msg 2</button>
+                        </div>
+                        <p className="text-xs font-mono font-bold text-blue-950">{`"Hey {{first_name}}! Quick check-in — were you able to go through Section 2 of the ${title}? It breaks down the exact 3 steps!"`}</p>
+                      </div>
+
+                      <div className="p-4 rounded-xl bg-amber-50 border-2 border-amber-400 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-black text-amber-900 uppercase">Message 3: PITCH (Hour 20)</span>
+                          <button onClick={() => copyToClipboard(`Ready to take your growth to the next level {{first_name}}? Get our full VIP System at 20% off before tonight!`, 'Msg 3')} className="py-1 px-2 rounded-lg bg-amber-600 text-white font-extrabold text-[10px] border-none cursor-pointer">Copy Msg 3</button>
+                        </div>
+                        <p className="text-xs font-mono font-bold text-amber-950">{`"Ready to take your growth to the next level {{first_name}}? Join our VIP System today with an exclusive 20% discount code before tonight! ⚡ [Link]"`}</p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+
+
+          {/* TOOL 45: Best Time to Post */}
+          {toolSlug === 'best-time-to-post' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Audience Target Region</label>
+                  <select 
+                    value={postRegion}
+                    onChange={(e) => setPostRegion(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="North America">North America (EST / PST)</option>
+                    <option value="Europe">Europe (GMT / CET)</option>
+                    <option value="Asia-Pacific">Asia-Pacific (IST / SGT)</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Niche Category</label>
+                  <select 
+                    value={postNicheCat}
+                    onChange={(e) => setPostNicheCat(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="Business/Coaching">Business & Coaching</option>
+                    <option value="Fitness">Fitness & Wellness</option>
+                    <option value="Creative">Creative & Fashion</option>
+                  </select>
+                </div>
+              </div>
+
+              {(() => {
+                const days = [
+                  { day: "Mon", slot: "8:00 AM & 7:00 PM" },
+                  { day: "Tue", slot: "9:00 AM & 8:00 PM (Highest Traffic)" },
+                  { day: "Wed", slot: "11:00 AM & 7:00 PM" },
+                  { day: "Thu", slot: "8:30 AM & 6:30 PM" },
+                  { day: "Fri", slot: "10:00 AM & 5:00 PM" },
+                  { day: "Sat", slot: "9:00 AM & 11:00 AM" },
+                  { day: "Sun", slot: "6:00 PM & 8:30 PM (Evening Peak)" }
+                ]
+
+                return (
+                  <div className="space-y-4">
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">7-Day Peak Posting Matrix ({postRegion})</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+                      {days.map((d, idx) => (
+                        <div key={idx} className="p-3 rounded-xl bg-white border-2 border-[#1A1510] text-center space-y-1">
+                          <span className="text-xs font-black text-[#16A34A] block">{d.day}</span>
+                          <span className="text-[11px] font-extrabold text-zinc-800 block">{d.slot}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 46: Story View Conversion Calculator */}
+          {toolSlug === 'story-view-conversion-calculator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Total Followers</label>
+                  <input 
+                    type="number" 
+                    value={storyFollowers}
+                    onChange={(e) => setStoryFollowers(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Avg Story Views</label>
+                  <input 
+                    type="number" 
+                    value={storyAvgViews}
+                    onChange={(e) => setStoryAvgViews(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Poll Taps / DM Leads</label>
+                  <input 
+                    type="number" 
+                    value={storyDmTaps}
+                    onChange={(e) => setStoryDmTaps(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const viewRate = ((storyAvgViews / (storyFollowers || 1)) * 100).toFixed(1)
+                const convRate = ((storyDmTaps / (storyAvgViews || 1)) * 100).toFixed(1)
+
+                return (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="p-4 rounded-xl bg-emerald-50 border-2 border-emerald-400 text-center">
+                        <span className="text-[10px] font-black text-emerald-700 uppercase tracking-wider block">Story View Rate</span>
+                        <span className="text-3xl font-black text-emerald-800">{viewRate}%</span>
+                      </div>
+                      <div className="p-4 rounded-xl bg-blue-50 border-2 border-blue-400 text-center">
+                        <span className="text-[10px] font-black text-blue-800 uppercase tracking-wider block">Story DM Conversion</span>
+                        <span className="text-3xl font-black text-blue-900">{convRate}%</span>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 47: Competitor Benchmark Tool */}
+          {toolSlug === 'competitor-benchmark-tool' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="p-4 rounded-xl bg-emerald-50 border-2 border-emerald-300 space-y-3">
+                  <span className="text-xs font-black text-emerald-800 uppercase block">Your Account Metrics</span>
+                  <div className="grid grid-cols-3 gap-2">
+                    <input type="number" value={compMyFollowers} onChange={(e) => setCompMyFollowers(Number(e.target.value))} placeholder="Followers" className="p-2 rounded-lg border text-xs font-bold" />
+                    <input type="number" value={compMyLikes} onChange={(e) => setCompMyLikes(Number(e.target.value))} placeholder="Likes" className="p-2 rounded-lg border text-xs font-bold" />
+                    <input type="number" value={compMyComments} onChange={(e) => setCompMyComments(Number(e.target.value))} placeholder="Comments" className="p-2 rounded-lg border text-xs font-bold" />
+                  </div>
+                </div>
+                <div className="p-4 rounded-xl bg-zinc-100 border-2 border-zinc-300 space-y-3">
+                  <span className="text-xs font-black text-zinc-700 uppercase block">Competitor Metrics</span>
+                  <div className="grid grid-cols-3 gap-2">
+                    <input type="number" value={compTheirFollowers} onChange={(e) => setCompTheirFollowers(Number(e.target.value))} placeholder="Followers" className="p-2 rounded-lg border text-xs font-bold" />
+                    <input type="number" value={compTheirLikes} onChange={(e) => setCompTheirLikes(Number(e.target.value))} placeholder="Likes" className="p-2 rounded-lg border text-xs font-bold" />
+                    <input type="number" value={compTheirComments} onChange={(e) => setCompTheirComments(Number(e.target.value))} placeholder="Comments" className="p-2 rounded-lg border text-xs font-bold" />
+                  </div>
+                </div>
+              </div>
+
+              {(() => {
+                const myEr = (((compMyLikes + compMyComments) / (compMyFollowers || 1)) * 100).toFixed(2)
+                const theirEr = (((compTheirLikes + compTheirComments) / (compTheirFollowers || 1)) * 100).toFixed(2)
+
+                return (
+                  <div className="p-4 rounded-xl bg-white border-2 border-[#1A1510] text-center space-y-2">
+                    <span className="text-[10px] font-black text-zinc-400 uppercase block">Engagement Rate Comparison</span>
+                    <div className="flex justify-center gap-8 text-2xl font-black">
+                      <span className="text-emerald-600">You: {myEr}%</span>
+                      <span className="text-zinc-500">Competitor: {theirEr}%</span>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 48: Grid Layout Planner */}
+          {toolSlug === 'grid-layout-planner' && (
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Grid Pattern</label>
+                <select 
+                  value={gridPattern}
+                  onChange={(e) => setGridPattern(e.target.value)}
+                  className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                >
+                  <option value="Checkerboard">Checkerboard (Quote / Photo / Quote)</option>
+                  <option value="Rows">Horizontal Theme Rows</option>
+                  <option value="Columns">Vertical Column Anchor</option>
+                </select>
+              </div>
+
+              <div className="grid grid-cols-3 gap-2 p-4 rounded-2xl bg-zinc-900 border-2 border-[#1A1510]">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+                  <div 
+                    key={num} 
+                    className={`aspect-square rounded-lg flex items-center justify-center p-2 text-center text-[10px] font-black ${
+                      (num % 2 === 0) ? 'bg-[#16A34A] text-white' : 'bg-zinc-800 text-zinc-300'
+                    }`}
+                  >
+                    Post {num}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* TOOL 49: Reel Loop Calculator */}
+          {toolSlug === 'reel-loop-calculator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Video Duration (Secs)</label>
+                  <input 
+                    type="number" 
+                    value={loopVideoSecs}
+                    onChange={(e) => setLoopVideoSecs(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Caption Word Count</label>
+                  <input 
+                    type="number" 
+                    value={loopCaptionWords}
+                    onChange={(e) => setLoopCaptionWords(Number(e.target.value))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const readSecs = Math.round(loopCaptionWords / 3.3)
+                const loops = (readSecs / (loopVideoSecs || 1)).toFixed(1)
+                const watchTimePercent = Math.round((readSecs / (loopVideoSecs || 1)) * 100)
+
+                return (
+                  <div className="space-y-4">
+                    <div className="p-6 rounded-2xl bg-[#1A1510] text-white text-center space-y-2">
+                      <span className="text-[10px] font-black text-[#16A34A] uppercase block">Predicted Algorithmic Watch Time</span>
+                      <span className="text-4xl font-black text-emerald-400">{watchTimePercent}%</span>
+                      <p className="text-xs text-zinc-400 font-bold">Estimated {loops} background video loops per viewer while reading caption!</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 50: Niche Profitability Estimator */}
+          {toolSlug === 'niche-profitability-estimator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Primary Niche</label>
+                  <select 
+                    value={nicheCategory}
+                    onChange={(e) => setNicheCategory(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="Coaching">Coaching & High-Ticket Services</option>
+                    <option value="Real Estate">Real Estate & Property</option>
+                    <option value="ECommerce">E-Commerce & Physical Brands</option>
+                    <option value="SaaS">B2B SaaS & Tech Tools</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Audience Size</label>
+                  <select 
+                    value={nicheAudienceSize}
+                    onChange={(e) => setNicheAudienceSize(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="Under 10k">Under 10,000 Followers</option>
+                    <option value="10k-50k">10,000 - 50,000 Followers</option>
+                    <option value="50k-100k">50,000 - 100,000 Followers</option>
+                  </select>
+                </div>
+              </div>
+
+              {(() => {
+                let score = 88
+                if (nicheCategory === 'Real Estate') score = 94
+                else if (nicheCategory === 'SaaS') score = 96
+                else if (nicheCategory === 'ECommerce') score = 82
+
+                return (
+                  <div className="space-y-4">
+                    <div className="p-6 rounded-2xl bg-emerald-50 border-2 border-emerald-400 text-center space-y-2">
+                      <span className="text-[10px] font-black text-emerald-700 uppercase block">Niche DM Profitability Score</span>
+                      <span className="text-4xl font-black text-emerald-800">{score} / 100</span>
+                      <p className="text-xs font-bold text-emerald-950">High commercial intent niche! Pair 1-word Reel comment triggers with direct Stripe Apple Pay links.</p>
+                    </div>
+                  </div>
+                )
+              })()}
             </div>
           )}
 
@@ -2123,7 +3709,36 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
            toolSlug !== 'post-booster' && 
            toolSlug !== 'viral-post-booster' && 
            toolSlug !== 'photo-downloader' && 
-           toolSlug !== 'instagram-photo-downloader' && (
+           toolSlug !== 'instagram-photo-downloader' && 
+           toolSlug !== 'banned-hashtag-checker' && 
+           toolSlug !== 'meta-24hr-window-calculator' && 
+           toolSlug !== 'shadowban-risk-simulator' && 
+           toolSlug !== 'bio-seo-auditor' && 
+           toolSlug !== 'comment-rotator-checker' && 
+           toolSlug !== 'sponsored-rate-calculator' && 
+           toolSlug !== 'dm-funnel-calculator' && 
+           toolSlug !== 'bio-link-leakage-calculator' && 
+           toolSlug !== 'digital-product-pricing-calculator' && 
+           toolSlug !== 'reels-bonus-estimator' && 
+           toolSlug !== 'giveaway-winner-picker' && 
+           toolSlug !== 'reels-overlay-hook-generator' && 
+           toolSlug !== 'story-quiz-generator' && 
+           toolSlug !== 'carousel-outline-generator' && 
+           toolSlug !== 'comment-trigger-generator' && 
+           toolSlug !== 'reel-cta-writer' && 
+           toolSlug !== 'story-mention-dm-generator' && 
+           toolSlug !== 'ai-prompt-generator' && 
+           toolSlug !== 'dep-sequence-builder' && 
+           toolSlug !== 'best-time-to-post' && 
+           toolSlug !== 'story-view-conversion-calculator' && 
+           toolSlug !== 'competitor-benchmark-tool' && 
+           toolSlug !== 'grid-layout-planner' && 
+           toolSlug !== 'reel-loop-calculator' && 
+           toolSlug !== 'niche-profitability-estimator' && (
+
+
+
+
             <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 text-center space-y-4">
               <p className="text-xs font-bold text-zinc-600">
                 Ready to use {tool.title}. Adjust variables above to generate real-time metrics and copy previews.

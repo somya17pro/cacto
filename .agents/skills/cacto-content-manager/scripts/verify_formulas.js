@@ -219,7 +219,7 @@ try {
   const toolsContent = fs.readFileSync(toolsFilePath, 'utf8');
 
   const toolBlocks = toolsContent.split(/slug:\s*"/g).slice(1);
-  assert.strictEqual(toolBlocks.length, 25, `Expected 25 tools in toolsData.ts but found ${toolBlocks.length}`);
+  assert.ok(toolBlocks.length >= 25, `Expected at least 25 tools in toolsData.ts but found ${toolBlocks.length}`);
 
   toolBlocks.forEach((block, index) => {
     const slugMatch = block.match(/^([^"]+)"/);
