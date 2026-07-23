@@ -97,6 +97,7 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
   const [transcriptUrl, setTranscriptUrl] = useState('')
   const [manualTranscriptText, setManualTranscriptText] = useState('')
   const [isGeneratingTranscript, setIsGeneratingTranscript] = useState(false)
+  const [isEditingTranscript, setIsEditingTranscript] = useState(false)
   const [transcriptError, setTranscriptError] = useState('')
   const [transcriptData, setTranscriptData] = useState<{
     author: string
@@ -109,7 +110,23 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
     segments: { time: string; text: string }[]
   } | null>(null)
 
+  const handleUpdateSegmentText = (idx: number, newText: string) => {
+    if (!transcriptData) return
+    const updatedSegments = [...transcriptData.segments]
+    updatedSegments[idx] = { ...updatedSegments[idx], text: newText }
+    const fullText = updatedSegments.map(s => s.text).join(' ')
+    const words = fullText.split(/\s+/).filter(Boolean)
+    setTranscriptData({
+      ...transcriptData,
+      segments: updatedSegments,
+      fullTranscript: fullText,
+      wordCount: words.length,
+      readingTime: `${(words.length / 200).toFixed(1)} min`
+    })
+  }
+
   const handleManualFormatTranscript = () => {
+
     if (!manualTranscriptText.trim()) return
     const cleanText = manualTranscriptText.replace(/#\w+/g, '').replace(/\[.*?\]/g, '').trim()
     const words = cleanText.split(/\s+/).filter(Boolean)
@@ -2070,6 +2087,17 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                       <span className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider">Timestamped Audio Segments</span>
                       <div className="flex flex-wrap gap-2.5 items-center">
                         <button 
+                          onClick={() => setIsEditingTranscript(!isEditingTranscript)}
+                          className={`py-1.5 px-3 rounded-lg border text-xs font-extrabold transition flex items-center gap-1.5 cursor-pointer ${
+                            isEditingTranscript 
+                              ? 'bg-amber-500 border-amber-600 text-white hover:bg-amber-600' 
+                              : 'bg-amber-50 border-amber-300 text-amber-900 hover:bg-amber-100'
+                          }`}
+                        >
+                          <Edit className="w-3.5 h-3.5" />
+                          {isEditingTranscript ? 'Done Editing ✓' : 'Edit Transcript ✏️'}
+                        </button>
+                        <button 
                           onClick={() => checkAndIncrementUsage(() => copyToClipboard(transcriptData.fullTranscript))}
                           className="py-1.5 px-3 rounded-lg bg-emerald-50 border border-emerald-300 text-xs font-extrabold text-[#16A34A] hover:bg-emerald-100 transition flex items-center gap-1.5 cursor-pointer"
                         >
@@ -2085,16 +2113,25 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                       </div>
                     </div>
 
-
-                    <div className="space-y-2 max-h-72 overflow-y-auto pr-1">
+                    <div className="space-y-2 max-h-80 overflow-y-auto pr-1">
                       {transcriptData.segments.map((seg, idx) => (
-                        <div key={idx} className="p-3 rounded-xl bg-white border border-zinc-200 text-xs font-medium flex gap-3">
+                        <div key={idx} className="p-3 rounded-xl bg-white border border-zinc-200 text-xs font-medium flex gap-3 items-center">
                           <span className="font-mono font-bold text-[#16A34A] shrink-0">[{seg.time}]</span>
-                          <span className="text-zinc-800 leading-relaxed">{seg.text}</span>
+                          {isEditingTranscript ? (
+                            <input 
+                              type="text"
+                              value={seg.text}
+                              onChange={(e) => handleUpdateSegmentText(idx, e.target.value)}
+                              className="w-full p-1.5 rounded-lg border border-amber-400 text-xs font-semibold outline-none bg-amber-50/50"
+                            />
+                          ) : (
+                            <span className="text-zinc-800 leading-relaxed">{seg.text}</span>
+                          )}
                         </div>
                       ))}
                     </div>
                   </div>
+
                 </div>
               )}
             </div>

@@ -148,10 +148,11 @@ let transcriberPipeline: any = null
 async function getTranscriber() {
   if (!transcriberPipeline) {
     const { pipeline } = await import('@xenova/transformers')
-    transcriberPipeline = await pipeline('automatic-speech-recognition', 'Xenova/whisper-tiny.en')
+    transcriberPipeline = await pipeline('automatic-speech-recognition', 'Xenova/whisper-base.en')
   }
   return transcriberPipeline
 }
+
 
 export async function POST(req: Request) {
   const tmpDir = os.tmpdir()
