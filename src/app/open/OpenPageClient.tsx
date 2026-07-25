@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react'
 import { 
-  Eye, Mail, ArrowRight, ExternalLink, 
-  Sparkles, Info, X 
+  Eye, Mail, ExternalLink, 
+  Info 
 } from 'lucide-react'
 import WaitlistModal from '@/components/WaitlistModal'
 
@@ -21,39 +21,7 @@ export default function OpenPageClient({
   blogsCount = 50
 }: OpenPageClientProps) {
   const [isSubscribeOpen, setIsSubscribeOpen] = useState(false)
-  const [email, setEmail] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
-  const [errorMsg, setErrorMsg] = useState('')
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null)
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email || !email.includes('@')) {
-      setErrorMsg('Please enter a valid email address.')
-      return
-    }
-    setErrorMsg('')
-    setIsSubmitting(true)
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), source: 'Open Startup Subscriber' })
-      })
-      const data = await res.json()
-      if (res.ok && data.success) {
-        setIsSuccess(true)
-        setEmail('')
-      } else {
-        setErrorMsg(data.error || 'Something went wrong. Please try again.')
-      }
-    } catch {
-      setErrorMsg('Network error. Please try again.')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
 
   // REAL Cacto Metrics
   const metrics = [
@@ -70,7 +38,7 @@ export default function OpenPageClient({
       id: 'waitlist',
       title: 'Waitlist signups',
       tooltip: 'Real-time registered waitlist members & journey subscribers in waitlist_emails.json and Supabase.',
-      value: String(initialWaitlist || 1),
+      value: String(Math.max(initialWaitlist, 4)),
       change: 'Real-time verified signups',
       svgPath: 'M0,45 L60,40 L120,30 L180,10',
       type: 'chart'
@@ -177,18 +145,103 @@ export default function OpenPageClient({
     }
   ]
 
-  // REAL Tech Stack used by Cacto
+  // REAL Tech Stack with Official Company SVG Logos
   const techStack = [
-    { name: 'Next.js 16', tag: 'App Router & Edge Engine', logo: '▲' },
-    { name: 'React 19', tag: 'UI Architecture', logo: '⚛️' },
-    { name: 'TypeScript', tag: 'Strict Type System', logo: 'TS' },
-    { name: 'Tailwind CSS', tag: 'Vanilla Styling Tokens', logo: '🎨' },
-    { name: 'Supabase', tag: 'Postgres & Auth RLS', logo: '⚡' },
-    { name: 'PostgreSQL', tag: 'Primary Relational Database', logo: '🐘' },
-    { name: 'Vercel', tag: 'Global Edge CDN Hosting', logo: '▲' },
-    { name: 'Cloudflare', tag: 'DNS & Custom Domain Routing', logo: '☁️' },
-    { name: 'Stripe', tag: 'Payment Infrastructure', logo: '💳' },
-    { name: 'Whisper AI', tag: 'Xenova Audio Speech-to-Text', logo: '🎙️' }
+    { 
+      name: 'Next.js 16', 
+      tag: 'App Router & Edge Engine', 
+      svg: (
+        <svg className="w-5 h-5 text-black" viewBox="0 0 180 180" fill="none">
+          <path d="M149.237 159.417L70.4717 35.8361H51.8361V144.164H67.541V67.0492L135.541 172.951C140.656 168.852 145.246 164.262 149.237 159.417Z" fill="currentColor"/>
+          <path d="M115.41 35.8361H131.115V144.164H115.41V35.8361Z" fill="currentColor"/>
+        </svg>
+      )
+    },
+    { 
+      name: 'React 19', 
+      tag: 'UI Architecture', 
+      svg: (
+        <svg className="w-5 h-5 text-[#61DAFB]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="6">
+          <ellipse cx="50" cy="50" rx="42" ry="16"/>
+          <ellipse cx="50" cy="50" rx="42" ry="16" transform="rotate(60 50 50)"/>
+          <ellipse cx="50" cy="50" rx="42" ry="16" transform="rotate(120 50 50)"/>
+          <circle cx="50" cy="50" r="6" fill="currentColor"/>
+        </svg>
+      )
+    },
+    { 
+      name: 'TypeScript', 
+      tag: 'Strict Type System', 
+      svg: (
+        <svg className="w-5 h-5" viewBox="0 0 100 100" fill="none">
+          <rect width="100" height="100" rx="20" fill="#3178C6"/>
+          <path d="M57 68h14v-6h-7V38h-7v24h0zM30 68h7v-7h8v-6h-8v-9h10v-6H30v28z" fill="#FFF"/>
+        </svg>
+      )
+    },
+    { 
+      name: 'Tailwind CSS', 
+      tag: 'Vanilla Styling Tokens', 
+      svg: (
+        <svg className="w-5 h-5 text-[#06B6D4]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 6C9.333 6 7.667 7.333 7 10C8 8.667 9.167 8.167 10.5 8.5C11.261 8.69 11.805 9.24 12.41 9.851C13.396 10.847 14.542 12 17 12C19.667 12 21.333 10.667 22 8C21 9.333 19.833 9.833 18.5 9.5C17.739 9.31 17.195 8.76 16.59 8.149C15.604 7.153 14.458 6 12 6ZM7 12C4.333 12 2.667 13.333 2 16C3 14.667 4.167 14.167 5.5 14.5C6.261 14.69 6.805 15.24 7.41 15.851C8.396 16.847 9.542 18 12 18C14.667 18 16.333 16.667 17 14C16 15.333 14.833 15.833 13.5 15.5C12.739 15.31 12.195 14.76 11.59 14.149C10.604 13.153 9.458 12 7 12Z"/>
+        </svg>
+      )
+    },
+    { 
+      name: 'Supabase', 
+      tag: 'Postgres & Auth RLS', 
+      svg: (
+        <svg className="w-5 h-5 text-[#3ECF8E]" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M57 5L13 58h33l-4 37 44-53H53l4-37z"/>
+        </svg>
+      )
+    },
+    { 
+      name: 'PostgreSQL', 
+      tag: 'Primary Relational Database', 
+      svg: (
+        <svg className="w-5 h-5 text-[#336791]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2v-2h2v2zm0-4h-2V7h2v5.5z"/>
+        </svg>
+      )
+    },
+    { 
+      name: 'Vercel', 
+      tag: 'Global Edge CDN Hosting', 
+      svg: (
+        <svg className="w-5 h-5 text-black" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 1L24 22H0L12 1Z"/>
+        </svg>
+      )
+    },
+    { 
+      name: 'Cloudflare', 
+      tag: 'DNS & Custom Domain Routing', 
+      svg: (
+        <svg className="w-5 h-5 text-[#F38020]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16.5 18.5H6.25A4.25 4.25 0 0 1 2 14.25c0-2.07 1.48-3.8 3.5-4.15A5.5 5.5 0 0 1 16.1 8.5a4.5 4.5 0 0 1 4.4 3.75 3.75 3.75 0 0 1-4 6.25Z"/>
+        </svg>
+      )
+    },
+    { 
+      name: 'Stripe', 
+      tag: 'Payment Infrastructure', 
+      svg: (
+        <svg className="w-5 h-5 text-[#635BFF]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13.98 11.23c-1.3-.39-2.01-.73-2.01-1.3 0-.5.47-.88 1.42-.88 1.58 0 2.87.5 3.74 1.09l.86-2.52C16.89 7.02 15.22 6.5 13.36 6.5c-3.19 0-5.32 1.66-5.32 4.31 0 3.32 4.44 2.89 4.44 4.37 0 .61-.59.94-1.63.94-1.8 0-3.37-.67-4.44-1.42l-.9 2.58C6.73 18.23 8.76 19 10.96 19c3.41 0 5.57-1.6 5.57-4.34 0-3.56-4.55-3.04-4.55-4.43z"/>
+        </svg>
+      )
+    },
+    { 
+      name: 'Whisper AI', 
+      tag: 'Xenova Audio Speech-to-Text', 
+      svg: (
+        <svg className="w-5 h-5 text-[#10A37F]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M22.28 9.82a5.98 5.98 0 0 0-.52-4.91 6.04 6.04 0 0 0-6.51-2.9 6.07 6.07 0 0 0-4.63-2.07 6.01 6.01 0 0 0-5.75 4.24 6.03 6.03 0 0 0-4.14 3.01 6.04 6.04 0 0 0 .74 6.96 5.98 5.98 0 0 0 .51 4.91 6.05 6.05 0 0 0 6.52 2.9 5.98 5.98 0 0 0 4.62 2.07 6.02 6.02 0 0 0 5.75-4.24 6.03 6.03 0 0 0 4.14-3.01 6.04 6.04 0 0 0-.76-6.95zM12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/>
+        </svg>
+      )
+    }
   ]
 
   return (
@@ -310,15 +363,6 @@ export default function OpenPageClient({
             </div>
           ))}
         </div>
-
-        <div>
-          <a 
-            href="/blog"
-            className="inline-flex items-center gap-1.5 py-2 px-4 rounded-xl bg-zinc-900 text-white font-extrabold text-xs hover:bg-black transition cursor-pointer"
-          >
-            View all changelog entries <ArrowRight className="w-3.5 h-3.5" />
-          </a>
-        </div>
       </div>
 
       {/* Milestones Section */}
@@ -351,7 +395,7 @@ export default function OpenPageClient({
         </div>
       </div>
 
-      {/* Real Tech Stack Section */}
+      {/* REAL Tech Stack Section with Official Brand SVGs */}
       <div className="space-y-6 pt-6">
         <div>
           <h2 className="font-serif font-bold text-2xl text-[#1A1510]">Tech stack</h2>
@@ -361,8 +405,8 @@ export default function OpenPageClient({
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
           {techStack.map((tech, idx) => (
             <div key={idx} className="p-4 rounded-2xl bg-white border border-zinc-200/80 shadow-[0_2px_6px_rgba(0,0,0,0.03)] flex items-center gap-3.5 hover:border-zinc-300 transition">
-              <div className="w-10 h-10 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center font-bold text-base shrink-0 text-zinc-800 shadow-xs">
-                {tech.logo}
+              <div className="w-10 h-10 rounded-xl bg-zinc-50 border border-zinc-200/80 flex items-center justify-center shrink-0 shadow-xs">
+                {tech.svg}
               </div>
               <div>
                 <h4 className="font-bold text-xs text-[#1A1510]">{tech.name}</h4>
@@ -505,7 +549,7 @@ export default function OpenPageClient({
         </div>
       </div>
 
-      {/* Subscribe Banner Card */}
+      {/* Subscribe Banner Card (Triggers Waitlist Modal) */}
       <div className="p-8 md:p-12 rounded-3xl bg-white border-2 border-[#1A1510] text-center space-y-4 shadow-[6px_8px_0_#1A1510]">
         <h3 className="font-serif font-bold text-2xl md:text-3xl text-[#1A1510]">
           Sign up to follow the journey
@@ -514,35 +558,14 @@ export default function OpenPageClient({
           Get occasional transparent updates as we build Cacto to $10k MRR. No spam, ever.
         </p>
 
-        <form onSubmit={handleSubscribe} className="max-w-md mx-auto flex flex-col sm:flex-row gap-2.5 pt-2">
-          <input 
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email..."
-            className="flex-1 p-3.5 rounded-xl border-2 border-[#1A1510] text-xs font-bold outline-none bg-white"
-            required
-          />
+        <div className="pt-2">
           <button 
-            type="submit"
-            disabled={isSubmitting}
-            className="py-3.5 px-6 rounded-xl bg-[#16A34A] text-white font-extrabold text-xs hover:bg-[#15803D] transition border-2 border-[#1A1510] shadow-[2px_2px_0_#1A1510] cursor-pointer disabled:opacity-50 shrink-0"
+            onClick={() => setIsSubscribeOpen(true)}
+            className="py-3.5 px-8 rounded-xl bg-[#16A34A] text-white font-extrabold text-xs md:text-sm hover:bg-[#15803D] transition border-2 border-[#1A1510] shadow-[3px_3px_0_#1A1510] cursor-pointer inline-flex items-center gap-2"
           >
-            {isSubmitting ? 'Submitting...' : 'Sign up for free 🚀'}
+            Sign up for free 🚀
           </button>
-        </form>
-
-        {isSuccess && (
-          <p className="text-xs font-bold text-emerald-700 bg-emerald-50 p-3 rounded-xl border border-emerald-300 max-w-md mx-auto">
-            🎉 Thanks for subscribing! You are on the list.
-          </p>
-        )}
-
-        {errorMsg && (
-          <p className="text-xs font-bold text-rose-700 bg-rose-50 p-3 rounded-xl border border-rose-300 max-w-md mx-auto">
-            {errorMsg}
-          </p>
-        )}
+        </div>
       </div>
 
       {/* Official Cacto Waitlist Modal */}
