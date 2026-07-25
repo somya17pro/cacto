@@ -2,8 +2,10 @@ import { NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
 import os from 'os'
-import https from 'https'
 import { execFileSync } from 'child_process'
+
+export const maxDuration = 60
+export const dynamic = 'force-dynamic'
 
 function getFfmpegBinaryPath(): string {
   try {
@@ -71,7 +73,7 @@ function cleanMediaUrl(rawUrl: string): string {
     .trim()
 }
 
-async function fetchWithTimeout(url: string, headers: Record<string, string> = {}, timeoutMs = 8000) {
+async function fetchWithTimeout(url: string, headers: Record<string, string> = {}, timeoutMs = 12000) {
   const controller = new AbortController()
   const id = setTimeout(() => controller.abort(), timeoutMs)
 
@@ -95,85 +97,29 @@ async function fetchWithTimeout(url: string, headers: Record<string, string> = {
   }
 }
 
-async function downloadMediaFile(url: string, dest: string, maxRedirects = 5): Promise<boolean> {
-  if (!isValidMediaDomain(url) || maxRedirects <= 0) {
-    return false
-  }
-
-  return new Promise((resolve) => {
-    const file = fs.createWriteStream(dest)
-    let cleanedUp = false
-
-    const cleanup = () => {
-      if (cleanedUp) return
-      cleanedUp = true
-      try {
-        file.close(() => {
-          try { if (fs.existsSync(dest)) fs.unlinkSync(dest) } catch {}
-        })
-      } catch {
-        try { if (fs.existsSync(dest)) fs.unlinkSync(dest) } catch {}
-      }
-    }
-
-    const options = {
+async function downloadMediaFile(url: string, dest: string): Promise<boolean> {
+  if (!url || !isValidMediaDomain(url)) return false
+  try {
+    const res = await fetch(url, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
         'Accept': 'video/webm,video/mp4,video/*;q=0.9,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.9',
         'Referer': 'https://www.instagram.com/',
-        'Origin': 'https://www.instagram.com',
-        'Sec-Fetch-Dest': 'video',
-        'Sec-Fetch-Mode': 'no-cors',
-        'Sec-Fetch-Site': 'cross-site'
-      },
-      timeout: 25000
-    }
-
-    const req = https.get(url, options, (res) => {
-      res.setTimeout(25000, () => {
-        res.destroy()
-        cleanup()
-        resolve(false)
-      })
-
-      if (res.statusCode === 301 || res.statusCode === 302) {
-        cleanup()
-        if (res.headers.location && isValidMediaDomain(res.headers.location)) {
-          downloadMediaFile(res.headers.location, dest, maxRedirects - 1).then(resolve)
-          return
-        }
-        resolve(false)
-        return
+        'Origin': 'https://www.instagram.com'
       }
-
-      if (res.statusCode !== 200) {
-        cleanup()
-        resolve(false)
-        return
-      }
-
-      res.pipe(file)
-      file.on('finish', () => {
-        file.close(() => resolve(true))
-      })
-      file.on('error', () => {
-        cleanup()
-        resolve(false)
-      })
     })
 
-    req.on('timeout', () => {
-      req.destroy()
-      cleanup()
-      resolve(false)
-    })
-
-    req.on('error', () => {
-      cleanup()
-      resolve(false)
-    })
-  })
+    if (!res.ok) return false
+    const arrayBuffer = await res.arrayBuffer()
+    const buffer = Buffer.from(arrayBuffer)
+    if (buffer.length < 5000) return false
+    fs.writeFileSync(dest, buffer)
+    return fs.existsSync(dest) && fs.statSync(dest).size > 5000
+  } catch (err) {
+    console.error('Download media file error:', err)
+    return false
+  }
 }
 
 let transcriberPipeline: any = null
@@ -323,7 +269,7 @@ export async function POST(req: Request) {
     let speechSegments: { time: string; text: string }[] = []
     let fullSpokenText = ''
 
-    // Run AI Audio Speech Transcription on MP4 file using ffmpeg-static binary
+    // Run AI Audio Speech Transcription on MP4 file using fetch stream & ffmpeg-static binary
     if (videoUrl && isValidMediaDomain(videoUrl)) {
       mp4Path = path.join(tmpDir, `reel_${shortcode}_${Date.now()}.mp4`)
       wavPath = path.join(tmpDir, `audio_${shortcode}_${Date.now()}.wav`)
