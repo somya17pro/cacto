@@ -5,6 +5,18 @@ import os from 'os'
 import https from 'https'
 import { execFileSync } from 'child_process'
 
+function getFfmpegBinaryPath(): string {
+  try {
+    const ffmpegStatic = require('ffmpeg-static')
+    if (ffmpegStatic && typeof ffmpegStatic === 'string' && fs.existsSync(ffmpegStatic)) {
+      return ffmpegStatic
+    }
+  } catch (e) {
+    console.log('ffmpeg-static import fallback to system ffmpeg')
+  }
+  return 'ffmpeg'
+}
+
 function isValidMediaDomain(urlStr: string): boolean {
   try {
     const parsed = new URL(urlStr)
@@ -107,15 +119,19 @@ async function downloadMediaFile(url: string, dest: string, maxRedirects = 5): P
     const options = {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-        'Accept': '*/*',
+        'Accept': 'video/webm,video/mp4,video/*;q=0.9,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.9',
-        'Referer': 'https://www.instagram.com/'
+        'Referer': 'https://www.instagram.com/',
+        'Origin': 'https://www.instagram.com',
+        'Sec-Fetch-Dest': 'video',
+        'Sec-Fetch-Mode': 'no-cors',
+        'Sec-Fetch-Site': 'cross-site'
       },
-      timeout: 20000
+      timeout: 25000
     }
 
     const req = https.get(url, options, (res) => {
-      res.setTimeout(20000, () => {
+      res.setTimeout(25000, () => {
         res.destroy()
         cleanup()
         resolve(false)
@@ -191,7 +207,7 @@ export async function POST(req: Request) {
     let durationSeconds = 30
 
     // TIER 1: GraphQL query with multiple doc_ids
-    const docIds = ['10015901848480474', '8845758582119845', '7159494324135219']
+    const docIds = ['10015901848480474', '8845758582119845', '7159494324135219', '17888483320008559']
     for (const doc_id of docIds) {
       if (videoUrl) break
       try {
@@ -307,7 +323,7 @@ export async function POST(req: Request) {
     let speechSegments: { time: string; text: string }[] = []
     let fullSpokenText = ''
 
-    // Run AI Audio Transcription on the MP4 file if videoUrl is available and valid
+    // Run AI Audio Speech Transcription on MP4 file using ffmpeg-static binary
     if (videoUrl && isValidMediaDomain(videoUrl)) {
       mp4Path = path.join(tmpDir, `reel_${shortcode}_${Date.now()}.mp4`)
       wavPath = path.join(tmpDir, `audio_${shortcode}_${Date.now()}.wav`)
@@ -315,7 +331,8 @@ export async function POST(req: Request) {
       const downloaded = await downloadMediaFile(videoUrl, mp4Path)
       if (downloaded && fs.existsSync(mp4Path)) {
         try {
-          execFileSync('ffmpeg', ['-y', '-i', mp4Path, '-vn', '-ar', '16000', '-ac', '1', '-c:a', 'pcm_s16le', wavPath], { stdio: 'ignore', timeout: 30000 })
+          const ffmpegBinary = getFfmpegBinaryPath()
+          execFileSync(ffmpegBinary, ['-y', '-i', mp4Path, '-vn', '-ar', '16000', '-ac', '1', '-c:a', 'pcm_s16le', wavPath], { stdio: 'ignore', timeout: 30000 })
           
           if (fs.existsSync(wavPath) && fs.statSync(wavPath).size > 1000) {
             const { WaveFile } = require('wavefile')
@@ -434,4 +451,3 @@ export async function POST(req: Request) {
     }
   }
 }
-
