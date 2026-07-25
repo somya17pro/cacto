@@ -145,15 +145,16 @@ export default function OpenPageClient({
     }
   ]
 
-  // REAL Tech Stack with Official Company SVG Logos
+  // REAL Tech Stack with Official Pixel-Perfect Brand SVG Logos
   const techStack = [
     { 
       name: 'Next.js 16', 
       tag: 'App Router & Edge Engine', 
       svg: (
-        <svg className="w-5 h-5 text-black" viewBox="0 0 180 180" fill="none">
-          <path d="M149.237 159.417L70.4717 35.8361H51.8361V144.164H67.541V67.0492L135.541 172.951C140.656 168.852 145.246 164.262 149.237 159.417Z" fill="currentColor"/>
-          <path d="M115.41 35.8361H131.115V144.164H115.41V35.8361Z" fill="currentColor"/>
+        <svg className="w-5 h-5" viewBox="0 0 180 180" fill="none">
+          <circle cx="90" cy="90" r="90" fill="#000000"/>
+          <path d="M149.237 159.417L70.4717 35.8361H51.8361V144.164H67.541V67.0492L135.541 172.951C140.656 168.852 145.246 164.262 149.237 159.417Z" fill="white"/>
+          <path d="M115.41 35.8361H131.115V144.164H115.41V35.8361Z" fill="white"/>
         </svg>
       )
     },
@@ -161,11 +162,13 @@ export default function OpenPageClient({
       name: 'React 19', 
       tag: 'UI Architecture', 
       svg: (
-        <svg className="w-5 h-5 text-[#61DAFB]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="6">
-          <ellipse cx="50" cy="50" rx="42" ry="16"/>
-          <ellipse cx="50" cy="50" rx="42" ry="16" transform="rotate(60 50 50)"/>
-          <ellipse cx="50" cy="50" rx="42" ry="16" transform="rotate(120 50 50)"/>
-          <circle cx="50" cy="50" r="6" fill="currentColor"/>
+        <svg className="w-5 h-5 text-[#61DAFB]" viewBox="-11.5 -10.23 23 20.46" fill="none">
+          <circle r="2.05" fill="#61DAFB"/>
+          <g stroke="#61DAFB" strokeWidth="1">
+            <ellipse rx="11" ry="4.2"/>
+            <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+            <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+          </g>
         </svg>
       )
     },
@@ -173,9 +176,9 @@ export default function OpenPageClient({
       name: 'TypeScript', 
       tag: 'Strict Type System', 
       svg: (
-        <svg className="w-5 h-5" viewBox="0 0 100 100" fill="none">
-          <rect width="100" height="100" rx="20" fill="#3178C6"/>
-          <path d="M57 68h14v-6h-7V38h-7v24h0zM30 68h7v-7h8v-6h-8v-9h10v-6H30v28z" fill="#FFF"/>
+        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="4" fill="#3178C6"/>
+          <path d="M14.67 17.62c.98 0 1.83-.34 2.55-1.02.72-.68 1.08-1.57 1.08-2.67 0-.74-.18-1.37-.54-1.89-.36-.52-.94-.97-1.74-1.35l-1.02-.45c-.48-.21-.83-.41-1.05-.6-.22-.19-.33-.44-.33-.75 0-.32.13-.58.39-.78.26-.2.62-.3 1.08-.3.45 0 .88.11 1.29.33.41.22.75.54 1.02.96l1.71-1.26c-.48-.75-1.08-1.31-1.8-1.68-.72-.37-1.55-.55-2.49-.55-1.11 0-2.03.32-2.76.96-.73.64-1.1 1.47-1.1 2.49 0 .78.2 1.43.6 1.95.4.52 1.02.96 1.86 1.32l.9.39c.54.24.93.46 1.17.66.24.2.36.48.36.84 0 .39-.15.7-.45.93-.3.23-.73.34-1.29.34-.63 0-1.19-.17-1.68-.51-.49-.34-.87-.83-1.14-1.47l-1.86.93c.42 1.02 1.05 1.8 1.89 2.34.84.54 1.85.81 3.03.81zM5.54 17.4h2.46V8.16H11V6.36H2.46v1.8h2.46V17.4z" fill="#FFFFFF"/>
         </svg>
       )
     },
@@ -184,7 +187,7 @@ export default function OpenPageClient({
       tag: 'Vanilla Styling Tokens', 
       svg: (
         <svg className="w-5 h-5 text-[#06B6D4]" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 6C9.333 6 7.667 7.333 7 10C8 8.667 9.167 8.167 10.5 8.5C11.261 8.69 11.805 9.24 12.41 9.851C13.396 10.847 14.542 12 17 12C19.667 12 21.333 10.667 22 8C21 9.333 19.833 9.833 18.5 9.5C17.739 9.31 17.195 8.76 16.59 8.149C15.604 7.153 14.458 6 12 6ZM7 12C4.333 12 2.667 13.333 2 16C3 14.667 4.167 14.167 5.5 14.5C6.261 14.69 6.805 15.24 7.41 15.851C8.396 16.847 9.542 18 12 18C14.667 18 16.333 16.667 17 14C16 15.333 14.833 15.833 13.5 15.5C12.739 15.31 12.195 14.76 11.59 14.149C10.604 13.153 9.458 12 7 12Z"/>
+          <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C7.666 17.818 9.027 19 12.001 19c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z"/>
         </svg>
       )
     },
@@ -192,8 +195,8 @@ export default function OpenPageClient({
       name: 'Supabase', 
       tag: 'Postgres & Auth RLS', 
       svg: (
-        <svg className="w-5 h-5 text-[#3ECF8E]" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M57 5L13 58h33l-4 37 44-53H53l4-37z"/>
+        <svg className="w-5 h-5 text-[#3ECF8E]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13.35 20.13c-.62.86-1.95.42-1.95-.64v-6.99H3.99c-.88 0-1.4-1.01-.84-1.7l7.5-9.26c.62-.86 1.95-.42 1.95.64v6.99h7.41c.88 0 1.4 1.01.84 1.7l-7.5 9.26z"/>
         </svg>
       )
     },
@@ -202,7 +205,7 @@ export default function OpenPageClient({
       tag: 'Primary Relational Database', 
       svg: (
         <svg className="w-5 h-5 text-[#336791]" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2v-2h2v2zm0-4h-2V7h2v5.5z"/>
+          <path d="M17.485 18.288c.849-.24 1.272-.616 1.442-.87.41-.607.724-1.785.498-2.617-.234-.867-1.127-1.554-1.768-1.654-.766-.118-1.393.208-1.678.503-1.066 1.097-2.915 2.128-4.664.848-1.55-1.135-2.22-3.32-1.637-5.074.697-2.096 2.825-3.078 4.792-2.18 1.139.52 1.837 1.579 2.012 2.68.172 1.085-.17 1.996-.708 2.508-.344.327-.798.483-1.229.483-.872 0-1.436-.612-1.436-1.385 0-.441.173-.873.498-1.206.276-.282.684-.45 1.111-.45.485 0 .937.218 1.227.585.405.513.568 1.27.422 1.968-.198.948-.86 1.745-1.728 2.08-.857.332-1.85.195-2.584-.36-.782-.592-1.233-1.534-1.189-2.509.052-1.161.704-2.235 1.713-2.823 1.026-.599 2.278-.696 3.376-.26 1.246.495 2.179 1.56 2.518 2.875.334 1.298.026 2.678-.838 3.738-.727.892-1.792 1.442-2.932 1.517-1.138.075-2.247-.327-3.048-1.103-1.062-1.027-1.537-2.531-1.278-3.987.262-1.472 1.218-2.697 2.576-3.298 1.343-.594 2.89-.526 4.175.185 1.458.807 2.457 2.28 2.693 3.93.238 1.666-.312 3.342-1.481 4.526-1.042 1.056-2.479 1.636-3.966 1.603-1.475-.033-2.868-.691-3.79-1.815-1.172-1.428-1.597-3.346-1.144-5.163.456-1.83 1.748-3.327 3.486-4.037 1.73-.705 3.69-.584 5.314.326"/>
         </svg>
       )
     },
@@ -549,7 +552,7 @@ export default function OpenPageClient({
         </div>
       </div>
 
-      {/* Subscribe Banner Card (Triggers Waitlist Modal) */}
+      {/* Subscribe Banner Card (Triggers Official Waitlist Modal) */}
       <div className="p-8 md:p-12 rounded-3xl bg-white border-2 border-[#1A1510] text-center space-y-4 shadow-[6px_8px_0_#1A1510]">
         <h3 className="font-serif font-bold text-2xl md:text-3xl text-[#1A1510]">
           Sign up to follow the journey
