@@ -5,6 +5,7 @@ import {
   Eye, Mail, ArrowRight, ExternalLink, 
   Sparkles, Info, X 
 } from 'lucide-react'
+import WaitlistModal from '@/components/WaitlistModal'
 
 interface OpenPageClientProps {
   initialWaitlist: number
@@ -544,60 +545,8 @@ export default function OpenPageClient({
         )}
       </div>
 
-      {/* Subscribe Modal */}
-      {isSubscribeOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-8 max-w-md w-full border-2 border-[#1A1510] shadow-[8px_10px_0_#1A1510] space-y-5 relative">
-            <button 
-              onClick={() => setIsSubscribeOpen(false)}
-              className="absolute top-5 right-5 text-zinc-400 hover:text-black transition cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="w-12 h-12 bg-emerald-50 border-2 border-emerald-200 rounded-2xl flex items-center justify-center text-[#16A34A]">
-              <Sparkles className="w-6 h-6" />
-            </div>
-
-            <div className="space-y-1.5">
-              <h3 className="font-serif font-bold text-2xl text-[#1A1510]">Subscribe to updates</h3>
-              <p className="text-xs text-zinc-600 font-medium">
-                Follow our open journey taking Cacto to $10k MRR. Monthly metrics, strategy breakdowns, and lessons learned.
-              </p>
-            </div>
-
-            <form onSubmit={handleSubscribe} className="space-y-3">
-              <input 
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                className="w-full p-3.5 rounded-xl border-2 border-[#1A1510] text-xs font-bold outline-none bg-white"
-                required
-              />
-              <button 
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-3.5 px-6 rounded-xl bg-[#16A34A] text-white font-extrabold text-xs hover:bg-[#15803D] transition border-2 border-[#1A1510] shadow-[3px_3px_0_#1A1510] cursor-pointer disabled:opacity-50"
-              >
-                {isSubmitting ? 'Submitting...' : 'Join 460+ open subscribers'}
-              </button>
-            </form>
-
-            {isSuccess && (
-              <p className="text-xs font-bold text-emerald-700 bg-emerald-50 p-3 rounded-xl border border-emerald-300">
-                🎉 You are subscribed! Welcome aboard.
-              </p>
-            )}
-
-            {errorMsg && (
-              <p className="text-xs font-bold text-rose-700 bg-rose-50 p-3 rounded-xl border border-rose-300">
-                {errorMsg}
-              </p>
-            )}
-          </div>
-        </div>
-      )}
+      {/* Official Cacto Waitlist Modal */}
+      <WaitlistModal isOpen={isSubscribeOpen} onClose={() => setIsSubscribeOpen(false)} />
 
     </div>
   )
