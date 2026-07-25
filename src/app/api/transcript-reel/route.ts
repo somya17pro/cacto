@@ -327,24 +327,53 @@ export async function POST(req: Request) {
             if (Array.isArray(audioSamples)) audioSamples = audioSamples[0]
 
             const transcriber = await getTranscriber()
-            const whisperOutput = await transcriber(audioSamples, {
-              return_timestamps: true,
-              chunk_length_s: 30,
-              stride_length_s: 5
-            })
 
-            if (whisperOutput && whisperOutput.text && whisperOutput.text.trim().length > 0) {
-              fullSpokenText = cleanHtmlText(whisperOutput.text.trim())
+            const WINDOW_SIZE = 25 * 16000 // 25 second window at 16kHz
+            const totalSamples = audioSamples.length
+            const allChunks: any[] = []
+            let fullTextParts: string[] = []
 
-              if (whisperOutput.chunks && whisperOutput.chunks.length > 0) {
-                speechSegments = whisperOutput.chunks.map((chunk: any) => {
-                  const startSec = Math.floor(chunk.timestamp?.[0] || 0)
-                  const timeStr = `${Math.floor(startSec / 60)}:${String(startSec % 60).padStart(2, '0')}`
-                  return {
-                    time: timeStr,
-                    text: cleanHtmlText(chunk.text)
+            if (totalSamples > WINDOW_SIZE) {
+              for (let offset = 0; offset < totalSamples; offset += WINDOW_SIZE) {
+                const chunkSamples = audioSamples.slice(offset, offset + WINDOW_SIZE)
+                if (chunkSamples.length < 16000 * 1) continue // Skip trailing sub-second noise
+                const offsetSec = Math.floor(offset / 16000)
+                const res = await transcriber(chunkSamples, { return_timestamps: true })
+                if (res && res.text) {
+                  const cleanedText = cleanHtmlText(res.text.trim())
+                  if (cleanedText) fullTextParts.push(cleanedText)
+                  if (res.chunks && res.chunks.length > 0) {
+                    res.chunks.forEach((c: any) => {
+                      const startSec = offsetSec + Math.floor(c.timestamp?.[0] || 0)
+                      const timeStr = `${Math.floor(startSec / 60)}:${String(startSec % 60).padStart(2, '0')}`
+                      const cleanChunk = cleanHtmlText(c.text)
+                      if (cleanChunk) {
+                        allChunks.push({
+                          time: timeStr,
+                          text: cleanChunk
+                        })
+                      }
+                    })
                   }
-                }).filter((s: any) => s.text.length > 0)
+                }
+              }
+              fullSpokenText = fullTextParts.join(' ')
+              speechSegments = allChunks.filter(s => s.text.length > 0)
+            } else {
+              const whisperOutput = await transcriber(audioSamples, { return_timestamps: true })
+              if (whisperOutput && whisperOutput.text && whisperOutput.text.trim().length > 0) {
+                fullSpokenText = cleanHtmlText(whisperOutput.text.trim())
+
+                if (whisperOutput.chunks && whisperOutput.chunks.length > 0) {
+                  speechSegments = whisperOutput.chunks.map((chunk: any) => {
+                    const startSec = Math.floor(chunk.timestamp?.[0] || 0)
+                    const timeStr = `${Math.floor(startSec / 60)}:${String(startSec % 60).padStart(2, '0')}`
+                    return {
+                      time: timeStr,
+                      text: cleanHtmlText(chunk.text)
+                    }
+                  }).filter((s: any) => s.text.length > 0)
+                }
               }
             }
           }

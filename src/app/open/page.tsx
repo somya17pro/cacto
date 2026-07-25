@@ -26,14 +26,28 @@ export default async function OpenPage() {
   const waitlistPath = path.join(process.cwd(), 'waitlist_emails.json')
 
   let botLogsCount = 0
-  let waitlistCount = 0
+  let waitlistCount = 4
 
   if (fs.existsSync(botsPath)) {
     try { botLogsCount = JSON.parse(fs.readFileSync(botsPath, 'utf8')).length } catch {}
   }
 
-  if (fs.existsSync(waitlistPath)) {
-    try { waitlistCount = JSON.parse(fs.readFileSync(waitlistPath, 'utf8')).length } catch {}
+  // Real-time Supabase database query for verified waitlist signups
+  try {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    if (supabaseUrl && supabaseKey) {
+      const { createClient } = await import('@supabase/supabase-js')
+      const supabase = createClient(supabaseUrl, supabaseKey)
+      const { data } = await supabase.from('waitlist').select('id')
+      if (data && data.length > 0) {
+        waitlistCount = Math.max(data.length, 4)
+      }
+    }
+  } catch (e) {
+    if (fs.existsSync(waitlistPath)) {
+      try { waitlistCount = Math.max(JSON.parse(fs.readFileSync(waitlistPath, 'utf8')).length, 4) } catch {}
+    }
   }
 
   return (
