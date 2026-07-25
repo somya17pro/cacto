@@ -57,74 +57,22 @@ export default function OpenPageClient({
   // REAL Cacto Metrics
   const metrics = [
     {
+      id: 'sessions',
+      title: 'Website sessions',
+      tooltip: 'Unique visitor sessions across Cacto web app and free tools.',
+      value: '461',
+      change: '+348 in the last 30 days',
+      svgPath: 'M0,45 C15,44 30,43 45,43 C60,42 75,41 90,38 C105,34 120,28 135,22 C150,15 165,10 180,5',
+      type: 'chart'
+    },
+    {
       id: 'waitlist',
-      title: 'Waitlist Subscribers',
+      title: 'Waitlist signups',
       tooltip: 'Real-time registered waitlist members & journey subscribers in waitlist_emails.json and Supabase.',
       value: String(initialWaitlist || 1),
       change: 'Real-time verified signups',
       svgPath: 'M0,45 L60,40 L120,30 L180,10',
       type: 'chart'
-    },
-    {
-      id: 'tools',
-      title: 'Free Growth Tools',
-      tooltip: 'Live interactive calculators, rotators, checkers, caption & transcript generators built on Cacto.',
-      value: String(toolsCount),
-      change: '+25 in the last 30 days',
-      svgPath: 'M0,45 L30,40 L60,32 L90,24 L120,18 L150,10 L180,4',
-      type: 'chart'
-    },
-    {
-      id: 'blogs',
-      title: 'Masterclass Blogs',
-      tooltip: 'Published growth & AEO strategies on Cacto blog.',
-      value: String(blogsCount),
-      change: '+33 in the last 30 days',
-      svgPath: 'M0,45 L40,40 L80,30 L120,20 L160,10 L180,4',
-      type: 'chart'
-    },
-    {
-      id: 'urls',
-      title: 'Indexed Sitemap URLs',
-      tooltip: 'Total active pages in sitemap (9 Core pages + 50 Growth Tools + 50 Masterclass Blogs).',
-      value: '109',
-      change: '100% indexed in Google & AEO',
-      svgPath: 'M0,45 L35,42 L70,35 L110,25 L150,14 L180,5',
-      type: 'chart'
-    },
-    {
-      id: 'botlogs',
-      title: 'AI Engine Crawls',
-      tooltip: 'Real AI crawler visits (ChatGPT, Perplexity AI, Claude, Google AI) logged by log-bot API.',
-      value: String(initialBotLogs || 0),
-      change: 'Live telemetry counter',
-      svgPath: 'M0,45 L90,45 L180,35',
-      type: 'chart'
-    },
-    {
-      id: 'apiroutes',
-      title: 'Production API Routes',
-      tooltip: 'Active serverless REST endpoints (transcript-reel, download-reel, download-photo, waitlist, webhooks, checkout, etc.).',
-      value: '9',
-      change: '100% uptime & zero downtime',
-      svgPath: 'M0,45 L50,40 L100,30 L150,20 L180,10',
-      type: 'chart'
-    },
-    {
-      id: 'changelog',
-      title: 'Changelog Releases',
-      tooltip: 'Major engineering releases shipped on Cacto.',
-      value: '5',
-      change: 'Updated weekly',
-      svgPath: 'M0,45 L50,42 L100,35 L150,25 L180,18',
-      type: 'chart'
-    },
-    {
-      id: 'subscribers',
-      title: 'Active Pro Subscribers',
-      tooltip: 'Paying Cacto Pro active subscriptions.',
-      value: '0',
-      type: 'empty'
     },
     {
       id: 'mrr',
@@ -143,16 +91,8 @@ export default function OpenPageClient({
       type: 'empty'
     },
     {
-      id: 'revenue',
-      title: 'Revenue',
-      tooltip: 'Cumulative total revenue collected.',
-      value: '$0',
-      subtitle: 'Building in public',
-      type: 'empty'
-    },
-    {
       id: 'expenses',
-      title: 'Monthly Expenses',
+      title: 'Expenses',
       tooltip: 'Real monthly infrastructure costs ($1 domain fee, $0 Vercel Free Tier, $0 Supabase, $0 Cloudflare).',
       value: '$1',
       subtitle: 'Lean infrastructure',
@@ -160,7 +100,7 @@ export default function OpenPageClient({
     },
     {
       id: 'netprofit',
-      title: 'Net Profit',
+      title: 'Net profit',
       tooltip: 'Total Revenue minus Total Operating Expenses.',
       value: '-$1',
       subtitle: 'All published months',
@@ -265,7 +205,7 @@ export default function OpenPageClient({
         </h1>
 
         <p className="text-sm md:text-base font-medium text-zinc-600 leading-relaxed max-w-2xl mx-auto">
-          We believe in 100% radical transparency. Here are Cacto&apos;s real numbers — verified waitlist signups, tools, blogs, serverless endpoints, tech stack, and P&L as we build to <span className="font-extrabold text-[#16A34A]">$10k MRR</span>.
+          I believe in 100% radical transparency. Here are Cacto&apos;s real numbers — Website sessions, waitlist signups, MRR, ARR, Expenses, Net profit, P&amp;L, tech stack, and milestones as we build to <span className="font-extrabold text-[#16A34A]">$10k MRR</span>.
         </p>
 
         <div className="pt-2">
