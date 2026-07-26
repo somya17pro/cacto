@@ -15,6 +15,7 @@ test.describe('Waitlist Flow', () => {
 
     // Use a valid email so it bypasses HTML5 validation and hits the mocked server
     const emailInput = page.getByPlaceholder(/Enter your email address/i).first();
+    await emailInput.waitFor({ state: 'visible', timeout: 10000 });
     await emailInput.fill('test-error@example.com');
     
     // Submit form
@@ -38,6 +39,7 @@ test.describe('Waitlist Flow', () => {
     await page.getByRole('button', { name: /Join Waitlist/i }).first().click();
 
     const emailInput = page.getByPlaceholder(/Enter your email address/i).first();
+    await emailInput.waitFor({ state: 'visible', timeout: 10000 });
     await emailInput.fill(`test-user-${Date.now()}@example.com`);
     
     const submitBtn = page.locator('form').getByRole('button', { name: /Join Waitlist/i });
