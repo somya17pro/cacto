@@ -705,13 +705,16 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
 
   // 6. Username Checker Formula
   const safeCheckUsername = checkUsername.trim() || 'alex_checkout'
-  const suggestedUsernames = [
+  const rawSuggestions = [
     `${safeCheckUsername}_${suffixPref}`,
     `${safeCheckUsername}_hq`,
     `the_${safeCheckUsername}`,
     `real_${safeCheckUsername}`,
-    `${safeCheckUsername}_hub`
+    `${safeCheckUsername}_hub`,
+    `${safeCheckUsername}_official`,
+    `${safeCheckUsername}_app`
   ]
+  const suggestedUsernames = Array.from(new Set(rawSuggestions)).slice(0, 5)
   const nameScore = checkUsername.trim().length === 0 
     ? 'Enter Handle' 
     : checkUsername.trim().length > 30 
@@ -722,26 +725,34 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
 
   // 7. Hashtag Generator Formula
   const cleanHashKeyword = hashtagKeyword.toLowerCase().replace(/[^a-z0-9_]/g, '') || 'growth'
+  const levelTags = hashtagLevel === 'High' 
+    ? [`#${cleanHashKeyword}viral`, `#viralcontent`, `#reelsinstagram`] 
+    : hashtagLevel === 'Medium'
+      ? [`#${cleanHashKeyword}community`, `#nichemarketing`, `#contenttips`]
+      : [`#${cleanHashKeyword}hacks`, `#microcreator`, `#solopreneurs`]
   const generatedHashtags = [
     `#${cleanHashKeyword}`, `#${cleanHashKeyword}tips`, `#${cleanHashKeyword}strategy`, `#${cleanHashKeyword}creator`,
-    `#marketingautomation`, `#commentautomation`, `#creatorsstack`,
-    `#nocodemarketing`, `#buildinpublic`, `#solocreator`, `#growthhacks`
+    ...levelTags,
+    `#marketingautomation`, `#commentautomation`, `#creatorsstack`, `#nocodemarketing`
   ]
 
   // 9. CTA Generator Formula
   const cleanCtaKeyword = ctaKeyword.trim().toUpperCase().replace(/\s+/g, '') || 'KEYWORD'
+  const safeCtaOffer = ctaOffer.trim() || 'free resource'
   const generatedCTAs = [
     `💬 Comment "${cleanCtaKeyword}" below and I'll DM you the link!`,
-    `👇 Drop the word "${cleanCtaKeyword}" in the comments to get the ${ctaOffer} delivered instantly.`,
-    `🚀 Want the ${ctaOffer}? Comment "${cleanCtaKeyword}" and check your inbox!`,
+    `👇 Drop the word "${cleanCtaKeyword}" in the comments to get the ${safeCtaOffer} delivered instantly.`,
+    `🚀 Want the ${safeCtaOffer}? Comment "${cleanCtaKeyword}" and check your inbox!`,
     `📬 Type "${cleanCtaKeyword}" in the comments and Cacto will DM you the template.`,
     `🔥 Comment "${cleanCtaKeyword}" right now to claim early access!`
   ]
 
   // 10. Click Value Estimator Formula
-  const revenueEst = isNaN(estFollowers) || isNaN(estCtr) || isNaN(estConv) || isNaN(estPrice)
-    ? '0'
-    : (estFollowers * (estCtr / 100) * (estConv / 100) * estPrice).toFixed(0)
+  const safeEstFollowers = Math.max(0, isNaN(estFollowers) ? 0 : estFollowers)
+  const safeEstCtr = Math.max(0, isNaN(estCtr) ? 0 : estCtr)
+  const safeEstConv = Math.max(0, isNaN(estConv) ? 0 : estConv)
+  const safeEstPrice = Math.max(0, isNaN(estPrice) ? 0 : estPrice)
+  const revenueEst = (safeEstFollowers * (safeEstCtr / 100) * (safeEstConv / 100) * safeEstPrice).toFixed(0)
 
   // 11. Line Breaker Formula
   const formattedLineText = lineText
@@ -751,13 +762,14 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
 
   // 12. Script Outline
   const cleanScriptCtaKeyword = scriptCtaKeyword.trim().toUpperCase().replace(/\s+/g, '') || 'KEYWORD'
+  const safeScriptTopic = scriptTopic.trim() || 'your target topic'
   const wordCountTarget = scriptDuration === '30s' ? '65 - 75 words (~130 wpm pace)' : scriptDuration === '90s' ? '200 - 225 words (~140 wpm pace)' : '130 - 150 words (~140 wpm pace)'
   const scriptTimestamps = scriptDuration === '30s' 
     ? { hook: '0:00 - 0:03', prob: '0:03 - 0:08', core: '0:08 - 0:22', cta: '0:22 - 0:30' }
     : scriptDuration === '90s'
       ? { hook: '0:00 - 0:08', prob: '0:08 - 0:20', core: '0:20 - 1:10', cta: '1:10 - 1:30' }
-      : { hook: '0:00 - 0:05', prob: '0:05 - 0:15', core: '0:15 - 0:45', cta: '0:45 - 0:60' }
-  const generatedScript = `⏱ TARGET DURATION: ${scriptDuration} | OPTIMAL SCRIPT LENGTH: ${wordCountTarget}\n\n[${scriptTimestamps.hook}] VIRAL HOOK:\n"Here is how I automated "${scriptTopic}" to scale client signups..."\n\n[${scriptTimestamps.prob}] PROBLEM COGNITION:\nExplain how typing links manually is slow and leads to visitor drop-off.\n\n[${scriptTimestamps.core}] SYSTEM WALKTHROUGH:\nShow how setting up a keyword rule auto-delivers links to DMs instantly.\n\n[${scriptTimestamps.cta}] CALL TO ACTION INTENT:\n"Comment "${cleanScriptCtaKeyword}" below and my system will DM you the link!"`
+      : { hook: '0:00 - 0:05', prob: '0:05 - 0:15', core: '0:15 - 0:45', cta: '0:45 - 1:00' }
+  const generatedScript = `⏱ TARGET DURATION: ${scriptDuration} | OPTIMAL SCRIPT LENGTH: ${wordCountTarget}\n\n[${scriptTimestamps.hook}] VIRAL HOOK:\n"Here is how I automated "${safeScriptTopic}" to scale client signups..."\n\n[${scriptTimestamps.prob}] PROBLEM COGNITION:\nExplain how typing links manually is slow and leads to visitor drop-off.\n\n[${scriptTimestamps.core}] SYSTEM WALKTHROUGH:\nShow how setting up a keyword rule auto-delivers links to DMs instantly.\n\n[${scriptTimestamps.cta}] CALL TO ACTION INTENT:\n"Comment "${cleanScriptCtaKeyword}" below and my system will DM you the link!"`
 
   // 14. Follower Growth Projector
   const parsedCurrentFollowers = isNaN(currentFollowers) ? 0 : Math.max(0, currentFollowers)
@@ -2373,10 +2385,10 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                         {safe.join(' ')}
                       </p>
                       <button 
-                        onClick={() => copyToClipboard(safe.join(' '), 'Clean Hashtags')}
+                        onClick={() => checkAndIncrementUsage(() => copyToClipboard(safe.join(' ')))}
                         className="py-2.5 px-4 rounded-xl bg-[#16A34A] text-white font-extrabold text-xs hover:bg-[#15803D] transition border-none cursor-pointer flex items-center gap-2"
                       >
-                        <Copy className="w-3.5 h-3.5" /> Copy Clean Hashtags
+                        <Copy className="w-3.5 h-3.5" /> {copiedText === safe.join(' ') ? 'Copied Clean Hashtags!' : 'Copy Clean Hashtags'}
                       </button>
                     </div>
                   </div>
@@ -2414,11 +2426,14 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
               </div>
 
               {(() => {
-                const [hours, minutes] = metaTriggerTime.split(':').map(Number)
+                const safeTime = metaTriggerTime.trim() || '14:30'
+                const [rawH, rawM] = safeTime.split(':').map(Number)
+                const hours = isNaN(rawH) ? 14 : rawH
+                const minutes = isNaN(rawM) ? 30 : rawM
                 const formatSlot = (addH: number) => {
                   const h = (hours + addH) % 24
                   const formattedH = h.toString().padStart(2, '0')
-                  const formattedM = (minutes || 0).toString().padStart(2, '0')
+                  const formattedM = minutes.toString().padStart(2, '0')
                   return `${formattedH}:${formattedM} ${metaTimezone.split(' ')[0]}`
                 }
 
@@ -2513,12 +2528,16 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
               </div>
 
               {(() => {
+                const safeDailyDm = Math.max(0, isNaN(simDailyDmVolume) ? 0 : simDailyDmVolume)
+                const safeAccountAge = Math.max(0, isNaN(simAccountAgeMonths) ? 0 : simAccountAgeMonths)
+                const safeVariations = Math.max(1, isNaN(simReplyVariations) ? 1 : simReplyVariations)
+
                 let penalty = 0
-                if (simDailyDmVolume > 300) penalty += 35
-                else if (simDailyDmVolume > 150) penalty += 15
-                if (simReplyVariations < 2) penalty += 30
-                else if (simReplyVariations < 4) penalty += 15
-                if (simAccountAgeMonths < 3) penalty += 20
+                if (safeDailyDm > 300) penalty += 35
+                else if (safeDailyDm > 150) penalty += 15
+                if (safeVariations < 2) penalty += 30
+                else if (safeVariations < 4) penalty += 15
+                if (safeAccountAge < 3) penalty += 20
                 
                 const trustScore = Math.max(10, Math.min(100, 100 - penalty))
                 const isSafe = trustScore >= 80
@@ -2552,9 +2571,9 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                     <div className="space-y-2 pt-2 border-t border-zinc-200">
                       <span className="text-[10px] font-black text-zinc-500 uppercase tracking-wider block">Safety Optimization Tips:</span>
                       <ul className="text-xs font-bold text-zinc-700 space-y-1 pl-4 list-disc">
-                        {simReplyVariations < 4 && <li>Increase public comment reply variations to at least 4 phrases to bypass bot detection.</li>}
-                        {simDailyDmVolume > 200 && <li>Stagger DM triggers with human-like rate limiting buffers using Cacto's native Meta API endpoints.</li>}
-                        {simAccountAgeMonths < 3 && <li>New accounts under 3 months should limit daily DMs to under 100/day during warm-up.</li>}
+                        {safeVariations < 4 && <li>Increase public comment reply variations to at least 4 phrases to bypass bot detection.</li>}
+                        {safeDailyDm > 200 && <li>Stagger DM triggers with human-like rate limiting buffers using Cacto's native Meta API endpoints.</li>}
+                        {safeAccountAge < 3 && <li>New accounts under 3 months should limit daily DMs to under 100/day during warm-up.</li>}
                         {isSafe && <li>Your current parameters align perfectly with Meta Graph API developer safety guidelines!</li>}
                       </ul>
                     </div>
@@ -2591,13 +2610,18 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
               </div>
 
               {(() => {
-                const hasSeparator = bioNameInput.includes('|') || bioNameInput.includes('-') || bioNameInput.includes('•')
-                const hasKeyword = bioNameInput.length > 15
-                const hasCommentCta = bioTextBodyInput.toLowerCase().includes('comment') || bioTextBodyInput.toLowerCase().includes('dm')
+                const safeName = bioNameInput.trim() || 'Jane Doe'
+                const safeBody = bioTextBodyInput.trim() || 'Helping creators convert comments into leads.'
+                const hasSeparator = safeName.includes('|') || safeName.includes('-') || safeName.includes('•')
+                const hasKeyword = safeName.length > 15
+                const hasCommentCta = safeBody.toLowerCase().includes('comment') || safeBody.toLowerCase().includes('dm')
                 let seoScore = 40
                 if (hasSeparator) seoScore += 20
                 if (hasKeyword) seoScore += 20
                 if (hasCommentCta) seoScore += 20
+
+                const firstSentence = safeBody.split('.')[0] || safeBody
+                const optimizedBioText = `${safeName.includes('|') ? safeName : safeName + ' | Growth Specialist'}\n✨ ${firstSentence}.\n🔥 Comment "SCALE" below to get my free DM playbook! ⬇️`
 
                 return (
                   <div className="space-y-4">
@@ -2615,13 +2639,13 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                     <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-3">
                       <span className="text-[10px] font-black text-emerald-700 uppercase tracking-wider block">AI-Optimized Bio Rewrite</span>
                       <p className="text-xs font-mono font-bold text-emerald-950 bg-white p-3 rounded-lg border border-emerald-300 whitespace-pre-line">
-                        {`${bioNameInput.includes('|') ? bioNameInput : bioNameInput + ' | Growth Specialist'}\n✨ ${bioTextBodyInput.split('.')[0]}.\n🔥 Comment "SCALE" below to get my free DM playbook! ⬇️`}
+                        {optimizedBioText}
                       </p>
                       <button 
-                        onClick={() => copyToClipboard(`${bioNameInput.includes('|') ? bioNameInput : bioNameInput + ' | Growth Specialist'}\n✨ ${bioTextBodyInput.split('.')[0]}.\n🔥 Comment "SCALE" below to get my free DM playbook! ⬇️`, 'Optimized Bio')}
+                        onClick={() => checkAndIncrementUsage(() => copyToClipboard(optimizedBioText))}
                         className="py-2 px-4 rounded-xl bg-[#16A34A] text-white font-extrabold text-xs hover:bg-[#15803D] transition border-none cursor-pointer flex items-center gap-2"
                       >
-                        <Copy className="w-3.5 h-3.5" /> Copy Optimized Bio
+                        <Copy className="w-3.5 h-3.5" /> {copiedText === optimizedBioText ? 'Copied Bio!' : 'Copy Optimized Bio'}
                       </button>
                     </div>
                   </div>
@@ -2647,11 +2671,11 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
               {(() => {
                 const intent = rotatorIntentInput.trim() || 'Just sent the guide to your DMs!'
                 const variations = [
-                  `Just sent it over {{first_name}}! Check your DMs 📩`,
-                  `Hey {{first_name}}! The link is waiting in your inbox right now 🚀`,
-                  `Sent to your DMs! Let me know if you need any help with it {{first_name}} ✨`,
-                  `Check your inbox {{first_name}}! Just delivered the full guide 📥`,
-                  `All set {{first_name}}! Check your private messages folder 🔥`
+                  `${intent} {{first_name}} 📩`,
+                  `Hey {{first_name}}! ${intent} 🚀`,
+                  `${intent} Let me know if you need anything {{first_name}} ✨`,
+                  `Check your inbox {{first_name}}! ${intent} 📥`,
+                  `All set {{first_name}}! ${intent} 🔥`
                 ]
 
                 return (
@@ -2662,10 +2686,11 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                         <div key={idx} className="p-3 rounded-xl bg-white border border-zinc-200 flex items-center justify-between gap-3 text-xs font-semibold text-zinc-800">
                           <span>Variant {idx + 1}: {variant}</span>
                           <button 
-                            onClick={() => copyToClipboard(variant, `Variant ${idx + 1}`)}
-                            className="p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition border-none cursor-pointer shrink-0"
+                            onClick={() => checkAndIncrementUsage(() => copyToClipboard(variant))}
+                            className="p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition border-none cursor-pointer shrink-0 flex items-center gap-1 text-[11px] font-bold"
                           >
                             <Copy className="w-3.5 h-3.5" />
+                            <span>{copiedText === variant ? 'Copied' : 'Copy'}</span>
                           </button>
                         </div>
                       ))}
@@ -2951,17 +2976,11 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                         <span className="text-[10px] font-black text-emerald-700 uppercase tracking-wider block">Recommended Impulse Price</span>
                         <span className="text-3xl font-black text-emerald-800">${recPrice}</span>
                       </div>
-                      <div className="p-4 rounded-xl bg-amber-50 border-2 border-amber-400 text-center">
-                        <span className="text-[10px] font-black text-amber-800 uppercase tracking-wider block">Upsell Bundle Tier</span>
-                        <span className="text-3xl font-black text-amber-900">${Math.round(recPrice * 2.2)}</span>
+                      <div className="p-5 rounded-2xl bg-amber-50 border-2 border-amber-400 space-y-1">
+                        <span className="text-[10px] font-black text-amber-800 uppercase block">Recommended Order Bump / Upsell</span>
+                        <span className="text-3xl font-black text-amber-700">${Math.round(recPrice * 2.2)}</span>
+                        <p className="text-[11px] font-bold text-amber-800 pt-1">Offer as a 1-click checkout upgrade in your DM link sequence.</p>
                       </div>
-                    </div>
-
-                    <div className="p-4 rounded-xl bg-white border-2 border-[#1A1510] space-y-2">
-                      <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">Mobile Chat Checkout Recommendation</span>
-                      <p className="text-xs font-semibold text-zinc-700 leading-relaxed">
-                        At <strong>${recPrice}</strong>, this {prodFormat} falls directly within the mobile impulse buying range. Pair this with a 1-tap Stripe Apple Pay link inside Cacto DMs to achieve 5-8% checkout conversion rates.
-                      </p>
                     </div>
                   </div>
                 )
@@ -2983,7 +3002,7 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Digital Product Price ($)</label>
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Product Price ($)</label>
                   <input 
                     type="number" 
                     value={bonusProductPrice}
@@ -2997,14 +3016,14 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                 const platformPayout = Math.round((bonusReelViews / 1000) * 0.15)
                 const cactoSales = Math.round(bonusReelViews * 0.0006 * bonusProductPrice)
                 const totalIncome = platformPayout + cactoSales
-                const multiplier = Math.round(totalIncome / (platformPayout || 1))
+                const multiplier = (cactoSales / (platformPayout || 1)).toFixed(1)
 
                 return (
                   <div className="space-y-4">
                     <div className="p-6 rounded-2xl bg-white border-2 border-[#1A1510] space-y-4">
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
-                          <span className="text-[10px] font-black text-zinc-400 uppercase tracking-wider block">Combined Reel Earnings Potential</span>
+                          <span className="text-[10px] font-black text-zinc-400 uppercase block">Total Estimated Monthly Reel Earnings</span>
                           <span className="text-4xl font-black text-[#16A34A]">${totalIncome.toLocaleString()} / month</span>
                         </div>
                         <span className="px-3 py-1.5 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-xs uppercase tracking-wider border border-emerald-300">
@@ -3038,7 +3057,7 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                   <textarea 
                     rows={4}
                     value={giveawayEntries}
-                    onChange={(e) => setGiveawayEntries(e.target.value)}
+                    onChange={(e) => { setGiveawayEntries(e.target.value); setPickedWinner(null); }}
                     placeholder="@user1, @user2, @user3..."
                     className="w-full p-4 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold font-mono"
                   />
@@ -3048,7 +3067,7 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                   <input 
                     type="text" 
                     value={giveawayKeyword}
-                    onChange={(e) => setGiveawayKeyword(e.target.value)}
+                    onChange={(e) => { setGiveawayKeyword(e.target.value); setPickedWinner(null); }}
                     placeholder="e.g. WIN or #giveaway"
                     className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold"
                   />
@@ -3088,7 +3107,7 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                           Cryptographically Verified Unbiased Draw • Cacto Official Certificate
                         </p>
                         <button 
-                          onClick={() => copyToClipboard(`🏆 Winner Drawn: ${pickedWinner} (Verified via Cacto Giveaway Picker)`, 'Winner Proof')}
+                          onClick={() => checkAndIncrementUsage(() => copyToClipboard(`🏆 Winner Drawn: ${pickedWinner} (Verified via Cacto Giveaway Picker)`))}
                           className="py-2 px-4 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-extrabold text-xs border-none cursor-pointer inline-flex items-center gap-2"
                         >
                           <Copy className="w-3.5 h-3.5" /> Copy Winner Certificate
@@ -3134,16 +3153,30 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
               </div>
 
               {(() => {
-                const hooks = [
-                  `Stop doing this 1 mistake on Instagram in 2026 🚨 (Comment SCALE for fix)`,
-                  `The secret 3-second DM hack top creators don't tell you 🤫`,
-                  `How I turned 1,000 Reel views into $450 in sales 💰 (Comment PDF below)`,
-                  `Why your link-in-bio is costing you 80% of your sales 📉`,
-                  `Do NOT post your next Reel until you try this overlay trick ⚡`,
-                  `The exact 5-step playbook to automate your DMs 24/7 📥`,
-                  `Why Manychat alternative tools are exploding right now 🔥`,
-                  `Steal my 3-step comment trigger formula (Comment PLAYBOOK) 🚀`
-                ]
+                const categoryText = hookNicheCategory === 'Coaching' ? 'clients' : hookNicheCategory === 'SaaS' ? 'users' : hookNicheCategory === 'ECommerce' ? 'customers' : 'followers'
+                const hooksMap = {
+                  Curiosity: [
+                    `The secret 3-second DM hack top ${categoryText} don't tell you 🤫`,
+                    `Stop doing this 1 mistake on Instagram in 2026 🚨 (Comment SCALE for fix)`,
+                    `Steal my 3-step comment trigger formula for ${categoryText} (Comment PLAYBOOK) 🚀`
+                  ],
+                  FOMO: [
+                    `Why your link-in-bio is costing you 80% of sales from ${categoryText} 📉`,
+                    `Do NOT post your next Reel until you try this overlay trick for ${categoryText} ⚡`,
+                    `Only 5% of creators use this DM trigger method — steal it before it's patched 🔥`
+                  ],
+                  HowTo: [
+                    `How I turned 1,000 Reel views into 50+ new ${categoryText} 💰 (Comment PDF below)`,
+                    `The exact 5-step playbook to automate your ${categoryText} DMs 24/7 📥`,
+                    `Step-by-step guide to set up instant auto-replies for ${hookNicheCategory} 🛠️`
+                  ],
+                  Controversy: [
+                    `Why Manychat alternative tools are exploding right now for ${categoryText} 🔥`,
+                    `Link-in-bio tools are officially DEAD in 2026. Here is why... ❌`,
+                    `Unpopular opinion: Stop asking ${categoryText} to "link in bio" in your captions!`
+                  ]
+                }
+                const hooks = hooksMap[hookEmotion as keyof typeof hooksMap] || hooksMap['Curiosity']
 
                 return (
                   <div className="space-y-4">
@@ -3153,10 +3186,11 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                         <div key={idx} className="p-3 rounded-xl bg-white border border-zinc-200 flex items-center justify-between gap-3 text-xs font-bold text-zinc-900">
                           <span>{idx + 1}. "{hook}"</span>
                           <button 
-                            onClick={() => copyToClipboard(hook, `Hook ${idx + 1}`)}
-                            className="p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition border-none cursor-pointer shrink-0"
+                            onClick={() => checkAndIncrementUsage(() => copyToClipboard(hook))}
+                            className="p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition border-none cursor-pointer shrink-0 flex items-center gap-1 text-[11px] font-bold"
                           >
                             <Copy className="w-3.5 h-3.5" />
+                            <span>{copiedText === hook ? 'Copied' : 'Copy'}</span>
                           </button>
                         </div>
                       ))}
@@ -3183,29 +3217,47 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
 
               {(() => {
                 const offer = storyOfferName.trim() || 'Instagram Growth Guide'
+                const slide1Text = `"Struggling to convert Instagram views into actual leads? 📉"`
+                const slide2Text = `"Want my free 2026 ${offer} delivered to your DMs?"`
+                const slide3Text = `"Hey @{{username}}! Here is your free ${offer} as requested! 🎁"`
 
                 return (
                   <div className="space-y-4">
                     <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">3-Slide Interactive Storyboard</span>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div className="p-4 rounded-xl bg-white border-2 border-[#1A1510] space-y-2">
-                        <span className="text-[10px] font-black text-zinc-400 uppercase block">Slide 1: The Hook</span>
-                        <p className="text-xs font-bold text-zinc-800">"Struggling to convert Instagram views into actual leads? 📉"</p>
-                      </div>
-
-                      <div className="p-4 rounded-xl bg-emerald-50 border-2 border-emerald-400 space-y-2">
-                        <span className="text-[10px] font-black text-emerald-700 uppercase block">Slide 2: Poll Sticker</span>
-                        <p className="text-xs font-bold text-emerald-950">"Want my free 2026 {offer} delivered to your DMs?"</p>
-                        <div className="pt-2 text-[10px] font-mono font-extrabold text-emerald-800">
-                          Option A: YES! Send it! 📩<br />
-                          Option B: Send me the PDF! 🔥
+                      <div className="p-4 rounded-xl bg-white border-2 border-[#1A1510] space-y-2 flex flex-col justify-between">
+                        <div>
+                          <span className="text-[10px] font-black text-zinc-400 uppercase block">Slide 1: The Hook</span>
+                          <p className="text-xs font-bold text-zinc-800">{slide1Text}</p>
                         </div>
+                        <button onClick={() => checkAndIncrementUsage(() => copyToClipboard(slide1Text))} className="py-1 px-2.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-bold text-[11px] border-none cursor-pointer flex items-center gap-1 w-fit">
+                          <Copy className="w-3 h-3" /> {copiedText === slide1Text ? 'Copied' : 'Copy Slide 1'}
+                        </button>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-amber-50 border-2 border-amber-400 space-y-2">
-                        <span className="text-[10px] font-black text-amber-800 uppercase block">Slide 3: Auto-DM Script</span>
-                        <p className="text-xs font-mono font-bold text-amber-950">{`"Hey @{{username}}! Here is your free ${offer} as requested! 🎁"`}</p>
+                      <div className="p-4 rounded-xl bg-emerald-50 border-2 border-emerald-400 space-y-2 flex flex-col justify-between">
+                        <div>
+                          <span className="text-[10px] font-black text-emerald-700 uppercase block">Slide 2: Poll Sticker</span>
+                          <p className="text-xs font-bold text-emerald-950">{slide2Text}</p>
+                          <div className="pt-2 text-[10px] font-mono font-extrabold text-emerald-800">
+                            Option A: YES! Send it! 📩<br />
+                            Option B: Send me the PDF! 🔥
+                          </div>
+                        </div>
+                        <button onClick={() => checkAndIncrementUsage(() => copyToClipboard(slide2Text))} className="py-1 px-2.5 rounded-lg bg-emerald-600 text-white font-bold text-[11px] border-none cursor-pointer flex items-center gap-1 w-fit mt-2">
+                          <Copy className="w-3 h-3" /> {copiedText === slide2Text ? 'Copied' : 'Copy Slide 2'}
+                        </button>
+                      </div>
+
+                      <div className="p-4 rounded-xl bg-amber-50 border-2 border-amber-400 space-y-2 flex flex-col justify-between">
+                        <div>
+                          <span className="text-[10px] font-black text-amber-800 uppercase block">Slide 3: Auto-DM Script</span>
+                          <p className="text-xs font-mono font-bold text-amber-950">{slide3Text}</p>
+                        </div>
+                        <button onClick={() => checkAndIncrementUsage(() => copyToClipboard(slide3Text))} className="py-1 px-2.5 rounded-lg bg-amber-600 text-white font-bold text-[11px] border-none cursor-pointer flex items-center gap-1 w-fit mt-2">
+                          <Copy className="w-3 h-3" /> {copiedText === slide3Text ? 'Copied' : 'Copy Slide 3'}
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -3240,14 +3292,32 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                   { title: "Slide 5: Comment CTA", text: `🔥 Want my complete templates? Comment "SCALE" below and I'll DM you the free PDF!` }
                 ]
 
+                const fullOutline = slides.map(s => `${s.title}:\n${s.text}`).join('\n\n')
+
                 return (
                   <div className="space-y-4">
-                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">5-Slide Content Blueprint</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">5-Slide Content Blueprint</span>
+                      <button 
+                        onClick={() => checkAndIncrementUsage(() => copyToClipboard(fullOutline))}
+                        className="py-1 px-3 rounded-lg bg-[#16A34A] text-white font-extrabold text-[11px] border-none cursor-pointer flex items-center gap-1"
+                      >
+                        <Copy className="w-3 h-3" /> {copiedText === fullOutline ? 'Copied Full Outline!' : 'Copy Full Outline'}
+                      </button>
+                    </div>
                     <div className="space-y-3">
                       {slides.map((s, idx) => (
-                        <div key={idx} className="p-3.5 rounded-xl bg-white border border-zinc-200 space-y-1">
-                          <span className="text-[10px] font-black text-emerald-700 uppercase tracking-wider block">{s.title}</span>
-                          <p className="text-xs font-semibold text-zinc-800">{s.text}</p>
+                        <div key={idx} className="p-3.5 rounded-xl bg-white border border-zinc-200 flex items-center justify-between gap-3">
+                          <div>
+                            <span className="text-[10px] font-black text-emerald-700 uppercase tracking-wider block">{s.title}</span>
+                            <p className="text-xs font-semibold text-zinc-800">{s.text}</p>
+                          </div>
+                          <button 
+                            onClick={() => checkAndIncrementUsage(() => copyToClipboard(`${s.title}: ${s.text}`))}
+                            className="p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition border-none cursor-pointer shrink-0"
+                          >
+                            <Copy className="w-3.5 h-3.5" />
+                          </button>
                         </div>
                       ))}
                     </div>
@@ -3275,16 +3345,22 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
               </div>
 
               {(() => {
-                const words = ['SCALE', 'PLAYBOOK', 'PDF', 'REACH', 'PROFIT', 'GROWTH', 'FLOW', 'SYSTEM']
+                const triggerWordsMap: Record<string, string[]> = {
+                  'PDF Guide': ['GUIDE', 'PDF', 'CHECKLIST', 'PLAYBOOK', 'SCALE', 'SYSTEM', 'GROWTH', 'MAP'],
+                  'Template': ['TEMPLATE', 'NOTION', 'CANVA', 'LAYOUT', 'STACK', 'DECK', 'FLOW', 'SWIPE'],
+                  'Discount': ['CLAIM', 'OFFER', 'DEAL', 'CODE', 'SAVE', 'VIP', 'ACCESS', 'PROMO'],
+                  'Masterclass': ['CLASS', 'TRAINING', 'REPLAY', 'WATCH', 'SECRET', 'LEARN', 'INSIDER', 'BOOST']
+                }
+                const words = triggerWordsMap[triggerOfferType] || triggerWordsMap['PDF Guide']
 
                 return (
                   <div className="space-y-4">
-                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">Top 8 High-Converting 1-Word Comment Triggers</span>
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">Top 8 High-Converting 1-Word Comment Triggers ({triggerOfferType})</span>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       {words.map((w, idx) => (
                         <button 
                           key={idx}
-                          onClick={() => copyToClipboard(w, `Trigger '${w}'`)}
+                          onClick={() => checkAndIncrementUsage(() => copyToClipboard(w))}
                           className="p-3 rounded-xl bg-white border-2 border-[#1A1510] font-black text-sm text-[#1A1510] hover:bg-emerald-50 transition cursor-pointer flex items-center justify-between"
                         >
                           <span>{w}</span>
@@ -3344,10 +3420,10 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                           <div className="flex items-center justify-between">
                             <span className="text-[10px] font-black text-emerald-700 uppercase tracking-wider">{c.style}</span>
                             <button 
-                              onClick={() => copyToClipboard(c.text, c.style)}
+                              onClick={() => checkAndIncrementUsage(() => copyToClipboard(c.text))}
                               className="py-1 px-2.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-[10px] font-extrabold transition border-none cursor-pointer flex items-center gap-1"
                             >
-                              <Copy className="w-3 h-3" /> Copy CTA
+                              <Copy className="w-3 h-3" /> {copiedText === c.text ? 'Copied!' : 'Copy CTA'}
                             </button>
                           </div>
                           <p className="text-xs font-semibold text-zinc-800">{c.text}</p>
@@ -3390,10 +3466,11 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                         <div key={idx} className="p-3.5 rounded-xl bg-white border border-zinc-200 flex items-center justify-between gap-3 text-xs font-mono font-bold text-zinc-800">
                           <span>{s}</span>
                           <button 
-                            onClick={() => copyToClipboard(s, `Script ${idx + 1}`)}
-                            className="p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition border-none cursor-pointer shrink-0"
+                            onClick={() => checkAndIncrementUsage(() => copyToClipboard(s))}
+                            className="p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition border-none cursor-pointer shrink-0 flex items-center gap-1 text-[11px] font-bold"
                           >
                             <Copy className="w-3.5 h-3.5" />
+                            <span>{copiedText === s ? 'Copied' : 'Copy'}</span>
                           </button>
                         </div>
                       ))}
@@ -3438,10 +3515,10 @@ Formatting Constraints:
                         {masterPrompt}
                       </p>
                       <button 
-                        onClick={() => copyToClipboard(masterPrompt, 'Master AI Prompt')}
+                        onClick={() => checkAndIncrementUsage(() => copyToClipboard(masterPrompt))}
                         className="py-2 px-4 rounded-xl bg-[#16A34A] text-white font-extrabold text-xs hover:bg-[#15803D] transition border-none cursor-pointer flex items-center gap-2"
                       >
-                        <Copy className="w-3.5 h-3.5" /> Copy Master AI Prompt
+                        <Copy className="w-3.5 h-3.5" /> {copiedText === masterPrompt ? 'Copied Master Prompt!' : 'Copy Master AI Prompt'}
                       </button>
                     </div>
                   </div>
@@ -3483,13 +3560,13 @@ Formatting Constraints:
 
                 return (
                   <div className="space-y-4">
-                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">3-Step DEP Nurturing Chat Sequence</span>
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">3-Step DEP Nurturing Chat Sequence ({depNiche})</span>
                     
                     <div className="space-y-3">
                       <div className="p-4 rounded-xl bg-emerald-50 border-2 border-emerald-400 space-y-2">
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-black text-emerald-800 uppercase">Message 1: DELIVER (Minute 0)</span>
-                          <button onClick={() => copyToClipboard(`Hey {{first_name}}! Here is your free ${title} as promised: [Link] 🎁`, 'Msg 1')} className="py-1 px-2 rounded-lg bg-emerald-600 text-white font-extrabold text-[10px] border-none cursor-pointer">Copy Msg 1</button>
+                          <button onClick={() => checkAndIncrementUsage(() => copyToClipboard(`Hey {{first_name}}! Here is your free ${title} as promised: [Link] 🎁`))} className="py-1 px-2.5 rounded-lg bg-emerald-600 text-white font-extrabold text-[10px] border-none cursor-pointer">Copy Msg 1</button>
                         </div>
                         <p className="text-xs font-mono font-bold text-emerald-950">{`"Hey {{first_name}}! Here is your free ${title} as promised: [Link] 🎁 Tapping the link opens it immediately!"`}</p>
                       </div>
@@ -3497,7 +3574,7 @@ Formatting Constraints:
                       <div className="p-4 rounded-xl bg-blue-50 border-2 border-blue-400 space-y-2">
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-black text-blue-900 uppercase">Message 2: EDUCATE (Hour 4)</span>
-                          <button onClick={() => copyToClipboard(`Hey {{first_name}}! Quick check-in — were you able to go through Section 2 of the ${title}?`, 'Msg 2')} className="py-1 px-2 rounded-lg bg-blue-600 text-white font-extrabold text-[10px] border-none cursor-pointer">Copy Msg 2</button>
+                          <button onClick={() => checkAndIncrementUsage(() => copyToClipboard(`Hey {{first_name}}! Quick check-in — were you able to go through Section 2 of the ${title}?`))} className="py-1 px-2.5 rounded-lg bg-blue-600 text-white font-extrabold text-[10px] border-none cursor-pointer">Copy Msg 2</button>
                         </div>
                         <p className="text-xs font-mono font-bold text-blue-950">{`"Hey {{first_name}}! Quick check-in — were you able to go through Section 2 of the ${title}? It breaks down the exact 3 steps!"`}</p>
                       </div>
@@ -3505,7 +3582,7 @@ Formatting Constraints:
                       <div className="p-4 rounded-xl bg-amber-50 border-2 border-amber-400 space-y-2">
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-black text-amber-900 uppercase">Message 3: PITCH (Hour 20)</span>
-                          <button onClick={() => copyToClipboard(`Ready to take your growth to the next level {{first_name}}? Get our full VIP System at 20% off before tonight!`, 'Msg 3')} className="py-1 px-2 rounded-lg bg-amber-600 text-white font-extrabold text-[10px] border-none cursor-pointer">Copy Msg 3</button>
+                          <button onClick={() => checkAndIncrementUsage(() => copyToClipboard(`Ready to take your growth to the next level {{first_name}}? Get our full VIP System at 20% off before tonight!`))} className="py-1 px-2.5 rounded-lg bg-amber-600 text-white font-extrabold text-[10px] border-none cursor-pointer">Copy Msg 3</button>
                         </div>
                         <p className="text-xs font-mono font-bold text-amber-950">{`"Ready to take your growth to the next level {{first_name}}? Join our VIP System today with an exclusive 20% discount code before tonight! ⚡ [Link]"`}</p>
                       </div>
@@ -3561,7 +3638,7 @@ Formatting Constraints:
 
                 return (
                   <div className="space-y-4">
-                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">7-Day Peak Posting Matrix ({postRegion})</span>
+                    <span className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider block">7-Day Peak Posting Matrix ({postRegion} • {postNicheCat})</span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
                       {days.map((d, idx) => (
                         <div key={idx} className="p-3 rounded-xl bg-white border-2 border-[#1A1510] text-center space-y-1">
@@ -3687,16 +3764,23 @@ Formatting Constraints:
               </div>
 
               <div className="grid grid-cols-3 gap-2 p-4 rounded-2xl bg-zinc-900 border-2 border-[#1A1510]">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-                  <div 
-                    key={num} 
-                    className={`aspect-square rounded-lg flex items-center justify-center p-2 text-center text-[10px] font-black ${
-                      (num % 2 === 0) ? 'bg-[#16A34A] text-white' : 'bg-zinc-800 text-zinc-300'
-                    }`}
-                  >
-                    Post {num}
-                  </div>
-                ))}
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => {
+                  const isHighlight = gridPattern === 'Rows' 
+                    ? Math.floor((num - 1) / 3) % 2 === 0 
+                    : gridPattern === 'Columns' 
+                      ? (num - 1) % 3 === 0 
+                      : (num % 2 === 0)
+                  return (
+                    <div 
+                      key={num} 
+                      className={`aspect-square rounded-lg flex items-center justify-center p-2 text-center text-[10px] font-black ${
+                        isHighlight ? 'bg-[#16A34A] text-white' : 'bg-zinc-800 text-zinc-300'
+                      }`}
+                    >
+                      Post {num}
+                    </div>
+                  )
+                })}
               </div>
             </div>
           )}
@@ -3743,8 +3827,8 @@ Formatting Constraints:
             </div>
           )}
 
-          {/* TOOL 50: Niche Profitability Estimator */}
-          {toolSlug === 'niche-profitability-estimator' && (
+          {/* TOOL 50: Niche Profitability Estimator / Broadcast Channel Planner */}
+          {(toolSlug === 'niche-profitability-estimator' || toolSlug === 'broadcast-channel-planner') && (
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
