@@ -479,7 +479,24 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
   const [carouselTopic, setCarouselTopic] = useState('5 Steps to Scale Lead Generation with Auto-DMs')
   const [carouselSlideCount, setCarouselSlideCount] = useState(5)
   const [carouselTheme, setCarouselTheme] = useState<'minimal' | 'dark' | 'bold'>('minimal')
-  const [carouselCtaKeyword, setCarouselCtaKeyword] = useState('SCALE')
+  // Tools 51-57 States
+  const [mcContacts, setMcContacts] = useState(2500)
+  const [mcGrowthRate, setMcGrowthRate] = useState(15)
+  const [klaviyoEsp, setKlaviyoEsp] = useState('Klaviyo')
+  const [klaviyoListId, setKlaviyoListId] = useState('Wk89aL')
+  const [ecomAov, setEcomAov] = useState(65)
+  const [ecomReelViews, setEcomReelViews] = useState(50000)
+  const [rePropType, setRePropType] = useState('Luxury Single Family')
+  const [rePrice, setRePrice] = useState(850000)
+  const [reCity, setReCity] = useState('Miami, FL')
+  const [velAccountAge, setVelAccountAge] = useState('Established')
+  const [velDailyGrowth, setVelDailyGrowth] = useState(45)
+  const [simDelaySeconds, setSimDelaySeconds] = useState(15)
+  const [simMonthlyComments, setSimMonthlyComments] = useState(1200)
+  const [qualNiche, setQualNiche] = useState('Business Coaching')
+  const [qualMinRev, setQualMinRev] = useState(5000)
+  const [qualBookingUrl, setQualBookingUrl] = useState('https://calendly.com/yourbrand/strategy-call')
+
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
 
   useEffect(() => {
@@ -3877,6 +3894,393 @@ Formatting Constraints:
             </div>
           )}
 
+          {/* TOOL 51: ManyChat vs Cacto ROI & Cost Savings Calculator */}
+          {toolSlug === 'manychat-vs-cacto-roi-calculator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Current Contact / Subscriber List Size</label>
+                  <input 
+                    type="number" 
+                    value={mcContacts} 
+                    onChange={(e) => setMcContacts(Math.max(100, parseInt(e.target.value) || 0))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Estimated Monthly Subscriber Growth (%)</label>
+                  <input 
+                    type="number" 
+                    value={mcGrowthRate} 
+                    onChange={(e) => setMcGrowthRate(Math.max(1, parseInt(e.target.value) || 0))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                let mcMonthlyTier = 25
+                if (mcContacts > 25000) mcMonthlyTier = 145
+                else if (mcContacts > 10000) mcMonthlyTier = 85
+                else if (mcContacts > 5000) mcMonthlyTier = 45
+                else if (mcContacts > 2500) mcMonthlyTier = 35
+
+                const cactoMonthly = 19
+                const monthlySavings = Math.max(0, mcMonthlyTier - cactoMonthly)
+                const annualSavings = monthlySavings * 12
+
+                return (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-center">
+                        <span className="text-[10px] font-black text-red-600 uppercase block">ManyChat Monthly Cost</span>
+                        <span className="text-2xl font-black text-red-800">${mcMonthlyTier}/mo</span>
+                      </div>
+                      <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-center">
+                        <span className="text-[10px] font-black text-emerald-700 uppercase block">Cacto Flat Creator Plan</span>
+                        <span className="text-2xl font-black text-emerald-800">${cactoMonthly}/mo</span>
+                      </div>
+                      <div className="p-4 rounded-xl bg-amber-50 border-2 border-amber-400 text-center">
+                        <span className="text-[10px] font-black text-amber-700 uppercase block">Net Annual Savings</span>
+                        <span className="text-2xl font-black text-amber-900">${annualSavings}/yr</span>
+                      </div>
+                    </div>
+                    <p className="text-xs text-zinc-600 text-center font-semibold">
+                      💡 Cacto provides flat pricing with zero contact list caps so your bill never spikes when a Reel goes viral!
+                    </p>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 52: Klaviyo & ESP DM Webhook Schema Generator */}
+          {toolSlug === 'klaviyo-dm-webhook-builder' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Email ESP Platform</label>
+                  <select 
+                    value={klaviyoEsp} 
+                    onChange={(e) => setKlaviyoEsp(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="Klaviyo">Klaviyo</option>
+                    <option value="ConvertKit">ConvertKit (Kit)</option>
+                    <option value="Mailchimp">Mailchimp</option>
+                    <option value="HubSpot">HubSpot</option>
+                    <option value="GoHighLevel">GoHighLevel</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Target List ID / Tag</label>
+                  <input 
+                    type="text" 
+                    value={klaviyoListId} 
+                    onChange={(e) => setKlaviyoListId(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const schema = {
+                  event: "cacto.dm_lead_captured",
+                  platform: klaviyoEsp,
+                  list_id: klaviyoListId,
+                  timestamp: new Date().toISOString(),
+                  data: {
+                    email: "prospect@example.com",
+                    first_name: "Alex",
+                    ig_handle: "@alex_creator",
+                    trigger_keyword: "SCALE",
+                    lead_source: "Instagram Reel Auto-DM"
+                  }
+                }
+                const jsonStr = JSON.stringify(schema, null, 2)
+
+                return (
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-xl bg-[#1A1510] text-[#FAF6EE] font-mono text-xs overflow-x-auto">
+                      <pre>{jsonStr}</pre>
+                    </div>
+                    <button 
+                      onClick={() => {
+                        navigator.clipboard.writeText(jsonStr)
+                        setCopied(true)
+                        setTimeout(() => setCopied(false), 2000)
+                      }}
+                      className="px-6 py-2.5 rounded-full bg-[#1A1510] text-[#FAF6EE] text-xs font-extrabold hover:opacity-90 transition"
+                    >
+                      {copied ? 'Copied JSON Schema! ✓' : 'Copy Outbound Webhook JSON'}
+                    </button>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 53: Ecommerce DM Recovery ROI Projector */}
+          {toolSlug === 'ecommerce-dm-roi-calculator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Average Order Value ($)</label>
+                  <input 
+                    type="number" 
+                    value={ecomAov} 
+                    onChange={(e) => setEcomAov(Math.max(1, parseInt(e.target.value) || 0))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Monthly Product Reel Views</label>
+                  <input 
+                    type="number" 
+                    value={ecomReelViews} 
+                    onChange={(e) => setEcomReelViews(Math.max(1000, parseInt(e.target.value) || 0))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const commentTriggers = Math.round(ecomReelViews * 0.03)
+                const bioLinkSales = Math.round(ecomReelViews * 0.002 * (ecomAov))
+                const autoDmSales = Math.round(commentTriggers * 0.40 * 0.08 * (ecomAov))
+                const netUplift = Math.max(0, autoDmSales - bioLinkSales)
+
+                return (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="p-4 rounded-xl bg-zinc-100 text-center">
+                        <span className="text-[10px] font-black text-zinc-500 uppercase block">Bio Link Monthly Sales</span>
+                        <span className="text-2xl font-black text-zinc-700">${bioLinkSales.toLocaleString()}</span>
+                      </div>
+                      <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-center">
+                        <span className="text-[10px] font-black text-emerald-700 uppercase block">Auto-DM Sales Target</span>
+                        <span className="text-2xl font-black text-emerald-800">${autoDmSales.toLocaleString()}</span>
+                      </div>
+                      <div className="p-4 rounded-xl bg-amber-50 border-2 border-amber-400 text-center">
+                        <span className="text-[10px] font-black text-amber-700 uppercase block">Projected Monthly Uplift</span>
+                        <span className="text-2xl font-black text-amber-900">+${netUplift.toLocaleString()}/mo</span>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 54: Real Estate Reel CTA & Listing DM Generator */}
+          {toolSlug === 'real-estate-reel-cta-generator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Property Type</label>
+                  <select 
+                    value={rePropType} 
+                    onChange={(e) => setRePropType(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="Luxury Single Family">Luxury Single Family Home</option>
+                    <option value="Modern Condo">Modern High-Rise Condo</option>
+                    <option value="Multi-Family">Multi-Family Investment</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Listing Price ($)</label>
+                  <input 
+                    type="number" 
+                    value={rePrice} 
+                    onChange={(e) => setRePrice(Math.max(100000, parseInt(e.target.value) || 0))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Location / City</label>
+                  <input 
+                    type="text" 
+                    value={reCity} 
+                    onChange={(e) => setReCity(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const overlayText = `Comment "TOUR" for full floor plan & price sheet on this $${(rePrice / 1000).toFixed(0)}k ${rePropType} in ${reCity} 🏡`
+                const dmPayload = `Hey there! 🏡 Here is the floor plan and private tour link for our $${rePrice.toLocaleString()} ${rePropType} in ${reCity}. Are you pre-approved or looking to buy in the next 30-90 days?`
+
+                return (
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-xl bg-amber-50 border border-amber-300 space-y-2">
+                      <span className="text-[10px] font-black text-amber-800 uppercase block">Reel On-Screen Overlay Text Hook</span>
+                      <p className="text-xs font-bold text-amber-950">{overlayText}</p>
+                    </div>
+                    <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 space-y-2">
+                      <span className="text-[10px] font-black text-emerald-800 uppercase block">Automated DM Payload & Qualifying Question</span>
+                      <p className="text-xs font-bold text-emerald-950">{dmPayload}</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 55: Welcome DM Velocity & Safety Throttle Calculator */}
+          {toolSlug === 'welcome-dm-velocity-calculator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Account Standing & Age</label>
+                  <select 
+                    value={velAccountAge} 
+                    onChange={(e) => setVelAccountAge(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  >
+                    <option value="New (<6 mo)">New Account (&lt; 6 months)</option>
+                    <option value="Established">Established Account (&gt; 1 year)</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Daily New Follower Velocity</label>
+                  <input 
+                    type="number" 
+                    value={velDailyGrowth} 
+                    onChange={(e) => setVelDailyGrowth(Math.max(1, parseInt(e.target.value) || 0))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const hourlyCap = velAccountAge === 'Established' ? 40 : 15
+                const safeBuffer = velAccountAge === 'Established' ? '60s - 120s' : '180s - 300s'
+                const riskBadge = velDailyGrowth > 200 ? 'Caution - Enable Jitter Buffers' : '100% Safe (Low Velocity)'
+
+                return (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-center">
+                        <span className="text-[10px] font-black text-emerald-700 uppercase block">Safe Hourly Dispatch Cap</span>
+                        <span className="text-2xl font-black text-emerald-800">{hourlyCap} DMs / hr</span>
+                      </div>
+                      <div className="p-4 rounded-xl bg-blue-50 border border-blue-300 text-center">
+                        <span className="text-[10px] font-black text-blue-700 uppercase block">Randomized Delay Buffer</span>
+                        <span className="text-xl font-black text-blue-900">{safeBuffer}</span>
+                      </div>
+                      <div className="p-4 rounded-xl bg-amber-50 border border-amber-300 text-center">
+                        <span className="text-[10px] font-black text-amber-700 uppercase block">Safety Risk Rating</span>
+                        <span className="text-xs font-black text-amber-900 block mt-1">{riskBadge}</span>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 56: Meta Graph API Webhook Speed & Latency Simulator */}
+          {toolSlug === 'webhook-latency-simulator' && (
+            <div className="space-y-6">
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider">Webhook Queue Delay (Seconds)</label>
+                  <span className="text-xs font-black text-[#1A1510]">{simDelaySeconds} Seconds</span>
+                </div>
+                <input 
+                  type="range" 
+                  min="1" 
+                  max="60" 
+                  value={simDelaySeconds} 
+                  onChange={(e) => setSimDelaySeconds(parseInt(e.target.value))}
+                  className="w-full accent-[#1A1510]"
+                />
+              </div>
+
+              {(() => {
+                const ctrRetention = Math.max(5, Math.round(45 * Math.exp(-0.04 * simDelaySeconds)))
+                const lostClicksPct = Math.max(0, 45 - ctrRetention)
+
+                return (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="p-6 rounded-2xl bg-emerald-50 border-2 border-emerald-400 text-center space-y-2">
+                        <span className="text-[10px] font-black text-emerald-700 uppercase block">Cacto Sub-3s Execution</span>
+                        <span className="text-3xl font-black text-emerald-800">45% CTR</span>
+                        <p className="text-[11px] font-bold text-emerald-950">Catches viewers while active in feed!</p>
+                      </div>
+                      <div className="p-6 rounded-2xl bg-red-50 border-2 border-red-300 text-center space-y-2">
+                        <span className="text-[10px] font-black text-red-600 uppercase block">Selected Latency ({simDelaySeconds}s Delay)</span>
+                        <span className="text-3xl font-black text-red-800">{ctrRetention}% CTR</span>
+                        <p className="text-[11px] font-bold text-red-950">-{lostClicksPct}% CTR Drop due to queue delay friction</p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 57: High-Ticket Lead Qualification DM Script Builder */}
+          {toolSlug === 'high-ticket-qualifying-script-generator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Coaching Niche</label>
+                  <input 
+                    type="text" 
+                    value={qualNiche} 
+                    onChange={(e) => setQualNiche(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Min Revenue Target ($)</label>
+                  <input 
+                    type="number" 
+                    value={qualMinRev} 
+                    onChange={(e) => setQualMinRev(Math.max(500, parseInt(e.target.value) || 0))}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Booking Calendar URL</label>
+                  <input 
+                    type="text" 
+                    value={qualBookingUrl} 
+                    onChange={(e) => setQualBookingUrl(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white"
+                  />
+                </div>
+              </div>
+
+              {(() => {
+                const script1 = `Hey! Thanks for commenting! 🙌 As promised, here is the free ${qualNiche} Roadmap ⬇️`
+                const script2 = `Quick question before you dive in: Are you currently doing over $${qualMinRev.toLocaleString()}/mo in your business? (Select below)`
+                const script3 = `Awesome! You qualify for a 1-on-1 strategy call. Pick a time on our private calendar here: ${qualBookingUrl}`
+
+                return (
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200 space-y-1">
+                      <span className="text-[10px] font-black text-zinc-500 uppercase block">Step 1: Value Delivery Payload</span>
+                      <p className="text-xs font-bold text-zinc-900">{script1}</p>
+                    </div>
+                    <div className="p-4 rounded-xl bg-amber-50 border border-amber-300 space-y-1">
+                      <span className="text-[10px] font-black text-amber-800 uppercase block">Step 2: 1-Click Interactive Qualifying Question</span>
+                      <p className="text-xs font-bold text-amber-950">{script2}</p>
+                    </div>
+                    <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 space-y-1">
+                      <span className="text-[10px] font-black text-emerald-800 uppercase block">Step 3: Qualified Calendar Call Link</span>
+                      <p className="text-xs font-bold text-emerald-950">{script3}</p>
+                    </div>
+                  </div>
+                )
+              })()}
+            </div>
+          )}
+
           {/* Default Tool View Fallback */}
           {toolSlug !== 'engagement-calculator' && 
            toolSlug !== 'caption-generator' && 
@@ -3934,7 +4338,14 @@ Formatting Constraints:
            toolSlug !== 'competitor-benchmark-tool' && 
            toolSlug !== 'grid-layout-planner' && 
            toolSlug !== 'reel-loop-calculator' && 
-           toolSlug !== 'niche-profitability-estimator' && (
+           toolSlug !== 'niche-profitability-estimator' && 
+           toolSlug !== 'manychat-vs-cacto-roi-calculator' && 
+           toolSlug !== 'klaviyo-dm-webhook-builder' && 
+           toolSlug !== 'ecommerce-dm-roi-calculator' && 
+           toolSlug !== 'real-estate-reel-cta-generator' && 
+           toolSlug !== 'welcome-dm-velocity-calculator' && 
+           toolSlug !== 'webhook-latency-simulator' && 
+           toolSlug !== 'high-ticket-qualifying-script-generator' && (
 
 
 
