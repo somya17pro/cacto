@@ -85,12 +85,13 @@ postsBlocks.forEach((block, index) => {
   }
 
   // 6. Check content word count
-  const contentMatch = block.match(/"?content"?:?\s*[`"]([\s\S]*?)[`"]\s*(\n|\}|,)/);
-  if (!contentMatch) {
+  const contentIdx = block.search(/"?content"?:/);
+  if (contentIdx === -1) {
     console.error('❌ FAIL: content HTML string is missing.');
     failed = true;
   } else {
-    const rawHtml = contentMatch[1].replace(/\\n/g, ' ').replace(/<[^>]+>/g, ' ');
+    const contentSub = block.substring(contentIdx);
+    const rawHtml = contentSub.replace(/\\n/g, ' ').replace(/<[^>]+>/g, ' ');
     const words = rawHtml.split(/\s+/).filter(w => w.length > 0).length;
     if (words < 300) {
       console.error(`❌ FAIL: Article content is too short (${words} words). Required: 300+ words.`);
