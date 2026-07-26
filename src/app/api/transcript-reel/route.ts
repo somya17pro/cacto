@@ -126,8 +126,14 @@ let transcriberPipeline: any = null
 
 async function getTranscriber() {
   if (!transcriberPipeline) {
+    // Force model cache to /tmp for Vercel Lambda (read-only filesystem except /tmp)
+    if (!process.env.TRANSFORMERS_CACHE) {
+      process.env.TRANSFORMERS_CACHE = path.join(os.tmpdir(), 'transformers_cache')
+    }
+    console.log('[Whisper] Loading model, cache dir:', process.env.TRANSFORMERS_CACHE)
     const { pipeline } = await import('@xenova/transformers')
     transcriberPipeline = await pipeline('automatic-speech-recognition', 'Xenova/whisper-base.en')
+    console.log('[Whisper] Model loaded successfully')
   }
   return transcriberPipeline
 }
@@ -274,13 +280,22 @@ export async function POST(req: Request) {
       mp4Path = path.join(tmpDir, `reel_${shortcode}_${Date.now()}.mp4`)
       wavPath = path.join(tmpDir, `audio_${shortcode}_${Date.now()}.wav`)
 
+      console.log('[Step 1] Downloading video:', videoUrl.slice(0, 80))
       const downloaded = await downloadMediaFile(videoUrl, mp4Path)
+      console.log('[Step 2] Download result:', downloaded, 'File exists:', fs.existsSync(mp4Path), 'Size:', downloaded ? fs.statSync(mp4Path).size : 0)
+
       if (downloaded && fs.existsSync(mp4Path)) {
         try {
           const ffmpegBinary = getFfmpegBinaryPath()
+          console.log('[Step 3] ffmpeg binary path:', ffmpegBinary, 'Exists:', fs.existsSync(ffmpegBinary))
           execFileSync(ffmpegBinary, ['-y', '-i', mp4Path, '-vn', '-ar', '16000', '-ac', '1', '-c:a', 'pcm_s16le', wavPath], { stdio: 'ignore', timeout: 30000 })
           
-          if (fs.existsSync(wavPath) && fs.statSync(wavPath).size > 1000) {
+          const wavExists = fs.existsSync(wavPath)
+          const wavSize = wavExists ? fs.statSync(wavPath).size : 0
+          console.log('[Step 4] ffmpeg done. WAV exists:', wavExists, 'WAV size:', wavSize)
+
+          if (wavExists && wavSize > 1000) {
+            console.log('[Step 5] Loading wavefile module')
             const { WaveFile } = require('wavefile')
             const wavBuffer = fs.readFileSync(wavPath)
             const wav = new WaveFile(wavBuffer)
@@ -288,8 +303,11 @@ export async function POST(req: Request) {
             wav.toSampleRate(16000)
             let audioSamples = wav.getSamples()
             if (Array.isArray(audioSamples)) audioSamples = audioSamples[0]
+            console.log('[Step 6] Audio samples loaded:', audioSamples.length, 'Duration:', (audioSamples.length / 16000).toFixed(1) + 's')
 
+            console.log('[Step 7] Loading Whisper transcriber')
             const transcriber = await getTranscriber()
+            console.log('[Step 8] Whisper ready, starting transcription')
 
             const WINDOW_SIZE = 25 * 16000 // 25 second window at 16kHz
             const totalSamples = audioSamples.length
@@ -299,7 +317,7 @@ export async function POST(req: Request) {
             if (totalSamples > WINDOW_SIZE) {
               for (let offset = 0; offset < totalSamples; offset += WINDOW_SIZE) {
                 const chunkSamples = audioSamples.slice(offset, offset + WINDOW_SIZE)
-                if (chunkSamples.length < 16000 * 1) continue // Skip trailing sub-second noise
+                if (chunkSamples.length < 16000 * 1) continue
                 const offsetSec = Math.floor(offset / 16000)
                 const res = await transcriber(chunkSamples, { return_timestamps: true })
                 if (res && res.text) {
@@ -311,10 +329,7 @@ export async function POST(req: Request) {
                       const timeStr = `${Math.floor(startSec / 60)}:${String(startSec % 60).padStart(2, '0')}`
                       const cleanChunk = cleanHtmlText(c.text)
                       if (cleanChunk) {
-                        allChunks.push({
-                          time: timeStr,
-                          text: cleanChunk
-                        })
+                        allChunks.push({ time: timeStr, text: cleanChunk })
                       }
                     })
                   }
@@ -326,24 +341,26 @@ export async function POST(req: Request) {
               const whisperOutput = await transcriber(audioSamples, { return_timestamps: true })
               if (whisperOutput && whisperOutput.text && whisperOutput.text.trim().length > 0) {
                 fullSpokenText = cleanHtmlText(whisperOutput.text.trim())
-
                 if (whisperOutput.chunks && whisperOutput.chunks.length > 0) {
                   speechSegments = whisperOutput.chunks.map((chunk: any) => {
                     const startSec = Math.floor(chunk.timestamp?.[0] || 0)
                     const timeStr = `${Math.floor(startSec / 60)}:${String(startSec % 60).padStart(2, '0')}`
-                    return {
-                      time: timeStr,
-                      text: cleanHtmlText(chunk.text)
-                    }
+                    return { time: timeStr, text: cleanHtmlText(chunk.text) }
                   }).filter((s: any) => s.text.length > 0)
                 }
               }
             }
+            console.log('[Step 9] Transcription done. Words:', fullSpokenText.split(/\s+/).length, 'Segments:', speechSegments.length)
           }
-        } catch (whisperErr) {
-          console.error('Whisper AI Transcription error:', whisperErr)
+        } catch (whisperErr: any) {
+          console.error('[AUDIO PIPELINE FAILED] Step error:', whisperErr?.message || whisperErr)
+          console.error('[AUDIO PIPELINE FAILED] Stack:', whisperErr?.stack?.slice(0, 500))
         }
+      } else {
+        console.log('[AUDIO PIPELINE SKIPPED] Download failed or file missing')
       }
+    } else {
+      console.log('[AUDIO PIPELINE SKIPPED] No valid video URL found')
     }
 
     // Fallback: If no audio speech was detected or video audio is non-speech music, fallback to caption text

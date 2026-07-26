@@ -47,6 +47,7 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  serverExternalPackages: ['ffmpeg-static', '@xenova/transformers', 'wavefile', 'onnxruntime-node', 'sharp'],
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
