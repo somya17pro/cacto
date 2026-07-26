@@ -2210,7 +2210,7 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                   <div className="flex flex-col items-center gap-4">
                     <div className="relative">
                       <img 
-                        src={extractedPhotos.profilePicUrl} 
+                        src={`/api/download-photo/proxy?url=${encodeURIComponent(extractedPhotos.profilePicUrl)}`} 
                         alt="Profile Picture HD" 
                         className="w-40 h-40 rounded-full object-cover border-4 border-[#16A34A] shadow-lg" 
                       />
@@ -2238,7 +2238,7 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                   {/* Photo Preview */}
                   <div className="relative rounded-xl overflow-hidden border border-zinc-300 bg-white">
                     <img 
-                      src={extractedPhotos.photos[activePhotoIndex]?.url} 
+                      src={`/api/download-photo/proxy?url=${encodeURIComponent(extractedPhotos.photos[activePhotoIndex]?.url || '')}`} 
                       alt={`Instagram Photo ${activePhotoIndex + 1}`} 
                       className="w-full max-h-[500px] object-contain mx-auto" 
                     />
@@ -2281,6 +2281,24 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
                       <p className="text-xs font-semibold text-zinc-700 leading-relaxed line-clamp-3">
                         {extractedPhotos.caption}
                       </p>
+                    )}
+                  </div>
+
+                  {/* Download Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <button 
+                      onClick={() => handleDownloadPhoto(extractedPhotos!.photos[activePhotoIndex]?.url, activePhotoIndex)}
+                      className="flex-1 py-3 px-4 rounded-xl bg-[#1A1510] text-white font-extrabold text-xs flex items-center justify-center gap-2 hover:bg-[#2C2C2B] transition cursor-pointer border-none"
+                    >
+                      <Download className="w-4 h-4 text-[#16A34A]" /> Download Photo {activePhotoIndex + 1} (HD)
+                    </button>
+                    {extractedPhotos!.photos.length > 1 && (
+                      <button 
+                        onClick={() => extractedPhotos!.photos.forEach((p, i) => handleDownloadPhoto(p.url, i))}
+                        className="flex-1 py-3 px-4 rounded-xl bg-[#16A34A] text-white font-extrabold text-xs flex items-center justify-center gap-2 hover:bg-[#15803D] transition cursor-pointer border-none"
+                      >
+                        <Download className="w-4 h-4" /> Download All ({extractedPhotos!.photos.length} Photos)
+                      </button>
                     )}
                   </div>
 

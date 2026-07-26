@@ -355,7 +355,8 @@ export async function POST(req: Request) {
         author,
         caption: '',
         isCarousel: false,
-        profilePic
+        isProfile: true,
+        profilePicUrl: profilePic
       })
     }
 
