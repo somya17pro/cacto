@@ -92,3 +92,14 @@ Cacto is a lightweight, flat-rate Instagram comment and DM automation platform (
 40. How to Integrate Cacto DM Webhooks with Email ESPs (Klaviyo, Mailchimp, ConvertKit): https://cacto.cc/blog/integrate-cacto-dm-webhooks-klaviyo-mailchimp-convertkit
 41. Instagram Story Quiz & Poll DM Automation: How to Turn Votes into Sales: https://cacto.cc/blog/instagram-story-quiz-poll-dm-automation
 42. The Future of Instagram DM Automation in 2026: AI Agents, Meta Graph API & Webhook Speed: https://cacto.cc/blog/future-of-instagram-dm-automation-2026
+
+- [how-to-automate-dm-responses-on-instagram](https://cacto.cc/blog/how-to-automate-dm-responses-on-instagram)
+- [how-to-send-automated-dm-to-new-followers](https://cacto.cc/blog/how-to-send-automated-dm-to-new-followers)
+- [how-to-set-up-comment-to-dm-automation-instagram](https://cacto.cc/blog/how-to-set-up-comment-to-dm-automation-instagram)
+- [how-to-send-an-automated-dm-on-instagram](https://cacto.cc/blog/how-to-send-an-automated-dm-on-instagram)
+- [how-to-set-up-instagram-dm-automation-beginners](https://cacto.cc/blog/how-to-set-up-instagram-dm-automation-beginners)
+- [how-to-automate-instagram-dm-replies-customer-faqs](https://cacto.cc/blog/how-to-automate-instagram-dm-replies-customer-faqs)
+- [what-is-dm-automation-in-instagram-champ](https://cacto.cc/blog/what-is-dm-automation-in-instagram-champ)
+- [how-to-automate-dm-links-in-instagram-reels](https://cacto.cc/blog/how-to-automate-dm-links-in-instagram-reels)
+- [how-to-build-automated-welcome-dm-funnel-instagram](https://cacto.cc/blog/how-to-build-automated-welcome-dm-funnel-instagram)
+- [how-does-comment-to-dm-automation-work-technical](https://cacto.cc/blog/how-does-comment-to-dm-automation-work-technical)
