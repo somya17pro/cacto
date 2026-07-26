@@ -8,14 +8,16 @@ export const maxDuration = 60
 export const dynamic = 'force-dynamic'
 
 function getFfmpegBinaryPath(): string {
+  // Try ffmpeg-static first (bundled binary for serverless)
   try {
     const ffmpegStatic = require('ffmpeg-static')
     if (ffmpegStatic && typeof ffmpegStatic === 'string' && fs.existsSync(ffmpegStatic)) {
       return ffmpegStatic
     }
   } catch (e) {
-    console.log('ffmpeg-static import fallback to system ffmpeg')
+    // ffmpeg-static not available
   }
+  // Fallback to system ffmpeg
   return 'ffmpeg'
 }
 
@@ -117,25 +119,74 @@ async function downloadMediaFile(url: string, dest: string): Promise<boolean> {
     fs.writeFileSync(dest, buffer)
     return fs.existsSync(dest) && fs.statSync(dest).size > 5000
   } catch (err) {
-    console.error('Download media file error:', err)
+    console.error('[Download] Error:', err)
     return false
   }
 }
 
-let transcriberPipeline: any = null
-
-async function getTranscriber() {
-  if (!transcriberPipeline) {
-    // Force model cache to /tmp for Vercel Lambda (read-only filesystem except /tmp)
-    if (!process.env.TRANSFORMERS_CACHE) {
-      process.env.TRANSFORMERS_CACHE = path.join(os.tmpdir(), 'transformers_cache')
-    }
-    console.log('[Whisper] Loading model, cache dir:', process.env.TRANSFORMERS_CACHE)
-    const { pipeline } = await import('@xenova/transformers')
-    transcriberPipeline = await pipeline('automatic-speech-recognition', 'Xenova/whisper-base.en')
-    console.log('[Whisper] Model loaded successfully')
+/**
+ * Transcribe audio using OpenAI Whisper API (works on any serverless environment).
+ * Falls back to local @xenova/transformers if OPENAI_API_KEY is not set.
+ */
+async function transcribeWithOpenAI(audioFilePath: string): Promise<{
+  text: string
+  segments: { time: string; text: string }[]
+} | null> {
+  const apiKey = process.env.OPENAI_API_KEY
+  if (!apiKey || apiKey === 'your_openai_api_key') {
+    console.log('[Whisper] No OPENAI_API_KEY, skipping OpenAI transcription')
+    return null
   }
-  return transcriberPipeline
+
+  try {
+    const audioBuffer = fs.readFileSync(audioFilePath)
+    const blob = new Blob([audioBuffer], { type: 'audio/wav' })
+
+    const formData = new FormData()
+    formData.append('file', blob, 'audio.wav')
+    formData.append('model', 'whisper-1')
+    formData.append('response_format', 'verbose_json')
+    formData.append('timestamp_granularities[]', 'segment')
+    formData.append('language', 'en')
+
+    console.log('[Whisper API] Sending audio to OpenAI (' + (audioBuffer.length / 1024).toFixed(0) + ' KB)')
+    const res = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: formData
+    })
+
+    if (!res.ok) {
+      const errText = await res.text()
+      console.error('[Whisper API] Error:', res.status, errText.slice(0, 200))
+      return null
+    }
+
+    const data = await res.json()
+    console.log('[Whisper API] Success. Text length:', data.text?.length, 'Segments:', data.segments?.length)
+
+    const fullText = (data.text || '').trim()
+    if (!fullText) return null
+
+    const segments: { time: string; text: string }[] = []
+    if (data.segments && data.segments.length > 0) {
+      for (const seg of data.segments) {
+        const startSec = Math.floor(seg.start || 0)
+        const timeStr = `${Math.floor(startSec / 60)}:${String(startSec % 60).padStart(2, '0')}`
+        const text = (seg.text || '').trim()
+        if (text) {
+          segments.push({ time: timeStr, text })
+        }
+      }
+    }
+
+    return { text: fullText, segments }
+  } catch (err: any) {
+    console.error('[Whisper API] Exception:', err?.message)
+    return null
+  }
 }
 
 export async function POST(req: Request) {
@@ -275,96 +326,118 @@ export async function POST(req: Request) {
     let speechSegments: { time: string; text: string }[] = []
     let fullSpokenText = ''
 
-    // Run AI Audio Speech Transcription on MP4 file using fetch stream & ffmpeg-static binary
+    // AUDIO SPEECH TRANSCRIPTION PIPELINE
+    // Step 1: Download the video MP4
+    // Step 2: Extract audio to WAV using ffmpeg
+    // Step 3: Send WAV to OpenAI Whisper API for transcription
     if (videoUrl && isValidMediaDomain(videoUrl)) {
       mp4Path = path.join(tmpDir, `reel_${shortcode}_${Date.now()}.mp4`)
       wavPath = path.join(tmpDir, `audio_${shortcode}_${Date.now()}.wav`)
 
       console.log('[Step 1] Downloading video:', videoUrl.slice(0, 80))
       const downloaded = await downloadMediaFile(videoUrl, mp4Path)
-      console.log('[Step 2] Download result:', downloaded, 'File exists:', fs.existsSync(mp4Path), 'Size:', downloaded ? fs.statSync(mp4Path).size : 0)
+      const mp4Size = downloaded && fs.existsSync(mp4Path) ? fs.statSync(mp4Path).size : 0
+      console.log('[Step 2] Download:', downloaded ? 'OK' : 'FAILED', 'Size:', mp4Size)
 
-      if (downloaded && fs.existsSync(mp4Path)) {
+      if (downloaded && mp4Size > 5000) {
         try {
+          // Extract audio from MP4 → WAV (16kHz mono PCM)
           const ffmpegBinary = getFfmpegBinaryPath()
-          console.log('[Step 3] ffmpeg binary path:', ffmpegBinary, 'Exists:', fs.existsSync(ffmpegBinary))
+          console.log('[Step 3] ffmpeg binary:', ffmpegBinary)
           execFileSync(ffmpegBinary, ['-y', '-i', mp4Path, '-vn', '-ar', '16000', '-ac', '1', '-c:a', 'pcm_s16le', wavPath], { stdio: 'ignore', timeout: 30000 })
-          
-          const wavExists = fs.existsSync(wavPath)
-          const wavSize = wavExists ? fs.statSync(wavPath).size : 0
-          console.log('[Step 4] ffmpeg done. WAV exists:', wavExists, 'WAV size:', wavSize)
 
-          if (wavExists && wavSize > 1000) {
-            console.log('[Step 5] Loading wavefile module')
-            const { WaveFile } = require('wavefile')
-            const wavBuffer = fs.readFileSync(wavPath)
-            const wav = new WaveFile(wavBuffer)
-            wav.toBitDepth('32f')
-            wav.toSampleRate(16000)
-            let audioSamples = wav.getSamples()
-            if (Array.isArray(audioSamples)) audioSamples = audioSamples[0]
-            console.log('[Step 6] Audio samples loaded:', audioSamples.length, 'Duration:', (audioSamples.length / 16000).toFixed(1) + 's')
+          const wavSize = fs.existsSync(wavPath) ? fs.statSync(wavPath).size : 0
+          console.log('[Step 4] WAV extracted, size:', wavSize)
 
-            console.log('[Step 7] Loading Whisper transcriber')
-            const transcriber = await getTranscriber()
-            console.log('[Step 8] Whisper ready, starting transcription')
+          if (wavSize > 1000) {
+            // Primary: OpenAI Whisper API (works on Vercel serverless)
+            const result = await transcribeWithOpenAI(wavPath)
+            if (result && result.text) {
+              fullSpokenText = result.text
+              speechSegments = result.segments
+              console.log('[Step 5] OpenAI transcription complete. Words:', fullSpokenText.split(/\s+/).length)
+            }
 
-            const WINDOW_SIZE = 25 * 16000 // 25 second window at 16kHz
-            const totalSamples = audioSamples.length
-            const allChunks: any[] = []
-            let fullTextParts: string[] = []
+            // Fallback: Local @xenova/transformers Whisper ONNX (works on local dev, may fail on serverless)
+            if (!fullSpokenText) {
+              console.log('[Step 5b] Trying local Whisper ONNX fallback...')
+              try {
+                if (!process.env.TRANSFORMERS_CACHE) {
+                  process.env.TRANSFORMERS_CACHE = path.join(os.tmpdir(), 'transformers_cache')
+                }
+                const { WaveFile } = require('wavefile')
+                const wavBuffer = fs.readFileSync(wavPath)
+                const wav = new WaveFile(wavBuffer)
+                wav.toBitDepth('32f')
+                wav.toSampleRate(16000)
+                let audioSamples = wav.getSamples()
+                if (Array.isArray(audioSamples)) audioSamples = audioSamples[0]
 
-            if (totalSamples > WINDOW_SIZE) {
-              for (let offset = 0; offset < totalSamples; offset += WINDOW_SIZE) {
-                const chunkSamples = audioSamples.slice(offset, offset + WINDOW_SIZE)
-                if (chunkSamples.length < 16000 * 1) continue
-                const offsetSec = Math.floor(offset / 16000)
-                const res = await transcriber(chunkSamples, { return_timestamps: true })
-                if (res && res.text) {
-                  const cleanedText = cleanHtmlText(res.text.trim())
-                  if (cleanedText) fullTextParts.push(cleanedText)
-                  if (res.chunks && res.chunks.length > 0) {
-                    res.chunks.forEach((c: any) => {
-                      const startSec = offsetSec + Math.floor(c.timestamp?.[0] || 0)
-                      const timeStr = `${Math.floor(startSec / 60)}:${String(startSec % 60).padStart(2, '0')}`
-                      const cleanChunk = cleanHtmlText(c.text)
-                      if (cleanChunk) {
-                        allChunks.push({ time: timeStr, text: cleanChunk })
+                const { pipeline } = await import('@xenova/transformers')
+                const transcriber = await pipeline('automatic-speech-recognition', 'Xenova/whisper-base.en')
+
+                const WINDOW_SIZE = 25 * 16000
+                const totalSamples = audioSamples.length
+                const allChunks: any[] = []
+                let fullTextParts: string[] = []
+
+                if (totalSamples > WINDOW_SIZE) {
+                  for (let offset = 0; offset < totalSamples; offset += WINDOW_SIZE) {
+                    const chunkSamples = audioSamples.slice(offset, offset + WINDOW_SIZE)
+                    if (chunkSamples.length < 16000) continue
+                    const offsetSec = Math.floor(offset / 16000)
+                    const wRes = await transcriber(chunkSamples, { return_timestamps: true })
+                    if (wRes && wRes.text) {
+                      const cleanedText = cleanHtmlText(wRes.text.trim())
+                      if (cleanedText) fullTextParts.push(cleanedText)
+                      if (wRes.chunks && wRes.chunks.length > 0) {
+                        wRes.chunks.forEach((c: any) => {
+                          const startSec = offsetSec + Math.floor(c.timestamp?.[0] || 0)
+                          const timeStr = `${Math.floor(startSec / 60)}:${String(startSec % 60).padStart(2, '0')}`
+                          const cleanChunk = cleanHtmlText(c.text)
+                          if (cleanChunk) allChunks.push({ time: timeStr, text: cleanChunk })
+                        })
                       }
-                    })
+                    }
+                  }
+                  fullSpokenText = fullTextParts.join(' ')
+                  speechSegments = allChunks.filter(s => s.text.length > 0)
+                } else {
+                  const whisperOutput = await transcriber(audioSamples, { return_timestamps: true })
+                  if (whisperOutput && whisperOutput.text && whisperOutput.text.trim().length > 0) {
+                    fullSpokenText = cleanHtmlText(whisperOutput.text.trim())
+                    if (whisperOutput.chunks && whisperOutput.chunks.length > 0) {
+                      speechSegments = whisperOutput.chunks.map((chunk: any) => {
+                        const startSec = Math.floor(chunk.timestamp?.[0] || 0)
+                        const timeStr = `${Math.floor(startSec / 60)}:${String(startSec % 60).padStart(2, '0')}`
+                        return { time: timeStr, text: cleanHtmlText(chunk.text) }
+                      }).filter((s: any) => s.text.length > 0)
+                    }
                   }
                 }
-              }
-              fullSpokenText = fullTextParts.join(' ')
-              speechSegments = allChunks.filter(s => s.text.length > 0)
-            } else {
-              const whisperOutput = await transcriber(audioSamples, { return_timestamps: true })
-              if (whisperOutput && whisperOutput.text && whisperOutput.text.trim().length > 0) {
-                fullSpokenText = cleanHtmlText(whisperOutput.text.trim())
-                if (whisperOutput.chunks && whisperOutput.chunks.length > 0) {
-                  speechSegments = whisperOutput.chunks.map((chunk: any) => {
-                    const startSec = Math.floor(chunk.timestamp?.[0] || 0)
-                    const timeStr = `${Math.floor(startSec / 60)}:${String(startSec % 60).padStart(2, '0')}`
-                    return { time: timeStr, text: cleanHtmlText(chunk.text) }
-                  }).filter((s: any) => s.text.length > 0)
+                if (fullSpokenText) {
+                  console.log('[Step 5b] Local Whisper done. Words:', fullSpokenText.split(/\s+/).length)
                 }
+              } catch (localErr: any) {
+                console.log('[Step 5b] Local Whisper failed:', localErr?.message?.slice(0, 150))
               }
             }
-            console.log('[Step 9] Transcription done. Words:', fullSpokenText.split(/\s+/).length, 'Segments:', speechSegments.length)
+          } else {
+            console.log('[Step 4] WAV too small or missing, skipping transcription')
           }
-        } catch (whisperErr: any) {
-          console.error('[AUDIO PIPELINE FAILED] Step error:', whisperErr?.message || whisperErr)
-          console.error('[AUDIO PIPELINE FAILED] Stack:', whisperErr?.stack?.slice(0, 500))
+        } catch (pipelineErr: any) {
+          console.error('[PIPELINE ERROR]', pipelineErr?.message || pipelineErr)
         }
       } else {
-        console.log('[AUDIO PIPELINE SKIPPED] Download failed or file missing')
+        console.log('[Step 2] Video download failed, skipping audio pipeline')
       }
     } else {
-      console.log('[AUDIO PIPELINE SKIPPED] No valid video URL found')
+      console.log('[SKIP] No valid video URL extracted')
     }
 
-    // Fallback: If no audio speech was detected or video audio is non-speech music, fallback to caption text
+    // Fallback: If no audio speech was detected, use caption text
     if (!fullSpokenText || speechSegments.length === 0) {
+      console.log('[Fallback] Using caption text (no speech transcription available)')
       const cleanText = rawCaption.replace(/#\w+/g, '').replace(/\[.*?\]/g, '').trim()
       if (cleanText) {
         fullSpokenText = cleanText
@@ -407,10 +480,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: err.message || 'An unexpected error occurred while transcribing video.' }, { status: 500 })
   } finally {
     if (mp4Path) {
-      try { if (fs.existsSync(mp4Path)) fs.unlinkSync(mp4Path) } catch (e) { console.error('Error unlinking temp mp4:', e) }
+      try { if (fs.existsSync(mp4Path)) fs.unlinkSync(mp4Path) } catch (e) {}
     }
     if (wavPath) {
-      try { if (fs.existsSync(wavPath)) fs.unlinkSync(wavPath) } catch (e) { console.error('Error unlinking temp wav:', e) }
+      try { if (fs.existsSync(wavPath)) fs.unlinkSync(wavPath) } catch (e) {}
     }
   }
 }
