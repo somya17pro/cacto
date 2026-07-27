@@ -3,7 +3,8 @@
 import { useState, useEffect, use } from 'react'
 import Link from 'next/link'
 import { blogPosts, BlogPost } from '@/utils/blogData'
-import { ArrowLeft, ArrowRight, Calendar, User, Clock, ChevronRight, ChevronDown, HelpCircle, X, Mail, Check, Shield, BookOpen } from 'lucide-react'
+import { freeToolsList } from '@/utils/toolsData'
+import { ArrowLeft, ArrowRight, Calendar, User, Clock, ChevronRight, ChevronDown, HelpCircle, X, Mail, Check, Shield, BookOpen, Wrench, Sparkles } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WaitlistModal from '@/components/WaitlistModal'
@@ -315,6 +316,73 @@ export default function BlogSlugClient({ slug, initialPost }: ClientProps) {
           </aside>
 
         </div>
+
+        {/* Related Masterclass Guides */}
+        {(() => {
+          const currentIndex = blogPosts.findIndex(p => p.slug === post.slug)
+          const relatedBlogs = Array.from({ length: 4 }, (_, i) => blogPosts[(currentIndex + i + 1) % blogPosts.length])
+          const recommendedTools = Array.from({ length: 4 }, (_, i) => freeToolsList[(currentIndex * 2 + i) % freeToolsList.length])
+
+          return (
+            <div className="space-y-12 my-12 text-left">
+              {/* Sibling Masterclasses Grid */}
+              <section className="p-6 md:p-8 rounded-[28px] bg-white border-2 border-[#1A1510] space-y-6" style={{ boxShadow: '6px 8px 0 #1A1510' }}>
+                <div className="space-y-1">
+                  <span className="text-[10px] font-black uppercase text-[#16A34A] tracking-wider block flex items-center gap-1.5">
+                    <BookOpen className="w-3.5 h-3.5" /> Continue Reading
+                  </span>
+                  <h2 className="font-serif text-2xl md:text-3xl font-black italic tracking-tight text-[#1A1510]">
+                    Related Instagram Growth Masterclasses
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {relatedBlogs.map((b) => (
+                    <Link 
+                      key={b.slug}
+                      href={`/blog/${b.slug}`}
+                      className="p-4 rounded-2xl bg-[#FAF6EE] border-2 border-[#1A1510] hover:border-[#16A34A] transition space-y-2 group block decoration-none"
+                    >
+                      <span className="text-[9px] font-extrabold text-[#16A34A] uppercase tracking-wider block">{b.category}</span>
+                      <h3 className="font-serif text-base font-bold text-[#1A1510] group-hover:text-[#16A34A] transition line-clamp-2 leading-snug">
+                        {b.title}
+                      </h3>
+                      <p className="text-xs text-zinc-500 font-medium line-clamp-2">{b.excerpt}</p>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+
+              {/* Recommended Creator Utilities Grid */}
+              <section className="p-6 md:p-8 rounded-[28px] bg-[#FAF6EE] border-2 border-[#1A1510] space-y-6" style={{ boxShadow: '6px 8px 0 #16A34A' }}>
+                <div className="space-y-1">
+                  <span className="text-[10px] font-black uppercase text-[#16A34A] tracking-wider block flex items-center gap-1.5">
+                    <Wrench className="w-3.5 h-3.5" /> Free Utilities
+                  </span>
+                  <h2 className="font-serif text-2xl md:text-3xl font-black italic tracking-tight text-[#1A1510]">
+                    Recommended Growth Tools for This Guide
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {recommendedTools.map((t) => (
+                    <Link 
+                      key={t.slug}
+                      href={`/tools/${t.slug}`}
+                      className="p-4 rounded-2xl bg-white border-2 border-[#1A1510] hover:scale-[1.02] transition space-y-2 block decoration-none"
+                    >
+                      <span className="text-[9px] font-extrabold text-zinc-400 uppercase tracking-wider block">{t.category}</span>
+                      <h3 className="font-bold text-xs text-[#1A1510] line-clamp-2 leading-snug">
+                        {t.title}
+                      </h3>
+                      <span className="text-[10px] font-extrabold text-[#16A34A] block pt-1">Try Free Tool →</span>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            </div>
+          )
+        })()}
 
         {/* Early Access Waitlist Banner */}
         <section 

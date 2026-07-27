@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { freeToolsList, ToolData } from '@/utils/toolsData'
-import { ArrowLeft, ArrowRight, ChevronRight, X, Mail, Check, Shield, Copy, RefreshCw, Award, Plus, Trash, Play, Info, Edit, Sparkles, Send, TrendingUp, User, Percent, HelpCircle, CheckCircle, Smartphone, Download, Film, Layers, ChevronUp, ChevronDown, Trash2, Quote, ListChecks, MessageSquare, Type, Sliders, Eye, Image } from 'lucide-react'
+import { blogPosts } from '@/utils/blogData'
+import { ArrowLeft, ArrowRight, ChevronRight, X, Mail, Check, Shield, Copy, RefreshCw, Award, Plus, Trash, Play, Info, Edit, Sparkles, Send, TrendingUp, User, Percent, HelpCircle, CheckCircle, Smartphone, Download, Film, Layers, ChevronUp, ChevronDown, Trash2, Quote, ListChecks, MessageSquare, Type, Sliders, Eye, Image, BookOpen } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WaitlistModal from '@/components/WaitlistModal'
@@ -4886,6 +4887,33 @@ function ToolComparisonGrid({ currentSlug }: { currentSlug: string }) {
             </Link>
           ))}
         </div>
+
+        {/* Tactical Masterclasses Cross-Links */}
+        {(() => {
+          const toolIndex = freeToolsList.findIndex(t => t.slug === currentSlug)
+          const relatedBlogs = Array.from({ length: 4 }, (_, i) => blogPosts[(toolIndex * 2 + i) % blogPosts.length])
+
+          return (
+            <div className="pt-4 border-t border-dashed border-zinc-200 space-y-3">
+              <span className="text-[10px] font-black uppercase text-[#16A34A] tracking-wider block flex items-center gap-1">
+                <BookOpen className="w-3 h-3" /> Related Masterclass Guides
+              </span>
+              <div className="space-y-2">
+                {relatedBlogs.map(b => (
+                  <Link
+                    key={b.slug}
+                    href={`/blog/${b.slug}`}
+                    className="p-3 rounded-xl bg-[#FAF6EE] border border-[#1A1510] hover:border-[#16A34A] transition group block text-left decoration-none"
+                  >
+                    <h4 className="text-[11px] font-bold text-[#1A1510] group-hover:text-[#16A34A] transition line-clamp-2 leading-tight">
+                      {b.title}
+                    </h4>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )
+        })()}
       </div>
     </section>
   )
