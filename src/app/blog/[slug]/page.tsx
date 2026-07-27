@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { blogPosts } from '@/utils/blogData'
+import { formatSeoTitle } from '@/utils/seoUtils'
 import BlogSlugClient from './BlogSlugClient'
 
 interface PageProps {
@@ -18,16 +19,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) {
     return {
-      title: 'Article Not Found | Cacto Blog',
+      title: 'Article Not Found | Cacto',
       description: 'The requested blog post could not be located on Cacto.',
     }
   }
 
   const url = `https://cacto.cc/blog/${post.slug}`
   const imageUrl = `https://cacto.cc${post.image}`
+  const formattedTitle = formatSeoTitle(post.title, ' | Cacto')
 
   return {
-    title: `${post.title} | Cacto Masterclass`,
+    title: formattedTitle,
     description: post.excerpt,
     alternates: {
       canonical: url,

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { freeToolsList } from '@/utils/toolsData'
+import { formatSeoTitle } from '@/utils/seoUtils'
 import ToolDetailClient from './ToolDetailClient'
 
 interface PageProps {
@@ -18,15 +19,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!tool) {
     return {
-      title: 'Tool Not Found | Cacto Free Tools',
+      title: 'Tool Not Found | Cacto',
       description: 'The requested growth tool could not be located on Cacto.',
     }
   }
 
   const url = `https://cacto.cc/tools/${tool.slug}`
+  const formattedTitle = formatSeoTitle(tool.title, ' | Cacto')
 
   return {
-    title: `${tool.title} | Free Cacto Growth Tool`,
+    title: formattedTitle,
     description: tool.description,
     keywords: tool.seoKeywords,
     alternates: {
