@@ -243,6 +243,62 @@ export default function ToolsListingClient() {
           </div>
         </section>
 
+        {/* Tools Directory Guide */}
+        <section 
+          className="p-6 md:p-10 rounded-[28px] bg-white border-2 border-[#1A1510] space-y-6 text-left"
+          style={{ boxShadow: '6px 8px 0 #1A1510' }}
+        >
+          <div className="space-y-2 border-b-2 border-zinc-100 pb-4">
+            <span className="text-xs text-[#16A34A] font-extrabold uppercase tracking-wider block">Complete Creator Strategy Guide</span>
+            <h2 className="font-serif text-2xl md:text-3xl font-black italic tracking-tight text-[#1A1510]">
+              How to Scale Your Instagram Business with Free Cacto Growth Utilities
+            </h2>
+            <p className="text-xs text-zinc-500 font-semibold">
+              Published by Cacto Engineering & Growth Research Team • Updated July 2026
+            </p>
+          </div>
+
+          <div className="prose prose-zinc max-w-none text-xs md:text-sm font-medium leading-relaxed space-y-6 text-zinc-700">
+            <div>
+              <h3 className="font-serif text-xl font-extrabold text-[#1A1510] mb-2">
+                Understanding the Shift to Direct Message Funnels in 2026
+              </h3>
+              <p className="mb-3">
+                Modern Instagram algorithms heavily prioritize active direct messaging conversations over passive feed scrollers. When followers engage with your account inside Instagram DMs, Meta's neural recommendation engine interprets these conversations as high trust signals, increasing organic Reel reach by up to 3x.
+              </p>
+              <p>
+                Cacto's free suite of 57 growth utilities enables creators, coaches, e-commerce stores, and digital entrepreneurs to streamline every step of the Instagram sales funnel—from generating scroll-stopping Reel overlay hooks to calculating automated DM click-through rates and building outbound webhooks.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-serif text-xl font-extrabold text-[#1A1510] mb-2">
+                Categorized Utility Workflows for Maximum Creator Efficiency
+              </h3>
+              <p className="mb-3">
+                Our tools are divided into three core execution pillars:
+              </p>
+              <ul className="list-disc pl-5 space-y-2 mb-3">
+                <li><strong>Calculators & ROI Estimators:</strong> Model financial lift, link-in-bio revenue leakage, DM funnel conversion rates, welcome DM velocity limits, and software cost savings.</li>
+                <li><strong>Copy & Script Generators:</strong> Create high-converting call-to-action hooks, 3-step qualifying DM sequences, reel overlay hooks, and property tour lead scripts.</li>
+                <li><strong>Safety & Webhook Utilities:</strong> Audit banned hashtags, check shadowban risk ratings, simulate Meta Graph API webhook queue latency, and generate outbound JSON schemas for Klaviyo or ConvertKit.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-serif text-xl font-extrabold text-[#1A1510] mb-2">
+                Step-by-Step Playbook for Eliminating Bio Link Friction
+              </h3>
+              <p className="mb-3">
+                Instead of sending profile visitors to generic multi-button bio link trees where 92% of scrollers drop off, deploy 1-word comment triggers (e.g. "SCALE", "GUIDE", or "DEAL") on your Reels. When followers comment, Cacto microservice webhooks deliver your offer link payload into their DM inbox in under 3 seconds while they are actively browsing.
+              </p>
+              <p>
+                Combine sub-3-second DM delivery with dynamic comment reply rotators to protect profile trust, maintain 100% Meta Graph API compliance, and scale your audience independently of algorithm shifts.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Early Access Waitlist Banner */}
         <section 
           className="w-full bg-[#1A1510] rounded-[28px] p-8 md:p-10 text-left relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-6 border-2 border-[#1A1510]"
