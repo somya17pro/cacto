@@ -54,6 +54,7 @@ export default function Footer() {
           <span className="text-[10px] font-black uppercase text-[#16A34A] tracking-wider block">Navigation & Open Metric</span>
           <ul className="space-y-2 list-none pl-0 text-xs font-semibold text-zinc-700">
             <li><Link href="/" className="hover:text-[#16A34A] transition decoration-none">Home</Link></li>
+            <li><Link href="/about" className="hover:text-[#16A34A] transition decoration-none">About Cacto</Link></li>
             <li><Link href="/tools" className="hover:text-[#16A34A] transition decoration-none">All 57 Free Growth Utilities</Link></li>
             <li><Link href="/blog" className="hover:text-[#16A34A] transition decoration-none">All 85 Masterclass Articles</Link></li>
             <li><Link href="/open" className="hover:text-[#16A34A] transition decoration-none">Cacto /Open Metrics</Link></li>
