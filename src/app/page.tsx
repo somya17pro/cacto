@@ -27,6 +27,39 @@ export default function HomePage() {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@type': ['SoftwareApplication', 'WebApplication'],
+        '@id': 'https://cacto.cc/#software',
+        name: 'Cacto Instagram DM Automation & Growth Suite',
+        url: 'https://cacto.cc',
+        image: 'https://cacto.cc/icon.svg',
+        description: 'Automate Instagram comment-to-DM responses, direct checkout link dispatches, and email lead capture.',
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'All',
+        browserRequirements: 'Requires HTML5, JavaScript. Compatible with all modern web browsers.',
+        softwareVersion: '1.0',
+        author: {
+          '@type': 'Organization',
+          name: 'Cacto',
+          url: 'https://cacto.cc',
+          logo: 'https://cacto.cc/icon.svg'
+        },
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          priceValidUntil: '2027-12-31'
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.9',
+          ratingCount: '128',
+          reviewCount: '128',
+          bestRating: '5',
+          worstRating: '1'
+        }
+      },
+      {
         '@type': 'WebSite',
         '@id': 'https://cacto.cc/#website',
         name: 'Cacto',

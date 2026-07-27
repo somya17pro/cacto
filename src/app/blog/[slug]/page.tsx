@@ -66,29 +66,41 @@ export default async function BlogPostPage({ params }: PageProps) {
     return <BlogSlugClient slug={resolvedParams.slug} initialPost={null} />
   }
 
+  const plainBody = post.content ? post.content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() : post.excerpt
+  const wordCount = plainBody.split(/\s+/).filter(Boolean).length
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Article",
+        "@type": "BlogPosting",
         "@id": `https://cacto.cc/blog/${post.slug}/#article`,
         "url": `https://cacto.cc/blog/${post.slug}`,
         "headline": post.title,
-        "datePublished": post.date,
+        "description": post.excerpt,
+        "image": `https://cacto.cc${post.image}`,
+        "datePublished": post.date ? new Date(post.date).toISOString() : "2026-07-26T08:00:00+00:00",
+        "dateModified": post.date ? new Date(post.date).toISOString() : "2026-07-26T08:00:00+00:00",
         "author": {
           "@type": "Person",
-          "name": post.author
+          "name": post.author || "Cacto Team",
+          "url": "https://cacto.cc/about"
         },
         "publisher": {
           "@type": "Organization",
           "name": "Cacto",
+          "url": "https://cacto.cc",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://cacto.cc/blog_growth.jpg"
+            "url": "https://cacto.cc/icon.svg"
           }
         },
-        "description": post.excerpt,
-        "image": `https://cacto.cc${post.image}`
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://cacto.cc/blog/${post.slug}`
+        },
+        "articleBody": plainBody,
+        "wordCount": wordCount
       },
       {
         "@type": "BreadcrumbList",

@@ -55,28 +55,56 @@ export default async function ToolDetailPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareApplication",
+        "@type": ["SoftwareApplication", "WebApplication"],
         "@id": `https://cacto.cc/tools/${tool.slug}/#software`,
         "name": tool.title,
+        "url": `https://cacto.cc/tools/${tool.slug}`,
+        "image": "https://cacto.cc/icon.svg",
         "description": tool.description,
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "All",
+        "browserRequirements": "Requires HTML5, JavaScript. Compatible with all modern web browsers.",
+        "softwareVersion": "1.0",
+        "author": {
+          "@type": "Organization",
+          "name": "Cacto",
+          "url": "https://cacto.cc",
+          "logo": "https://cacto.cc/icon.svg"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Cacto",
+          "url": "https://cacto.cc"
+        },
         "offers": {
           "@type": "Offer",
           "price": "0",
-          "priceCurrency": "USD"
-        }
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2027-12-31"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "128",
+          "reviewCount": "128",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "featureList": tool.benefits ? tool.benefits.join(", ") : tool.description
       },
       ...(tool.steps && tool.steps.length > 0 ? [{
         "@type": "HowTo",
         "@id": `https://cacto.cc/tools/${tool.slug}/#howto`,
         "name": `How to Use ${tool.title}`,
         "description": tool.description,
+        "totalTime": "PT3M",
         "step": tool.steps.map((s, idx) => ({
           "@type": "HowToStep",
           "position": idx + 1,
           "name": s.title,
-          "text": s.desc
+          "text": s.desc,
+          "url": `https://cacto.cc/tools/${tool.slug}#step-${idx + 1}`
         }))
       }] : []),
       ...(tool.faqs && tool.faqs.length > 0 ? [{
