@@ -5,7 +5,7 @@ import { freeToolsList } from '@/utils/toolsData'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://cacto.cc'
 
-  // Core Pages
+  // Core Static Pages
   const routes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -32,12 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/autodm`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/templates`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -55,25 +49,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/login`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
   ]
 
-
-  // 50 Growth Tools
+  // 57 Interactive Growth Tool Pages
   const toolRoutes: MetadataRoute.Sitemap = freeToolsList.map((t) => ({
-
     url: `${baseUrl}/tools/${t.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,
   }))
 
-  // 17 Masterclass Blogs
+  // 85 Masterclass Blog Pages
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((b) => ({
     url: `${baseUrl}/blog/${b.slug}`,
     lastModified: new Date(),
