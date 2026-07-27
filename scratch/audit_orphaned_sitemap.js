@@ -5,7 +5,7 @@ const { blogPosts } = require('../src/utils/blogData.ts');
 const { freeToolsList } = require('../src/utils/toolsData.ts');
 
 console.log('================================================================');
-console.log('🔍 SITEMAP HYGIENE & ORPHANED PAGE QA AUDIT');
+console.log('🔍 SITEMAP HYGIENE & ORPHANED PAGE QA AUDIT (207 URLS)');
 console.log('================================================================\n');
 
 const baseUrl = 'https://cacto.cc';

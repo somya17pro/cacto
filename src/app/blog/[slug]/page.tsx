@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const url = `https://cacto.cc/blog/${post.slug}`
-  const imageUrl = `https://cacto.cc${post.image}`
+  const imageUrl = post.image ? `https://cacto.cc${post.image}` : 'https://cacto.cc/blog_growth.jpg'
   const formattedTitle = formatSeoTitle(post.title, ' | Cacto')
 
   return {
@@ -48,8 +48,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         },
       ],
       type: 'article',
-      publishedTime: post.date,
-      authors: [post.author],
+      publishedTime: post.date || '2026-07-27',
+      authors: [post.author || 'Cacto Growth Team'],
     },
     twitter: {
       card: 'summary_large_image',
@@ -68,86 +68,103 @@ export default async function BlogPostPage({ params }: PageProps) {
     return <BlogSlugClient slug={resolvedParams.slug} initialPost={null} />
   }
 
-  const plainBody = post.content ? post.content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() : post.excerpt
+  const plainBody = post.content ? post.content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() : (post.excerpt || '')
   const wordCount = plainBody.split(/\s+/).filter(Boolean).length
+
+  let publishedDate = "2026-07-27T08:00:00+00:00"
+  try {
+    if (post.date) {
+      const parsed = new Date(post.date)
+      if (!isNaN(parsed.getTime())) {
+        publishedDate = parsed.toISOString()
+      }
+    }
+  } catch (e) {
+    publishedDate = "2026-07-27T08:00:00+00:00"
+  }
+
+  const graphItems: any[] = [
+    {
+      "@type": "BlogPosting",
+      "@id": `https://cacto.cc/blog/${post.slug}/#article`,
+      "url": `https://cacto.cc/blog/${post.slug}`,
+      "headline": post.title,
+      "description": post.excerpt,
+      "image": post.image ? `https://cacto.cc${post.image}` : 'https://cacto.cc/blog_growth.jpg',
+      "datePublished": publishedDate,
+      "dateModified": publishedDate,
+      "author": {
+        "@type": "Person",
+        "name": post.author || "Cacto Team",
+        "url": "https://cacto.cc/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Cacto",
+        "url": "https://cacto.cc",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cacto.cc/icon.svg"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://cacto.cc/blog/${post.slug}`
+      },
+      "articleBody": plainBody,
+      "wordCount": wordCount
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `https://cacto.cc/blog/${post.slug}/#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://cacto.cc"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://cacto.cc/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": post.title,
+          "item": `https://cacto.cc/blog/${post.slug}`
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://cacto.cc/#organization",
+      "name": "Cacto",
+      "url": "https://cacto.cc",
+      "logo": "https://cacto.cc/blog_growth.jpg"
+    }
+  ]
+
+  if (Array.isArray(post.faqs) && post.faqs.length > 0) {
+    graphItems.push({
+      "@type": "FAQPage",
+      "@id": `https://cacto.cc/blog/${post.slug}/#faq`,
+      "mainEntity": post.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    })
+  }
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BlogPosting",
-        "@id": `https://cacto.cc/blog/${post.slug}/#article`,
-        "url": `https://cacto.cc/blog/${post.slug}`,
-        "headline": post.title,
-        "description": post.excerpt,
-        "image": `https://cacto.cc${post.image}`,
-        "datePublished": post.date ? new Date(post.date).toISOString() : "2026-07-26T08:00:00+00:00",
-        "dateModified": post.date ? new Date(post.date).toISOString() : "2026-07-26T08:00:00+00:00",
-        "author": {
-          "@type": "Person",
-          "name": post.author || "Cacto Team",
-          "url": "https://cacto.cc/about"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Cacto",
-          "url": "https://cacto.cc",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://cacto.cc/icon.svg"
-          }
-        },
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": `https://cacto.cc/blog/${post.slug}`
-        },
-        "articleBody": plainBody,
-        "wordCount": wordCount
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `https://cacto.cc/blog/${post.slug}/#breadcrumb`,
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://cacto.cc"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Blog",
-            "item": "https://cacto.cc/blog"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": post.title,
-            "item": `https://cacto.cc/blog/${post.slug}`
-          }
-        ]
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://cacto.cc/#organization",
-        "name": "Cacto",
-        "url": "https://cacto.cc",
-        "logo": "https://cacto.cc/blog_growth.jpg"
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `https://cacto.cc/blog/${post.slug}/#faq`,
-        "mainEntity": (post.faqs || []).map(faq => ({
-          "@type": "Question",
-          "name": faq.q,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.a
-          }
-        }))
-      }
-    ]
+    "@graph": graphItems
   }
 
   return (

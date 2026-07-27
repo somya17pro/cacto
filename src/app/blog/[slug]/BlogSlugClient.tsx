@@ -200,11 +200,13 @@ export default function BlogSlugClient({ slug, initialPost }: ClientProps) {
               <p className="text-[#1A1510] text-xs font-black leading-relaxed">
                 {post.excerpt}
               </p>
-              <ul className="list-disc pl-5 space-y-1.5 text-zinc-650 text-[11px] font-bold leading-relaxed border-t border-dashed border-emerald-200/55 pt-3">
-                {post.tldr.map((point, idx) => (
-                  <li key={idx}>{point}</li>
-                ))}
-              </ul>
+              {post.tldr && post.tldr.length > 0 && (
+                <ul className="list-disc pl-5 space-y-1.5 text-zinc-650 text-[11px] font-bold leading-relaxed border-t border-dashed border-emerald-200/55 pt-3">
+                  {post.tldr.map((point, idx) => (
+                    <li key={idx}>{point}</li>
+                  ))}
+                </ul>
+              )}
             </div>
 
             {/* Detailed Article HTML */}
@@ -236,7 +238,7 @@ export default function BlogSlugClient({ slug, initialPost }: ClientProps) {
                 </div>
 
                 <div className="space-y-3 pt-2">
-                  {post.faqs.map((faq, idx) => {
+                  {post.faqs && post.faqs.map((faq, idx) => {
                     const isOpen = openFaqIndexes[idx] ?? (idx === 0)
                     return (
                       <div 

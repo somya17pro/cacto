@@ -51,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // 57 Interactive Growth Tool Pages
+  // 100 Interactive Growth Tool Pages
   const toolRoutes: MetadataRoute.Sitemap = freeToolsList.map((t) => ({
     url: `${baseUrl}/tools/${t.slug}`,
     lastModified: new Date(),
@@ -59,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  // 85 Masterclass Blog Pages
+  // 100 Masterclass Blog Pages
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((b) => ({
     url: `${baseUrl}/blog/${b.slug}`,
     lastModified: new Date(),
