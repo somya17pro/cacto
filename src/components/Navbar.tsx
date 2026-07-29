@@ -13,12 +13,9 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
 
   const navLinks = [
     { name: 'Features', href: '/#features' },
+    { name: 'How It Works', href: '/#how-it-works' },
     { name: 'Free Tools', href: '/tools' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Templates', href: '/templates' },
-    { name: 'VS ManyChat', href: '/compare/cacto-vs-manychat' },
-    { name: 'About', href: '/about' },
-    { name: 'Open Metrics', href: '/open' },
   ]
 
   return (
