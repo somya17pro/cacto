@@ -3,8 +3,21 @@ import { updateSession } from '@/utils/supabase/middleware'
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
-  // App Routes are active for creator dashboard, automations builder, and onboarding
-  // Allow all /dashboard, /autodm, /onboarding, and /profile requests through
+  const appRoutes = ['/dashboard', '/autodm', '/onboarding', '/profile']
+
+  // Waitlist Protection Mode:
+  // If public visitor attempts to access app routes without dev testing parameter/cookie, redirect to waitlist homepage
+  const isAppRoute = appRoutes.some(route => pathname.startsWith(route))
+  const isDevMode = request.nextUrl.searchParams.get('dev') === 'true' || 
+                    request.cookies.get('cacto_dev_mode')?.value === 'true' ||
+                    process.env.NODE_ENV === 'development'
+
+  if (isAppRoute && !isDevMode) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/'
+    url.searchParams.set('waitlist', 'true')
+    return NextResponse.redirect(url)
+  }
 
   // AI Bot Tracker
   const AI_BOT_AGENTS = [
