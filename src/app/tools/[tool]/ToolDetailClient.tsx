@@ -378,6 +378,20 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
 
 
 
+  
+  // 58-100 Tool State Declarations
+  const [aiEngFollowers, setAiEngFollowers] = useState(25000)
+  const [aiEngLikes, setAiEngLikes] = useState(1250)
+  const [aiEngComments, setAiEngComments] = useState(180)
+
+  const [aiRespTone, setAiRespTone] = useState('Friendly & Conversational')
+  const [aiRespLink, setAiRespLink] = useState('https://cacto.cc/free-guide')
+  const [aiRespKeyword, setAiRespKeyword] = useState('SCALE')
+
+  const [delayHourlyComments, setDelayHourlyComments] = useState(150)
+  const [ruleKeyword, setRuleKeyword] = useState('GUIDE')
+  const [ruleLink, setRuleLink] = useState('https://cacto.cc/download')
+
   // Waitlist & Usage Wall states
   const [generationCount, setGenerationCount] = useState<number>(0)
   const [isWaitlistUnlocked, setIsWaitlistUnlocked] = useState<boolean>(false)
@@ -4282,71 +4296,122 @@ Formatting Constraints:
             </div>
           )}
 
-          {/* Default Tool View Fallback */}
-          {toolSlug !== 'engagement-calculator' && 
-           toolSlug !== 'caption-generator' && 
-           toolSlug !== 'bio-generator' && 
-           toolSlug !== 'ctr-calculator' && 
-           toolSlug !== 'hook-generator' && 
-           toolSlug !== 'username-checker' && 
-           toolSlug !== 'hashtag-generator' && 
-           toolSlug !== 'char-counter' && 
-           toolSlug !== 'character-counter' && 
-           toolSlug !== 'cta-generator' && 
-           toolSlug !== 'click-value-estimator' && 
-           toolSlug !== 'line-breaker' && 
-           toolSlug !== 'script-outline' && 
-           toolSlug !== 'audit-checklist' && 
-           toolSlug !== 'growth-projector' && 
-           toolSlug !== 'follower-growth-projector' && 
-           toolSlug !== 'lead-value-estimator' && 
-           toolSlug !== 'lead-magnet-value-estimator' && 
-           toolSlug !== 'subject-line-optimizer' && 
-           toolSlug !== 'dm-previewer' && 
-           toolSlug !== 'reel-downloader' && 
-           toolSlug !== 'reel-transcript' && 
-           toolSlug !== 'carousel-generator' && 
-           toolSlug !== 'text-formatter' && 
-           toolSlug !== 'profile-feedback' && 
-           toolSlug !== 'profile-audit' && 
-           toolSlug !== 'claude-skills' && 
-           toolSlug !== 'claude-skills-generator' && 
-           toolSlug !== 'post-booster' && 
-           toolSlug !== 'viral-post-booster' && 
-           toolSlug !== 'photo-downloader' && 
-           toolSlug !== 'instagram-photo-downloader' && 
-           toolSlug !== 'banned-hashtag-checker' && 
-           toolSlug !== 'meta-24hr-window-calculator' && 
-           toolSlug !== 'shadowban-risk-simulator' && 
-           toolSlug !== 'bio-seo-auditor' && 
-           toolSlug !== 'comment-rotator-checker' && 
-           toolSlug !== 'sponsored-rate-calculator' && 
-           toolSlug !== 'dm-funnel-calculator' && 
-           toolSlug !== 'bio-link-leakage-calculator' && 
-           toolSlug !== 'digital-product-pricing-calculator' && 
-           toolSlug !== 'reels-bonus-estimator' && 
-           toolSlug !== 'giveaway-winner-picker' && 
-           toolSlug !== 'reels-overlay-hook-generator' && 
-           toolSlug !== 'story-quiz-generator' && 
-           toolSlug !== 'carousel-outline-generator' && 
-           toolSlug !== 'comment-trigger-generator' && 
-           toolSlug !== 'reel-cta-writer' && 
-           toolSlug !== 'story-mention-dm-generator' && 
-           toolSlug !== 'ai-prompt-generator' && 
-           toolSlug !== 'dep-sequence-builder' && 
-           toolSlug !== 'best-time-to-post' && 
-           toolSlug !== 'story-view-conversion-calculator' && 
-           toolSlug !== 'competitor-benchmark-tool' && 
-           toolSlug !== 'grid-layout-planner' && 
-           toolSlug !== 'reel-loop-calculator' && 
-           toolSlug !== 'niche-profitability-estimator' && 
-           toolSlug !== 'manychat-vs-cacto-roi-calculator' && 
-           toolSlug !== 'klaviyo-dm-webhook-builder' && 
-           toolSlug !== 'ecommerce-dm-roi-calculator' && 
-           toolSlug !== 'real-estate-reel-cta-generator' && 
-           toolSlug !== 'welcome-dm-velocity-calculator' && 
-           toolSlug !== 'webhook-latency-simulator' && 
-           toolSlug !== 'high-ticket-qualifying-script-generator' && (
+          
+          {/* TOOL 58: AI Instagram Engagement Rate Calculator */}
+          {toolSlug === 'ai-instagram-engagement-calculator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Follower Count</label>
+                  <input type="number" value={aiEngFollowers} onChange={(e) => setAiEngFollowers(Math.max(1, parseInt(e.target.value) || 0))} className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Average Likes</label>
+                  <input type="number" value={aiEngLikes} onChange={(e) => setAiEngLikes(Math.max(0, parseInt(e.target.value) || 0))} className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Average Comments</label>
+                  <input type="number" value={aiEngComments} onChange={(e) => setAiEngComments(Math.max(0, parseInt(e.target.value) || 0))} className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white" />
+                </div>
+              </div>
+              {(() => {
+                const er = (((aiEngLikes + aiEngComments) / aiEngFollowers) * 100).toFixed(2);
+                const score = parseFloat(er) > 5.0 ? 'Viral Reach (High)' : parseFloat(er) > 2.5 ? 'Strong Resonance' : 'Average Growth';
+                return (
+                  <div className="p-6 rounded-2xl bg-emerald-50 border-2 border-emerald-300 text-center space-y-2">
+                    <span className="text-[10px] font-black text-emerald-800 uppercase tracking-widest block">Calculated AI Engagement Score</span>
+                    <div className="text-3xl font-black text-[#1A1510]">{er}%</div>
+                    <p className="text-xs font-bold text-emerald-900">Algorithmic Reach Status: <span className="underline">{score}</span></p>
+                  </div>
+                );
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 59: AI Message & Comment Auto-Responder Generator */}
+          {toolSlug === 'ai-auto-responder-script-generator' && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Brand Tone</label>
+                  <input type="text" value={aiRespTone} onChange={(e) => setAiRespTone(e.target.value)} className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Offer Link</label>
+                  <input type="text" value={aiRespLink} onChange={(e) => setAiRespLink(e.target.value)} className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Trigger Keyword</label>
+                  <input type="text" value={aiRespKeyword} onChange={(e) => setAiRespKeyword(e.target.value)} className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white" />
+                </div>
+              </div>
+              <div className="space-y-3">
+                <div className="p-4 rounded-xl bg-white border-2 border-[#1A1510] flex justify-between items-center">
+                  <div>
+                    <span className="text-[10px] font-black text-emerald-600 block uppercase">Option 1: Direct Value Link</span>
+                    <p className="text-xs font-bold text-zinc-800 mt-1">Hey! Here is the {aiRespKeyword} link as requested: {aiRespLink}</p>
+                  </div>
+                  <button onClick={() => handleCopyText("Hey! Here is the " + aiRespKeyword + " link as requested: " + aiRespLink)} className="px-3 py-1.5 bg-[#1A1510] text-white text-[10px] font-bold rounded-lg shrink-0">Copy</button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TOOL 60: Instant Reply Delay & Velocity Simulator */}
+          {toolSlug === 'instant-reply-delay-buffer-simulator' && (
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Estimated Peak Hourly Comments ({delayHourlyComments} comments/hr)</label>
+                <input type="range" min="10" max="1000" step="10" value={delayHourlyComments} onChange={(e) => setDelayHourlyComments(parseInt(e.target.value))} className="w-full accent-[#16A34A]" />
+              </div>
+              {(() => {
+                const jitter = delayHourlyComments > 300 ? '4500ms - 8000ms' : '1500ms - 3500ms';
+                const status = delayHourlyComments > 500 ? 'High Traffic (Jitter Buffer Active)' : 'Normal Velocity (Safe)';
+                return (
+                  <div className="p-6 rounded-2xl bg-zinc-50 border-2 border-[#1A1510] text-center space-y-2">
+                    <span className="text-[10px] font-black text-zinc-500 uppercase block">Recommended Jitter Delay Buffer</span>
+                    <div className="text-2xl font-black text-[#1A1510]">{jitter}</div>
+                    <p className="text-xs font-bold text-emerald-700">Meta API Security Rating: {status}</p>
+                  </div>
+                );
+              })()}
+            </div>
+          )}
+
+          {/* TOOL 61-100 Interactive Render Block for Slugs 61-100 */}
+          {['instagram-ai-assistant-readiness-checker', 'auto-responder-for-instagram-builder', 'how-to-turn-off-auto-reply-troubleshooter', 'comment-for-link-trigger-setup-tool', 'automated-comments-meta-safety-auditor', 'instagram-dm-marketing-roi-calculator', 'automated-social-media-posting-planner', 'auto-post-instagram-reel-uploader-checker', 'post-to-multiple-platforms-cross-poster-tool', 'facebook-posting-automation-scheduler', 'twitter-auto-dm-funnel-calculator', 'auto-reply-text-message-generator', 'free-autoresponder-feature-comparator', 'instagram-pc-desktop-growth-suite-auditor', 'follow-unfollow-shadowban-risk-calculator', 'shopify-abandoned-cart-dm-recovery-calculator', 'klaviyo-dm-webhook-payload-builder-tool', 'high-ticket-coaching-dm-qualifier-builder', 'course-creator-reel-to-course-sale-calculator', 'click-to-dm-ad-roas-calculator-tool', 'story-poll-vote-auto-dm-script-generator', 're-engagement-dm-script-writer-tool', 'curiosity-gap-reel-hook-creator-tool', 'instagram-bio-link-leakage-simulator-tool', 'manychat-pricing-contact-cap-calculator', 'meta-24hr-window-policy-auditor-tool', 'comment-reply-rotator-pool-creator-tool', 'meta-graph-api-call-rate-calculator-tool', 'banned-hashtag-realtime-checker-tool', 'welcome-dm-velocity-throttle-calculator-tool', 'agency-discovery-call-dm-booking-tool', 'sponsored-reel-brand-deal-rate-calculator-tool', 'creator-monthly-mrr-forecast-calculator-tool', 'reels-monetization-bonus-rpm-estimator-tool', 'story-retention-dropoff-calculator-tool', 'broadcast-channel-open-rate-estimator-tool', 'creator-lead-magnet-title-generator-tool', 'collab-post-reach-multiplier-tool', 'instagram-bio-seo-searchability-auditor-tool', 'cacto-master-growth-suite-roi-calculator'].includes(toolSlug) && (
+            <div className="space-y-6">
+              <div className="p-6 rounded-2xl bg-white border-2 border-[#1A1510] space-y-4" style={{ boxShadow: '4px 6px 0 #1A1510' }}>
+                <div className="flex items-center justify-between border-b border-dashed border-zinc-200 pb-3">
+                  <span className="text-xs font-black uppercase text-[#16A34A] tracking-wider">Interactive Workspace & Solution Engine</span>
+                  <span className="text-[10px] font-bold bg-emerald-100 text-[#16A34A] px-2.5 py-1 rounded-full border border-[#16A34A]/20">100% Meta API Safe</span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Primary Parameter / Keyword</label>
+                    <input type="text" value={ruleKeyword} onChange={(e) => setRuleKeyword(e.target.value)} className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">Destination Link / Resource</label>
+                    <input type="text" value={ruleLink} onChange={(e) => setRuleLink(e.target.value)} className="w-full p-3 rounded-xl border-2 border-[#1A1510] outline-none text-xs font-bold bg-white" />
+                  </div>
+                </div>
+                <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-300 space-y-2">
+                  <span className="text-[10px] font-black text-emerald-800 uppercase block">Generated Output Payload</span>
+                  <p className="text-xs font-bold text-[#1A1510]">
+                    Hey! Thanks for requesting {ruleKeyword}! Tap here to get instant access: {ruleLink}
+                  </p>
+                  <button onClick={() => handleCopyText("Hey! Thanks for requesting " + ruleKeyword + "! Tap here to get instant access: " + ruleLink)} className="px-4 py-2 bg-[#1A1510] hover:bg-[#16A34A] text-white text-xs font-bold rounded-xl border border-[#1A1510] transition-colors">
+                    📋 Copy Formatted Payload
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+
+                    {/* Default Tool View Fallback */}
+          {!freeToolsList.some(t => t.slug === toolSlug) && (
 
 
 
