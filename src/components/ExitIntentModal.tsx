@@ -160,10 +160,17 @@ export default function ExitIntentModal() {
                 )}
               </div>
 
+              <div className="flex items-center gap-2 text-xs font-semibold text-[#1A1510]/80">
+                <input type="checkbox" id="exit_consent" required defaultChecked className="accent-[#16A34A] w-4 h-4" />
+                <label htmlFor="exit_consent" className="cursor-pointer">
+                  I agree to the <a href="/privacy" target="_blank" className="text-[#16A34A] underline font-bold">Privacy Policy</a> and <a href="/terms" target="_blank" className="text-[#16A34A] underline font-bold">Terms of Service</a>.
+                </label>
+              </div>
+
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full py-3.5 px-6 bg-[#16A34A] text-white font-bold rounded-xl border-2 border-[#1A1510] shadow-[4px_6px_0_#1A1510] hover:bg-[#15803D] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_4px_0_#1A1510] transition-all disabled:opacity-75 flex items-center justify-center gap-2 text-base"
+                className="w-full py-3.5 px-6 bg-[#16A34A] text-white font-bold rounded-xl border-2 border-[#1A1510] shadow-[4px_6px_0_#1A1510] hover:bg-[#15803D] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_4px_0_#1A1510] transition-all disabled:opacity-75 flex items-center justify-center gap-2 text-base cursor-pointer"
               >
                 {status === 'loading' ? (
                   <>

@@ -4351,7 +4351,7 @@ Formatting Constraints:
                     <span className="text-[10px] font-black text-emerald-600 block uppercase">Option 1: Direct Value Link</span>
                     <p className="text-xs font-bold text-zinc-800 mt-1">Hey! Here is the {aiRespKeyword} link as requested: {aiRespLink}</p>
                   </div>
-                  <button onClick={() => handleCopyText("Hey! Here is the " + aiRespKeyword + " link as requested: " + aiRespLink)} className="px-3 py-1.5 bg-[#1A1510] text-white text-[10px] font-bold rounded-lg shrink-0">Copy</button>
+                  <button onClick={() => checkAndIncrementUsage(() => copyToClipboard("Hey! Here is the " + aiRespKeyword + " link as requested: " + aiRespLink))} className="px-3 py-1.5 bg-[#1A1510] text-white text-[10px] font-bold rounded-lg shrink-0">Copy</button>
                 </div>
               </div>
             </div>
@@ -4401,7 +4401,7 @@ Formatting Constraints:
                   <p className="text-xs font-bold text-[#1A1510]">
                     Hey! Thanks for requesting {ruleKeyword}! Tap here to get instant access: {ruleLink}
                   </p>
-                  <button onClick={() => handleCopyText("Hey! Thanks for requesting " + ruleKeyword + "! Tap here to get instant access: " + ruleLink)} className="px-4 py-2 bg-[#1A1510] hover:bg-[#16A34A] text-white text-xs font-bold rounded-xl border border-[#1A1510] transition-colors">
+                  <button onClick={() => checkAndIncrementUsage(() => copyToClipboard("Hey! Thanks for requesting " + ruleKeyword + "! Tap here to get instant access: " + ruleLink))} className="px-4 py-2 bg-[#1A1510] hover:bg-[#16A34A] text-white text-xs font-bold rounded-xl border border-[#1A1510] transition-colors">
                     📋 Copy Formatted Payload
                   </button>
                 </div>

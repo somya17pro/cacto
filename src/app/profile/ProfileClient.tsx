@@ -76,7 +76,7 @@ export default function ProfileClient() {
         <div className="p-8 rounded-3xl bg-white border-2 border-[#1A1510] space-y-6" style={{ boxShadow: '6px 8px 0 #1A1510' }}>
           <div className="flex items-center gap-3">
             <Key className="w-6 h-6 text-[#16A34A]" />
-            <h2 className="font-serif text-xl font-bold text-[#1A1510]">Meta Webhook Dispatch Endpoint</h2>
+            <h2 className="font-serif text-xl font-bold text-[#1A1510]">Meta &amp; Zernio Webhook Endpoint</h2>
           </div>
 
           <p className="text-xs text-zinc-600 font-medium">

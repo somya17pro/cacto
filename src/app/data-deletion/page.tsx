@@ -11,7 +11,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default function DataDeletionPage() {
+export default async function DataDeletionPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ code?: string }>
+}) {
+  const resolvedParams = searchParams ? await searchParams : {}
+  const code = resolvedParams?.code
+
   return (
     <div className="min-h-screen bg-[#FAF6EE] text-[#1A1510] font-sans antialiased">
       <Navbar />
@@ -21,6 +28,20 @@ export default function DataDeletionPage() {
           <h1 className="font-serif text-4xl font-bold tracking-tight">Data Deletion Instructions</h1>
           <p className="text-xs font-semibold text-zinc-500">Meta Platform Policy Compliance</p>
         </header>
+
+        {code && (
+          <div className="p-6 rounded-2xl bg-emerald-500/10 border-2 border-[#16A34A] space-y-2">
+            <div className="flex items-center gap-2 text-xs font-extrabold text-[#16A34A]">
+              <span>Confirmation Status: DATA PURGED 🟢</span>
+            </div>
+            <p className="text-xs text-zinc-800 font-bold">
+              Confirmation Code: <code className="bg-white px-2 py-0.5 rounded border border-[#16A34A]">{code}</code>
+            </p>
+            <p className="text-xs text-zinc-600 font-medium">
+              In accordance with Meta Developer Platform Rules, your user access tokens, cached account data, and automation logs associated with this request have been permanently purged from our servers.
+            </p>
+          </div>
+        )}
 
         <section className="space-y-6 text-sm leading-relaxed text-zinc-800">
           <p>
