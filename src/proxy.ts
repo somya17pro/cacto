@@ -3,14 +3,8 @@ import { updateSession } from '@/utils/supabase/middleware'
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const appRoutes = ['/dashboard', '/autodm', '/onboarding', '/profile']
-
-  // If user accesses an unreleased app route, redirect to the homepage waitlist
-  if (appRoutes.some(route => pathname.startsWith(route))) {
-    const url = request.nextUrl.clone()
-    url.pathname = '/'
-    return NextResponse.redirect(url)
-  }
+  // App Routes are active for creator dashboard, automations builder, and onboarding
+  // Allow all /dashboard, /autodm, /onboarding, and /profile requests through
 
   // AI Bot Tracker
   const AI_BOT_AGENTS = [
