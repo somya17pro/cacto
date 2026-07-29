@@ -18,8 +18,46 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Cacto | Turn comments into instant sales",
-  description: "Automate Instagram DMs and checkouts when users comment on your posts.",
+  metadataBase: new URL('https://cacto.cc'),
+  title: 'Cacto | Turn Instagram Comments into Automatic Sales & Auto-DMs',
+  description: 'Automate Instagram DMs, lead magnet dispatches, and Stripe checkouts when followers comment on your Reels, Posts, and Stories.',
+  keywords: ['Instagram DM automation', 'comment to DM', 'Instagram sales funnel', 'Stripe checkout Instagram', 'lead magnet automation', 'Instagram growth tools'],
+  alternates: {
+    canonical: 'https://cacto.cc',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    title: 'Cacto | Turn Instagram Comments into Automatic Sales & Auto-DMs',
+    description: 'Automate Instagram DMs, lead magnet dispatches, and Stripe checkouts when followers comment on your Reels, Posts, and Stories.',
+    url: 'https://cacto.cc',
+    siteName: 'Cacto',
+    images: [
+      {
+        url: 'https://cacto.cc/cacto_hero_mockup.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Cacto Instagram DM Automation Engine',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cacto | Turn Instagram Comments into Automatic Sales & Auto-DMs',
+    description: 'Automate Instagram DMs, lead magnet dispatches, and Stripe checkouts when followers comment on your Reels, Posts, and Stories.',
+    images: ['https://cacto.cc/cacto_hero_mockup.jpg'],
+  },
 };
 
 import Script from "next/script";

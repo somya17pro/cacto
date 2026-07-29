@@ -4029,7 +4029,7 @@ export const blogPosts: BlogPost[] = [
     ]
   },
   {
-    "slug": "curiosity-gap-hooks-for-instagram-reels",
+    "slug": "curiosity-gap-reel-hooks-viral-playbook",
     "title": "25 Scroll-Stopping Curiosity Gap Hooks for",
     "category": "Growth Hacking",
     "readTime": "8 min read",

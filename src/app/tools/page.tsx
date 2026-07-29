@@ -2,23 +2,23 @@ import type { Metadata } from 'next'
 import ToolsListingClient from './ToolsListingClient'
 
 export const metadata: Metadata = {
-  title: 'Cacto Free Growth Tools Suite for Creators | 25 Free Marketing Utilities',
-  description: '25 free interactive calculators, generators, script outline builders, reel downloaders, carousel generators, and DM copy previewers for Instagram creators.',
+  title: 'Cacto Free Growth Tools Suite for Creators | 100 Free Growth Utilities',
+  description: '100 free interactive calculators, generators, script outline builders, reel downloaders, carousel generators, and DM copy previewers for Instagram creators.',
   keywords: ['free Instagram tools', 'creator calculators', 'DM copy previewer', 'Reel video downloader', 'carousel generator', 'engagement rate calculator', 'Cacto growth suite'],
   alternates: {
     canonical: 'https://cacto.cc/tools',
   },
   openGraph: {
-    title: 'Cacto Free Growth Tools Suite for Creators | 25 Free Marketing Utilities',
-    description: '25 free interactive calculators, generators, script outline builders, reel downloaders, carousel generators, and DM copy previewers for Instagram creators.',
+    title: 'Cacto Free Growth Tools Suite for Creators | 100 Free Growth Utilities',
+    description: '100 free interactive calculators, generators, script outline builders, reel downloaders, carousel generators, and DM copy previewers for Instagram creators.',
     url: 'https://cacto.cc/tools',
     siteName: 'Cacto',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cacto Free Growth Tools Suite for Creators | 25 Free Marketing Utilities',
-    description: '25 free interactive calculators, generators, script outline builders, reel downloaders, carousel generators, and DM copy previewers for Instagram creators.',
+    title: 'Cacto Free Growth Tools Suite for Creators | 100 Free Growth Utilities',
+    description: '100 free interactive calculators, generators, script outline builders, reel downloaders, carousel generators, and DM copy previewers for Instagram creators.',
   },
 }
 
@@ -28,7 +28,7 @@ export default function ToolsPage() {
     '@type': 'WebPage',
     name: 'Cacto Free Growth Tools Suite for Creators',
     url: 'https://cacto.cc/tools',
-    description: '25 free interactive calculators, generators, script outline builders, reel downloaders, carousel generators, and DM copy previewers for Instagram creators.'
+    description: '100 free interactive calculators, generators, script outline builders, reel downloaders, carousel generators, and DM copy previewers for Instagram creators.'
   }
 
   const breadcrumbSchema = {
@@ -59,7 +59,7 @@ export default function ToolsPage() {
         name: 'Are Cacto free growth tools completely free to use?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes! All 25 growth utilities, calculators, caption generators, script outline builders, and DM copy previewers are 100% free with zero sign-up required.'
+          text: 'Yes! All 100 growth utilities, calculators, caption generators, script outline builders, and DM copy previewers are 100% free with zero sign-up required.'
         }
       },
       {
