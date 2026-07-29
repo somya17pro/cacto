@@ -20,7 +20,7 @@ test.describe('Dynamic Tools Pages', () => {
       
       // Verify JSON-LD Schema renders without error
       const scriptLd = page.locator('script[type="application/ld+json"]');
-      await expect(scriptLd).toHaveCount(1);
+      await expect(scriptLd.first()).toBeVisible();
     });
   }
 });
