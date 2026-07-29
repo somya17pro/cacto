@@ -8,9 +8,9 @@ test.describe('Global Navigation', () => {
     await page.getByRole('link', { name: 'Features' }).first().click();
     await expect(page).toHaveURL(/.*#features/);
     
-    // Click How it works and verify URL hash
-    await page.getByRole('link', { name: 'How it works' }).first().click();
-    await expect(page).toHaveURL(/.*#how-it-works/);
+    // Click Free Tools and verify URL
+    await page.getByRole('link', { name: 'Free Tools' }).first().click();
+    await expect(page).toHaveURL(/.*\/tools/);
   });
 
   test('footer links are present', async ({ page }) => {

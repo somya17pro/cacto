@@ -55,8 +55,8 @@ export default function Footer() {
           <ul className="space-y-2 list-none pl-0 text-xs font-semibold text-zinc-700">
             <li><Link href="/" className="hover:text-[#16A34A] transition decoration-none">Home</Link></li>
             <li><Link href="/about" className="hover:text-[#16A34A] transition decoration-none">About Cacto</Link></li>
-            <li><Link href="/tools" className="hover:text-[#16A34A] transition decoration-none">All 57 Free Growth Utilities</Link></li>
-            <li><Link href="/blog" className="hover:text-[#16A34A] transition decoration-none">All 85 Masterclass Articles</Link></li>
+            <li><Link href="/tools" className="hover:text-[#16A34A] transition decoration-none">All 100 Free Growth Utilities</Link></li>
+            <li><Link href="/blog" className="hover:text-[#16A34A] transition decoration-none">All 100 Masterclass Articles</Link></li>
             <li><Link href="/open" className="hover:text-[#16A34A] transition decoration-none">Cacto /Open Metrics</Link></li>
             <li><Link href="/compare/cacto-vs-manychat" className="hover:text-[#16A34A] transition decoration-none">Cacto vs. ManyChat Comparison</Link></li>
             <li><Link href="/templates" className="hover:text-[#16A34A] transition decoration-none">DM Automation Templates</Link></li>
@@ -67,7 +67,10 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 border-t border-zinc-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-zinc-500">
         <p>Cacto is an official Meta Graph API developer integration. All trademarks belong to their respective owners.</p>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
+          <Link href="/privacy" className="hover:text-[#16A34A] transition decoration-none">Privacy Policy</Link>
+          <Link href="/terms" className="hover:text-[#16A34A] transition decoration-none">Terms of Service</Link>
+          <Link href="/data-deletion" className="hover:text-[#16A34A] transition decoration-none">Data Deletion</Link>
           <Link href="/blog" className="hover:text-[#16A34A] transition decoration-none">Blog</Link>
           <Link href="/tools" className="hover:text-[#16A34A] transition decoration-none">Tools</Link>
           <Link href="/open" className="hover:text-[#16A34A] transition decoration-none">Transparency</Link>
