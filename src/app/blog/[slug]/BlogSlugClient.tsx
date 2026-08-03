@@ -189,24 +189,58 @@ export default function BlogSlugClient({ slug, initialPost }: ClientProps) {
               </span>
             </div>
 
-            {/* TL;DR Summary Block */}
+            {/* 1. THE ANSWER BLOCK (100-150 Word Direct AEO Block) */}
             <div 
-              className="p-6 rounded-2xl bg-emerald-50/60 border-2 border-[#16A34A] text-left space-y-3"
-              style={{ boxShadow: '4px 6px 0 #16A34A' }}
+              className="p-6 md:p-8 rounded-[24px] bg-[#FAF6EE] border-2 border-[#1A1510] text-left space-y-4 relative"
+              style={{ boxShadow: '6px 8px 0 #16A34A' }}
             >
-              <h2 className="flex items-center gap-2 text-xs font-black uppercase text-[#16A34A] tracking-wider">
-                <BookOpen className="h-4 w-4 text-[#16A34A]" /> What is the Quick Answer & Summary of this Guide?
-              </h2>
-              <p className="text-[#1A1510] text-xs font-black leading-relaxed">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-dashed border-zinc-300 pb-3">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-[#16A34A]" />
+                  <span className="text-xs font-black uppercase text-[#1A1510] tracking-wider">
+                    Direct Answer (AI Overview & Search Snippet)
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-100/80 px-2.5 py-1 rounded-full border border-emerald-300">
+                  100-150w Direct AEO Extraction
+                </span>
+              </div>
+
+              <p className="text-[#1A1510] text-sm md:text-[15px] font-bold leading-relaxed">
                 {post.excerpt}
               </p>
+
               {post.tldr && post.tldr.length > 0 && (
-                <ul className="list-disc pl-5 space-y-1.5 text-zinc-650 text-[11px] font-bold leading-relaxed border-t border-dashed border-emerald-200/55 pt-3">
-                  {post.tldr.map((point, idx) => (
-                    <li key={idx}>{point}</li>
-                  ))}
-                </ul>
+                <div className="space-y-2 pt-2 border-t border-dashed border-zinc-200">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-zinc-500 block">Key Takeaways</span>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 list-none pl-0">
+                    {post.tldr.map((point, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs font-bold text-zinc-700 bg-white p-3 rounded-xl border border-zinc-200 shadow-sm">
+                        <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
+            </div>
+
+            {/* 2. THE EDGE (Named Framework, Specific ICP & EEAT Signal Box) */}
+            <div className="p-5 rounded-2xl bg-white border-2 border-[#1A1510] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[4px_5px_0_#1A1510]">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-800 font-bold shrink-0">
+                  ⚡
+                </div>
+                <div>
+                  <span className="text-[10px] font-black uppercase tracking-wider text-amber-800 block">The Cacto Edge</span>
+                  <h3 className="font-bold text-xs md:text-sm text-[#1A1510]">
+                    Built for Solo Creators: Sub-3s DM Delivery & 100% Meta API Compliance
+                  </h3>
+                </div>
+              </div>
+              <span className="text-[10px] font-mono font-bold text-zinc-600 bg-zinc-100 px-3 py-1.5 rounded-lg border border-zinc-200 shrink-0">
+                Empirical Data Signal: 40%+ DM CTR
+              </span>
             </div>
 
             {/* Detailed Article HTML */}
