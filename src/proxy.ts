@@ -7,17 +7,19 @@ export async function proxy(request: NextRequest) {
 
   const isAppRoute = appRoutes.some(route => pathname.startsWith(route))
   
-  // Dev mode testing bypass or authenticated cookie check
+  // Explicit Dev mode testing parameter or cookie
   const isDevMode = request.nextUrl.searchParams.get('dev') === 'true' || 
-                    request.cookies.get('cacto_dev_mode')?.value === 'true' ||
-                    process.env.NODE_ENV === 'development'
+                    request.cookies.get('cacto_dev_mode')?.value === 'true'
 
-  // Check Supabase session cookies
+  // Check Supabase authenticated session cookies
   const hasAuthSession = request.cookies.getAll().some(c => c.name.startsWith('sb-') && c.name.endsWith('-auth-token'))
 
+  // Waitlist Protection Mode:
+  // Public visitors without authenticated session or dev parameter get redirected to waitlist homepage
   if (isAppRoute && !isDevMode && !hasAuthSession) {
     const url = request.nextUrl.clone()
-    url.pathname = '/login'
+    url.pathname = '/'
+    url.searchParams.set('waitlist', 'true')
     return NextResponse.redirect(url)
   }
 
