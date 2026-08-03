@@ -869,27 +869,6 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
           </p>
         </header>
 
-        {/* Quick Answer Summary Block */}
-        <section className="p-6 rounded-[24px] bg-[#E6F4EA] border-2 border-[#1A1510] shadow-[5px_6px_0_#1A1510] space-y-4 text-left">
-          <div className="flex items-center gap-2 text-[#16A34A] font-extrabold text-xs uppercase tracking-wider">
-            <Sparkles className="w-4 h-4" />
-            <span>Quick Answer & Summary</span>
-          </div>
-          <p className="text-xs md:text-sm font-bold text-zinc-900 leading-relaxed">
-            Cacto's <strong>{tool.title}</strong> is a free interactive utility designed for Instagram creators and digital marketers to streamline content generation, calculate key engagement metrics, and maximize DM lead conversion with zero friction or sign-up required.
-          </p>
-          {tool.steps && tool.steps.length > 0 && (
-            <ul className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
-              {tool.steps.slice(0, 3).map((s, idx) => (
-                <li key={idx} className="p-3 rounded-xl bg-white border border-[#1A1510] text-[11px] font-bold text-zinc-800 flex items-start gap-2">
-                  <span className="w-4 h-4 rounded-full bg-[#16A34A] text-white text-[9px] font-extrabold flex items-center justify-center shrink-0 mt-0.5">{idx + 1}</span>
-                  <span><strong>{s.title}:</strong> {s.desc}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
-
         {/* Dynamic Interactive Rebuilt Tools */}
         <section 
           className="p-8 md:p-10 rounded-[28px] bg-white border-2 border-[#1A1510] text-left space-y-8"
@@ -4421,6 +4400,27 @@ Formatting Constraints:
                 Ready to use {tool.title}. Adjust variables above to generate real-time metrics and copy previews.
               </p>
             </div>
+          )}
+        </section>
+
+        {/* Quick Answer Summary Block (Positioned after interactive tool workspace) */}
+        <section className="p-6 rounded-[24px] bg-[#E6F4EA] border-2 border-[#1A1510] shadow-[5px_6px_0_#1A1510] space-y-4 text-left">
+          <div className="flex items-center gap-2 text-[#16A34A] font-extrabold text-xs uppercase tracking-wider">
+            <Sparkles className="w-4 h-4" />
+            <span>Quick Answer & Summary</span>
+          </div>
+          <p className="text-xs md:text-sm font-bold text-zinc-900 leading-relaxed">
+            Cacto's <strong>{tool.title}</strong> is a free interactive utility designed for Instagram creators and digital marketers to streamline content generation, calculate key engagement metrics, and maximize DM lead conversion with zero friction or sign-up required.
+          </p>
+          {tool.steps && tool.steps.length > 0 && (
+            <ul className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+              {tool.steps.slice(0, 3).map((s, idx) => (
+                <li key={idx} className="p-3 rounded-xl bg-white border border-[#1A1510] text-[11px] font-bold text-zinc-800 flex items-start gap-2">
+                  <span className="w-4 h-4 rounded-full bg-[#16A34A] text-white text-[9px] font-extrabold flex items-center justify-center shrink-0 mt-0.5">{idx + 1}</span>
+                  <span><strong>{s.title}:</strong> {s.desc}</span>
+                </li>
+              ))}
+            </ul>
           )}
         </section>
 
