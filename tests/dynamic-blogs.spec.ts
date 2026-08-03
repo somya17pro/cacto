@@ -14,7 +14,7 @@ test.describe('Dynamic Masterclass Blogs', () => {
       
       // Verify JSON-LD Schema renders without error
       const scriptLd = page.locator('script[type="application/ld+json"]');
-      await expect(scriptLd.first()).toBeVisible();
+      await expect(scriptLd.first()).toBeAttached();
     });
   }
 });

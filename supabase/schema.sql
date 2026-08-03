@@ -1,57 +1,112 @@
--- Enable UUID extension
-create extension if not exists "uuid-ossp";
+-- Cacto v1 Database Schema for Supabase PostgreSQL
+-- Enforces Row Level Security (RLS) and automatic triggers for Auth users
 
--- Create Automations Table
-create table public.automations (
-  id uuid default uuid_generate_v4() primary key,
-  user_id uuid references auth.users(id) on delete cascade not null,
-  trigger_keyword text not null,
-  dm_message_copy text not null,
-  is_active boolean default true not null,
-  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+-- 1. PROFILES TABLE (Stores user account metadata & plan tier)
+CREATE TABLE IF NOT EXISTS public.profiles (
+  id uuid PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+  email text NOT NULL,
+  full_name text,
+  avatar_url text,
+  plan_type text NOT NULL DEFAULT 'free',
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
 );
 
--- Enable Row Level Security (RLS)
-alter table public.automations enable row level security;
+-- Enable RLS on profiles
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 
--- Create Policies so users can only manage their own automations
-create policy "Users can insert their own automations" 
-  on public.automations for insert 
-  with check (auth.uid() = user_id);
+CREATE POLICY "Users can view own profile"
+  ON public.profiles FOR SELECT
+  USING (auth.uid() = id);
 
-create policy "Users can view their own automations" 
-  on public.automations for select 
-  using (auth.uid() = user_id);
+CREATE POLICY "Users can update own profile"
+  ON public.profiles FOR UPDATE
+  USING (auth.uid() = id);
 
-create policy "Users can update their own automations" 
-  on public.automations for update 
-  using (auth.uid() = user_id);
+-- Trigger to automatically create profile record upon user signup
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS trigger AS $$
+BEGIN
+  INSERT INTO public.profiles (id, email, full_name, avatar_url, plan_type)
+  VALUES (
+    new.id,
+    new.email,
+    new.raw_user_meta_data->>'full_name',
+    new.raw_user_meta_data->>'avatar_url',
+    'free'
+  )
+  ON CONFLICT (id) DO NOTHING;
+  RETURN new;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
 
-create policy "Users can delete their own automations" 
-  on public.automations for delete 
-  using (auth.uid() = user_id);
+CREATE OR REPLACE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
 
--- Create Connected Accounts Table (Instagram/Meta API metadata)
-create table public.connected_accounts (
-  id uuid default uuid_generate_v4() primary key,
-  user_id uuid references auth.users(id) on delete cascade not null,
-  platform text not null, -- 'instagram', 'tiktok', 'youtube'
-  username text not null,
-  is_connected boolean default true not null,
-  access_token text, -- Page Access Token for Meta Graph API
-  page_id text, -- Instagram Business Account ID
-  created_at timestamp with time zone default timezone('utc'::text, now()) not null,
-  unique (user_id, platform)
+
+-- 2. SUBSCRIPTIONS TABLE (Stores Stripe customer & subscription status)
+CREATE TABLE IF NOT EXISTS public.subscriptions (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  stripe_customer_id text UNIQUE,
+  stripe_subscription_id text UNIQUE,
+  status text NOT NULL DEFAULT 'incomplete',
+  price_id text,
+  cancel_at_period_end boolean DEFAULT false,
+  current_period_start timestamptz,
+  current_period_end timestamptz,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
 );
 
--- Migrations (Run these if you already executed the schema before this update):
--- alter table public.connected_accounts add column if not exists access_token text;
--- alter table public.connected_accounts add column if not exists page_id text;
+-- Enable RLS on subscriptions
+ALTER TABLE public.subscriptions ENABLE ROW LEVEL SECURITY;
 
--- Enable RLS for Connected Accounts
-alter table public.connected_accounts enable row level security;
+CREATE POLICY "Users can view own subscription"
+  ON public.subscriptions FOR SELECT
+  USING (auth.uid() = user_id);
 
--- Create Policies for Connected Accounts
-create policy "Users can manage their own connected accounts"
-  on public.connected_accounts for all
-  using (auth.uid() = user_id);
+-- Trigger to sync profiles.plan_type whenever subscription status updates
+CREATE OR REPLACE FUNCTION public.handle_subscription_update()
+RETURNS trigger AS $$
+BEGIN
+  IF new.status = 'active' THEN
+    UPDATE public.profiles
+    SET plan_type = 'pro', updated_at = now()
+    WHERE id = new.user_id;
+  ELSIF new.status IN ('canceled', 'unpaid') THEN
+    UPDATE public.profiles
+    SET plan_type = 'free', updated_at = now()
+    WHERE id = new.user_id;
+  END IF;
+  RETURN new;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+CREATE OR REPLACE TRIGGER sync_user_plan_type
+  AFTER INSERT OR UPDATE ON public.subscriptions
+  FOR EACH ROW EXECUTE FUNCTION public.handle_subscription_update();
+
+
+-- 3. AUTOMATIONS TABLE (Stores user comment-to-DM triggers)
+CREATE TABLE IF NOT EXISTS public.automations (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  trigger_keyword text NOT NULL,
+  dm_copy text NOT NULL,
+  button_text text DEFAULT 'Claim Offer 🚀',
+  button_url text,
+  replies_pool jsonb DEFAULT '["Check your DMs! 📩", "Sent you a message! 🙌", "Check your inbox! ✨"]'::jsonb,
+  is_active boolean DEFAULT true,
+  runs_count integer DEFAULT 0,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+-- Enable RLS on automations
+ALTER TABLE public.automations ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Users can manage own automations"
+  ON public.automations FOR ALL
+  USING (auth.uid() = user_id);
