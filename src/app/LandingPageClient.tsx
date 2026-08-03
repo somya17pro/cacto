@@ -23,6 +23,27 @@ export default function LandingPageClient() {
   const [waitlistStatus, setWaitlistStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [waitlistMessage, setWaitlistMessage] = useState('')
 
+  // Live Interactive DM Simulator States
+  const [simKeyword, setSimKeyword] = useState('SCALE')
+  const [simCommentText, setSimCommentText] = useState('Hey! Please DM me the free growth playbook!')
+  const [isSimulating, setIsSimulating] = useState(false)
+  const [simStep, setSimStep] = useState(0)
+  const [simSuccess, setSimSuccess] = useState(false)
+
+  const handleRunSimulation = () => {
+    if (isSimulating) return
+    setIsSimulating(true)
+    setSimStep(1)
+    setSimSuccess(false)
+
+    setTimeout(() => setSimStep(2), 1200)
+    setTimeout(() => {
+      setSimStep(3)
+      setSimSuccess(true)
+      setIsSimulating(false)
+    }, 2400)
+  }
+
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!waitlistEmail.trim() || !waitlistEmail.includes('@')) {
@@ -210,6 +231,150 @@ export default function LandingPageClient() {
             <div className="flex justify-between items-center mt-3 font-mono text-[10px] text-zinc-400 font-bold">
               <span>show rate</span>
               <b className="font-serif font-semibold text-[16px] text-[#16A34A] tracking-[-0.5px]">↑ 92%</b>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Live DM Simulator */}
+      <section className="px-5 py-12 md:px-14 relative max-w-5xl mx-auto">
+        <div 
+          className="p-8 md:p-10 rounded-[32px] bg-white border-2 border-[#1A1510] text-left space-y-8"
+          style={{ boxShadow: '8px 12px 0 #1A1510' }}
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-zinc-200 pb-6">
+            <div>
+              <span className="text-xs font-black uppercase text-[#16A34A] tracking-wider block">Interactive Playground</span>
+              <h2 className="font-serif font-black text-2xl md:text-3xl tracking-tight text-[#1A1510]">
+                Test Live Comment-to-DM Trigger
+              </h2>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-full bg-[#E6F4EA] text-[#16A34A] border border-[#16A34A]/20 font-extrabold text-xs flex items-center gap-2 self-start md:self-auto">
+              <Sparkles className="w-4 h-4" /> Live Simulator
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            {/* Left: Input Controls */}
+            <div className="space-y-5">
+              <div className="space-y-2">
+                <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">
+                  Select Keyword Trigger
+                </label>
+                <div className="flex flex-wrap gap-2">
+                  {['SCALE', 'GUIDE', 'BLUEPRINT', 'NOTION'].map((kw) => (
+                    <button
+                      key={kw}
+                      type="button"
+                      onClick={() => {
+                        setSimKeyword(kw)
+                        setSimCommentText(`Hey! Please DM me the ${kw.toLowerCase()} link!`)
+                      }}
+                      className={`px-4 py-2 rounded-xl text-xs font-black border-2 transition ${
+                        simKeyword === kw 
+                          ? 'bg-[#16A34A] text-white border-[#1A1510] shadow-[2px_3px_0_#1A1510]' 
+                          : 'bg-zinc-50 text-zinc-700 border-zinc-300 hover:border-[#1A1510]'
+                      }`}
+                    >
+                      "{kw}"
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[10px] text-zinc-400 font-extrabold uppercase tracking-wider block">
+                  Simulated Follower Comment
+                </label>
+                <input 
+                  type="text" 
+                  value={simCommentText}
+                  onChange={(e) => setSimCommentText(e.target.value)}
+                  className="w-full p-3.5 rounded-xl border-2 border-[#1A1510] text-xs font-bold outline-none bg-zinc-50 focus:bg-white"
+                />
+              </div>
+
+              <button
+                type="button"
+                onClick={handleRunSimulation}
+                disabled={isSimulating}
+                className="w-full py-4 rounded-2xl bg-[#1A1510] text-[#FAF6EE] font-black text-xs border-2 border-[#1A1510] shadow-[4px_5px_0_#16A34A] hover:bg-[#2C2C2B] transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+              >
+                {isSimulating ? (
+                  <>
+                    <RefreshCw className="w-4 h-4 animate-spin text-[#16A34A]" />
+                    <span>Processing Trigger Step {simStep} of 3...</span>
+                  </>
+                ) : (
+                  <>
+                    <Zap className="w-4 h-4 text-[#16A34A]" />
+                    <span>Simulate Instant DM Dispatch</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Right: Simulated Smartphone Inbox */}
+            <div className="p-5 rounded-2xl bg-[#FAF6EE] border-2 border-[#1A1510] shadow-[4px_5px_0_#1A1510] space-y-4 relative min-h-[260px] flex flex-col justify-between">
+              <div className="flex items-center justify-between border-b border-zinc-300 pb-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-full bg-[#16A34A] text-white font-black text-[10px] flex items-center justify-center">
+                    C
+                  </div>
+                  <div>
+                    <div className="font-extrabold text-xs text-[#1A1510]">cacto.bot</div>
+                    <div className="text-[9px] font-bold text-zinc-400">Meta API Verified</div>
+                  </div>
+                </div>
+                <span className="text-[10px] font-extrabold text-[#16A34A] bg-[#E6F4EA] px-2.5 py-0.5 rounded-md border border-[#16A34A]/20">
+                  {simSuccess ? '● Active' : 'Idle'}
+                </span>
+              </div>
+
+              {/* Message Simulation Display */}
+              <div className="space-y-3 py-2">
+                {simStep >= 1 && (
+                  <div className="p-3 rounded-xl bg-white border border-zinc-300 text-[11px] font-bold text-zinc-700 space-y-1 animate-fade-in">
+                    <div className="text-[9px] uppercase tracking-wider text-zinc-400 font-extrabold">Step 1: Comment Detected</div>
+                    <div>Follower left comment: <em>"{simCommentText}"</em></div>
+                  </div>
+                )}
+
+                {simStep >= 2 && (
+                  <div className="p-3 rounded-xl bg-[#E6F4EA] border border-[#16A34A]/40 text-[11px] font-bold text-[#15803D] space-y-1 animate-fade-in">
+                    <div className="text-[9px] uppercase tracking-wider text-[#16A34A] font-extrabold">Step 2: Anti-Spam Rotator Selected</div>
+                    <div>Auto-replied on post: <em>"Just dropped the link in your DMs! Check inbox 📩"</em></div>
+                  </div>
+                )}
+
+                {simStep === 3 && simSuccess && (
+                  <div className="p-4 rounded-xl bg-white border-2 border-[#16A34A] shadow-[3px_3px_0_#16A34A] space-y-2 text-left animate-bounce-subtle">
+                    <div className="text-[10px] font-black text-[#16A34A] uppercase tracking-wider flex items-center justify-between">
+                      <span>Instant DM Delivered</span>
+                      <span className="text-[9px] text-zinc-400 font-mono">0.4s</span>
+                    </div>
+                    <p className="text-xs font-bold text-[#1A1510]">
+                      Hey! Thanks for commenting "{simKeyword}"! Here is your direct checkout & download link ⬇️
+                    </p>
+                    <a 
+                      href="#" 
+                      onClick={(e) => { e.preventDefault(); setIsWaitlistModalOpen(true) }}
+                      className="block w-full py-2 bg-[#16A34A] text-white font-black text-[11px] text-center rounded-lg shadow-sm hover:opacity-90 transition"
+                    >
+                      🚀 Open Direct {simKeyword} Access Link
+                    </a>
+                  </div>
+                )}
+
+                {simStep === 0 && (
+                  <div className="text-center py-10 space-y-2">
+                    <MessageCircle className="w-8 h-8 mx-auto text-zinc-300" />
+                    <p className="text-xs font-bold text-zinc-400">
+                      Select a keyword and click "Simulate Instant DM Dispatch" to see how Cacto delivers links inside Instagram DMs.
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

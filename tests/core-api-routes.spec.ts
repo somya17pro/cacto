@@ -76,7 +76,7 @@ test.describe('Core API Routes Unit Tests', () => {
       const response = await checkoutPost(request);
       expect(response.status).toBe(200);
       const data = await response.json();
-      expect(data.url).toContain('/dashboard?checkout=success');
+      expect(data.url).toContain('/dashboard?checkout=sandbox_success');
 
       if (originalStripeKey !== undefined) {
         process.env.STRIPE_SECRET_KEY = originalStripeKey;
