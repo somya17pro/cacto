@@ -4438,16 +4438,6 @@ Formatting Constraints:
             </h2>
           </div>
 
-          {/* Quick Answer Callout */}
-          <div className="p-5 rounded-2xl bg-[#E6F4EA] border-2 border-[#1A1510] shadow-[3px_4px_0_#1A1510] space-y-2">
-            <span className="text-[10px] font-black uppercase tracking-wider text-[#16A34A] flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" /> Quick Answer
-            </span>
-            <p className="text-xs md:text-sm font-bold text-zinc-900 leading-relaxed">
-              Cacto's {tool.title} enables Instagram creators and brands to optimize content velocity, eliminate link-in-bio drop-off, and increase DM link click-through rates by up to 5x using automated keyword triggers.
-            </p>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
             <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200 space-y-2">
               <h3 className="font-extrabold text-xs text-[#1A1510]">Streamlined Audience Retention</h3>
