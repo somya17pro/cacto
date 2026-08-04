@@ -104,15 +104,12 @@ export default function DashboardClient() {
           'x-zernio-event': 'comment'
         },
         body: JSON.stringify({
-          eventType: 'comment',
-          comment: {
-            text: keyword,
-            id: `test-comment-${Date.now()}`,
-            username: 'test_creator'
-          },
-          post: {
-            id: 'test-post-123'
-          }
+          type: 'comment.received',
+          accountId: 'mock-id',
+          postId: 'test-post-123',
+          commentId: `test-comment-${Date.now()}`,
+          commentText: keyword,
+          commenterUsername: 'test_creator'
         })
       })
 

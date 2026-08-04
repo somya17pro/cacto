@@ -12,8 +12,33 @@ export const metadata: Metadata = {
 }
 
 export default function TermsPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': 'https://cacto.cc/terms/#webpage',
+        name: 'Terms of Service | Cacto - Instagram DM Automation',
+        url: 'https://cacto.cc/terms',
+        description: 'Terms of Service governing the use of Cacto website, free growth tools, and Instagram comment-to-DM automation services.'
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': 'https://cacto.cc/terms/#breadcrumb',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cacto.cc' },
+          { '@type': 'ListItem', position: 2, name: 'Terms of Service', item: 'https://cacto.cc/terms' }
+        ]
+      }
+    ]
+  }
+
   return (
     <div className="min-h-screen bg-[#FAF6EE] text-[#1A1510] font-sans antialiased">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       <main className="max-w-4xl mx-auto px-6 pt-32 pb-20 space-y-8">

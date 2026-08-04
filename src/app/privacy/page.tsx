@@ -12,8 +12,33 @@ export const metadata: Metadata = {
 }
 
 export default function PrivacyPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': 'https://cacto.cc/privacy/#webpage',
+        name: 'Privacy Policy | Cacto - Instagram DM Automation',
+        url: 'https://cacto.cc/privacy',
+        description: 'Cacto Privacy Policy detailing how we collect, use, and protect your data in compliance with GDPR and Meta Graph API platform guidelines.'
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': 'https://cacto.cc/privacy/#breadcrumb',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cacto.cc' },
+          { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: 'https://cacto.cc/privacy' }
+        ]
+      }
+    ]
+  }
+
   return (
     <div className="min-h-screen bg-[#FAF6EE] text-[#1A1510] font-sans antialiased">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       <main className="max-w-4xl mx-auto px-6 pt-32 pb-20 space-y-8">

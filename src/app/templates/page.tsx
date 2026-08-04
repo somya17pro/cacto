@@ -76,8 +76,33 @@ const templates = [
 ]
 
 export default function TemplatesPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': 'https://cacto.cc/templates/#webpage',
+        name: 'Automations We Love: High-Converting Instagram DM Scripts',
+        url: 'https://cacto.cc/templates',
+        description: 'See the exact Instagram DM automation scripts, triggers, and anti-spam replies used by top creators to drive massive conversions.'
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': 'https://cacto.cc/templates/#breadcrumb',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cacto.cc' },
+          { '@type': 'ListItem', position: 2, name: 'Templates', item: 'https://cacto.cc/templates' }
+        ]
+      }
+    ]
+  }
+
   return (
     <div className="min-h-screen text-[#1A1510] font-sans antialiased bg-[#FAF6EE]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       <main className="max-w-7xl mx-auto px-5 py-24 md:py-32">

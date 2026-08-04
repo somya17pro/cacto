@@ -33,6 +33,7 @@ export default function InstagramMockAuthPage() {
 
   return (
     <>
+      <h1 className="sr-only">Meta Instagram Connect Sandbox</h1>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}

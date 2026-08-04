@@ -386,7 +386,7 @@ export async function POST(req: Request) {
                     const chunkSamples = audioSamples.slice(offset, offset + WINDOW_SIZE)
                     if (chunkSamples.length < 16000) continue
                     const offsetSec = Math.floor(offset / 16000)
-                    const wRes = await transcriber(chunkSamples, { return_timestamps: true })
+                    const wRes: any = await transcriber(chunkSamples, { return_timestamps: true })
                     if (wRes && wRes.text) {
                       const cleanedText = cleanHtmlText(wRes.text.trim())
                       if (cleanedText) fullTextParts.push(cleanedText)
@@ -403,7 +403,7 @@ export async function POST(req: Request) {
                   fullSpokenText = fullTextParts.join(' ')
                   speechSegments = allChunks.filter(s => s.text.length > 0)
                 } else {
-                  const whisperOutput = await transcriber(audioSamples, { return_timestamps: true })
+                  const whisperOutput: any = await transcriber(audioSamples, { return_timestamps: true })
                   if (whisperOutput && whisperOutput.text && whisperOutput.text.trim().length > 0) {
                     fullSpokenText = cleanHtmlText(whisperOutput.text.trim())
                     if (whisperOutput.chunks && whisperOutput.chunks.length > 0) {
