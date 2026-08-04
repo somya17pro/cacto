@@ -4,66 +4,67 @@ import { freeToolsList } from '@/utils/toolsData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://cacto.cc'
+  const lastmodDate = new Date('2026-08-04')
 
   // Core Static Pages
   const routes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: lastmodDate,
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/tools`,
-      lastModified: new Date(),
+      lastModified: lastmodDate,
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: lastmodDate,
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/templates`,
-      lastModified: new Date(),
+      lastModified: lastmodDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/open`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/compare/cacto-vs-manychat`,
-      lastModified: new Date(),
+      url: `${baseUrl}/about`,
+      lastModified: lastmodDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/compare/cacto-vs-manychat`,
+      lastModified: lastmodDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/open`,
+      lastModified: lastmodDate,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
+      lastModified: lastmodDate,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: new Date(),
+      lastModified: lastmodDate,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/data-deletion`,
-      lastModified: new Date(),
+      lastModified: lastmodDate,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
@@ -72,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 100 Interactive Growth Tool Pages
   const toolRoutes: MetadataRoute.Sitemap = freeToolsList.map((t) => ({
     url: `${baseUrl}/tools/${t.slug}`,
-    lastModified: new Date(),
+    lastModified: lastmodDate,
     changeFrequency: 'weekly',
     priority: 0.8,
   }))
@@ -80,7 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 100 Masterclass Blog Pages
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((b) => ({
     url: `${baseUrl}/blog/${b.slug}`,
-    lastModified: new Date(),
+    lastModified: lastmodDate,
     changeFrequency: 'weekly',
     priority: 0.8,
   }))
