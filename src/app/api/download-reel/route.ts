@@ -136,7 +136,11 @@ export async function POST(req: Request) {
           if (vMatch && vMatch[1]) {
             extractedVideoUrl = vMatch[1].replace(/\\u0026/g, '&').replace(/\\/g, '')
           }
-          const iMatch = html.match(/"display_url"\s*:\s*"([^"]+)"/) || html.match(/<img[^>]+class="EmbeddedMediaImage"[^>]+src="([^"]+)"/)
+          const iMatch = html.match(/"display_url"\s*:\s*"([^"]+)"/) || 
+                         html.match(/<img[^>]+class="EmbeddedMediaImage"[^>]+src="([^"]+)"/) ||
+                         html.match(/<meta[^>]+property="og:image"[^>]+content="([^"]+)"/) ||
+                         html.match(/<meta[^>]+content="([^"]+)"[^>]+property="og:image"/) ||
+                         html.match(/<img[^>]+src="([^"]+)"/)
           if (!extractedDisplayUrl && iMatch && iMatch[1]) {
             extractedDisplayUrl = iMatch[1].replace(/\\u0026/g, '&').replace(/\\/g, '')
           }

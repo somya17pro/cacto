@@ -2007,12 +2007,33 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
               {extractedReel && (
                 <div className="p-6 rounded-2xl bg-zinc-50 border-2 border-[#1A1510] space-y-4">
                   <div className="flex flex-col sm:flex-row gap-4 items-center">
-                    {extractedReel.thumbnail && (
-                      <img 
-                        src={extractedReel.thumbnail} 
-                        alt="Reel Thumbnail" 
-                        className="w-24 h-32 rounded-xl object-cover border border-zinc-300 shrink-0" 
-                      />
+                    {extractedReel.thumbnail ? (
+                      <div className="relative w-24 h-32 rounded-xl overflow-hidden border-2 border-[#1A1510] shrink-0 bg-gradient-to-tr from-purple-600 via-rose-500 to-amber-400 flex items-center justify-center">
+                        <img 
+                          src={extractedReel.thumbnail.startsWith('http') ? `/api/connect/instagram/proxy-image?url=${encodeURIComponent(extractedReel.thumbnail)}` : extractedReel.thumbnail} 
+                          alt="Reel Thumbnail" 
+                          referrerPolicy="no-referrer"
+                          crossOrigin="anonymous"
+                          onError={(e) => {
+                            const target = e.currentTarget;
+                            if (target.src.includes('/api/connect/instagram/proxy-image')) {
+                              target.src = extractedReel.thumbnail;
+                            } else {
+                              target.style.display = 'none';
+                            }
+                          }}
+                          className="w-full h-full object-cover relative z-10" 
+                        />
+                        <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-0 p-2 text-center">
+                          <Film className="w-8 h-8 opacity-80" />
+                          <span className="text-[9px] font-black uppercase mt-1">Reel Cover</span>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="w-24 h-32 rounded-xl border-2 border-[#1A1510] shrink-0 bg-gradient-to-tr from-purple-600 via-rose-500 to-amber-400 flex flex-col items-center justify-center text-white p-2 text-center">
+                        <Film className="w-8 h-8" />
+                        <span className="text-[9px] font-black uppercase mt-1">Reel Cover</span>
+                      </div>
                     )}
                     <div className="space-y-2 text-center sm:text-left flex-1">
                       <span className="text-[10px] font-black uppercase text-[#16A34A]">{extractedReel.author}</span>
