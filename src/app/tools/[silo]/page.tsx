@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { permanentRedirect, notFound } from 'next/navigation'
 import { freeToolsList, getToolSiloCategory } from '@/utils/toolsData'
@@ -6,7 +7,7 @@ import Footer from '@/components/Footer'
 import CategoryHubClient from '../CategoryHubClient'
 
 interface PageProps {
-  params: Promise<{ tool: string }>
+  params: Promise<{ silo: string }>
 }
 
 const categories = ['converters', 'pdf', 'text', 'developer', 'seo', 'finance', 'business', 'office', 'legal', 'ai', 'ecommerce', 'social']
@@ -27,18 +28,40 @@ const categoryTitles: { [key: string]: { name: string; desc: string } } = {
 }
 
 export async function generateStaticParams() {
-  const toolParams = freeToolsList.map((t) => ({ tool: t.slug }))
-  const catParams = categories.map((c) => ({ tool: c }))
+  const toolParams = freeToolsList.map((t) => ({ silo: t.slug }))
+  const catParams = categories.map((c) => ({ silo: c }))
   return [...toolParams, ...catParams]
 }
 
-export default async function ToolOrCategoryPage({ params }: PageProps) {
-  const { tool: slugOrCat } = await params
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { silo } = await params
+  if (categories.includes(silo)) {
+    const catInfo = categoryTitles[silo]
+    const canonicalUrl = `https://cacto.cc/tools/${silo}`
 
-  // 1. Check if slugOrCat is a Category Hub (e.g. /tools/pdf)
-  if (categories.includes(slugOrCat)) {
-    const catInfo = categoryTitles[slugOrCat]
-    const categoryTools = freeToolsList.filter((t) => getToolSiloCategory(t) === slugOrCat)
+    return {
+      title: `${catInfo.name} - Free Online Utility Tools | Cacto`,
+      description: catInfo.desc,
+      alternates: { canonical: canonicalUrl },
+      openGraph: {
+        title: `${catInfo.name} - Free Online Utility Tools | Cacto`,
+        description: catInfo.desc,
+        url: canonicalUrl,
+        siteName: 'Cacto',
+        type: 'website',
+      },
+    }
+  }
+  return {}
+}
+
+export default async function ToolOrCategoryPage({ params }: PageProps) {
+  const { silo } = await params
+
+  // 1. Check if silo is a Category Hub (e.g. /tools/pdf)
+  if (categories.includes(silo)) {
+    const catInfo = categoryTitles[silo]
+    const categoryTools = freeToolsList.filter((t) => getToolSiloCategory(t) === silo)
 
     const breadcrumbSchema = {
       '@context': 'https://schema.org',
@@ -46,7 +69,7 @@ export default async function ToolOrCategoryPage({ params }: PageProps) {
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cacto.cc' },
         { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://cacto.cc/tools' },
-        { '@type': 'ListItem', position: 3, name: catInfo.name, item: `https://cacto.cc/tools/${slugOrCat}` },
+        { '@type': 'ListItem', position: 3, name: catInfo.name, item: `https://cacto.cc/tools/${silo}` },
       ],
     }
 
@@ -79,7 +102,7 @@ export default async function ToolOrCategoryPage({ params }: PageProps) {
             </p>
           </div>
 
-          <CategoryHubClient category={slugOrCat} categoryName={catInfo.name} tools={categoryTools} />
+          <CategoryHubClient category={silo} categoryName={catInfo.name} tools={categoryTools} />
         </main>
 
         <Footer />
@@ -87,8 +110,8 @@ export default async function ToolOrCategoryPage({ params }: PageProps) {
     )
   }
 
-  // 2. Check if slugOrCat is a Tool Slug -> Issue HTTP 301 Redirect to /tools/[category]/[slug]
-  const tool = freeToolsList.find((t) => t.slug === slugOrCat)
+  // 2. Check if silo is a Tool Slug -> Issue HTTP 301 Redirect to /tools/[category]/[slug]
+  const tool = freeToolsList.find((t) => t.slug === silo)
   if (!tool) {
     notFound()
   }

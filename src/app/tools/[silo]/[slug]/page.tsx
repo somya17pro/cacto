@@ -1,38 +1,38 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { freeToolsList, getToolSiloCategory } from '@/utils/toolsData'
-import ToolDetailClient from '../../[tool]/ToolDetailClient'
+import ToolDetailClient from '@/app/tools/ToolDetailClient'
 
 interface PageProps {
   params: Promise<{
-    category: string
+    silo: string
     slug: string
   }>
 }
 
 export async function generateStaticParams() {
   return freeToolsList.map((t) => ({
-    category: getToolSiloCategory(t),
+    silo: getToolSiloCategory(t),
     slug: t.slug,
   }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { category, slug } = await params
+  const { silo, slug } = await params
   const tool = freeToolsList.find((t) => t.slug === slug)
   if (!tool) return {}
 
-  const canonicalUrl = `https://cacto.cc/tools/${category}/${slug}`
+  const canonicalUrl = `https://cacto.cc/tools/${silo}/${slug}`
 
   return {
-    title: `${tool.title} | Free ${category.toUpperCase()} Tool | Cacto`,
+    title: `${tool.title} | Free ${silo.toUpperCase()} Tool | Cacto`,
     description: tool.description,
-    keywords: tool.seoKeywords || [tool.title, `${category} tool`, 'Cacto free tools'],
+    keywords: tool.seoKeywords || [tool.title, `${silo} tool`, 'Cacto free tools'],
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${tool.title} | Free ${category.toUpperCase()} Tool | Cacto`,
+      title: `${tool.title} | Free ${silo.toUpperCase()} Tool | Cacto`,
       description: tool.description,
       url: canonicalUrl,
       siteName: 'Cacto',
@@ -40,21 +40,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${tool.title} | Free ${category.toUpperCase()} Tool | Cacto`,
+      title: `${tool.title} | Free ${silo.toUpperCase()} Tool | Cacto`,
       description: tool.description,
     },
   }
 }
 
 export default async function SiloToolPage({ params }: PageProps) {
-  const { category, slug } = await params
+  const { silo, slug } = await params
   const tool = freeToolsList.find((t) => t.slug === slug)
 
   if (!tool) {
     notFound()
   }
 
-  const canonicalUrl = `https://cacto.cc/tools/${category}/${slug}`
+  const canonicalUrl = `https://cacto.cc/tools/${silo}/${slug}`
 
   const graphSchema = {
     '@context': 'https://schema.org',
@@ -65,7 +65,7 @@ export default async function SiloToolPage({ params }: PageProps) {
         name: tool.title,
         url: canonicalUrl,
         description: tool.description,
-        applicationCategory: category.toUpperCase(),
+        applicationCategory: silo.toUpperCase(),
         operatingSystem: 'All',
         offers: {
           '@type': 'Offer',
@@ -108,7 +108,7 @@ export default async function SiloToolPage({ params }: PageProps) {
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cacto.cc' },
           { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://cacto.cc/tools' },
-          { '@type': 'ListItem', position: 3, name: category.toUpperCase(), item: `https://cacto.cc/tools/${category}` },
+          { '@type': 'ListItem', position: 3, name: silo.toUpperCase(), item: `https://cacto.cc/tools/${silo}` },
           { '@type': 'ListItem', position: 4, name: tool.title, item: canonicalUrl }
         ]
       }
