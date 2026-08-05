@@ -1,164 +1,148 @@
 ---
 name: launch-strategy
-description: Plan and execute product launches using a tiered framework — from major new products down to small improvements. Use this skill whenever someone asks to plan a launch, create a launch checklist, define launch tiers, write launch messaging, or coordinate a product release. Also trigger when someone says "we're launching X" or "how should we announce this feature" or "what's our launch plan" — even if they don't use the word "strategy." Covers messaging, naming, launch assets, timelines, and post-launch retros. This is the master launch skill; it references the companion skills (launch-tweet, launch-landing-page, launch-distribution, launch-email, launch-video, launch-metrics) for specific execution.
+description: Plan and execute product launches using a tiered framework and the battle-tested $1.3M ARR Launch Playbook — from Reddit, LinkedIn, Twitter, Product Hunt, Hacker News, to PR/Press. Use this skill whenever someone asks to plan a launch, create a launch checklist, define launch tiers, write launch messaging, or coordinate a product release. Also trigger when someone says "we're launching X" or "how should we announce this feature" or "what's our launch plan" — even if they don't use the word "strategy." Covers messaging, naming, launch assets, timelines, channel ordering, and post-launch retros.
 suggest_when: User asks to plan a launch, create a launch checklist, define launch tiers, write messaging, coordinate a release, "we're launching X", "how should we announce this", "what's our launch plan", "plan the GTM", "launch playbook", or any product release planning request.
 ---
 
-# Launch Strategy
+# Launch Strategy & The $1.3M ARR Playbook
 
-This skill helps plan and execute product launches using a structured, repeatable framework. The core insight: most teams only do big splashy launches. By treating *every* ship as a potential launch moment — scaled to its significance — you build consistent awareness, acquisition, and activation. The goal is a launch engine, not a one-off event.
+This skill helps plan and execute product launches using a structured, repeatable framework paired with the **Martin (YC S23) $1.3M ARR Launch Engine Playbook**.
 
-## Launch tiers
+---
 
-Every release maps to one of three tiers. The tier determines how much effort goes into messaging, assets, and distribution.
+## 🛑 Core Prerequisites & Growth Philosophy
 
-### Tier 1: Major new product or platform shift
-Full launch. This is your marquee moment — a new product, a major rebrand, a platform expansion. Expect 2-4 weeks of preparation.
+> **DISCLAIMER:** Growth does not matter unless you have good retention. Do **NOT** focus on growth or going viral until you have **at least 10 extremely happy, retained users**.
 
-**Typical assets:** launch video (motion design or founder narrative), dedicated landing page, blog post, press outreach, social campaign (all platforms), email to full list, internal amplification push.
+### The Dual-Track Growth Engine ($0 to $1.3M ARR)
+For consumer (B2C) or self-serve B2B SaaS companies:
+1. **Track 1: Monthly Channel Launch Push ($0 ➔ $200k ARR)**
+   - Launch once a month on a different platform (Reddit ➔ LinkedIn ➔ Twitter ➔ Product Hunt ➔ Hacker News ➔ PR/Press).
+   - Commit **3-4 days of focused, intense effort** to create high-converting assets per launch.
+   - Monthly platform launches and virality drive initial momentum from $0 to ~$200k ARR.
+2. **Track 2: Scalable Paid Channel Exploration ($200k ➔ $1.3M ARR)**
+   - In parallel with monthly launches, pick **one** scalable paid channel to master (e.g., Meta Ads / TikTok Ads).
+   - Test, iterate, and generate hundreds of creative variations over 3-4 months until the scalable channel hits unit profitability.
+   - Scalable ads take the product from $200k ARR to $1.3M+ ARR over the subsequent 6 months.
 
-### Tier 2: Major new feature
-A meaningful addition that changes what users can do. Enough to warrant its own announcement, but not a full media push. Expect 1-2 weeks of prep.
+---
 
-**Typical assets:** launch tweet/thread, blog post or changelog entry, updated landing page section, email to relevant segment, social posts across 2-3 platforms.
+## 🚀 Recommended Channel Launch Order & Playbook
 
-### Tier 3: Smaller improvements and iterations
-Bug fixes, UI polish, incremental improvements. Still worth announcing — they signal momentum and care. Prep time: a few hours to a day.
+Launch on platforms in this specific order. Later channels require more social proof and traction.
 
-**Typical assets:** changelog entry, single social post, optional email mention in a digest.
+```mermaid
+flowchart LR
+    A["1. Reddit<br/>(Goal: 50 Upvotes)"] --> B["2. LinkedIn<br/>(Goal: 200k Impressions)"]
+    B --> C["3. Twitter / X<br/>(Goal: 500k Impressions)"]
+    C --> D["4. Product Hunt<br/>(Goal: Top 5 Product)"]
+    D --> E["5. Hacker News<br/>(Goal: Front Page / 200 Upvotes)"]
+    E --> F["6. PR / Press<br/>(Social Proof Engine)"]
+```
 
-### Choosing the tier
+---
 
-Ask: "If a potential customer saw this announcement, would it change their perception of what the product can do?" If yes → Tier 1 or 2. If it's more about quality and reliability → Tier 3.
+### 1. Reddit Launch (Goal: 50 Upvotes)
+* **Purpose:** Test ICP, validate messaging early, and acquire initial 20-30 core users.
+* **General Advice:** 
+  - Find subreddits that explicitly allow self-promotion in official rules.
+  - **CRITICAL:** Do **NOT** ask friends or teammates to upvote/comment on Reddit posts. Reddit's anti-spam algorithm detects shared IP addresses and bans accounts instantly. Reddit is not Product Hunt.
+  - Immerse yourself in the subreddit's culture first to match tone and vocabulary.
+* **The Post:**
+  - Craft a magnetic title hook.
+  - Always attach a video or high-res product screenshots to occupy maximum feed real estate.
+  - Top karma users and moderators indicate how the broader subreddit will react.
+* **Examples:**
+  - [Mac App Overlay Launch](https://www.reddit.com/r/macapps/comments/1measbu/built_a_tiny_overlay_to_use_chatgpt_anywhere_on/)
+  - [Clock Face Day Planner](https://www.reddit.com/r/ProductivityApps/comments/1ri836j/i_built_a_day_planner_around_a_clock_face_instead/)
 
-When in doubt, tier up. Under-launching is more common than over-launching. A Tier 2 launch that should have been Tier 3 costs a few extra hours. A Tier 1 launch treated as Tier 3 is a missed growth opportunity.
+---
 
-## Messaging framework
+### 2. LinkedIn Launch (Goal: 200k Impressions)
+* **Purpose:** Convert high-intent B2B customers, founders, developers, and sales professionals. (First launch generated 250k impressions, 150 trial users, and 60 paying users at $35/mo).
+* **The Post:**
+  - **First Sentence Hook:** LinkedIn has no title. The first line must compel scrollers to click `...see more`.
+  - Attach a high-production launch video or video demo for 3+ extra inches of feed real estate.
+  - **Story Formats:** Use short catchy one-liners (Option A) or a compelling 2-3 paragraph essay narrative (Option B).
+  - **Tagging Strategy:** Tag inspired friends, early users, and investors in the main post and comments. Tag your official company page to drive algorithm clicks.
+  - **Engagement:** Reply and react to **every single comment** immediately after posting.
 
-Messaging comes before everything else. Don't build assets until messaging is locked. A mediocre video with great messaging outperforms a beautiful video with confused positioning.
+---
 
-### The messaging brief
+### 3. Twitter / X Launch (Goal: 500k Impressions)
+* **Purpose:** Mass awareness and virality.
+* **Mechanics:**
+  - **Optimize for Reposts:** Reposts drive Twitter algorithm distribution. You can go viral with <1,000 followers if you secure ~100 quality reposts.
+  - Attach a polished launch video (budget ~$5k for a video editor or block out 1 week to edit yourself in Premiere/iMovie).
+  - Build a private outreach list of Twitter creators/allies to repost upon launch.
 
-For every launch (any tier), define:
+---
 
-1. **Name** — What are you calling this? For features with SEO potential, use search data to choose. Check what people actually search for (e.g., "speech to text" vs. "transcription API" — pick the one with more volume if the audience matches). Tools like Google Trends and keyword research platforms help here.
+### 4. Product Hunt Launch (Goal: Top 5 Product of the Day)
+* **Purpose:** High conversion rate because PH users are actively hunting for new tools to buy and try.
+* **Rules & Cadence:** You can only launch once every 6 months.
+* **Swarmer Strategy to Top 5:**
+  - Get 5-10 team members/friends on a live call to message contacts simultaneously.
+  - Distribute across Slack/Discord communities and LinkedIn connections (using PhantomBuster automation for post-connection messages).
+  - First slide MUST be an irresistible video demo.
 
-2. **Audience** — Who specifically benefits? Be precise. "Developers" is too broad. "Backend engineers building real-time voice apps" gives you something to write toward.
+---
 
-3. **Primary value prop** — One sentence. What can they do now that they couldn't before, or what's dramatically better? This becomes the headline everywhere.
+### 5. Hacker News Launch (Goal: Front Page & 200 Upvotes)
+* **Purpose:** Acquire hundreds of technical power users and drive front-page discussion.
+* **Rules:**
+  - Go deep into technical architecture and implementation details.
+  - No marketing fluff or corporate buzzwords. Low-production founder walkthrough videos work best.
+  - **Comment Moderation:** Top comments are often critical/flaming. Respond politely, constructively, and honestly to win over the silent majority reading the thread.
 
-4. **Secondary value props** — 2-3 supporting points. These fill out the blog post, landing page sections, and thread tweets.
+---
 
-5. **Proof points** — Numbers, benchmarks, comparisons, customer quotes. Anything that makes the value props concrete rather than aspirational.
+### 6. PR & Press Outreach (Social Proof Engine)
+* **Purpose:** Press coverage is not a standalone acquisition channel, but serves as massive social proof when reshared on Twitter and LinkedIn.
+* **Execution:**
+  - Obtain warm intros to tech journalists whenever possible.
+  - Offer exclusives to specific reporters based on their past coverage history.
+  - Attach news article screenshots to LinkedIn/Twitter launch posts to double engagement and trust.
 
-### Messaging test
+---
 
-Read your primary value prop out loud. If it could describe a competitor's product just as well, it's too generic. The best value props are specific enough that someone in the target audience immediately knows whether this is for them.
+## 📐 Launch Tiers Framework
 
-## Launch checklist system
+Every release maps to one of three tiers:
 
-Create a master checklist with every possible launch action, organized by tier. For each new launch:
+### Tier 1: Marquee Product / Major Shift (2-4 Weeks Prep)
+- **Assets:** High-production launch video, dedicated landing page, deep technical blog post, press embargo outreach, multi-platform campaign, email push to full list.
+- **Channels:** All 6 platforms in sequential order (Reddit ➔ LinkedIn ➔ Twitter ➔ PH ➔ HN ➔ PR).
 
-1. Copy the master checklist into a new instance (new tab, new ticket, new page)
-2. Delete rows that don't apply to this tier/launch
-3. Assign owners and due dates to remaining rows
-4. Use it as the single source of truth through launch day
+### Tier 2: Major Feature Launch (1-2 Weeks Prep)
+- **Assets:** Launch video/GIF, changelog post, updated landing page section, segmented email push.
+- **Channels:** LinkedIn, Twitter/X, targeted Reddit subreddits.
 
-### Tooling
+### Tier 3: Incremental Polish & Iterations (Same Day Prep)
+- **Assets:** Changelog entry, single social post, weekly digest mention.
 
-Pick one system and commit. The specific tool matters less than consistent use.
+---
 
-- **Spreadsheet** (Google Sheets, Notion table) — Simplest. Works well for small teams. One master sheet, one tab per launch. Downside: no built-in assignments or notifications.
-- **Project management tool** (Linear, Asana, Notion) — Better for teams. Create a launch template project. Each launch gets a copy with assignable tasks and due dates. Linear labels or Asana sections can map to the tier columns below.
-- **Docs + checklist** (Notion, Google Docs) — Middle ground. A template doc with checkboxes. Easy to copy, harder to track status across launches.
+## 📋 Launch Master Checklist & Companion Skills
 
-Whichever tool you use, keep the master template updated after every retro. The template is a living document — it gets better with each launch.
+Use this master checklist for every launch:
 
-### Checklist template structure
+| Category | Action | Tier 1 | Tier 2 | Tier 3 |
+| :--- | :--- | :---: | :---: | :---: |
+| **Strategy** | Verify 10+ Happy Retained Users | ✓ | ✓ | — |
+| **Messaging** | Write messaging brief & first-sentence hooks | ✓ | ✓ | ✓ |
+| **Assets** | Edit launch video / demo GIF | ✓ | Optional | — |
+| **Social** | Reddit post (Subreddit rules checked, no friend upvotes) | ✓ | Optional | — |
+| **Social** | LinkedIn post (First sentence hook, video, tagged allies) | ✓ | ✓ | — |
+| **Social** | Twitter thread (Repost outreach list primed) | ✓ | ✓ | ✓ |
+| **Launchpad** | Product Hunt submission (Tuesday/Wednesday 12 AM PST) | ✓ | — | — |
+| **Community** | Hacker News Show HN (Technical depth, polite comment replies) | ✓ | Optional | — |
+| **Press** | PR outreach & screenshot social proof cards | ✓ | — | — |
 
-| Category | Action | Tier 1 | Tier 2 | Tier 3 | Owner | Due | Status |
-|----------|--------|--------|--------|--------|-------|-----|--------|
-| Messaging | Write messaging brief | ✓ | ✓ | ✓ | | | |
-| Messaging | SEO keyword research for naming | ✓ | Optional | — | | | |
-| Assets | Launch video | ✓ | Optional | — | | | |
-| Assets | Landing page (new or updated) | ✓ | ✓ | — | | | |
-| Assets | Blog post | ✓ | ✓ | Optional | | | |
-| Assets | Changelog entry | ✓ | ✓ | ✓ | | | |
-| Social | Launch tweet/thread | ✓ | ✓ | ✓ | | | |
-| Social | LinkedIn post | ✓ | ✓ | Optional | | | |
-| Social | Other platforms (BlueSky, Threads) | ✓ | Optional | — | | | |
-| Distribution | Product Hunt submission | ✓ | Optional | — | | | |
-| Distribution | Hacker News post | ✓ | Optional | — | | | |
-| Distribution | Press/journalist outreach | ✓ | — | — | | | |
-| Distribution | Influencer/network repost asks | ✓ | ✓ | — | | | |
-| Email | Full list announcement | ✓ | — | — | | | |
-| Email | Segment-specific email | Optional | ✓ | — | | | |
-| Email | Changelog digest mention | — | Optional | ✓ | | | |
-| Internal | #amplify channel post | ✓ | ✓ | Optional | | | |
-| Internal | Team briefing | ✓ | Optional | — | | | |
-| Tracking | Set up UTMs for all links | ✓ | ✓ | Optional | | | |
-| Tracking | Verify analytics events fire | ✓ | Optional | — | | | |
-| Tracking | Capture baseline metrics | ✓ | ✓ | — | | | |
-| Post-launch | Schedule retro (1 week out) | ✓ | ✓ | — | | | |
-
-## Launch timeline
-
-### Tier 1 timeline (2-4 weeks)
-
-**Weeks 3-4 out:** Lock messaging brief. Begin landing page and video production. Start press outreach (journalists need lead time).
-
-**Weeks 1-2 out:** Finalize all assets. Write social copy. Prepare email. Brief internal team. Set up tracking (UTMs, analytics events). Do a dry run of the distribution sequence.
-
-**Launch day:** Execute distribution in sequence — social first (morning), then email, then press embargo lifts. Monitor and engage with comments/replies all day.
-
-**Week after:** Run retro.
-
-### Tier 2 timeline (1-2 weeks)
-
-**Week 2 out:** Lock messaging. Start blog post and landing page updates.
-
-**Week 1 out:** Finalize copy. Write social posts. Prepare email segment.
-
-**Launch day:** Post social, publish blog, send email. Engage with responses.
-
-**3-5 days after:** Quick retro (async, e.g., a Slack thread).
-
-### Tier 3 timeline (same day or next day)
-
-Ship it. Write a changelog entry and a social post. Done. If it's part of a batch of small improvements, bundle them into a weekly digest.
-
-## Post-launch retro
-
-Don't skip this. The retro is what turns individual launches into a compounding launch engine.
-
-### What to cover
-
-1. **What worked?** Which channels drove the most traffic, signups, or engagement? What messaging resonated?
-2. **What didn't?** Which assets underperformed? Where did the timeline slip?
-3. **Surprises?** Did an unexpected channel blow up? Did a specific framing land better than expected?
-4. **Numbers** — Traffic, signups, activation, social engagement, press mentions. Compare to previous launches if you have the data.
-5. **Checklist updates** — Add or remove items from the master checklist based on what you learned.
-
-### Retro format
-
-Keep it lightweight. A Slack thread or 15-minute call works for Tier 2. Tier 1 deserves a short doc. The key output is specific changes to the checklist and process, not a retrospective essay.
-
-## The "everything is a launch" philosophy
-
-If you're shipping multiple times a month but only launching a few times a quarter, you're leaving growth on the table. Every ship is an opportunity to tell your story, remind people you exist, and show momentum.
-
-This doesn't mean every bug fix gets a press release. It means every improvement gets *some* announcement, scaled to its significance. Tier 3 launches take minutes. The compound effect of consistent visibility is enormous.
-
-Build the habit: when the PR merges, the launch checklist opens.
-
-## Working with companion skills
-
-This skill handles strategy and planning. For execution, point to:
-
-- **launch-tweet** — Crafting the social copy (tweets, threads, LinkedIn, cross-platform)
-- **launch-email** — Email subject lines, announcement structure, segmentation, changelog digests
-- **launch-blog-post** — Writing the announcement post (structure, SEO, AEO)
-- **launch-video** — Demo videos, GIFs, screenshots, and programmatic video with Remotion
-- **launch-landing-page** — Building the landing page (structure, urgency mechanics, SEO, conversion)
-- **launch-distribution** — Channel-by-channel distribution and launch day sequencing
-- **launch-metrics** — UTM setup, KPIs by tier, benchmark expectations, retro data framework
+### Companion Skills
+- **launch-distribution** — Channel-by-channel execution, posting times & algorithm mechanics
+- **launch-tweet** — Copywriting hooks, threads, LinkedIn posts & social templates
+- **launch-landing-page** — High-converting landing page layouts & urgency mechanics
+- **launch-video** — Scripting, recording, and Remotion video generation
+- **launch-email** — Announcement emails, segmentation, and changelog digests
+- **launch-metrics** — UTM setup, performance tracking & post-launch retros
