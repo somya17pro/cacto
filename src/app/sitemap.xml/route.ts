@@ -28,14 +28,6 @@ export async function GET() {
   })
 
   freeToolsList.forEach(t => {
-    urls.push({
-      url: `${baseUrl}/tools/${t.slug}`,
-      priority: '0.8',
-      changefreq: 'weekly'
-    })
-  })
-
-  freeToolsList.forEach(t => {
     const cat = getToolSiloCategory(t)
     urls.push({
       url: `${baseUrl}/tools/${cat}/${t.slug}`,

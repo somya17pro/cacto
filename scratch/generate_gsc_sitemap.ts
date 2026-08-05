@@ -3,7 +3,7 @@ import path from 'path'
 import { blogPosts } from '../src/utils/blogData'
 import { freeToolsList, getToolSiloCategory } from '../src/utils/toolsData'
 
-console.log('🚀 Generating Google Search Console Compliant sitemap.xml with Category Silos...\n')
+console.log('🚀 Generating Google Search Console Compliant sitemap.xml with Clean Canonical Silos...\n')
 
 const baseUrl = 'https://cacto.cc'
 const currentDate = new Date().toISOString().split('T')[0] // W3C YYYY-MM-DD format
@@ -31,16 +31,7 @@ categories.forEach(cat => {
   })
 })
 
-// Add 100 Legacy Tool Routes
-freeToolsList.forEach(t => {
-  urls.push({
-    url: `${baseUrl}/tools/${t.slug}`,
-    priority: '0.8',
-    changefreq: 'weekly'
-  })
-})
-
-// Add 100 Category Silo Tool Routes (/tools/[category]/[slug])
+// Add Canonical Category Silo Tool Routes (/tools/[category]/[slug]) ONLY
 freeToolsList.forEach(t => {
   const cat = getToolSiloCategory(t)
   urls.push({
@@ -80,4 +71,4 @@ const fullXml = `${xmlHeader}\n${xmlBody}${xmlFooter}`
 const publicSitemapPath = path.join(process.cwd(), 'public/sitemap.xml')
 fs.writeFileSync(publicSitemapPath, fullXml, 'utf8')
 
-console.log(`✅ Generated public/sitemap.xml with ${urls.length} URLs (${fs.statSync(publicSitemapPath).size} bytes).`)
+console.log(`✅ Generated public/sitemap.xml with ${urls.length} clean canonical URLs (${fs.statSync(publicSitemapPath).size} bytes).`)
