@@ -1,4 +1,7 @@
+export type SiloCategory = 'converters' | 'pdf' | 'text' | 'developer' | 'seo' | 'finance' | 'business' | 'office' | 'legal' | 'ai' | 'ecommerce' | 'social';
+
 export interface ToolData {
+  siloCategory?: SiloCategory;
   slug: string
   title: string
   description: string
@@ -7008,3 +7011,19 @@ export const freeToolsList: ToolData[] = [
     }
   }
 ]
+
+export function getToolSiloCategory(tool: { slug: string; category?: string }): SiloCategory {
+  const s = tool.slug.toLowerCase();
+  if (s.includes('pdf')) return 'pdf';
+  if (s.includes('json') || s.includes('jwt') || s.includes('cron') || s.includes('curl') || s.includes('base64') || s.includes('sql') || s.includes('regex') || s.includes('api')) return 'developer';
+  if (s.includes('schema') || s.includes('meta') || s.includes('robots') || s.includes('hreflang') || s.includes('canonical') || s.includes('sitemap') || s.includes('slug') || s.includes('keyword')) return 'seo';
+  if (s.includes('gst') || s.includes('sip') || s.includes('emi') || s.includes('salary') || s.includes('fd') || s.includes('tax') || s.includes('income') || s.includes('gratuity') || s.includes('hra') || s.includes('compound') || s.includes('swp')) return 'finance';
+  if (s.includes('invoice') || s.includes('nda') || s.includes('contract') || s.includes('quotation') || s.includes('po')) return 'legal';
+  if (s.includes('resignation') || s.includes('leave') || s.includes('offer') || s.includes('timesheet') || s.includes('overtime')) return 'office';
+  if (s.includes('amazon') || s.includes('shipping') || s.includes('shopify')) return 'ecommerce';
+  if (s.includes('profit') || s.includes('breakeven') || s.includes('pricing') || s.includes('saas') || s.includes('freelance')) return 'business';
+  if (s.includes('prompt') || s.includes('email') || s.includes('cold-email') || s.includes('linkedin') || s.includes('youtube')) return 'ai';
+  if (s.includes('word') || s.includes('case') || s.includes('line') || s.includes('diff') || s.includes('character') || s.includes('text')) return 'text';
+  if (s.includes('convert') || s.includes('photo') || s.includes('downloader') || s.includes('heic') || s.includes('webp') || s.includes('jpg') || s.includes('png') || s.includes('svg')) return 'converters';
+  return 'social';
+}

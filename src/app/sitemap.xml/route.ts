@@ -1,5 +1,5 @@
 import { blogPosts } from '@/utils/blogData'
-import { freeToolsList } from '@/utils/toolsData'
+import { freeToolsList, getToolSiloCategory } from '@/utils/toolsData'
 
 export async function GET() {
   const baseUrl = 'https://cacto.cc'
@@ -18,9 +18,27 @@ export async function GET() {
     { url: `${baseUrl}/data-deletion`, priority: '0.5', changefreq: 'monthly' },
   ]
 
+  const categories = ['converters', 'pdf', 'text', 'developer', 'seo', 'finance', 'business', 'office', 'legal', 'ai', 'ecommerce', 'social']
+  categories.forEach(cat => {
+    urls.push({
+      url: `${baseUrl}/tools/${cat}`,
+      priority: '0.9',
+      changefreq: 'daily'
+    })
+  })
+
   freeToolsList.forEach(t => {
     urls.push({
       url: `${baseUrl}/tools/${t.slug}`,
+      priority: '0.8',
+      changefreq: 'weekly'
+    })
+  })
+
+  freeToolsList.forEach(t => {
+    const cat = getToolSiloCategory(t)
+    urls.push({
+      url: `${baseUrl}/tools/${cat}/${t.slug}`,
       priority: '0.8',
       changefreq: 'weekly'
     })
