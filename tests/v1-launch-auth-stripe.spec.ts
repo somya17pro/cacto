@@ -44,7 +44,7 @@ test.describe('V1 Launch - Auth, Stripe & Webhook Signature Verification Suite',
     test('renders mock auth consent portal with test parameters', async ({ page }) => {
       await page.goto('/auth/instagram-mock?profileId=creator_test_99&redirect_url=/onboarding?dev=true');
       
-      await expect(page.locator('h1')).toContainText('Authorize Cacto access');
+      await expect(page.getByRole('heading', { name: 'Authorize Cacto access' })).toBeVisible();
       await expect(page.locator('input[placeholder*="instagram_handle"]')).toBeVisible();
       await expect(page.locator('button[type="submit"]')).toBeVisible();
     });

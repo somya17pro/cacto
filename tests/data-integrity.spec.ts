@@ -4,9 +4,9 @@ import { freeToolsList } from '../src/utils/toolsData';
 
 test.describe('Data Integrity & Schema Validation', () => {
   test.describe('Blog Posts Data Integrity', () => {
-    test('has valid blog posts dataset', () => {
+    test('has valid blog posts dataset with at least 100 posts', () => {
       expect(Array.isArray(blogPosts)).toBe(true);
-      expect(blogPosts.length).toBeGreaterThanOrEqual(50);
+      expect(blogPosts.length).toBeGreaterThanOrEqual(100);
     });
 
     test('all blog post slugs are unique, non-empty, and URL safe', () => {
@@ -33,9 +33,9 @@ test.describe('Data Integrity & Schema Validation', () => {
   });
 
   test.describe('Free Tools Data Integrity', () => {
-    test('has valid free tools dataset', () => {
+    test('has valid free tools dataset with 1,000+ tools', () => {
       expect(Array.isArray(freeToolsList)).toBe(true);
-      expect(freeToolsList.length).toBeGreaterThanOrEqual(10);
+      expect(freeToolsList.length).toBeGreaterThanOrEqual(1000);
     });
 
     test('all tool slugs are unique, non-empty, and URL safe', () => {
@@ -51,10 +51,13 @@ test.describe('Data Integrity & Schema Validation', () => {
       }
     });
 
-    test('all free tools have title and description', () => {
+    test('all free tools have title, description, category, and faqs', () => {
       for (const tool of freeToolsList) {
         expect(tool.title?.trim()).toBeTruthy();
         expect(tool.description?.trim()).toBeTruthy();
+        expect(tool.category?.trim()).toBeTruthy();
+        expect(Array.isArray(tool.faqs)).toBe(true);
+        expect(tool.faqs.length).toBeGreaterThan(0);
       }
     });
   });
