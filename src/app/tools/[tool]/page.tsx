@@ -1,4 +1,4 @@
-import { redirect, notFound } from 'next/navigation'
+import { permanentRedirect, notFound } from 'next/navigation'
 import { freeToolsList, getToolSiloCategory } from '@/utils/toolsData'
 
 interface PageProps {
@@ -20,6 +20,6 @@ export default async function LegacyToolRedirectPage({ params }: PageProps) {
   }
 
   const category = getToolSiloCategory(tool)
-  // HTTP 301 Permanent Redirect to Canonical Category Silo URL
-  redirect(`/tools/${category}/${tool.slug}`)
+  // Official Next.js HTTP 301 Permanent Redirect to Canonical Category Silo URL
+  permanentRedirect(`/tools/${category}/${tool.slug}`)
 }

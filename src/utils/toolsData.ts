@@ -19881,8 +19881,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Layers",
     "faqs": [
       {
-        "q": "Can I extract specific page ranges like 1-5 and 8-10?",
-        "a": "Yes, enter comma-separated page ranges to extract exact pages cleanly."
+        "q": "How does the PDF Page Splitter & Extractor work?",
+        "a": "The PDF Page Splitter & Extractor processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the PDF Page Splitter & Extractor completely free to use?",
+        "a": "Yes! The PDF Page Splitter & Extractor is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -19932,8 +19936,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Layers",
     "faqs": [
       {
-        "q": "Does PDF compression reduce text quality?",
-        "a": "No, text remains crisp while embedded raster images are optimized for web delivery."
+        "q": "How does the PDF File Size Optimizer & Compressor work?",
+        "a": "The PDF File Size Optimizer & Compressor processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the PDF File Size Optimizer & Compressor completely free to use?",
+        "a": "Yes! The PDF File Size Optimizer & Compressor is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -19983,8 +19991,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Shield",
     "faqs": [
       {
-        "q": "Can this remove owner passwords and restrictions?",
-        "a": "Yes, it removes permission locks for printing, text selection, and form editing."
+        "q": "How does the PDF Restriction & Password Remover work?",
+        "a": "The PDF Restriction & Password Remover processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the PDF Restriction & Password Remover completely free to use?",
+        "a": "Yes! The PDF Restriction & Password Remover is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20034,8 +20046,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "RefreshCw",
     "faqs": [
       {
-        "q": "Can I rotate individual pages instead of the whole document?",
-        "a": "Yes, you can apply custom rotation angles per page or sitewide."
+        "q": "How does the PDF Orientation & Page Rotator work?",
+        "a": "The PDF Orientation & Page Rotator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the PDF Orientation & Page Rotator completely free to use?",
+        "a": "Yes! The PDF Orientation & Page Rotator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20085,8 +20101,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Shield",
     "faqs": [
       {
-        "q": "Can I customize watermark opacity and font size?",
-        "a": "Yes, adjust transparency, font size, rotation angle, and color."
+        "q": "How does the PDF Watermark & Brand Overlay Generator work?",
+        "a": "The PDF Watermark & Brand Overlay Generator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the PDF Watermark & Brand Overlay Generator completely free to use?",
+        "a": "Yes! The PDF Watermark & Brand Overlay Generator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20136,8 +20156,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Image",
     "faqs": [
       {
-        "q": "Does this support converting multiple images into 1 single PDF?",
-        "a": "Yes, upload up to 50 images and merge them into one structured PDF."
+        "q": "How does the Image (JPG/PNG/WebP) to PDF Converter work?",
+        "a": "The Image (JPG/PNG/WebP) to PDF Converter processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Image (JPG/PNG/WebP) to PDF Converter completely free to use?",
+        "a": "Yes! The Image (JPG/PNG/WebP) to PDF Converter is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20187,8 +20211,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Image",
     "faqs": [
       {
-        "q": "What resolution are the extracted JPG images?",
-        "a": "Extracted JPGs are rendered at 300 DPI high resolution for printing and web."
+        "q": "How does the PDF Page to High-Res JPG Image Converter work?",
+        "a": "The PDF Page to High-Res JPG Image Converter processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the PDF Page to High-Res JPG Image Converter completely free to use?",
+        "a": "Yes! The PDF Page to High-Res JPG Image Converter is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20238,8 +20266,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Shield",
     "faqs": [
       {
-        "q": "Are JWT tokens sent to any server during decoding?",
-        "a": "Never. Decoding happens 100% in local JavaScript memory using standard Base64URL parsing."
+        "q": "How does the JWT Token Decoder & Inspector work?",
+        "a": "The JWT Token Decoder & Inspector processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the JWT Token Decoder & Inspector completely free to use?",
+        "a": "Yes! The JWT Token Decoder & Inspector is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20289,8 +20321,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "Does this generator support Linux crontab and AWS EventBridge formats?",
-        "a": "Yes! Generates standard 5-field crontab syntax and 6-field AWS event expressions."
+        "q": "How does the Cron Schedule Expression Generator work?",
+        "a": "The Cron Schedule Expression Generator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Cron Schedule Expression Generator completely free to use?",
+        "a": "Yes! The Cron Schedule Expression Generator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20340,8 +20376,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Type",
     "faqs": [
       {
-        "q": "Can I convert PNG/JPG images to Data URI Base64 strings?",
-        "a": "Yes, upload any image to generate a ready-to-use data:image/png;base64,... string."
+        "q": "How does the Base64 Text & Image Encoder / Decoder work?",
+        "a": "The Base64 Text & Image Encoder / Decoder processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Base64 Text & Image Encoder / Decoder completely free to use?",
+        "a": "Yes! The Base64 Text & Image Encoder / Decoder is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20391,8 +20431,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "Does this parse cURL headers, request methods, and JSON bodies?",
-        "a": "Yes! Automatically parses -H headers, -X POST/PUT methods, and -d JSON payloads."
+        "q": "How does the cURL Command to JavaScript fetch & Python Converter work?",
+        "a": "The cURL Command to JavaScript fetch & Python Converter processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the cURL Command to JavaScript fetch & Python Converter completely free to use?",
+        "a": "Yes! The cURL Command to JavaScript fetch & Python Converter is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20442,8 +20486,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "Are these UUIDs cryptographically secure?",
-        "a": "Yes, generated using window.crypto.randomUUID() for cryptographic randomness."
+        "q": "How does the Bulk UUID v4 & GUID Generator work?",
+        "a": "The Bulk UUID v4 & GUID Generator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Bulk UUID v4 & GUID Generator completely free to use?",
+        "a": "Yes! The Bulk UUID v4 & GUID Generator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20493,8 +20541,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Type",
     "faqs": [
       {
-        "q": "How much file size reduction can I expect?",
-        "a": "Minification typically reduces HTML/CSS markup file size by 15% to 40%."
+        "q": "How does the HTML & CSS Code Minifier & Shrinker work?",
+        "a": "The HTML & CSS Code Minifier & Shrinker processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the HTML & CSS Code Minifier & Shrinker completely free to use?",
+        "a": "Yes! The HTML & CSS Code Minifier & Shrinker is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20544,8 +20596,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "What SQL dialects are supported?",
-        "a": "Supports Standard SQL, PostgreSQL, MySQL, SQLite, and T-SQL."
+        "q": "How does the SQL Query Prettifier & Formatter work?",
+        "a": "The SQL Query Prettifier & Formatter processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the SQL Query Prettifier & Formatter completely free to use?",
+        "a": "Yes! The SQL Query Prettifier & Formatter is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20595,8 +20651,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Type",
     "faqs": [
       {
-        "q": "Does this support flags like global (g), case-insensitive (i), and multiline (m)?",
-        "a": "Yes, full flag toggles are supported with live regex execution."
+        "q": "How does the Regular Expression (Regex) Tester & Explainer work?",
+        "a": "The Regular Expression (Regex) Tester & Explainer processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Regular Expression (Regex) Tester & Explainer completely free to use?",
+        "a": "Yes! The Regular Expression (Regex) Tester & Explainer is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20646,8 +20706,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Shield",
     "faqs": [
       {
-        "q": "Are string hashes calculated locally inside the browser?",
-        "a": "Yes! Calculated using native Web Crypto APIs (`window.crypto.subtle.digest`)."
+        "q": "How does the MD5 & SHA-256 Hash Digest Generator work?",
+        "a": "The MD5 & SHA-256 Hash Digest Generator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the MD5 & SHA-256 Hash Digest Generator completely free to use?",
+        "a": "Yes! The MD5 & SHA-256 Hash Digest Generator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20752,8 +20816,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "TrendingUp",
     "faqs": [
       {
-        "q": "What formula is used for SIP return calculation?",
-        "a": "Uses compound interest formula M = P × ({[1 + i]^n - 1} / i) × (1 + i)."
+        "q": "How does the SIP Return Calculator work?",
+        "a": "The SIP Return Calculator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the SIP Return Calculator completely free to use?",
+        "a": "Yes! The SIP Return Calculator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20803,8 +20871,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "TrendingUp",
     "faqs": [
       {
-        "q": "How is monthly loan EMI calculated?",
-        "a": "EMI = [P x R x (1+R)^N]/[(1+R)^N-1], where P is Principal, R is monthly interest rate, N is tenure."
+        "q": "How does the Loan EMI & Interest Calculator work?",
+        "a": "The Loan EMI & Interest Calculator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Loan EMI & Interest Calculator completely free to use?",
+        "a": "Yes! The Loan EMI & Interest Calculator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20854,8 +20926,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "TrendingUp",
     "faqs": [
       {
-        "q": "Does compounding frequency affect FD returns?",
-        "a": "Yes! Quarterly compounding yields higher returns than simple annual interest."
+        "q": "How does the Fixed Deposit (FD) Interest Calculator work?",
+        "a": "The Fixed Deposit (FD) Interest Calculator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Fixed Deposit (FD) Interest Calculator completely free to use?",
+        "a": "Yes! The Fixed Deposit (FD) Interest Calculator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20905,8 +20981,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "TrendingUp",
     "faqs": [
       {
-        "q": "How does SWP work for retirement income?",
-        "a": "SWP withdraws a fixed monthly amount while the remaining balance continues earning compound returns."
+        "q": "How does the Systematic Withdrawal Plan (SWP) Calculator work?",
+        "a": "The Systematic Withdrawal Plan (SWP) Calculator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Systematic Withdrawal Plan (SWP) Calculator completely free to use?",
+        "a": "Yes! The Systematic Withdrawal Plan (SWP) Calculator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -20956,8 +21036,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "TrendingUp",
     "faqs": [
       {
-        "q": "What is the minimum service requirement for gratuity in India?",
-        "a": "5 years of continuous service in the same organization is mandatory under the Payment of Gratuity Act 1972."
+        "q": "How does the Employee Gratuity Calculator (India) work?",
+        "a": "The Employee Gratuity Calculator (India) processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Employee Gratuity Calculator (India) completely free to use?",
+        "a": "Yes! The Employee Gratuity Calculator (India) is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21007,8 +21091,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "TrendingUp",
     "faqs": [
       {
-        "q": "How is HRA tax exemption calculated in India?",
-        "a": "Exemption is minimum of: 1) Actual HRA received, 2) 50% basic (metro) / 40% (non-metro), 3) Rent paid minus 10% basic."
+        "q": "How does the House Rent Allowance (HRA) Tax Exemption Calculator work?",
+        "a": "The House Rent Allowance (HRA) Tax Exemption Calculator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the House Rent Allowance (HRA) Tax Exemption Calculator completely free to use?",
+        "a": "Yes! The House Rent Allowance (HRA) Tax Exemption Calculator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21058,8 +21146,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Type",
     "faqs": [
       {
-        "q": "Does deduplication support case-sensitive matching?",
-        "a": "Yes, toggle between Case-Sensitive and Case-Insensitive line comparison."
+        "q": "How does the Remove Duplicate Lines & Deduplicate List Text work?",
+        "a": "The Remove Duplicate Lines & Deduplicate List Text processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Remove Duplicate Lines & Deduplicate List Text completely free to use?",
+        "a": "Yes! The Remove Duplicate Lines & Deduplicate List Text is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21109,8 +21201,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Type",
     "faqs": [
       {
-        "q": "What is a good Flesch Reading Ease score for web content?",
-        "a": "A score of 60 to 70 is ideal for blog posts and landing pages (accessible to average readers)."
+        "q": "How does the Word Counter & Flesch Readability Analyzer work?",
+        "a": "The Word Counter & Flesch Readability Analyzer processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Word Counter & Flesch Readability Analyzer completely free to use?",
+        "a": "Yes! The Word Counter & Flesch Readability Analyzer is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21160,8 +21256,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Type",
     "faqs": [
       {
-        "q": "What is the difference between camelCase and snake_case?",
-        "a": "camelCase capitalizes subsequent words (myVariable), while snake_case uses underscores (my_variable)."
+        "q": "How does the Case Converter Pro work?",
+        "a": "The Case Converter Pro processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Case Converter Pro completely free to use?",
+        "a": "Yes! The Case Converter Pro is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21211,8 +21311,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Type",
     "faqs": [
       {
-        "q": "Does this highlight character-level changes within lines?",
-        "a": "Yes, highlights both line-level changes and intra-line character edits in red and green."
+        "q": "How does the Side-by-Side Text Diff & Difference Checker work?",
+        "a": "The Side-by-Side Text Diff & Difference Checker processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Side-by-Side Text Diff & Difference Checker completely free to use?",
+        "a": "Yes! The Side-by-Side Text Diff & Difference Checker is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21262,8 +21366,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Type",
     "faqs": [
       {
-        "q": "Can I replace line breaks with spaces or commas?",
-        "a": "Yes, replace line breaks with single spaces, commas, or custom delimiters."
+        "q": "How does the Remove Line Breaks & Clean Paragraph Formatting work?",
+        "a": "The Remove Line Breaks & Clean Paragraph Formatting processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Remove Line Breaks & Clean Paragraph Formatting completely free to use?",
+        "a": "Yes! The Remove Line Breaks & Clean Paragraph Formatting is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21313,8 +21421,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "Does this validator pinpoint syntax errors like missing commas or quotes?",
-        "a": "Yes, it highlights exact line numbers and syntax error reasons."
+        "q": "How does the JSON Prettifier & Syntax Validator work?",
+        "a": "The JSON Prettifier & Syntax Validator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the JSON Prettifier & Syntax Validator completely free to use?",
+        "a": "Yes! The JSON Prettifier & Syntax Validator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21364,8 +21476,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "What is the maximum pixel width for Google meta titles?",
-        "a": "Google truncates meta titles wider than 600 pixels (roughly 58-60 characters)."
+        "q": "How does the Meta Title & Description Generator & Pixel Checker work?",
+        "a": "The Meta Title & Description Generator & Pixel Checker processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Meta Title & Description Generator & Pixel Checker completely free to use?",
+        "a": "Yes! The Meta Title & Description Generator & Pixel Checker is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21415,8 +21531,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Shield",
     "faqs": [
       {
-        "q": "Can I allow or block AI crawlers like GPTBot and ClaudeBot?",
-        "a": "Yes! Toggle rules specifically for GPTBot, ClaudeBot, PerplexityBot, and ByteSpider."
+        "q": "How does the Robots.txt Rules Generator & AI Bot Controller work?",
+        "a": "The Robots.txt Rules Generator & AI Bot Controller processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Robots.txt Rules Generator & AI Bot Controller completely free to use?",
+        "a": "Yes! The Robots.txt Rules Generator & AI Bot Controller is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21466,8 +21586,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Shield",
     "faqs": [
       {
-        "q": "What W3C date formats are required in sitemaps?",
-        "a": "Sitemaps require W3C Date format (YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+00:00)."
+        "q": "How does the XML Sitemap Validator & URL Count Extractor work?",
+        "a": "The XML Sitemap Validator & URL Count Extractor processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the XML Sitemap Validator & URL Count Extractor completely free to use?",
+        "a": "Yes! The XML Sitemap Validator & URL Count Extractor is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21517,8 +21641,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "Should I always include a x-default hreflang tag?",
-        "a": "Yes! x-default acts as the fallback page for unmatched languages or regions."
+        "q": "How does the Hreflang Tag & Multi-Language Code Builder work?",
+        "a": "The Hreflang Tag & Multi-Language Code Builder processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Hreflang Tag & Multi-Language Code Builder completely free to use?",
+        "a": "Yes! The Hreflang Tag & Multi-Language Code Builder is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21568,8 +21696,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "Does this generator strip stop words like \"a\", \"the\", and \"and\"?",
-        "a": "Yes, toggle Stop-Word Removal to create concise, keyword-focused permalinks."
+        "q": "How does the Clean URL Slug & Keyword Permalinks Generator work?",
+        "a": "The Clean URL Slug & Keyword Permalinks Generator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Clean URL Slug & Keyword Permalinks Generator completely free to use?",
+        "a": "Yes! The Clean URL Slug & Keyword Permalinks Generator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21619,8 +21751,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Shield",
     "faqs": [
       {
-        "q": "Why are canonical tags important for SEO?",
-        "a": "Canonical tags specify the authoritative master URL to search engines, consolidating link equity."
+        "q": "How does the Canonical Tag & Duplicate Content Inspector work?",
+        "a": "The Canonical Tag & Duplicate Content Inspector processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Canonical Tag & Duplicate Content Inspector completely free to use?",
+        "a": "Yes! The Canonical Tag & Duplicate Content Inspector is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21670,8 +21806,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "Can I download the generated invoice as a printable PDF?",
-        "a": "Yes! Generates a clean, professional PDF file directly inside your browser."
+        "q": "How does the Freelancer & Business PDF Invoice Generator work?",
+        "a": "The Freelancer & Business PDF Invoice Generator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Freelancer & Business PDF Invoice Generator completely free to use?",
+        "a": "Yes! The Freelancer & Business PDF Invoice Generator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21721,8 +21861,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Shield",
     "faqs": [
       {
-        "q": "Is this NDA template suitable for freelancers and startups?",
-        "a": "Yes, includes standard confidentiality clauses, IP definitions, and 2-year duration terms."
+        "q": "How does the Mutual Non-Disclosure Agreement (NDA) Generator work?",
+        "a": "The Mutual Non-Disclosure Agreement (NDA) Generator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Mutual Non-Disclosure Agreement (NDA) Generator completely free to use?",
+        "a": "Yes! The Mutual Non-Disclosure Agreement (NDA) Generator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21772,8 +21916,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "What notice periods are supported?",
-        "a": "Supports 2-week, 30-day, or immediate notice timelines."
+        "q": "How does the Professional Resignation Letter Generator work?",
+        "a": "The Professional Resignation Letter Generator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Professional Resignation Letter Generator completely free to use?",
+        "a": "Yes! The Professional Resignation Letter Generator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21823,8 +21971,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "Can I include probation period and bonus structure terms?",
-        "a": "Yes, customizable probation duration and bonus terms are included."
+        "q": "How does the Employment Offer Letter Format Builder work?",
+        "a": "The Employment Offer Letter Format Builder processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Employment Offer Letter Format Builder completely free to use?",
+        "a": "Yes! The Employment Offer Letter Format Builder is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21874,8 +22026,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "TrendingUp",
     "faqs": [
       {
-        "q": "What is the difference between profit margin and markup?",
-        "a": "Margin is profit divided by revenue. Markup is profit divided by cost price."
+        "q": "How does the Gross & Net Profit Margin & Markup Calculator work?",
+        "a": "The Gross & Net Profit Margin & Markup Calculator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Gross & Net Profit Margin & Markup Calculator completely free to use?",
+        "a": "Yes! The Gross & Net Profit Margin & Markup Calculator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21925,8 +22081,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "TrendingUp",
     "faqs": [
       {
-        "q": "How is Customer Lifetime Value (LTV) calculated?",
-        "a": "LTV = Average Revenue Per User (ARPU) / Monthly Customer Churn Rate."
+        "q": "How does the SaaS MRR, ARR & Customer LTV Calculator work?",
+        "a": "The SaaS MRR, ARR & Customer LTV Calculator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the SaaS MRR, ARR & Customer LTV Calculator completely free to use?",
+        "a": "Yes! The SaaS MRR, ARR & Customer LTV Calculator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -21976,8 +22136,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "TrendingUp",
     "faqs": [
       {
-        "q": "How is breakeven units calculated?",
-        "a": "Breakeven Units = Fixed Costs / (Price Per Unit - Variable Cost Per Unit)."
+        "q": "How does the Business Breakeven Point & Unit Economics Calculator work?",
+        "a": "The Business Breakeven Point & Unit Economics Calculator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Business Breakeven Point & Unit Economics Calculator completely free to use?",
+        "a": "Yes! The Business Breakeven Point & Unit Economics Calculator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -22027,8 +22191,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "How does prompt structuring improve AI outputs?",
-        "a": "Adding clear Role, Context, Constraints, and Output Format prevents hallucination and improves accuracy."
+        "q": "How does the AI Prompt Refiner & Midjourney/ChatGPT Enhancer work?",
+        "a": "The AI Prompt Refiner & Midjourney/ChatGPT Enhancer processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the AI Prompt Refiner & Midjourney/ChatGPT Enhancer completely free to use?",
+        "a": "Yes! The AI Prompt Refiner & Midjourney/ChatGPT Enhancer is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -22078,8 +22246,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "What is the ideal word count for B2B cold emails?",
-        "a": "B2B cold emails perform best between 50 and 125 words with a soft interest CTA."
+        "q": "How does the B2B Cold Email Generator & Outreach Builder work?",
+        "a": "The B2B Cold Email Generator & Outreach Builder processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the B2B Cold Email Generator & Outreach Builder completely free to use?",
+        "a": "Yes! The B2B Cold Email Generator & Outreach Builder is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -22129,8 +22301,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Type",
     "faqs": [
       {
-        "q": "Will bold and italic Unicode text render properly on mobile LinkedIn apps?",
-        "a": "Yes! Uses standard Unicode mathematical alphanumeric symbols compatible across all platforms."
+        "q": "How does the LinkedIn Post Formatter & Line Spacing Tool work?",
+        "a": "The LinkedIn Post Formatter & Line Spacing Tool processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the LinkedIn Post Formatter & Line Spacing Tool completely free to use?",
+        "a": "Yes! The LinkedIn Post Formatter & Line Spacing Tool is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -22180,8 +22356,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "TrendingUp",
     "faqs": [
       {
-        "q": "How are Amazon FBA fulfillment fees determined?",
-        "a": "Fulfillment fees depend on product package dimensions, weight, and size tier."
+        "q": "How does the Amazon Seller FBA Fee & Profit Calculator work?",
+        "a": "The Amazon Seller FBA Fee & Profit Calculator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Amazon Seller FBA Fee & Profit Calculator completely free to use?",
+        "a": "Yes! The Amazon Seller FBA Fee & Profit Calculator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -22231,8 +22411,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "TrendingUp",
     "faqs": [
       {
-        "q": "What is Dimensional Weight (DIM Weight)?",
-        "a": "DIM Weight = (Length × Width × Height) / DIM Divisor (typically 139 for US / 5000 for metric)."
+        "q": "How does the E-Commerce Dimensional Weight & Shipping Rate Estimator work?",
+        "a": "The E-Commerce Dimensional Weight & Shipping Rate Estimator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the E-Commerce Dimensional Weight & Shipping Rate Estimator completely free to use?",
+        "a": "Yes! The E-Commerce Dimensional Weight & Shipping Rate Estimator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -22282,8 +22466,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "TrendingUp",
     "faqs": [
       {
-        "q": "What is average abandoned cart recovery conversion rate via DMs?",
-        "a": "Automated Instagram DMs recover 14% to 22% of abandoned carts, compared to 3-5% for traditional email."
+        "q": "How does the Shopify Abandoned Cart Recovery ROI Calculator work?",
+        "a": "The Shopify Abandoned Cart Recovery ROI Calculator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the Shopify Abandoned Cart Recovery ROI Calculator completely free to use?",
+        "a": "Yes! The Shopify Abandoned Cart Recovery ROI Calculator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -22333,8 +22521,12 @@ export const freeToolsList: ToolData[] = [
     "icon": "Sparkles",
     "faqs": [
       {
-        "q": "What makes a YouTube title get higher CTR?",
-        "a": "Titles under 50 characters with strong emotional triggers, numbers, or curiosity gaps achieve highest CTR."
+        "q": "How does the YouTube Video Title & Click-Through Rate Generator work?",
+        "a": "The YouTube Video Title & Click-Through Rate Generator processes your data 100% locally inside your browser with sub-50ms execution speed and zero data uploads."
+      },
+      {
+        "q": "Is the YouTube Video Title & Click-Through Rate Generator completely free to use?",
+        "a": "Yes! The YouTube Video Title & Click-Through Rate Generator is 100% free with unlimited usages."
       }
     ],
     "steps": [
@@ -22444,7 +22636,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Engagement Calculation Accuracy",
       "cacto": "Includes Saves, Shares, & DM Velocity",
       "traditional": "Basic Likes + Comments Only"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "caption-generator",
@@ -22515,7 +22708,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Caption CTA Conversion",
       "cacto": "Automated Keyword Comment Triggers",
       "traditional": "Generic 'Link in Bio' Copy"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "bio-generator",
@@ -22586,7 +22780,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Profile Conversion Focus",
       "cacto": "Direct Keyword Trigger Bio",
       "traditional": "Vague Personal Bio Statement"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "ctr-calculator",
@@ -22657,7 +22852,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Funnel Analytics Scope",
       "cacto": "Full Comment-to-Sale Conversion Matrix",
       "traditional": "Single URL Click Metric"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "hook-generator",
@@ -22728,7 +22924,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Hook Retention Focus",
       "cacto": "1.5-Second Visual + Audio Hook Patterns",
       "traditional": "Generic Video Title Suggestions"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "username-checker",
@@ -22799,7 +22996,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Handle Optimization",
       "cacto": "SEO Keyword + Suffix Suggester",
       "traditional": "Basic Binary Availability Check"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "hashtag-generator",
@@ -22870,7 +23068,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Hashtag Strategy",
       "cacto": "3-5 SEO Niche Indexing Tags",
       "traditional": "30 Generic Spam Hashtags"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "char-counter",
@@ -22941,7 +23140,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Truncation Analysis",
       "cacto": "Visual First 125-Char Fold Indicator",
       "traditional": "Generic Character Count Number"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "cta-generator",
@@ -23012,7 +23212,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Call-to-Action Mechanics",
       "cacto": "High-Intent Keyword DM Trigger",
       "traditional": "Passive 'Link in Bio' Request"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "click-value-estimator",
@@ -23083,7 +23284,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Traffic Conversion Rate",
       "cacto": "Automated DM Delivery (30-50% CTR)",
       "traditional": "Bio Link Directory (1-3% CTR)"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "line-breaker",
@@ -23154,7 +23356,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Paragraph Line Spacing",
       "cacto": "Invisible Zero-Width Unicode Spaces",
       "traditional": "Clunky Visual Dots & Dashes"
-    }
+    },
+    "siloCategory": "text"
   },
   {
     "slug": "script-outline",
@@ -23225,7 +23428,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Script Pacing Structure",
       "cacto": "Timestamped Retention Framework",
       "traditional": "Unstructured Un-Timed Notes"
-    }
+    },
+    "siloCategory": "text"
   },
   {
     "slug": "audit-checklist",
@@ -23296,7 +23500,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Audit Precision",
       "cacto": "Conversion & DM Funnel Focused",
       "traditional": "Generic Vanity Metric Checklist"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "growth-projector",
@@ -23367,7 +23572,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Growth Projection Model",
       "cacto": "Net Growth + Churn Rate Compound Formula",
       "traditional": "Linear Addition Without Churn"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "lead-value-estimator",
@@ -23438,7 +23644,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Opt-In Conversion Rate",
       "cacto": "Instant DM Chat Capture (40-65% Opt-in)",
       "traditional": "External Landing Page (10-20% Opt-in)"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "subject-line-optimizer",
@@ -23509,7 +23716,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Subject Line Performance",
       "cacto": "DM-Contextual Curiosity Subject Lines",
       "traditional": "Generic Newsletter Headers"
-    }
+    },
+    "siloCategory": "text"
   },
   {
     "slug": "dm-previewer",
@@ -23580,7 +23788,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "DM Copy Verification",
       "cacto": "Live Smartphone Inbox Previewer",
       "traditional": "Plain Unformatted Text Box"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "reel-downloader",
@@ -23651,7 +23860,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Media Extraction Quality",
       "cacto": "Original HD MP4 Without Watermarks",
       "traditional": "Compressed Low-Res Watermarked Video"
-    }
+    },
+    "siloCategory": "converters"
   },
   {
     "slug": "reel-transcript",
@@ -23722,7 +23932,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Transcription Precision",
       "cacto": "Timestamped & Repurposing-Ready Text",
       "traditional": "Manual Typing from Video Audio"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "carousel-generator",
@@ -23793,7 +24004,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Carousel Output Format",
       "cacto": "HD 1080x1350 Ready-to-Post Slide Decks",
       "traditional": "Unformatted Plain Text Bullet Points"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "text-formatter",
@@ -23864,7 +24076,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Font Transformation Scope",
       "cacto": "8 Unicode Styles + Invisible Line Breaker",
       "traditional": "Basic Single-Style Font Converter"
-    }
+    },
+    "siloCategory": "text"
   },
   {
     "slug": "profile-feedback",
@@ -23935,7 +24148,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Audit Scoring Depth",
       "cacto": "Multi-Vector Conversion & SEO Audit",
       "traditional": "Generic Aesthetic Profile Tips"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "claude-skills",
@@ -24006,7 +24220,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Prompt Structure Quality",
       "cacto": "Structured SKILL.md with Frontmatter Rules",
       "traditional": "Basic Single-Sentence Prompt"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "post-booster",
@@ -24077,7 +24292,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Reach Velocity Metrics",
       "cacto": "Weighted Share + Save Velocity Score",
       "traditional": "Static View Count Baseline"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "photo-downloader",
@@ -24163,7 +24379,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Photo Extraction Quality",
       "cacto": "Original HD JPG Without Watermarks or Compression",
       "traditional": "Low-Res Screenshot or Watermarked Thumbnail"
-    }
+    },
+    "siloCategory": "converters"
   },
   {
     "slug": "banned-hashtag-checker",
@@ -24235,7 +24452,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Hashtag Safety Verification",
       "cacto": "Instant Meta API Database Scanning with Safe Niche Suggestions",
       "traditional": "Manual Search of Each Hashtag in Instagram App"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "meta-24hr-window-calculator",
@@ -24307,7 +24525,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Messaging Window Tracking",
       "cacto": "Automated Real-Time Staggering & Expiration Safety Stops",
       "traditional": "Manual Tracking & Risky Unregulated Bot Blasts"
-    }
+    },
+    "siloCategory": "seo"
   },
   {
     "slug": "shadowban-risk-simulator",
@@ -24379,7 +24598,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Bot Pacing & Safety Protection",
       "cacto": "Official Meta API Webhooks with Smart Human Pacing",
       "traditional": "Aggressive Un-throttled Bot Blasts Triggering Flags"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "bio-seo-auditor",
@@ -24451,7 +24671,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Bio Conversion Strategy",
       "cacto": "Zero-Friction Comment-to-DM Call-To-Actions",
       "traditional": "Clunky Multi-Tap Linktree Navigation"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "comment-rotator-checker",
@@ -24523,7 +24744,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Public Comment Handling",
       "cacto": "Dynamic Multi-Variant Rotators with Anti-Spam Pacing",
       "traditional": "Repetitive Static Replies Triggering Bot Restrictions"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "sponsored-rate-calculator",
@@ -24595,7 +24817,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Sponsorship Pricing Strategy",
       "cacto": "High-Converting DM Lead Delivery Upsell Justifying Premium Rates",
       "traditional": "Basic Follower-Based Estimates Ignoring Conversion Friction"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "dm-funnel-calculator",
@@ -24667,7 +24890,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Funnel Conversion Efficiency",
       "cacto": "Direct 3-Second DM Delivery with 85%+ Open Rates",
       "traditional": "Clunky Bio Link Trees Losing 80% of Clicks"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "bio-link-leakage-calculator",
@@ -24739,7 +24963,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Traffic Delivery Method",
       "cacto": "Instant 1-Tap Inbox Delivery Eliminating Bio Bounces",
       "traditional": "Multi-Step Bio Link Trees Losing 80% of Buyers"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "digital-product-pricing-calculator",
@@ -24811,7 +25036,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Mobile Checkout Experience",
       "cacto": "One-Tap Apple Pay / Biometric Stripe DM Checkouts",
       "traditional": "Clunky Desktop Stores Requiring Long Address Forms"
-    }
+    },
+    "siloCategory": "business"
   },
   {
     "slug": "reels-bonus-estimator",
@@ -24883,7 +25109,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Short-Form Video Monetization",
       "cacto": "High-Margin Direct Product DM Sales ($50-$300/10k views)",
       "traditional": "Low CPM Platform Ad Revenue Payouts ($0.50-$2.50/10k views)"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "giveaway-winner-picker",
@@ -24955,7 +25182,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Giveaway Winner Tool Pricing",
       "cacto": "100% Free Unlimited Draws with Certificate Proof",
       "traditional": "Expensive $19-$49/mo Subscriptions for Basic Drawings"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "reels-overlay-hook-generator",
@@ -25027,7 +25255,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Video Hook Copywriting",
       "cacto": "Data-Backed 3-Second Hooks Built for Comment Trigger Conversions",
       "traditional": "Generic Boring Captions Causing Instant User Swipes"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "story-quiz-generator",
@@ -25099,7 +25328,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Story Lead Capture",
       "cacto": "Low-Friction 1-Tap Poll Sticker DM Automation",
       "traditional": "Static Bio Link Reminders Ignored by 90% of Viewers"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "carousel-outline-generator",
@@ -25171,7 +25401,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Carousel CTA Strategy",
       "cacto": "Slide 5 Comment-to-DM Trigger Delivering Assets Instantly",
       "traditional": "Vague 'Check Bio Link' CTA Resulting in High Swipe Bounces"
-    }
+    },
+    "siloCategory": "text"
   },
   {
     "slug": "comment-trigger-generator",
@@ -25243,7 +25474,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Comment Trigger Design",
       "cacto": "Short 1-Word Triggers with Fuzzy Misspelling Safety",
       "traditional": "Complex Multi-Word Phrases Causing Typing Bounces"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "reel-cta-writer",
@@ -25315,7 +25547,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Caption Ending Strategy",
       "cacto": "Explicit Comment Keyword CTAs Driving Instant Inbox Deliveries",
       "traditional": "Passive 'Hope You Liked This' Closings Yielding 0 Leads"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "story-mention-dm-generator",
@@ -25387,7 +25620,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Story Mention Response",
       "cacto": "Instant Automated DM Reward Delivery 24/7",
       "traditional": "Manual Story Resharing Missing 90% of Taggers"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "ai-prompt-generator",
@@ -25459,7 +25693,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "AI Content Generation",
       "cacto": "Structured Master Prompts Engineered for High-Converting Chat Funnels",
       "traditional": "Vague Single-Sentence Prompts Producing Generic AI Slop"
-    }
+    },
+    "siloCategory": "ai"
   },
   {
     "slug": "dep-sequence-builder",
@@ -25531,7 +25766,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Chat Nurturing Framework",
       "cacto": "Structured 3-Step DEP Sequence Maximizing 24-Hour Conversion",
       "traditional": "Single Unformatted Link Blast Resulting in High Bounces"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "best-time-to-post",
@@ -25603,7 +25839,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Posting Time Optimization",
       "cacto": "Timezone-Aligned Posting + 24/7 Instant Auto-DM Response",
       "traditional": "Random Unplanned Posting During Low-Traffic Hours"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "story-view-conversion-calculator",
@@ -25675,7 +25912,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Story Lead Conversion",
       "cacto": "15-25% Lead Capture via Interactive Poll DM Triggers",
       "traditional": "1-2% Tap Rate via Static Bio Link Stickers"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "competitor-benchmark-tool",
@@ -25747,7 +25985,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Competitive Conversion Strategy",
       "cacto": "Instant DM Automation Turning High ER into Direct Cashflow",
       "traditional": "Passive Content Posting Losing Buyers to Faster Competitors"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "grid-layout-planner",
@@ -25819,7 +26058,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Profile Grid Strategy",
       "cacto": "Resource-Focused Grid Driving Pinned Reel Comment Triggers",
       "traditional": "Cluttered Disorganized Grid Confusing Profile Visitors"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "reel-loop-calculator",
@@ -25891,7 +26131,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Watch Time Strategy",
       "cacto": "Short Loop Video + Comment Trigger Typing Background Loops",
       "traditional": "Long Boring Videos Dropping Off After 3 Seconds"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "niche-profitability-estimator",
@@ -25963,7 +26204,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Niche Monetization Model",
       "cacto": "High-Margin Direct DM Product Checkouts Tailored to Niche Intent",
       "traditional": "Generic Affiliate Links with Pennies per Click"
-    }
+    },
+    "siloCategory": "business"
   },
   {
     "slug": "manychat-vs-cacto-roi-calculator",
@@ -26037,7 +26279,8 @@ export const freeToolsList: ToolData[] = [
       "manychat vs cacto cost",
       "instagram automation pricing",
       "manychat alternatives cost comparison"
-    ]
+    ],
+    "siloCategory": "social"
   },
   {
     "slug": "klaviyo-dm-webhook-builder",
@@ -26111,7 +26354,8 @@ export const freeToolsList: ToolData[] = [
       "convertkit instagram webhook schema",
       "instagram dm lead capture klaviyo",
       "cacto webhook builder"
-    ]
+    ],
+    "siloCategory": "social"
   },
   {
     "slug": "ecommerce-dm-roi-calculator",
@@ -26185,7 +26429,8 @@ export const freeToolsList: ToolData[] = [
       "ecommerce dm automation revenue",
       "instagram reel comment checkout conversion",
       "auto dm sales projector"
-    ]
+    ],
+    "siloCategory": "social"
   },
   {
     "slug": "real-estate-reel-cta-generator",
@@ -26259,7 +26504,8 @@ export const freeToolsList: ToolData[] = [
       "instagram dm automation for real estate",
       "realtor reel overlay hooks",
       "property tour comment trigger"
-    ]
+    ],
+    "siloCategory": "social"
   },
   {
     "slug": "welcome-dm-velocity-calculator",
@@ -26333,7 +26579,8 @@ export const freeToolsList: ToolData[] = [
       "instagram welcome dm safety limits",
       "how to send automated dm to new followers",
       "cacto velocity throttler"
-    ]
+    ],
+    "siloCategory": "social"
   },
   {
     "slug": "webhook-latency-simulator",
@@ -26407,7 +26654,8 @@ export const freeToolsList: ToolData[] = [
       "instagram auto dm speed impact",
       "comment to dm latency conversion",
       "cacto sub 3s webhook speed"
-    ]
+    ],
+    "siloCategory": "social"
   },
   {
     "slug": "high-ticket-qualifying-script-generator",
@@ -26481,7 +26729,8 @@ export const freeToolsList: ToolData[] = [
       "coaching dm sales script generator",
       "instagram qualifying dm builder",
       "high ticket agency dm funnel"
-    ]
+    ],
+    "siloCategory": "social"
   },
   {
     "slug": "ai-instagram-engagement-calculator",
@@ -26552,7 +26801,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "AI Engagement Score",
       "cacto": "Real-Time Algorithmic Analysis",
       "traditional": "Static Follower Ratio Only"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "ai-auto-responder-script-generator",
@@ -26619,7 +26869,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Reply Rotation",
       "cacto": "10-Variation Dynamic Rotators",
       "traditional": "Single Static Copy Spam"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "instant-reply-delay-buffer-simulator",
@@ -26686,7 +26937,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Delay Buffers",
       "cacto": "Dynamic Millisecond Jitter",
       "traditional": "Instant Unnatural Bursts"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "instagram-ai-assistant-readiness-checker",
@@ -26753,7 +27005,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Inbox Coverage",
       "cacto": "24/7 Instant AI Response",
       "traditional": "Manual Slow Replies"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "auto-responder-for-instagram-builder",
@@ -26820,7 +27073,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Setup Speed",
       "cacto": "No-Code 2-Minute Setup",
       "traditional": "Complex Coding Required"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "how-to-turn-off-auto-reply-troubleshooter",
@@ -26887,7 +27141,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Deduplication",
       "cacto": "Native Event Deduplication",
       "traditional": "Unfiltered Duplicate Firing"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "comment-for-link-trigger-setup-tool",
@@ -26954,7 +27209,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Lead Capture",
       "cacto": "Direct Inbox Link Delivery",
       "traditional": "High-Friction Bio Link Navigation"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "automated-comments-meta-safety-auditor",
@@ -27021,7 +27277,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Anti-Spam Safety",
       "cacto": "Algorithmic Uniqueness Scoring",
       "traditional": "Repeated Single Text Spam"
-    }
+    },
+    "siloCategory": "seo"
   },
   {
     "slug": "instagram-dm-marketing-roi-calculator",
@@ -27088,7 +27345,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Conversion Rates",
       "cacto": "25-45% DM Lead Conversion",
       "traditional": "2-5% Web Landing Page Ratio"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "automated-social-media-posting-planner",
@@ -27155,7 +27413,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Monetization Integration",
       "cacto": "Automated DM Trigger Pairing",
       "traditional": "Publishing Without Lead Capture"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "auto-post-instagram-reel-uploader-checker",
@@ -27222,7 +27481,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Timezone Analysis",
       "cacto": "Audience Active Matrix",
       "traditional": "Generic Default Times"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "post-to-multiple-platforms-cross-poster-tool",
@@ -27289,7 +27549,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Cross-Platform DM Support",
       "cacto": "Unified Meta Webhook Engine",
       "traditional": "Fragmented Platform Tools"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "facebook-posting-automation-scheduler",
@@ -27356,7 +27617,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Facebook Integration",
       "cacto": "Official Meta API Sync",
       "traditional": "Manual Unfiltered Comments"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "twitter-auto-dm-funnel-calculator",
@@ -27423,7 +27685,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Multi-Channel Tracking",
       "cacto": "Cross-Platform Pipeline ROI",
       "traditional": "Single-Network View Only"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "auto-reply-text-message-generator",
@@ -27490,7 +27753,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Business Hours Support",
       "cacto": "Automated Time-Window Logic",
       "traditional": "Generic 24/7 Static Text"
-    }
+    },
+    "siloCategory": "text"
   },
   {
     "slug": "free-autoresponder-feature-comparator",
@@ -27557,7 +27821,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Contact Limits",
       "cacto": "Unlimited Contacts Included",
       "traditional": "Steep Monthly Pricing Penalties"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "instagram-pc-desktop-growth-suite-auditor",
@@ -27624,7 +27889,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Security Architecture",
       "cacto": "Official OAuth Meta API Token",
       "traditional": "Risky Password Logging Extensions"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "follow-unfollow-shadowban-risk-calculator",
@@ -27691,7 +27957,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Growth Method",
       "cacto": "Organic Comment-to-DM Triggers",
       "traditional": "Spammy Gray-Hat Follow Bots"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "shopify-abandoned-cart-dm-recovery-calculator",
@@ -27758,7 +28025,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Open Rates",
       "cacto": "80%+ Instant Push DM Open Rate",
       "traditional": "15-20% Cluttered Email Open Rate"
-    }
+    },
+    "siloCategory": "ecommerce"
   },
   {
     "slug": "klaviyo-dm-webhook-payload-builder-tool",
@@ -27825,7 +28093,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Data Sync Speed",
       "cacto": "Real-Time Webhook Stream",
       "traditional": "Manual CSV Upload Exporting"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "high-ticket-coaching-dm-qualifier-builder",
@@ -27892,7 +28161,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Lead Quality",
       "cacto": "Automated 4-Question Filtering",
       "traditional": "Unfiltered Unqualified Calls"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "course-creator-reel-to-course-sale-calculator",
@@ -27959,7 +28229,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Course Sales Friction",
       "cacto": "Direct Inbox Video & Checkout",
       "traditional": "Multi-Step Bio Link Navigation"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "click-to-dm-ad-roas-calculator-tool",
@@ -28026,7 +28297,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Cost Per Lead",
       "cacto": "30-50% Lower CPL In-App",
       "traditional": "High-Cost External Landing Pages"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "story-poll-vote-auto-dm-script-generator",
@@ -28093,7 +28365,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Story Monetization",
       "cacto": "Segmented Vote Auto-DMs",
       "traditional": "Unmonetized Story Votes"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "re-engagement-dm-script-writer-tool",
@@ -28160,7 +28433,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Follow-Up Efficiency",
       "cacto": "Automated Non-Pushy Re-Engagement",
       "traditional": "Forgotten Unread Leads"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "curiosity-gap-reel-hook-creator-tool",
@@ -28227,7 +28501,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "View Retention",
       "cacto": "25 Proven Curiosity Gap Formulas",
       "traditional": "Boring Generic Intros"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "instagram-bio-link-leakage-simulator-tool",
@@ -28294,7 +28569,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Lead Retention",
       "cacto": "Zero Navigation Drop-Off",
       "traditional": "70% Bio Link Traffic Leakage"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "manychat-pricing-contact-cap-calculator",
@@ -28361,7 +28637,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Contact Tier Fees",
       "cacto": "Unlimited Free Contacts",
       "traditional": "Escalating Monthly Penalties"
-    }
+    },
+    "siloCategory": "business"
   },
   {
     "slug": "meta-24hr-window-policy-auditor-tool",
@@ -28428,7 +28705,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Policy Verification",
       "cacto": "Automated 24-Hour Window Logic",
       "traditional": "Risky Policy-Violating Messages"
-    }
+    },
+    "siloCategory": "seo"
   },
   {
     "slug": "comment-reply-rotator-pool-creator-tool",
@@ -28495,7 +28773,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Reply Variation",
       "cacto": "10 Distinct AI Rotations",
       "traditional": "Single Static Text Spam"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "meta-graph-api-call-rate-calculator-tool",
@@ -28562,7 +28841,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Rate Limit Management",
       "cacto": "Automated Webhook Throttling",
       "traditional": "Unthrottled API Crashes"
-    }
+    },
+    "siloCategory": "developer"
   },
   {
     "slug": "banned-hashtag-realtime-checker-tool",
@@ -28629,7 +28909,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Hashtag Safety",
       "cacto": "Real-Time Flagged Database",
       "traditional": "Unverified Guesswork"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "welcome-dm-velocity-throttle-calculator-tool",
@@ -28696,7 +28977,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Delivery Throttling",
       "cacto": "Randomized Speed Throttling",
       "traditional": "Instant Unnatural Spikes"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "agency-discovery-call-dm-booking-tool",
@@ -28763,7 +29045,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Agency Lead Capture",
       "cacto": "Automated DM Audit Delivery",
       "traditional": "Cold Unwanted Email Pitching"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "sponsored-reel-brand-deal-rate-calculator-tool",
@@ -28830,7 +29113,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Monetization Add-Ons",
       "cacto": "Dedicated DM Trigger Bundles",
       "traditional": "Standard Video Only"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "creator-monthly-mrr-forecast-calculator-tool",
@@ -28897,7 +29181,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Revenue Stability",
       "cacto": "Predictable Subscription & DM Sales",
       "traditional": "Unpredictable Ad Revenue"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "reels-monetization-bonus-rpm-estimator-tool",
@@ -28964,7 +29249,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Payout Tracking",
       "cacto": "Accurate RPM Tier Modeling",
       "traditional": "Opaque Uncalculated Estimates"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "story-retention-dropoff-calculator-tool",
@@ -29031,7 +29317,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Retention Analysis",
       "cacto": "Multi-Part Story Drop-Off Calculator",
       "traditional": "Single View Count Only"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "broadcast-channel-open-rate-estimator-tool",
@@ -29098,7 +29385,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Broadcast Reach",
       "cacto": "Direct DM Push Notification",
       "traditional": "Low-Reach Organic Feed Posts"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "creator-lead-magnet-title-generator-tool",
@@ -29165,7 +29453,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Lead Magnet Value",
       "cacto": "Single-Page Actionable Cheat Sheets",
       "traditional": "Bloated Unread 50-Page Ebooks"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "collab-post-reach-multiplier-tool",
@@ -29232,7 +29521,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Audience Distribution",
       "cacto": "Combined Dual-Profile Distribution",
       "traditional": "Single Profile Reach"
-    }
+    },
+    "siloCategory": "legal"
   },
   {
     "slug": "instagram-bio-seo-searchability-auditor-tool",
@@ -29299,7 +29589,8 @@ export const freeToolsList: ToolData[] = [
       "feature": "Search Indexing",
       "cacto": "Indexed Keyword Name Optimization",
       "traditional": "Unsearchable Profile Handles"
-    }
+    },
+    "siloCategory": "social"
   },
   {
     "slug": "cacto-master-growth-suite-roi-calculator",
@@ -29366,9 +29657,10 @@ export const freeToolsList: ToolData[] = [
       "feature": "Total Suite Value",
       "cacto": "57 Free Tools + 100% Meta Safe Engine",
       "traditional": "Fragmented Expensive Utilities"
-    }
-  }
-]
+    },
+    "siloCategory": "social"
+  },
+];
 
 export function getToolSiloCategory(tool: { slug: string; category?: string }): SiloCategory {
   const s = tool.slug.toLowerCase();

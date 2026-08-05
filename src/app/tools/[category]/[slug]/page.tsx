@@ -56,64 +56,62 @@ export default async function SiloToolPage({ params }: PageProps) {
 
   const canonicalUrl = `https://cacto.cc/tools/${category}/${slug}`
 
-  const softwareSchema = {
+  const graphSchema = {
     '@context': 'https://schema.org',
-    '@type': ['SoftwareApplication', 'WebApplication'],
-    '@id': `${canonicalUrl}/#software`,
-    name: tool.title,
-    url: canonicalUrl,
-    description: tool.description,
-    applicationCategory: category.toUpperCase(),
-    operatingSystem: 'All',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD'
-    },
-    author: {
-      '@type': 'Organization',
-      name: 'Cacto',
-      url: 'https://cacto.cc'
-    }
-  }
-
-  const howToSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    '@id': `${canonicalUrl}/#howto`,
-    name: `How to use ${tool.title}`,
-    description: tool.description,
-    step: tool.steps.map((s) => ({
-      '@type': 'HowToStep',
-      position: s.step,
-      name: s.title,
-      text: s.desc
-    }))
-  }
-
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    '@id': `${canonicalUrl}/#faq`,
-    mainEntity: tool.faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: f.a
+    '@graph': [
+      {
+        '@type': ['SoftwareApplication', 'WebApplication'],
+        '@id': `${canonicalUrl}/#software`,
+        name: tool.title,
+        url: canonicalUrl,
+        description: tool.description,
+        applicationCategory: category.toUpperCase(),
+        operatingSystem: 'All',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD'
+        },
+        author: {
+          '@type': 'Organization',
+          name: 'Cacto',
+          url: 'https://cacto.cc'
+        }
+      },
+      {
+        '@type': 'HowTo',
+        '@id': `${canonicalUrl}/#howto`,
+        name: `How to use ${tool.title}`,
+        description: tool.description,
+        step: tool.steps.map((s) => ({
+          '@type': 'HowToStep',
+          position: s.step,
+          name: s.title,
+          text: s.desc
+        }))
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${canonicalUrl}/#faq`,
+        mainEntity: tool.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.a
+          }
+        }))
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonicalUrl}/#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cacto.cc' },
+          { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://cacto.cc/tools' },
+          { '@type': 'ListItem', position: 3, name: category.toUpperCase(), item: `https://cacto.cc/tools/${category}` },
+          { '@type': 'ListItem', position: 4, name: tool.title, item: canonicalUrl }
+        ]
       }
-    }))
-  }
-
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    '@id': `${canonicalUrl}/#breadcrumb`,
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cacto.cc' },
-      { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://cacto.cc/tools' },
-      { '@type': 'ListItem', position: 3, name: category.toUpperCase(), item: `https://cacto.cc/tools/${category}` },
-      { '@type': 'ListItem', position: 4, name: tool.title, item: canonicalUrl }
     ]
   }
 
@@ -121,19 +119,7 @@ export default async function SiloToolPage({ params }: PageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graphSchema) }}
       />
       <ToolDetailClient toolSlug={slug} initialTool={tool} />
     </>
