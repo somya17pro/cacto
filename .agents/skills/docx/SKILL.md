@@ -1,50 +1,24 @@
 ---
 name: docx
-description: "Create, read, edit Word .docx documents and templates."
-version: 1.0.0
-author: Anthropic (adapted by Nous Research)
+description: "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templates (.dotx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', '.dotx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx or .dotx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation."
 license: Proprietary. LICENSE.txt has complete terms
-platforms: [linux, macos, windows]
-metadata:
-  hermes:
-    tags: [Word, DOCX, Documents, Office, Productivity]
-    category: productivity
-    related_skills: [pdf, xlsx, powerpoint, ocr-and-documents]
 ---
 
-# DOCX Skill
+# DOCX creation, editing, and analysis
 
-Create, read, and edit Word documents — reports, memos, letters, letterheads, tables of contents, tracked changes (redlining), and comments. A `.docx` is a ZIP archive of XML files; this skill covers both the high-level creation path and surgical XML editing.
-
-## When to Use
-
-Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx) or Word templates (.dotx). Triggers include: any mention of "Word doc", ".docx", ".dotx", or requests for a "report", "memo", "letter", or similar deliverable as a Word file; extracting or reorganizing content from .docx files; find-and-replace in Word files; inserting images; tracked changes or comments. Do NOT use for PDFs (see the `pdf` skill), spreadsheets (`xlsx`), or presentations (`powerpoint`).
-
-## Prerequisites
-
-```bash
-npm ls docx --depth=0 2>/dev/null | grep -q docx || npm install docx   # creation (docx-js)
-pip show pandoc >/dev/null 2>&1 || true; which pandoc || sudo apt install -y pandoc   # reading
-which soffice || sudo apt install -y libreoffice     # rendering/verification
-which pdftoppm || sudo apt install -y poppler-utils  # PDF → images
-pip install defusedxml lxml   # validation scripts
-```
-
-macOS: `brew install pandoc libreoffice poppler`.
-
-## Quick Reference
+A `.docx` is a ZIP archive of XML files. Choose your approach by task:
 
 | Task | Approach |
 |---|---|
 | **Create** a new document | Write a `docx` (npm) script — see gotchas below |
 | **Edit** an existing document | `unzip` → edit `word/document.xml` → `zip` (docx-js cannot open existing files) |
-| **Read** content | `pandoc -t markdown file.docx` (or `read_file`, which auto-extracts .docx text) |
+| **Read** content | `pandoc -t markdown file.docx` |
 
 > Script paths below are relative to this skill's directory.
 
 ## Creating with docx-js — gotchas
 
-Write the script and `require('docx')`. The model knows the API; these are the footguns:
+`docx` is preinstalled — do not run `npm install` first; write the script and `require('docx')` directly. Only if that require fails: `npm install docx`. The model knows the API; these are the footguns:
 
 - **Page size defaults to A4.** For US Letter set `page: { size: { width: 12240, height: 15840 } }` (DXA; 1440 = 1″).
 - **Landscape:** pass portrait dimensions and `orientation: PageOrientation.LANDSCAPE` — docx-js swaps width/height internally.
@@ -65,7 +39,7 @@ After writing a `.docx`, render it and look at it:
 ```bash
 python scripts/office/soffice.py --headless --convert-to pdf output.docx
 pdftoppm -jpeg -r 100 output.pdf page
-ls page-*.jpg   # then inspect each with vision_analyze
+ls page-*.jpg   # then Read the images
 ```
 
 `pdftoppm` zero-pads page numbers to the width of the page count (`page-01.jpg`…`page-12.jpg`).
@@ -112,16 +86,6 @@ python scripts/comment.py contract.docx "This cap is too low" -o annotated.docx
 
 The script writes `comments.xml`, `commentsExtended.xml`, `commentsIds.xml`, `commentsExtensible.xml`, the relationships, and the content-type overrides. Comment IDs are auto-assigned. It then prints the `<w:commentRangeStart>`/`<w:commentRangeEnd>`/`<w:commentReference>` snippet to add to `word/document.xml` so the comment anchors to specific text — until you place those markers, the comment exists but is not visible.
 
-## Pitfalls
+## Dependencies
 
-- Don't round-trip OOXML through `xml.etree.ElementTree` — it rewrites namespace prefixes and corrupts the file. Use `defusedxml.minidom` for scripted transforms.
-- Zip from INSIDE the unpacked directory (`cd unpacked && zip -Xr ../out.docx .`) and `rm` the target first, or deleted parts survive in the archive.
-
-## Verification
-
-1. `python scripts/office/validate.py out.docx --original in.docx` — schema, relationship, and content-type checks; every failure names its fix.
-2. Render to PDF → images (see "Verify the output") and inspect each page with `vision_analyze` — look for broken tables, missing images, spacing artifacts, leftover placeholder text.
-
-## Related skills
-
-`pdf` (PDF work), `xlsx` (spreadsheets), `powerpoint` (decks), `ocr-and-documents` (scanned input extraction).
+`docx` (npm, preinstalled — install only if `require('docx')` fails) · `pandoc` · LibreOffice (`soffice`) · `pdftoppm` (Poppler)
