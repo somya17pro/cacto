@@ -73,9 +73,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Free Growth Utilities */}
+          {/* Col 3: Free Tools */}
           <div className="space-y-3">
-            <span className="text-xs font-black uppercase text-emerald-400 tracking-wider block">1,010 Free Growth Utilities</span>
+            <span className="text-xs font-black uppercase text-emerald-400 tracking-wider block">Free Tools</span>
             <ul className="space-y-2 list-none pl-0 text-xs font-semibold text-zinc-300">
               <li><Link href="/tools/social/fast-image-resizer" className="hover:text-white transition decoration-none">Fast Image Resizer Pro</Link></li>
               <li><Link href="/tools/converters/fast-png-compressor" className="hover:text-white transition decoration-none">Fast PNG Compressor</Link></li>
@@ -83,13 +83,13 @@ export default function Footer() {
               <li><Link href="/tools/seo/fast-serp-snippet-simulator" className="hover:text-white transition decoration-none">SERP Snippet Simulator</Link></li>
               <li><Link href="/tools/finance/fast-saas-mrr-calculator" className="hover:text-white transition decoration-none">SaaS MRR Growth Calculator</Link></li>
               <li><Link href="/tools/legal/fast-privacy-policy-generator" className="hover:text-white transition decoration-none">Privacy Policy Generator</Link></li>
-              <li><Link href="/tools" className="text-emerald-400 font-extrabold hover:underline transition decoration-none flex items-center gap-1 mt-1">Explore All 1,010 Free Tools &rarr;</Link></li>
+              <li><Link href="/tools" className="text-emerald-400 font-extrabold hover:underline transition decoration-none flex items-center gap-1 mt-1">Explore All Free Tools &rarr;</Link></li>
             </ul>
           </div>
 
-          {/* Col 4: Masterclass Blogs */}
+          {/* Col 4: Blog */}
           <div className="space-y-3">
-            <span className="text-xs font-black uppercase text-emerald-400 tracking-wider block">Masterclass Blogs</span>
+            <span className="text-xs font-black uppercase text-emerald-400 tracking-wider block">Blog</span>
             <ul className="space-y-2 list-none pl-0 text-xs font-semibold text-zinc-300">
               <li><Link href="/blog/how-to-automate-instagram-dms-safely" className="hover:text-white transition decoration-none">Automate Instagram DMs Safely</Link></li>
               <li><Link href="/blog/top-5-instagram-automation-strategies" className="hover:text-white transition decoration-none">Top 5 Automation Strategies</Link></li>

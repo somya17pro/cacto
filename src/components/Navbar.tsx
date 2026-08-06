@@ -14,8 +14,8 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
   const navLinks = [
     { name: 'Features', href: '/#features' },
     { name: 'How It Works', href: '/#how-it-works' },
-    { name: '1,010 Free Tools', href: '/tools' },
-    { name: 'Masterclass Blog', href: '/blog' },
+    { name: 'Tools', href: '/tools' },
+    { name: 'Blog', href: '/blog' },
   ]
 
   const handleWaitlistClick = () => {
