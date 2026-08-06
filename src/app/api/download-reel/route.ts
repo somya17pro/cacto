@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+
 function parseShortcode(inputUrl: string): string | null {
   if (!inputUrl || typeof inputUrl !== 'string') return null
   const clean = inputUrl.trim()

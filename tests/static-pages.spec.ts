@@ -45,5 +45,23 @@ test.describe('Static Pages & Custom Landing Routes', () => {
     await expect(page).toHaveTitle(/Growth Tools|Cacto/i);
     await expect(page.locator('h1').first()).toBeVisible();
   });
+
+  test('renders Privacy Policy page', async ({ page }) => {
+    await page.goto('/privacy');
+    await expect(page).toHaveTitle(/Privacy Policy/i);
+    await expect(page.locator('h1').first()).toBeVisible();
+  });
+
+  test('renders Terms of Service page', async ({ page }) => {
+    await page.goto('/terms');
+    await expect(page).toHaveTitle(/Terms of Service/i);
+    await expect(page.locator('h1').first()).toBeVisible();
+  });
+
+  test('renders Data Deletion page', async ({ page }) => {
+    await page.goto('/data-deletion');
+    await expect(page).toHaveTitle(/Data Deletion/i);
+    await expect(page.locator('h1').first()).toBeVisible();
+  });
 });
 

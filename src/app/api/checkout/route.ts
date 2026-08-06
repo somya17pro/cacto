@@ -1,5 +1,7 @@
-import { NextResponse } from 'next'
+import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
+
+export const dynamic = 'force-dynamic'
 
 export async function POST(request: Request) {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'

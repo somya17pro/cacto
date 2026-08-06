@@ -124,7 +124,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
               <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400 pointer-events-none" />
             </div>
             <div className="flex items-center gap-2 text-[11px] font-semibold text-zinc-500">
-              <input type="checkbox" id="consent" required defaultChecked className="accent-[#16A34A] w-3.5 h-3.5" />
+              <input type="checkbox" id="consent" required className="accent-[#16A34A] w-3.5 h-3.5 cursor-pointer" />
               <label htmlFor="consent" className="cursor-pointer">
                 I agree to the <a href="/privacy" target="_blank" className="text-[#16A34A] underline font-bold">Privacy Policy</a> and <a href="/terms" target="_blank" className="text-[#16A34A] underline font-bold">Terms of Service</a>.
               </label>

@@ -175,7 +175,7 @@ export default function BlogSlugClient({ slug, initialPost }: ClientProps) {
               </h1>
 
               <div className="flex flex-wrap items-center gap-6 pt-4 text-xs text-zinc-450 font-bold border-t border-dashed border-zinc-200">
-                <span className="flex items-center gap-1.5"><User className="h-4 w-4 text-[#16A34A]" /> {post.author}</span>
+                <span className="flex items-center gap-1.5"><User className="h-4 w-4 text-[#16A34A]" /> {typeof post.author === 'object' && post.author ? post.author.name : (post.author || 'Cacto Team')}</span>
                 <span className="flex items-center gap-1.5"><Calendar className="h-4 w-4 text-[#16A34A]" /> {post.date}</span>
                 <span className="flex items-center gap-1.5"><Clock className="h-4 w-4 text-[#16A34A]" /> {post.readTime}</span>
               </div>

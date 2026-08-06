@@ -60,6 +60,7 @@ export const metadata: Metadata = {
   },
 };
 
+import CookieBanner from "@/components/CookieBanner";
 import Script from "next/script";
 
 export default function RootLayout({
@@ -76,8 +77,21 @@ export default function RootLayout({
         {children}
         <ExitIntentModal />
         <ClientReferrerTracker />
+        <CookieBanner />
         
-        {/* Google Analytics */}
+        {/* Google Analytics with Default Consent Mode */}
+        <Script id="google-analytics-consent" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              'analytics_storage': 'denied',
+              'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied'
+            });
+          `}
+        </Script>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZW7620LS6R" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`

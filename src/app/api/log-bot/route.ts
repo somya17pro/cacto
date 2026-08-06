@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
 
+export const dynamic = 'force-dynamic'
+
 const logFilePath = path.join(process.cwd(), 'ai_bot_crawls.json')
 
 export async function POST(request: Request) {

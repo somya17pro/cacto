@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+
 function isValidMediaDomain(urlStr: string): boolean {
   try {
     const parsed = new URL(urlStr)

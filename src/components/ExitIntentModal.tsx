@@ -161,7 +161,7 @@ export default function ExitIntentModal() {
               </div>
 
               <div className="flex items-center gap-2 text-xs font-semibold text-[#1A1510]/80">
-                <input type="checkbox" id="exit_consent" required defaultChecked className="accent-[#16A34A] w-4 h-4" />
+                <input type="checkbox" id="exit_consent" required className="accent-[#16A34A] w-4 h-4 cursor-pointer" />
                 <label htmlFor="exit_consent" className="cursor-pointer">
                   I agree to the <a href="/privacy" target="_blank" className="text-[#16A34A] underline font-bold">Privacy Policy</a> and <a href="/terms" target="_blank" className="text-[#16A34A] underline font-bold">Terms of Service</a>.
                 </label>

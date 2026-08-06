@@ -28,6 +28,8 @@ export default function AutoDmClient() {
     "Sent to your inbox! 🚀",
     "Check your direct messages! ✨"
   ])
+  const [requireFollow, setRequireFollow] = useState(false)
+  const [followPromptMessage, setFollowPromptMessage] = useState("Hey {username}! Please follow our page first, then comment again to receive the link 💖")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   // Fetch recent posts
@@ -73,6 +75,8 @@ export default function AutoDmClient() {
         clicksCount: 0,
         postId: selectedPostId,
         commentReplies: commentReplies.filter(r => r.trim().length > 0),
+        requireFollow,
+        followPromptMessage,
         delayValue: 0,
         delayUnit: 'Seconds',
         dmType: 'Text + Button',
@@ -90,7 +94,7 @@ export default function AutoDmClient() {
       })
 
       if (saveRes.ok) {
-        router.push('/dashboard')
+        window.location.href = '/dashboard'
       } else {
         alert('Failed to save automation. Please try again.')
       }
@@ -225,6 +229,39 @@ export default function AutoDmClient() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Step 3.5: Follow Gate (OpenReply Engine Feature) */}
+            <div className="p-6 rounded-3xl bg-white border-2 border-[#1A1510] space-y-4" style={{ boxShadow: '4px 6px 0 #1A1510' }}>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-xs font-extrabold text-[#16A34A] uppercase tracking-wider">
+                  <span>Step 3.5</span>
+                  <span>•</span>
+                  <span>Follower Gate Requirement</span>
+                </div>
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={requireFollow}
+                    onChange={(e) => setRequireFollow(e.target.checked)}
+                    className="w-4 h-4 text-[#16A34A] rounded border-[#1A1510] focus:ring-[#16A34A]"
+                  />
+                  <span className="text-xs font-bold text-[#1A1510]">Require Follow</span>
+                </label>
+              </div>
+              <p className="text-xs text-zinc-600 font-medium">Verify commenter follows your Instagram Business profile via Meta API before sending the download link.</p>
+
+              {requireFollow && (
+                <div className="space-y-2 pt-2 border-t border-zinc-200">
+                  <label className="text-xs font-extrabold text-[#1A1510] block">Follower Prompt Message (sent if not following)</label>
+                  <textarea
+                    rows={2}
+                    value={followPromptMessage}
+                    onChange={(e) => setFollowPromptMessage(e.target.value)}
+                    className="w-full p-3 rounded-xl border-2 border-[#1A1510] text-xs font-medium bg-[#FAF6EE]"
+                  />
+                </div>
+              )}
             </div>
 
             {/* Step 4: Public Comment Replies */}

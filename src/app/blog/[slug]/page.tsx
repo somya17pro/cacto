@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ],
       type: 'article',
       publishedTime: post.date || '2026-07-27',
-      authors: [post.author || 'Cacto Growth Team'],
+      authors: [typeof post.author === 'object' && post.author ? post.author.name : (post.author || 'Cacto Growth Team')],
     },
     twitter: {
       card: 'summary_large_image',
@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       "dateModified": publishedDate,
       "author": {
         "@type": "Person",
-        "name": post.author || "Cacto Team",
+        "name": typeof post.author === 'object' && post.author ? post.author.name : (post.author || "Cacto Team"),
         "url": "https://cacto.cc/about"
       },
       "publisher": {

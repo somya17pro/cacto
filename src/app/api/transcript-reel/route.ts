@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic'
 function getFfmpegBinaryPath(): string {
   // Try ffmpeg-static first (bundled binary for serverless)
   try {
-    const ffmpegStatic = require('ffmpeg-static')
+    const ffmpegStatic = require(/*turbopackIgnore: true*/ 'ffmpeg-static')
     if (ffmpegStatic && typeof ffmpegStatic === 'string' && fs.existsSync(ffmpegStatic)) {
       return ffmpegStatic
     }
@@ -365,7 +365,7 @@ export async function POST(req: Request) {
                 if (!process.env.TRANSFORMERS_CACHE) {
                   process.env.TRANSFORMERS_CACHE = path.join(os.tmpdir(), 'transformers_cache')
                 }
-                const { WaveFile } = require('wavefile')
+                const { WaveFile } = require(/*turbopackIgnore: true*/ 'wavefile')
                 const wavBuffer = fs.readFileSync(wavPath)
                 const wav = new WaveFile(wavBuffer)
                 wav.toBitDepth('32f')

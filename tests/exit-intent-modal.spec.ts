@@ -2,9 +2,9 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Exit Intent Modal Component', () => {
   test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => localStorage.clear());
     await page.goto('/tools');
     await expect(page.locator('h1').first()).toBeVisible();
-    await page.evaluate(() => localStorage.clear());
   });
 
   test('should trigger exit intent modal on mouseleave on tools page', async ({ page }) => {

@@ -6,10 +6,10 @@ export interface BlogPost {
   category: string
   slug: string
   image?: string
-  author?: {
+  author?: string | {
     name: string
-    role: string
-    avatar: string
+    role?: string
+    avatar?: string
   }
   tldr?: string[]
   content: string

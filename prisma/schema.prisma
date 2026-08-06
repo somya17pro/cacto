@@ -1,0 +1,233 @@
+// Cacto - Instagram Comment-to-DM Automation Engine Schema
+// Powered by Next.js 16 + PostgreSQL / Supabase
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts         Account[]
+  sessions         Session[]
+  ownedWorkspaces  Workspace[]       @relation("WorkspaceOwner")
+  workspaceMembers WorkspaceMember[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+enum WorkspaceRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+model Workspace {
+  id        String   @id @default(cuid())
+  name      String
+  ownerId   String
+  owner     User     @relation("WorkspaceOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  usagePeriodStart  DateTime @default(now())
+  dmsSentThisPeriod Int      @default(0)
+
+  members           WorkspaceMember[]
+  instagramAccounts InstagramAccount[]
+  automations       Automation[]
+  dmLogs            DmLog[]
+  trackedLinks      TrackedLink[]
+  linkClicks        LinkClick[]
+
+  @@index([ownerId])
+}
+
+model WorkspaceMember {
+  id          String        @id @default(cuid())
+  workspaceId String
+  userId      String
+  role        WorkspaceRole @default(OWNER)
+  createdAt   DateTime      @default(now())
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([workspaceId, userId])
+  @@index([userId])
+}
+
+model InstagramAccount {
+  id                String    @id @default(cuid())
+  workspaceId       String
+  instagramId       String    @unique
+  username          String
+  name              String?
+  accessToken       String
+  tokenExpiresAt    DateTime?
+  webhookSubscribed Boolean   @default(false)
+  connectedAt       DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  workspace   Workspace          @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  automations Automation[]
+  dmLogs      DmLog[]
+  linkClicks  LinkClick[]
+  snapshots   FollowerSnapshot[]
+
+  @@index([workspaceId])
+}
+
+model FollowerSnapshot {
+  id                 String   @id @default(cuid())
+  instagramAccountId String
+  date               DateTime @db.Date
+  followersCount     Int
+  createdAt          DateTime @default(now())
+
+  instagramAccount InstagramAccount @relation(fields: [instagramAccountId], references: [id], onDelete: Cascade)
+
+  @@unique([instagramAccountId, date])
+  @@index([instagramAccountId, date])
+}
+
+model Automation {
+  id                 String   @id @default(cuid())
+  workspaceId        String
+  instagramAccountId String
+
+  name                 String
+  goal                 String?
+  postId               String?
+  postUrl              String?
+  matchAnyPost         Boolean  @default(false)
+  keywords             String[]
+  matchAnyWord         Boolean  @default(false)
+  dmTriggerEnabled     Boolean  @default(false)
+  dmMessage            String
+  linkButtonLabel      String?
+  requireFollow        Boolean  @default(false)
+  followPromptMessage  String?
+  publicReplyEnabled   Boolean  @default(false)
+  publicReplyMessages  String[] @default([])
+  isActive             Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  workspace        Workspace        @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  instagramAccount InstagramAccount @relation(fields: [instagramAccountId], references: [id], onDelete: Cascade)
+  dmLogs           DmLog[]
+  trackedLinks     TrackedLink[]
+
+  @@index([workspaceId])
+  @@index([instagramAccountId])
+  @@index([isActive])
+}
+
+enum DmStatus {
+  SENT
+  SKIPPED
+  FAILED
+  QUEUED
+}
+
+model DmLog {
+  id                 String   @id @default(cuid())
+  workspaceId        String
+  instagramAccountId String
+  automationId       String?
+
+  recipientId       String
+  recipientUsername String?
+  commentId         String?
+  commentText       String?
+  dmMessageSent     String
+  status            DmStatus @default(SENT)
+  reason            String?
+  metaMessageId     String?
+  sentAt            DateTime @default(now())
+
+  workspace        Workspace        @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  instagramAccount InstagramAccount @relation(fields: [instagramAccountId], references: [id], onDelete: Cascade)
+  automation       Automation?      @relation(fields: [automationId], references: [id], onDelete: SetNull)
+
+  @@index([workspaceId])
+  @@index([instagramAccountId])
+  @@index([automationId])
+  @@index([sentAt])
+}
+
+model TrackedLink {
+  id           String   @id @default(cuid())
+  workspaceId  String
+  automationId String?
+  originalUrl  String
+  trackingCode String   @unique
+  clicksCount  Int      @default(0)
+  createdAt    DateTime @default(now())
+
+  workspace  Workspace   @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  automation Automation? @relation(fields: [automationId], references: [id], onDelete: SetNull)
+  linkClicks LinkClick[]
+
+  @@index([workspaceId])
+  @@index([trackingCode])
+}
+
+model LinkClick {
+  id                 String   @id @default(cuid())
+  workspaceId        String
+  instagramAccountId String?
+  trackedLinkId      String
+  clickedAt          DateTime @default(now())
+  userIp             String?
+  userAgent          String?
+
+  workspace        Workspace         @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  instagramAccount InstagramAccount? @relation(fields: [instagramAccountId], references: [id], onDelete: SetNull)
+  trackedLink      TrackedLink       @relation(fields: [trackedLinkId], references: [id], onDelete: Cascade)
+
+  @@index([workspaceId])
+  @@index([trackedLinkId])
+}
