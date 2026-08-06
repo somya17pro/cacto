@@ -225,23 +225,6 @@ export default function BlogSlugClient({ slug, initialPost }: ClientProps) {
               )}
             </div>
 
-            {/* 2. THE EDGE (Named Framework, Specific ICP & EEAT Signal Box) */}
-            <div className="p-5 rounded-2xl bg-white border-2 border-[#1A1510] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[4px_5px_0_#1A1510]">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-800 font-bold shrink-0">
-                  ⚡
-                </div>
-                <div>
-                  <span className="text-[10px] font-black uppercase tracking-wider text-amber-800 block">The Cacto Edge</span>
-                  <h3 className="font-bold text-xs md:text-sm text-[#1A1510]">
-                    Built for Solo Creators: Sub-3s DM Delivery & 100% Meta API Compliance
-                  </h3>
-                </div>
-              </div>
-              <span className="text-[10px] font-mono font-bold text-zinc-600 bg-zinc-100 px-3 py-1.5 rounded-lg border border-zinc-200 shrink-0">
-                Empirical Data Signal: 40%+ DM CTR
-              </span>
-            </div>
 
             {/* Detailed Article HTML */}
             <article 
