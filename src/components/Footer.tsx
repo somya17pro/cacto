@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { ArrowRight, ShieldCheck, Sparkles, Heart } from 'lucide-react'
+import { ArrowRight, Sparkles, Heart } from 'lucide-react'
 import WaitlistModal from './WaitlistModal'
 
 interface FooterProps {
@@ -114,19 +114,7 @@ export default function Footer({ onOpenWaitlist }: FooterProps = {}) {
 
         </div>
 
-        {/* Bottom Legal & Disclosure Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-zinc-400 pt-2">
-          <div className="flex items-center gap-2 text-zinc-400">
-            <ShieldCheck className="w-4 h-4 text-emerald-500" />
-            <p>Cacto is an official Meta Graph API integration. All trademarks belong to their respective owners.</p>
-          </div>
-          <div className="flex flex-wrap gap-6 text-xs font-semibold">
-            <Link href="/privacy" className="hover:text-white transition decoration-none">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition decoration-none">Terms of Service</Link>
-            <Link href="/data-deletion" className="hover:text-white transition decoration-none">Data Deletion</Link>
-            <Link href="/sitemap.xml" className="hover:text-white transition decoration-none">Sitemap</Link>
-          </div>
-        </div>
+
 
       </div>
     </footer>
