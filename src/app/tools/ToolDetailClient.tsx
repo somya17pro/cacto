@@ -30,6 +30,11 @@ const EXPLICIT_TOOL_SLUGS = new Set([
   'post-booster'
 ])
 
+interface ClientProps {
+  toolSlug: string;
+  initialTool?: ToolData | null;
+}
+
 export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps) {
   const [tool, setTool] = useState<ToolData | null>(() => initialTool || freeToolsList.find(t => t.slug === toolSlug) || null)
   const [copied, setCopied] = useState(false)

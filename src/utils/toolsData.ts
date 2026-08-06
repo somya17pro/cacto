@@ -57160,9 +57160,895 @@ export const freeToolsList: ToolData[] = [
       "traditional": "Transmitted to Remote Server"
     }
   },
+  {
+      "slug": "manychat-pricing-calculator",
+      "title": "ManyChat Pricing Calculator",
+      "description": "Calculate your monthly contact scaling costs on ManyChat vs Cacto flat /mo pricing.",
+      "category": "Calculators",
+      "siloCategory": "social",
+      "icon": "Calculator",
+      "faqs": [
+          {
+              "q": "How does ManyChat contact tier pricing work?",
+              "a": "ManyChat charges ascending fees based on total active contacts in your account, starting at /mo for 500 contacts and rising to +/mo at 25,000 contacts."
+          },
+          {
+              "q": "Does Cacto charge per active contact?",
+              "a": "No. Cacto is flat /mo with zero contact tier penalties."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Select Contact Count",
+              "desc": "Input your total Instagram DM subscribers."
+          },
+          {
+              "step": 2,
+              "title": "Compare Costs",
+              "desc": "View estimated monthly cost breakdown across tiers."
+          },
+          {
+              "step": 3,
+              "title": "See Annual Savings",
+              "desc": "Calculate total annual savings with Cacto."
+          }
+      ],
+      "usecases": [
+          "Estimating ManyChat contact tier spikes",
+          "Budgeting for Instagram growth",
+          "Evaluating alternative DM platforms"
+      ],
+      "benefits": [
+          "Instant cost projection",
+          "100% Free calculation",
+          "Transparent savings breakdown"
+      ],
+      "deviceGuide": {
+          "mobile": "Use input slider to select contacts.",
+          "desktop": "Enter exact subscriber numbers."
+      },
+      "comparison": {
+          "feature": "Pricing Model",
+          "cacto": "Flat /mo",
+          "traditional": "Ascending Tier Taxes"
+      },
+      "seoKeywords": [
+          "manychat pricing calculator",
+          "manychat cost estimator",
+          "manychat alternative pricing"
+      ]
+  },
+  {
+      "slug": "instagram-dm-rate-limit-checker",
+      "title": "Instagram DM Rate Limit Checker",
+      "description": "Check official Meta Graph API hourly dispatch caps and safety safety buffers to prevent shadowbans.",
+      "category": "Calculators",
+      "siloCategory": "social",
+      "icon": "ShieldCheck",
+      "faqs": [
+          {
+              "q": "What is Meta Graph API DM limit for creators?",
+              "a": "Meta allows up to 200 DM dispatches per hour per account for standard API apps, with burst buffering."
+          },
+          {
+              "q": "How does Cacto maintain account safety?",
+              "a": "Cacto automatically queues and buffers message sends within Meta guidelines."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Input Campaign Volume",
+              "desc": "Enter expected comment triggers per hour."
+          },
+          {
+              "step": 2,
+              "title": "Run Rate Audit",
+              "desc": "Check safety threshold status."
+          },
+          {
+              "step": 3,
+              "title": "Optimize Queue",
+              "desc": "Adjust dispatch delay intervals."
+          }
+      ],
+      "usecases": [
+          "Viral Reel campaign planning",
+          "Account health monitoring",
+          "API quota management"
+      ],
+      "benefits": [
+          "100% Meta compliant recommendations",
+          "Prevent action blocks",
+          "Instant safety score"
+      ],
+      "deviceGuide": {
+          "mobile": "Tap audit button after selecting volume.",
+          "desktop": "Adjust hour parameters."
+      },
+      "comparison": {
+          "feature": "Rate Limit Buffer",
+          "cacto": "Automatic WASM Queue",
+          "traditional": "Unbuffered Spikes"
+      },
+      "seoKeywords": [
+          "instagram dm rate limit",
+          "meta graph api limits",
+          "instagram auto reply safety"
+      ]
+  },
+  {
+      "slug": "comment-to-dm-converter",
+      "title": "Comment-to-DM Converter & Generator",
+      "description": "Generate high-converting comment triggers and automated DM link payloads for Instagram Reels.",
+      "category": "Generators",
+      "siloCategory": "social",
+      "icon": "MessageSquare",
+      "faqs": [
+          {
+              "q": "What trigger keywords get the highest comment conversion?",
+              "a": "Short, 1-word actionable triggers like INFO, GUIDE, SEND, or VIP convert best."
+          },
+          {
+              "q": "Can I send links in Instagram DMs automatically?",
+              "a": "Yes, via official Meta Graph API Webhooks."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Choose Trigger Keyword",
+              "desc": "Pick a high-converting keyword."
+          },
+          {
+              "step": 2,
+              "title": "Craft DM Response",
+              "desc": "Write your personal greeting and delivery link."
+          },
+          {
+              "step": 3,
+              "title": "Copy Config Payload",
+              "desc": "Export payload to Cacto."
+          }
+      ],
+      "usecases": [
+          "Reel digital download distribution",
+          "Webinar registration automated DMs",
+          "E-commerce discount code delivery"
+      ],
+      "benefits": [
+          "Higher comment engagement",
+          "Automated link delivery",
+          "Increased reel algorithm push"
+      ],
+      "deviceGuide": {
+          "mobile": "Copy generated text directly to clipboard.",
+          "desktop": "Test payload preview."
+      },
+      "comparison": {
+          "feature": "Setup Speed",
+          "cacto": "Sub-50ms Client WASM",
+          "traditional": "Complex Node Flow"
+      },
+      "seoKeywords": [
+          "comment to dm generator",
+          "instagram reel auto reply",
+          "comment trigger builder"
+      ]
+  },
+  {
+      "slug": "story-mention-lead-calculator",
+      "title": "Story Mention Lead Yield Calculator",
+      "description": "Calculate subscriber lead yields and conversions from automated Instagram Story mention replies.",
+      "category": "Calculators",
+      "siloCategory": "social",
+      "icon": "Sparkles",
+      "faqs": [
+          {
+              "q": "How do automated Story mention DMs work?",
+              "a": "When a user tags your handle in their IG Story, Meta triggers an instant thank-you DM with your offer link."
+          },
+          {
+              "q": "Why is Story mention DM automation effective?",
+              "a": "Story tags show high user affinity and intent, yielding up to 65% email opt-in rates."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Input Daily Story Tags",
+              "desc": "Enter average daily tags received."
+          },
+          {
+              "step": 2,
+              "title": "Set Conversion %",
+              "desc": "Estimate offer click-through rate."
+          },
+          {
+              "step": 3,
+              "title": "View Projected Leads",
+              "desc": "Calculate monthly subscriber growth."
+          }
+      ],
+      "usecases": [
+          "User generated content campaigns",
+          "Brand ambassador reward automation",
+          "Story viral loop tracking"
+      ],
+      "benefits": [
+          "Monetize organic brand mentions",
+          "Instant fan reward delivery",
+          "Predictable subscriber growth"
+      ],
+      "deviceGuide": {
+          "mobile": "Adjust tag count slider.",
+          "desktop": "View chart breakdown."
+      },
+      "comparison": {
+          "feature": "Story DM Automation",
+          "cacto": "Included Flat /mo",
+          "traditional": "Add-on Paid Module"
+      },
+      "seoKeywords": [
+          "story mention auto dm",
+          "instagram story lead calculator",
+          "story tag lead magnet"
+      ]
+  },
+  {
+      "slug": "bio-link-vs-dm-roi-calculator",
+      "title": "Bio-Link vs. DM Automation ROI Calculator",
+      "description": "Compare standard 3% Linktree CTR against 50%+ Instagram DM comment automation conversion rates.",
+      "category": "Calculators",
+      "siloCategory": "social",
+      "icon": "Zap",
+      "faqs": [
+          {
+              "q": "Why do bio links lose traffic?",
+              "a": "Bio links require users to leave the Reel, visit your profile, click a link, and navigate a multi-button landing page."
+          },
+          {
+              "q": "How much higher is DM automation CTR?",
+              "a": "Direct DM links achieve 45%\u201360% CTR because delivery happens immediately inside the inbox."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Enter Monthly Views",
+              "desc": "Input total monthly Reel views."
+          },
+          {
+              "step": 2,
+              "title": "Compare CTRs",
+              "desc": "Model 3% Bio Link vs 50% DM Automation."
+          },
+          {
+              "step": 3,
+              "title": "See Revenue Lift",
+              "desc": "Calculate net incremental sales."
+          }
+      ],
+      "usecases": [
+          "Creator link tree audit",
+          "Funnel optimization",
+          "Conversion rate overhaul"
+      ],
+      "benefits": [
+          "Quantify lost bio-link revenue",
+          "Clear ROI breakdown",
+          "Instant decision matrix"
+      ],
+      "deviceGuide": {
+          "mobile": "Slide traffic numbers.",
+          "desktop": "Full comparison view."
+      },
+      "comparison": {
+          "feature": "Link CTR Yield",
+          "cacto": "50%+ Inbox Delivery",
+          "traditional": "3% Bio Link Loss"
+      },
+      "seoKeywords": [
+          "bio link vs dm automation",
+          "linktree conversion rate",
+          "instagram dm roi calculator"
+      ]
+  },
+  {
+      "slug": "chatfuel-cost-estimator",
+      "title": "Chatfuel Cost & AI Tier Estimator",
+      "description": "Estimate monthly enterprise charges and AI messaging costs on Chatfuel vs Cacto.",
+      "category": "Calculators",
+      "siloCategory": "business",
+      "icon": "DollarSign",
+      "faqs": [
+          {
+              "q": "Does Chatfuel charge for AI responses?",
+              "a": "Chatfuel charges per-conversation enterprise fees plus AI token usage add-ons."
+          },
+          {
+              "q": "Is Cacto flat rate?",
+              "a": "Yes, Cacto is /mo flat with unlimited DMs."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Select Expected Conversations",
+              "desc": "Input monthly DM volume."
+          },
+          {
+              "step": 2,
+              "title": "Calculate Enterprise Tiers",
+              "desc": "See Chatfuel monthly tier costs."
+          },
+          {
+              "step": 3,
+              "title": "Compare Cacto Flat Savings",
+              "desc": "View net savings."
+          }
+      ],
+      "usecases": [
+          "Enterprise software cost comparison",
+          "Agency client budgeting",
+          "Chatfuel alternative analysis"
+      ],
+      "benefits": [
+          "Eliminate surprise billing",
+          "Transparent tier math",
+          "Zero subscription lock-in"
+      ],
+      "deviceGuide": {
+          "mobile": "Tap estimate button.",
+          "desktop": "Detailed tier table."
+      },
+      "comparison": {
+          "feature": "AI Add-On Fees",
+          "cacto": "Included Free",
+          "traditional": "Enterprise Token Charges"
+      },
+      "seoKeywords": [
+          "chatfuel cost estimator",
+          "chatfuel pricing breakdown",
+          "chatfuel vs cacto"
+      ]
+  },
+  {
+      "slug": "instagram-bot-safety-auditor",
+      "title": "Instagram Bot Safety & TOS Auditor",
+      "description": "Audit your Instagram automation setup against Meta official Graph API safety regulations.",
+      "category": "Utility",
+      "siloCategory": "social",
+      "icon": "Shield",
+      "faqs": [
+          {
+              "q": "What gets an Instagram account flagged?",
+              "a": "Using unauthorized headless scrapers, web automation, or unbuffered DM spam."
+          },
+          {
+              "q": "Why is Meta Graph API safer?",
+              "a": "Meta Graph API is the official approved developer endpoint with official OAuth tokens."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Select Automation Method",
+              "desc": "Choose API vs Browser Extension."
+          },
+          {
+              "step": 2,
+              "title": "Assess Risk Score",
+              "desc": "Calculate account risk profile."
+          },
+          {
+              "step": 3,
+              "title": "Get Remediation Steps",
+              "desc": "Download compliance checklist."
+          }
+      ],
+      "usecases": [
+          "Account safety check",
+          "Agency client account protection",
+          "TOS risk evaluation"
+      ],
+      "benefits": [
+          "100% Meta compliant",
+          "Prevent shadowbans",
+          "Peace of mind"
+      ],
+      "deviceGuide": {
+          "mobile": "Select checkboxes for audit.",
+          "desktop": "Interactive risk meter."
+      },
+      "comparison": {
+          "feature": "API Compliance",
+          "cacto": "100% Official Meta Partner",
+          "traditional": "Grey-hat Web Scrapers"
+      },
+      "seoKeywords": [
+          "instagram bot safety auditor",
+          "avoid instagram shadowban",
+          "meta graph api tos check"
+      ]
+  },
+  {
+      "slug": "reels-comment-keyword-generator",
+      "title": "Reels Comment Keyword Generator",
+      "description": "Generate high-converting comment trigger phrases tailored to your niche for Instagram Reels.",
+      "category": "Generators",
+      "siloCategory": "social",
+      "icon": "Key",
+      "faqs": [
+          {
+              "q": "What words trigger people to comment on Reels?",
+              "a": "Short, memorable, single-word triggers like PLAN, CHEATSHEET, SCALE, or RECIPE work best."
+          },
+          {
+              "q": "Should I use emojis as triggers?",
+              "a": "Single emojis or 1-word text triggers convert best because they are easy to type."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Select Niche",
+              "desc": "Choose Coaching, E-commerce, Fitness, Tech, etc."
+          },
+          {
+              "step": 2,
+              "title": "Generate Triggers",
+              "desc": "Produce 10 keyword recommendations."
+          },
+          {
+              "step": 3,
+              "title": "Copy & Launch",
+              "desc": "Paste keyword into Cacto trigger dashboard."
+          }
+      ],
+      "usecases": [
+          "Reel caption writing",
+          "Call-to-action optimization",
+          "Comment growth hacks"
+      ],
+      "benefits": [
+          "Increased comment volume",
+          "Higher algorithmic push",
+          "1-click copy"
+      ],
+      "deviceGuide": {
+          "mobile": "Tap to copy keyword.",
+          "desktop": "Filter keywords by content pillar."
+      },
+      "comparison": {
+          "feature": "Niche Customization",
+          "cacto": "Tailored Presets",
+          "traditional": "Generic Examples"
+      },
+      "seoKeywords": [
+          "reels comment keyword generator",
+          "instagram comment trigger words",
+          "reel call to action generator"
+      ]
+  },
+  {
+      "slug": "dm-funnel-conversion-calculator",
+      "title": "Instagram DM Funnel Conversion Calculator",
+      "description": "Project monthly digital product sales and lead conversions from Instagram Reel DM funnels.",
+      "category": "Calculators",
+      "siloCategory": "business",
+      "icon": "TrendingUp",
+      "faqs": [
+          {
+              "q": "What is an Instagram DM funnel?",
+              "a": "A system that turns Reel views -> Comments -> Automated DMs -> Email Opt-in -> Product Purchase."
+          },
+          {
+              "q": "What is an average conversion rate for DM funnels?",
+              "a": "DM funnels typically convert 5%\u201315% of comments into paying digital product customers."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Input Monthly Reel Reach",
+              "desc": "Enter expected monthly views."
+          },
+          {
+              "step": 2,
+              "title": "Set Product Price",
+              "desc": "Enter digital offer price."
+          },
+          {
+              "step": 3,
+              "title": "Calculate Revenue",
+              "desc": "View total projected monthly sales."
+          }
+      ],
+      "usecases": [
+          "Digital product launch planning",
+          "Course creator revenue modeling",
+          "DM sales forecasting"
+      ],
+      "benefits": [
+          "Data-backed revenue forecasts",
+          "Identifies funnel drop-offs",
+          "Free revenue planner"
+      ],
+      "deviceGuide": {
+          "mobile": "Use sliders to adjust variables.",
+          "desktop": "Comprehensive breakdown graph."
+      },
+      "comparison": {
+          "feature": "Funnel Modeling",
+          "cacto": "Integrated Calculator",
+          "traditional": "Manual Spreadsheet"
+      },
+      "seoKeywords": [
+          "dm funnel conversion calculator",
+          "instagram sales calculator",
+          "digital product DM funnel"
+      ]
+  },
+  {
+      "slug": "klaviyo-dm-subscriber-calculator",
+      "title": "Klaviyo DM Email Subscriber Growth Calculator",
+      "description": "Calculate monthly Klaviyo email subscriber growth generated directly from Instagram Reel DMs.",
+      "category": "Calculators",
+      "siloCategory": "social",
+      "icon": "Mail",
+      "faqs": [
+          {
+              "q": "Can Instagram DMs capture emails directly into Klaviyo?",
+              "a": "Yes, Cacto integrates with Klaviyo to sync emails instantly upon DM opt-in."
+          },
+          {
+              "q": "Why build an email list via Instagram DMs?",
+              "a": "Email lists protect you from algorithm updates and convert at higher lifetime values."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Enter Monthly DMs Dispatched",
+              "desc": "Input DM trigger volume."
+          },
+          {
+              "step": 2,
+              "title": "Set Opt-in Gating Rate",
+              "desc": "Estimate email capture percentage."
+          },
+          {
+              "step": 3,
+              "title": "View List Growth",
+              "desc": "Calculate 12-month subscriber value."
+          }
+      ],
+      "usecases": [
+          "E-commerce email list building",
+          "Newsletter growth modeling",
+          "Klaviyo ROI tracking"
+      ],
+      "benefits": [
+          "Quantify list build speed",
+          "Direct Klaviyo ROI view",
+          "Instant growth estimate"
+      ],
+      "deviceGuide": {
+          "mobile": "Select target growth goals.",
+          "desktop": "Detailed monthly accumulation visual."
+      },
+      "comparison": {
+          "feature": "Klaviyo Integration",
+          "cacto": "Native 1-Click Sync",
+          "traditional": "Paid Zapier Middleman"
+      },
+      "seoKeywords": [
+          "klaviyo dm subscriber calculator",
+          "instagram to klaviyo growth",
+          "email lead capture instagram"
+      ]
+  },
+  {
+      "slug": "creator-linktree-leakage-estimator",
+      "title": "Creator Linktree Traffic Leakage Estimator",
+      "description": "Estimate lost revenue and bounced traffic caused by traditional bio link-in-profile trees.",
+      "category": "Calculators",
+      "siloCategory": "social",
+      "icon": "AlertTriangle",
+      "faqs": [
+          {
+              "q": "What is bio-link leakage?",
+              "a": "Traffic lost when users leave your Reel, open your profile, click a link, and leave without completing an action."
+          },
+          {
+              "q": "How does DM automation prevent leakage?",
+              "a": "DM automation delivers the exact link directly inside the user inbox without leaving the Reel."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Input Profile Visits",
+              "desc": "Enter monthly profile visits."
+          },
+          {
+              "step": 2,
+              "title": "Calculate Bounce Rate",
+              "desc": "Estimate bio-link drop-off percentage."
+          },
+          {
+              "step": 3,
+              "title": "See Recoverable Traffic",
+              "desc": "Calculate extra leads captured via DMs."
+          }
+      ],
+      "usecases": [
+          "Bio link audit",
+          "Creator monetization upgrade",
+          "Social traffic recovery"
+      ],
+      "benefits": [
+          "Pinpoint exact lost traffic",
+          "Quantify monthly bounce cost",
+          "Clear action plan"
+      ],
+      "deviceGuide": {
+          "mobile": "Slide profile visits count.",
+          "desktop": "Visual drop-off diagram."
+      },
+      "comparison": {
+          "feature": "Traffic Retention",
+          "cacto": "Zero Friction DM Inbox",
+          "traditional": "80% Bio Link Bounce"
+      },
+      "seoKeywords": [
+          "linktree leakage estimator",
+          "bio link traffic bounce calculator",
+          "instagram link leakage"
+      ]
+  },
+  {
+      "slug": "auto-reply-comment-rotator",
+      "title": "Auto-Reply Comment Variations Rotator",
+      "description": "Generate 5 rotated public comment replies to keep automated Instagram Reel responses looking authentic.",
+      "category": "Generators",
+      "siloCategory": "social",
+      "icon": "RotateCcw",
+      "faqs": [
+          {
+              "q": "Why is comment rotation important on Instagram?",
+              "a": "Posting identical repetitive comments can flag spam filters. Rotating variations ensures natural community engagement."
+          },
+          {
+              "q": "How many comment variations should I use?",
+              "a": "Using 4\u20135 distinct variations provides optimal natural diversity."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Choose Tone",
+              "desc": "Select Friendly, Professional, Hype, or Minimal."
+          },
+          {
+              "step": 2,
+              "title": "Generate 5 Variations",
+              "desc": "Produce rotated public reply templates."
+          },
+          {
+              "step": 3,
+              "title": "Copy Array",
+              "desc": "Paste into Cacto auto-reply settings."
+          }
+      ],
+      "usecases": [
+          "Instagram public comment replies",
+          "Anti-spam protection",
+          "Reel engagement boost"
+      ],
+      "benefits": [
+          "Avoid repetitive comment flags",
+          "100% natural look",
+          "1-click copy array"
+      ],
+      "deviceGuide": {
+          "mobile": "Copy all 5 variants at once.",
+          "desktop": "Edit individual variations."
+      },
+      "comparison": {
+          "feature": "Reply Rotation",
+          "cacto": "Automatic Spintax Rotator",
+          "traditional": "Single Repetitive Text"
+      },
+      "seoKeywords": [
+          "auto reply comment rotator",
+          "instagram comment variations generator",
+          "spintax comment replies"
+      ]
+  },
+  {
+      "slug": "instagram-engagement-rate-estimator",
+      "title": "Instagram Engagement Rate & DM Triggers Estimator",
+      "description": "Calculate your Reel engagement rate and benchmark expected DM comment triggers.",
+      "category": "Calculators",
+      "siloCategory": "social",
+      "icon": "BarChart3",
+      "faqs": [
+          {
+              "q": "What is a good Instagram engagement rate in 2026?",
+              "a": "For creators with 10k\u2013100k followers, 3%\u20136% engagement is strong."
+          },
+          {
+              "q": "How do comment triggers impact engagement rate?",
+              "a": "DM comment triggers increase comment volume by 3x\u20135x, dramatically lifting your reach."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Enter Likes & Comments",
+              "desc": "Input average post engagement."
+          },
+          {
+              "step": 2,
+              "title": "Enter Follower Count",
+              "desc": "Input account size."
+          },
+          {
+              "step": 3,
+              "title": "View Benchmark",
+              "desc": "Calculate engagement percentage."
+          }
+      ],
+      "usecases": [
+          "Account health audit",
+          "Sponsorship media kit prep",
+          "Reel strategy evaluation"
+      ],
+      "benefits": [
+          "Instant benchmark calculation",
+          "Free engagement score",
+          "Growth recommendations"
+      ],
+      "deviceGuide": {
+          "mobile": "Input metrics in form.",
+          "desktop": "Interactive benchmark chart."
+      },
+      "comparison": {
+          "feature": "Engagement Boost",
+          "cacto": "3x\u20135x via Comment Triggers",
+          "traditional": "Passive Posting"
+      },
+      "seoKeywords": [
+          "instagram engagement rate estimator",
+          "calculate reel engagement",
+          "comment trigger reach calculator"
+      ]
+  },
+  {
+      "slug": "high-ticket-qualifying-dm-builder",
+      "title": "High-Ticket Qualifying DM Script Builder",
+      "description": "Build 3-step qualifying DM message sequences for high-ticket coaches and service providers.",
+      "category": "Generators",
+      "siloCategory": "business",
+      "icon": "FileText",
+      "faqs": [
+          {
+              "q": "How does automated qualification in DMs work?",
+              "a": "The initial DM asks 2 brief qualifying questions before sending a call booking link."
+          },
+          {
+              "q": "Can this replace discovery calls?",
+              "a": "It filters out unqualified leads before they take up slots on your calendar."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Select Offer Type",
+              "desc": "Choose Coaching, Agency, Consulting."
+          },
+          {
+              "step": 2,
+              "title": "Choose Qualification Criteria",
+              "desc": "Select Budget, Goal, Urgency."
+          },
+          {
+              "step": 3,
+              "title": "Generate 3-Step Script",
+              "desc": "Copy script sequence."
+          }
+      ],
+      "usecases": [
+          "High-ticket client qualification",
+          "Consulting call booking",
+          "Sales call filter"
+      ],
+      "benefits": [
+          "Save hours on unqualified calls",
+          "Automate preliminary intake",
+          "Higher call show-up rates"
+      ],
+      "deviceGuide": {
+          "mobile": "Copy script blocks directly.",
+          "desktop": "Customize question fields."
+      },
+      "comparison": {
+          "feature": "Qualifying Logic",
+          "cacto": "Automated 3-Step Flow",
+          "traditional": "Manual Manual DMs"
+      },
+      "seoKeywords": [
+          "high ticket qualifying dm builder",
+          "coaching dm script generator",
+          "instagram sales script builder"
+      ]
+  },
+  {
+      "slug": "meta-graph-api-delay-simulator",
+      "title": "Meta Graph API Delay & Latency Simulator",
+      "description": "Simulate webhook dispatch delay impacts on DM CTR and user conversion rates.",
+      "category": "Utility",
+      "siloCategory": "developer",
+      "icon": "Clock",
+      "faqs": [
+          {
+              "q": "Why does DM speed matter for conversions?",
+              "a": "Users expect DM replies within seconds of commenting on a Reel. Delays over 1 minute reduce open rates by 40%."
+          },
+          {
+              "q": "How fast is Cacto\u2019s dispatch engine?",
+              "a": "Cacto dispatches DMs in under 50ms using client WASM processing."
+          }
+      ],
+      "steps": [
+          {
+              "step": 1,
+              "title": "Set Latency Interval",
+              "desc": "Select 50ms, 5s, 60s, or 5m."
+          },
+          {
+              "step": 2,
+              "title": "Run Simulation",
+              "desc": "Model user drop-off curve."
+          },
+          {
+              "step": 3,
+              "title": "View Open Rate Impact",
+              "desc": "Calculate net conversion loss."
+          }
+      ],
+      "usecases": [
+          "Technical stack evaluation",
+          "Webhook speed audit",
+          "Conversion drop-off analysis"
+      ],
+      "benefits": [
+          "Quantify delay costs",
+          "Visual drop-off curve",
+          "Actionable speed recommendations"
+      ],
+      "deviceGuide": {
+          "mobile": "Tap delay options to run.",
+          "desktop": "Interactive latency graph."
+      },
+      "comparison": {
+          "feature": "Dispatch Speed",
+          "cacto": "Sub-50ms Client WASM",
+          "traditional": "300ms\u20132s Server Queue"
+      },
+      "seoKeywords": [
+          "meta graph api delay simulator",
+          "instagram webhook latency",
+          "dm speed conversion rate"
+      ]
+  },
 ];
 
-export function getToolSiloCategory(tool: { slug: string; category?: string }): SiloCategory {
+export function getToolSiloCategory(tool: { slug: string; category?: string; siloCategory?: SiloCategory }): SiloCategory {
+  if (tool.siloCategory) return tool.siloCategory;
   const s = tool.slug.toLowerCase();
   if (s.includes('pdf')) return 'pdf';
   if (s.includes('json') || s.includes('jwt') || s.includes('cron') || s.includes('curl') || s.includes('base64') || s.includes('sql') || s.includes('regex') || s.includes('api')) return 'developer';

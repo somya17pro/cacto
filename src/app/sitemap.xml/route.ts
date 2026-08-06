@@ -1,5 +1,6 @@
 import { blogPosts } from '@/utils/blogData'
 import { freeToolsList, getToolSiloCategory } from '@/utils/toolsData'
+import { competitorComparisons } from '@/utils/competitorData'
 
 export async function GET() {
   const baseUrl = 'https://cacto.cc'
@@ -9,14 +10,22 @@ export async function GET() {
     { url: `${baseUrl}/`, priority: '1.0', changefreq: 'daily' },
     { url: `${baseUrl}/tools`, priority: '0.9', changefreq: 'daily' },
     { url: `${baseUrl}/blog`, priority: '0.9', changefreq: 'daily' },
+    { url: `${baseUrl}/compare`, priority: '0.9', changefreq: 'daily' },
     { url: `${baseUrl}/templates`, priority: '0.8', changefreq: 'weekly' },
     { url: `${baseUrl}/about`, priority: '0.8', changefreq: 'monthly' },
-    { url: `${baseUrl}/compare/cacto-vs-manychat`, priority: '0.8', changefreq: 'monthly' },
     { url: `${baseUrl}/open`, priority: '0.7', changefreq: 'weekly' },
     { url: `${baseUrl}/privacy`, priority: '0.5', changefreq: 'monthly' },
     { url: `${baseUrl}/terms`, priority: '0.5', changefreq: 'monthly' },
     { url: `${baseUrl}/data-deletion`, priority: '0.5', changefreq: 'monthly' },
   ]
+
+  competitorComparisons.forEach(c => {
+    urls.push({
+      url: `${baseUrl}/compare/${c.slug}`,
+      priority: '0.8',
+      changefreq: 'weekly'
+    })
+  })
 
   const categories = ['converters', 'pdf', 'text', 'developer', 'seo', 'finance', 'business', 'office', 'legal', 'ai', 'ecommerce', 'social']
   categories.forEach(cat => {

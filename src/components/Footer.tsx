@@ -80,6 +80,7 @@ export default function Footer({ onOpenWaitlist }: FooterProps = {}) {
               <li><Link href="/#features" className="hover:text-white transition decoration-none">Features Overview</Link></li>
               <li><Link href="/#how-it-works" className="hover:text-white transition decoration-none">How It Works</Link></li>
               <li><Link href="/templates" className="hover:text-white transition decoration-none">DM Automation Templates</Link></li>
+              <li><Link href="/compare" className="hover:text-white transition decoration-none text-emerald-400 font-bold">Compare Solutions (10 Hubs)</Link></li>
               <li><Link href="/compare/cacto-vs-manychat" className="hover:text-white transition decoration-none">Cacto vs. ManyChat</Link></li>
               <li><Link href="/about" className="hover:text-white transition decoration-none">About Cacto</Link></li>
               <li><Link href="/open" className="hover:text-white transition decoration-none">/Open Startup Metrics</Link></li>
