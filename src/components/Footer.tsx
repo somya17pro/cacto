@@ -36,13 +36,13 @@ export default function Footer({ onOpenWaitlist }: FooterProps = {}) {
           <div className="space-y-2.5 text-center md:text-left relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Official Meta Graph API Engine • 1,010 Free Tools</span>
+              <span>Instagram DM Automation</span>
             </div>
             <h3 className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-white">
-              Ready to turn Reel comments into automatic sales?
+              Turn Reel comments into sales automatically.
             </h3>
             <p className="text-xs text-zinc-400 font-medium max-w-xl">
-              Deliver instant checkout links, lead magnet PDFs, and custom DM dispatches in under 500ms without link-in-bio drop-off.
+              Send checkout links, free PDFs, and DMs instantly whenever someone comments on your posts.
             </p>
           </div>
           <button
