@@ -1,12 +1,28 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, ShieldCheck, Sparkles, Heart } from 'lucide-react'
+import WaitlistModal from './WaitlistModal'
 
-export default function Footer() {
+interface FooterProps {
+  onOpenWaitlist?: () => void
+}
+
+export default function Footer({ onOpenWaitlist }: FooterProps = {}) {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleWaitlistClick = () => {
+    if (onOpenWaitlist) {
+      onOpenWaitlist()
+    } else {
+      setIsModalOpen(true)
+    }
+  }
+
   return (
     <footer className="bg-[#1A1510] text-[#FAF6EE] border-t-2 border-[#1A1510] pt-16 pb-12 text-left select-none relative overflow-hidden">
+      <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       
       {/* Top Background Glow Effect */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-emerald-500/10 blur-3xl pointer-events-none rounded-full" />
@@ -29,13 +45,14 @@ export default function Footer() {
               Deliver instant checkout links, lead magnet PDFs, and custom DM dispatches in under 500ms without link-in-bio drop-off.
             </p>
           </div>
-          <Link
-            href="/?waitlist=true"
-            className="inline-flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white px-7 py-4 rounded-full font-extrabold text-xs transition-all shadow-lg hover:shadow-emerald-900/40 hover:scale-[1.02] active:scale-95 shrink-0 decoration-none relative z-10 border border-emerald-400/30"
+          <button
+            type="button"
+            onClick={handleWaitlistClick}
+            className="inline-flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white px-7 py-4 rounded-full font-extrabold text-xs transition-all shadow-lg hover:shadow-emerald-900/40 hover:scale-[1.02] active:scale-95 shrink-0 cursor-pointer border border-emerald-400/30 relative z-10"
           >
             <span>Get Early Access Free</span>
             <ArrowRight className="w-4 h-4" />
-          </Link>
+          </button>
         </div>
 
         {/* 4-Column Footer Grid */}
