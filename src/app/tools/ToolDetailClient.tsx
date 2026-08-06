@@ -27,7 +27,7 @@ const EXPLICIT_TOOL_SLUGS = new Set([
   'ecommerce-dm-roi-calculator', 'real-estate-reel-cta-generator',
   'welcome-dm-velocity-calculator', 'webhook-latency-simulator',
   'high-ticket-qualifying-script-generator', 'ai-instagram-engagement-calculator',
-  'post-booster', 'skill-authoring-wizard'
+  'post-booster'
 ])
 
 export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps) {
@@ -98,16 +98,18 @@ export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps)
   }
 
   const handleDownloadReel = (fileType: 'mp4' | 'jpg') => {
-    if (!extractedReel) return
-    const targetUrl = fileType === 'mp4' ? extractedReel.videoUrl : extractedReel.thumbnail
-    if (!targetUrl) return
+    checkAndIncrementUsage(() => {
+      if (!extractedReel) return
+      const targetUrl = fileType === 'mp4' ? extractedReel.videoUrl : extractedReel.thumbnail
+      if (!targetUrl) return
 
-    const filename = `cacto_instagram_reel_${fileType === 'mp4' ? 'video' : 'cover'}.${fileType}`
-    const proxyUrl = `/api/download-reel/proxy?url=${encodeURIComponent(targetUrl)}&filename=${encodeURIComponent(filename)}`
-    
-    setCopiedText(`Downloading ${fileType.toUpperCase()}...`)
-    window.location.href = proxyUrl
-    setTimeout(() => setCopiedText(null), 2500)
+      const filename = `cacto_instagram_reel_${fileType === 'mp4' ? 'video' : 'cover'}.${fileType}`
+      const proxyUrl = `/api/download-reel/proxy?url=${encodeURIComponent(targetUrl)}&filename=${encodeURIComponent(filename)}`
+      
+      setCopiedText(`Downloading ${fileType.toUpperCase()}...`)
+      window.location.href = proxyUrl
+      setTimeout(() => setCopiedText(null), 2500)
+    })
   }
 
   // 19. Reel Transcript Generator states
