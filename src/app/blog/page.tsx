@@ -2,14 +2,14 @@ import type { Metadata } from 'next'
 import BlogListingClient from './BlogListingClient'
 
 export const metadata: Metadata = {
-  title: 'Cacto Creator Marketing Blog - Instagram Growth & Automation Guides',
+  title: 'Cacto Blog | Instagram Growth & DM Automation Guides',
   description: 'Tips, guides, and growth hacks on comment-to-DM triggers, monetization funnel pipelines, and Instagram marketing automation.',
   keywords: ['Instagram growth blog', 'creator marketing guides', 'comment trigger strategies', 'social sales funnels', 'Instagram automation tips'],
   alternates: {
     canonical: 'https://cacto.cc/blog',
   },
   openGraph: {
-    title: 'Cacto Creator Marketing Blog - Instagram Growth & Automation Guides',
+    title: 'Cacto Blog | Instagram Growth & DM Automation Guides',
     description: 'Tips, guides, and growth hacks on comment-to-DM triggers, monetization funnel pipelines, and Instagram marketing automation.',
     url: 'https://cacto.cc/blog',
     siteName: 'Cacto',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cacto Creator Marketing Blog - Instagram Growth & Automation Guides',
+    title: 'Cacto Blog | Instagram Growth & DM Automation Guides',
     description: 'Tips, guides, and growth hacks on comment-to-DM triggers, monetization funnel pipelines, and Instagram marketing automation.',
   },
 }

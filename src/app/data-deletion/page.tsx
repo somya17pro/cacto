@@ -10,6 +10,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://cacto.cc/data-deletion',
   },
+  openGraph: {
+    title: 'Data Deletion Instructions | Cacto',
+    description: 'How to request deletion of your account data and remove Cacto Instagram permissions.',
+    url: 'https://cacto.cc/data-deletion',
+    siteName: 'Cacto',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Data Deletion Instructions | Cacto',
+    description: 'How to request deletion of your account data and remove Cacto Instagram permissions.',
+  },
 }
 
 export default async function DataDeletionPage({

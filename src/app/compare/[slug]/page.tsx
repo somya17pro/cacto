@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `${item.metaTitle} | Cacto`;
   const description = item.metaDescription;
-  const canonicalUrl = `https://cacto.io/compare/${item.slug}`;
+  const canonicalUrl = `https://cacto.cc/compare/${item.slug}`;
 
   return {
     title,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: 'website',
       images: [
         {
-          url: 'https://cacto.io/og-image.png',
+          url: 'https://cacto.cc/blog_1.jpg',
           width: 1200,
           height: 630,
           alt: `${item.metaTitle} - Cacto vs ${item.name}`,
@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: 'summary_large_image',
       title,
       description,
-      images: ['https://cacto.io/og-image.png'],
+      images: ['https://cacto.cc/blog_1.jpg'],
     },
   };
 }
@@ -79,12 +79,12 @@ export default async function ComparePage({ params }: PageProps) {
     '@type': 'WebPage',
     name: item.metaTitle,
     description: item.metaDescription,
-    url: `https://cacto.io/compare/${item.slug}`,
+    url: `https://cacto.cc/compare/${item.slug}`,
     publisher: {
       '@type': 'Organization',
       name: 'Cacto',
-      url: 'https://cacto.io',
-      logo: 'https://cacto.io/logo.png',
+      url: 'https://cacto.cc',
+      logo: 'https://cacto.cc/icon.svg',
     },
     mainEntity: {
       '@type': 'Product',

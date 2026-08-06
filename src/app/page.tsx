@@ -2,14 +2,14 @@ import type { Metadata } from 'next'
 import LandingPageClient from './LandingPageClient'
 
 export const metadata: Metadata = {
-  title: 'Cacto | Turn Instagram Comments into Automatic Sales & Auto-DMs',
+  title: 'Cacto | Turn Instagram Comments into Automatic Sales',
   description: 'Cacto detects keyword comments on your Reels, Posts, and Stories to deliver direct checkout links, digital downloads, and lead capture messages in under 30 seconds.',
   keywords: ['Instagram DM automation', 'comment to DM', 'Instagram sales funnel', 'Stripe checkout Instagram', 'lead magnet automation', 'Instagram marketing tools', 'ManyChat alternative'],
   alternates: {
     canonical: 'https://cacto.cc',
   },
   openGraph: {
-    title: 'Cacto | Turn Instagram Comments into Automatic Sales & Auto-DMs',
+    title: 'Cacto | Turn Instagram Comments into Automatic Sales',
     description: 'Cacto detects keyword comments on your Reels, Posts, and Stories to deliver direct checkout links, digital downloads, and lead capture messages in under 30 seconds.',
     url: 'https://cacto.cc',
     siteName: 'Cacto',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cacto | Turn Instagram Comments into Automatic Sales & Auto-DMs',
+    title: 'Cacto | Turn Instagram Comments into Automatic Sales',
     description: 'Cacto detects keyword comments on your Reels, Posts, and Stories to deliver direct checkout links, digital downloads, and lead capture messages in under 30 seconds.',
   },
 }

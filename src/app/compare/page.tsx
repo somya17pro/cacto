@@ -17,15 +17,20 @@ export const metadata: Metadata = {
     'Instagram comment to DM tools',
   ],
   alternates: {
-    canonical: 'https://cacto.io/compare',
+    canonical: 'https://cacto.cc/compare',
   },
   openGraph: {
     title: 'Compare Cacto vs. Top Instagram DM Automation Platforms',
     description:
       'Compare Cacto vs ManyChat, Chatfuel, LinkDM, and more. Flat $19/mo pricing and 1,010 free tools.',
-    url: 'https://cacto.io/compare',
+    url: 'https://cacto.cc/compare',
     siteName: 'Cacto',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Compare Cacto vs. Top Instagram DM Automation Platforms',
+    description: 'Compare Cacto vs ManyChat, Chatfuel, LinkDM, and more. Flat $19/mo pricing and 1,010 free tools.',
   },
 };
 
@@ -35,11 +40,11 @@ export default function CompareIndexPage() {
     '@type': 'CollectionPage',
     name: 'Instagram DM Automation Platform Comparisons',
     description: 'Head-to-head comparisons of Cacto vs top Instagram DM automation platforms.',
-    url: 'https://cacto.io/compare',
+    url: 'https://cacto.cc/compare',
     hasPart: competitorComparisons.map((c) => ({
       '@type': 'WebPage',
       name: c.metaTitle,
-      url: `https://cacto.io/compare/${c.slug}`,
+      url: `https://cacto.cc/compare/${c.slug}`,
     })),
   };
 

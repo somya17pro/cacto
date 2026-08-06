@@ -12,13 +12,21 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'Open Cacto: Building in Public & Real Metrics Dashboard',
   description: '100% transparent real metrics, P&L statements, tech stack breakdown, changelog, and milestones as we build Cacto to $10k MRR.',
+  alternates: {
+    canonical: 'https://cacto.cc/open',
+  },
   openGraph: {
     title: 'Open Cacto: Building in Public',
     description: 'We believe in radical transparency. Real revenue, expenses, waitlist signups, and milestones.',
     url: 'https://cacto.cc/open',
     siteName: 'Cacto',
     type: 'website',
-  }
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Open Cacto: Building in Public',
+    description: 'We believe in radical transparency. Real revenue, expenses, waitlist signups, and milestones.',
+  },
 }
 
 export default async function OpenPage() {

@@ -11,6 +11,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://cacto.cc/compare/cacto-vs-manychat',
   },
+  openGraph: {
+    title: 'Cacto vs. ManyChat: Best Instagram DM Automation for Creators',
+    description: 'A deeply technical, factual comparison between Cacto and ManyChat for Instagram DM automation.',
+    url: 'https://cacto.cc/compare/cacto-vs-manychat',
+    siteName: 'Cacto',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cacto vs. ManyChat: Best Instagram DM Automation for Creators',
+    description: 'A deeply technical, factual comparison between Cacto and ManyChat for Instagram DM automation.',
+  },
 }
 
 export default function CactoVsManychatPage() {

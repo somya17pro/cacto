@@ -4,6 +4,10 @@ import InstagramMockAuthClient from './InstagramMockAuthClient'
 export const metadata: Metadata = {
   title: 'Meta Instagram Connect Sandbox | Cacto',
   description: 'Simulated Instagram Meta API OAuth permission consent portal for developer testing and campaign previews.',
+  robots: {
+    index: false,
+    follow: false,
+  },
   keywords: ['Instagram OAuth mock', 'Meta connect sandbox', 'Cacto testing portal'],
   alternates: {
     canonical: 'https://cacto.cc/auth/instagram-mock',

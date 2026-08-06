@@ -10,6 +10,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://cacto.cc/templates',
   },
+  openGraph: {
+    title: 'Automations We Love: High-Converting Instagram DM Scripts',
+    description: 'See the exact Instagram DM automation scripts, triggers, and anti-spam replies used by top creators.',
+    url: 'https://cacto.cc/templates',
+    siteName: 'Cacto',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Automations We Love: High-Converting Instagram DM Scripts',
+    description: 'See the exact Instagram DM automation scripts, triggers, and anti-spam replies used by top creators.',
+  },
 }
 
 const templates = [

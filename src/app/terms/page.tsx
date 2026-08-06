@@ -9,6 +9,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://cacto.cc/terms',
   },
+  openGraph: {
+    title: 'Terms of Service | Cacto - Instagram DM Automation',
+    description: 'Terms of Service governing the use of Cacto website and automation services.',
+    url: 'https://cacto.cc/terms',
+    siteName: 'Cacto',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Terms of Service | Cacto',
+    description: 'Terms of Service governing the use of Cacto website and automation services.',
+  },
 }
 
 export default function TermsPage() {

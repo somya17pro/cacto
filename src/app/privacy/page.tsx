@@ -9,6 +9,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://cacto.cc/privacy',
   },
+  openGraph: {
+    title: 'Privacy Policy | Cacto - Instagram DM Automation',
+    description: 'Cacto Privacy Policy detailing how we collect, use, and protect your data.',
+    url: 'https://cacto.cc/privacy',
+    siteName: 'Cacto',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Privacy Policy | Cacto',
+    description: 'Cacto Privacy Policy detailing how we collect, use, and protect your data.',
+  },
 }
 
 export default function PrivacyPage() {
