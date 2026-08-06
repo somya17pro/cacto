@@ -4,6 +4,10 @@ import ProfileClient from './ProfileClient'
 export const metadata: Metadata = {
   title: 'Account Settings & Integrations | Cacto',
   description: 'Manage connected Meta Graph API credentials, webhook endpoints, and email provider integrations.',
+  robots: {
+    index: false,
+    follow: false
+  },
   alternates: {
     canonical: 'https://cacto.cc/profile',
   },

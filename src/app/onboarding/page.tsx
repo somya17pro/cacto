@@ -4,6 +4,10 @@ import OnboardingClient from './OnboardingClient'
 export const metadata: Metadata = {
   title: 'Connect Instagram Account | Cacto Onboarding',
   description: 'Connect your Instagram Business or Creator account to start automating comment-to-DM link dispatches.',
+  robots: {
+    index: false,
+    follow: false
+  },
   alternates: {
     canonical: 'https://cacto.cc/onboarding',
   },
