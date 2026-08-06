@@ -9,10 +9,26 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WaitlistModal from '@/components/WaitlistModal'
 
-interface ClientProps {
-  toolSlug: string
-  initialTool?: ToolData | null
-}
+const EXPLICIT_TOOL_SLUGS = new Set([
+  'engagement-calculator', 'caption-generator', 'bio-generator', 'ctr-calculator',
+  'hook-generator', 'username-checker', 'hashtag-generator', 'cta-generator',
+  'click-value-estimator', 'line-breaker', 'script-outline', 'audit-checklist',
+  'subject-line-optimizer', 'dm-previewer', 'reel-downloader', 'reel-transcript',
+  'carousel-generator', 'text-formatter', 'banned-hashtag-checker',
+  'meta-24hr-window-calculator', 'shadowban-risk-simulator', 'bio-seo-auditor',
+  'comment-rotator-checker', 'sponsored-rate-calculator', 'dm-funnel-calculator',
+  'bio-link-leakage-calculator', 'digital-product-pricing-calculator',
+  'reels-bonus-estimator', 'giveaway-winner-picker', 'reels-overlay-hook-generator',
+  'story-quiz-generator', 'carousel-outline-generator', 'comment-trigger-generator',
+  'reel-cta-writer', 'story-mention-dm-generator', 'ai-prompt-generator',
+  'dep-sequence-builder', 'best-time-to-post', 'story-view-conversion-calculator',
+  'competitor-benchmark-tool', 'grid-layout-planner', 'reel-loop-calculator',
+  'manychat-vs-cacto-roi-calculator', 'klaviyo-dm-webhook-builder',
+  'ecommerce-dm-roi-calculator', 'real-estate-reel-cta-generator',
+  'welcome-dm-velocity-calculator', 'webhook-latency-simulator',
+  'high-ticket-qualifying-script-generator', 'ai-instagram-engagement-calculator',
+  'post-booster', 'skill-authoring-wizard'
+])
 
 export default function ToolDetailClient({ toolSlug, initialTool }: ClientProps) {
   const [tool, setTool] = useState<ToolData | null>(() => initialTool || freeToolsList.find(t => t.slug === toolSlug) || null)
@@ -4411,7 +4427,7 @@ Formatting Constraints:
 
 
           {/* Dynamic Universal Tool Engine for all Programmatic Tools */}
-          {tool && (
+          {tool && !EXPLICIT_TOOL_SLUGS.has(toolSlug) && (
             <UniversalDynamicToolWorkspace 
               tool={tool} 
               checkAndIncrementUsage={checkAndIncrementUsage} 
