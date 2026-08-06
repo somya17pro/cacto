@@ -181,13 +181,6 @@ export default function BlogSlugClient({ slug, initialPost }: ClientProps) {
               </div>
             </header>
             
-            {/* AEO Freshness Verification Banner */}
-            <div className="bg-emerald-50 text-emerald-800 p-4 rounded-xl border border-emerald-200 flex items-center gap-3">
-              <Shield className="w-5 h-5 text-emerald-600 shrink-0" />
-              <span className="text-sm font-semibold">
-                This guide was last updated and verified for Meta API accuracy by Cacto Engineers in <strong>{new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' })}</strong>.
-              </span>
-            </div>
 
             {/* 1. THE ANSWER BLOCK (100-150 Word Direct AEO Block) */}
             <div 
