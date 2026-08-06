@@ -225,41 +225,6 @@ export default function BlogListingClient() {
           </div>
         </section>
 
-        {/* Complete Masterclass Directory Index (All 85 Articles) */}
-        <section 
-          className="p-6 md:p-10 rounded-[28px] bg-white border-2 border-[#1A1510] space-y-6 text-left"
-          style={{ boxShadow: '6px 8px 0 #1A1510' }}
-        >
-          <div className="space-y-2 border-b-2 border-zinc-100 pb-4">
-            <span className="text-xs text-[#16A34A] font-extrabold uppercase tracking-wider block">Masterclass Sitemap Directory</span>
-            <h2 className="font-serif text-2xl md:text-3xl font-black italic tracking-tight text-[#1A1510]">
-              Browse All 85 Instagram Growth & DM Automation Masterclass Guides
-            </h2>
-            <p className="text-xs text-zinc-500 font-semibold">
-              Complete index of tactical guides, AEO playbooks, ManyChat comparisons, and Instagram algorithm tutorials.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {blogPosts.map((post, idx) => (
-              <Link 
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="p-3 rounded-xl bg-[#FAF6EE] border border-[#1A1510] hover:border-[#16A34A] transition group flex items-start gap-2.5 text-left decoration-none"
-              >
-                <span className="text-[9px] font-black text-[#16A34A] bg-emerald-100 px-2 py-0.5 rounded shrink-0">
-                  #{idx + 1}
-                </span>
-                <div className="space-y-0.5 overflow-hidden">
-                  <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-wider block">{post.category}</span>
-                  <h3 className="font-bold text-xs text-[#1A1510] group-hover:text-[#16A34A] transition leading-tight line-clamp-2">
-                    {post.title}
-                  </h3>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
 
         {/* Early Access Waitlist Banner */}
         <section className="p-8 md:p-10 rounded-[28px] bg-[#1A1510] text-[#FAF6EE] flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden" style={{ boxShadow: '6px 8px 0 #16A34A' }}>
