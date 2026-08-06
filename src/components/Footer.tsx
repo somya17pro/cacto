@@ -67,10 +67,6 @@ export default function Footer({ onOpenWaitlist }: FooterProps = {}) {
               The zero-friction Instagram comment-to-DM automation engine for creators, educators, and e-commerce brands.
             </p>
             <div className="pt-2 flex flex-col gap-2">
-              <div className="inline-flex items-center gap-2 text-[11px] font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-3 py-1.5 rounded-xl w-fit">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Meta API v20.0 • All Systems Operational</span>
-              </div>
               <p className="text-[11px] text-zinc-500 font-bold flex items-center gap-1">
                 © 2026 Cacto Inc. Made with <Heart className="w-3 h-3 text-emerald-500 inline fill-emerald-500" /> for creators.
               </p>
