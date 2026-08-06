@@ -73,43 +73,42 @@ export default function Footer({ onOpenWaitlist }: FooterProps = {}) {
             </div>
           </div>
 
-          {/* Col 2: Platform & Ecosystem */}
+          {/* Col 2: Platform & Features */}
           <div className="space-y-3">
-            <span className="text-xs font-black uppercase text-emerald-400 tracking-wider block">Platform &amp; Ecosystem</span>
+            <span className="text-xs font-black uppercase text-emerald-400 tracking-wider block">Platform &amp; Features</span>
             <ul className="space-y-2 list-none pl-0 text-xs font-semibold text-zinc-300">
               <li><Link href="/#features" className="hover:text-white transition decoration-none">Features Overview</Link></li>
               <li><Link href="/#how-it-works" className="hover:text-white transition decoration-none">How It Works</Link></li>
               <li><Link href="/templates" className="hover:text-white transition decoration-none">DM Automation Templates</Link></li>
-              <li><Link href="/compare/cacto-vs-manychat" className="hover:text-white transition decoration-none">Cacto vs. ManyChat Comparison</Link></li>
+              <li><Link href="/compare/cacto-vs-manychat" className="hover:text-white transition decoration-none">Cacto vs. ManyChat</Link></li>
               <li><Link href="/about" className="hover:text-white transition decoration-none">About Cacto</Link></li>
-              <li><Link href="/open" className="hover:text-white transition decoration-none">Cacto /Open Metrics</Link></li>
+              <li><Link href="/open" className="hover:text-white transition decoration-none">/Open Startup Metrics</Link></li>
             </ul>
           </div>
 
-          {/* Col 3: Free Tools */}
+          {/* Col 3: App & Product */}
           <div className="space-y-3">
-            <span className="text-xs font-black uppercase text-emerald-400 tracking-wider block">Free Tools</span>
+            <span className="text-xs font-black uppercase text-emerald-400 tracking-wider block">App &amp; Product</span>
             <ul className="space-y-2 list-none pl-0 text-xs font-semibold text-zinc-300">
-              <li><Link href="/tools/social/fast-image-resizer" className="hover:text-white transition decoration-none">Fast Image Resizer Pro</Link></li>
-              <li><Link href="/tools/converters/fast-png-compressor" className="hover:text-white transition decoration-none">Fast PNG Compressor</Link></li>
-              <li><Link href="/tools/developer/fast-json-validator-pro" className="hover:text-white transition decoration-none">JSON Validator Pro</Link></li>
-              <li><Link href="/tools/seo/fast-serp-snippet-simulator" className="hover:text-white transition decoration-none">SERP Snippet Simulator</Link></li>
-              <li><Link href="/tools/finance/fast-saas-mrr-calculator" className="hover:text-white transition decoration-none">SaaS MRR Growth Calculator</Link></li>
-              <li><Link href="/tools/legal/fast-privacy-policy-generator" className="hover:text-white transition decoration-none">Privacy Policy Generator</Link></li>
-              <li><Link href="/tools" className="text-emerald-400 font-extrabold hover:underline transition decoration-none flex items-center gap-1 mt-1">Explore All Free Tools &rarr;</Link></li>
+              <li><Link href="/dashboard" className="hover:text-white transition decoration-none">Creator Dashboard</Link></li>
+              <li><Link href="/autodm" className="hover:text-white transition decoration-none">AutoDM Campaign Builder</Link></li>
+              <li><Link href="/onboarding" className="hover:text-white transition decoration-none">Connect Instagram Account</Link></li>
+              <li><Link href="/profile" className="hover:text-white transition decoration-none">Account &amp; Webhook Settings</Link></li>
+              <li><Link href="/login" className="hover:text-white transition decoration-none">Sign In / Register</Link></li>
+              <li><Link href="/tools" className="text-emerald-400 font-extrabold hover:underline transition decoration-none flex items-center gap-1 mt-1">1,010 Free Tools Directory &rarr;</Link></li>
             </ul>
           </div>
 
-          {/* Col 4: Blog */}
+          {/* Col 4: Resources & Legal */}
           <div className="space-y-3">
-            <span className="text-xs font-black uppercase text-emerald-400 tracking-wider block">Blog</span>
+            <span className="text-xs font-black uppercase text-emerald-400 tracking-wider block">Resources &amp; Legal</span>
             <ul className="space-y-2 list-none pl-0 text-xs font-semibold text-zinc-300">
-              <li><Link href="/blog/how-to-automate-instagram-dms-safely" className="hover:text-white transition decoration-none">Automate Instagram DMs Safely</Link></li>
-              <li><Link href="/blog/top-5-instagram-automation-strategies" className="hover:text-white transition decoration-none">Top 5 Automation Strategies</Link></li>
-              <li><Link href="/blog/definitive-guide-instagram-comment-auto-reply" className="hover:text-white transition decoration-none">Definitive Comment Auto-Reply Guide</Link></li>
-              <li><Link href="/blog/why-manychat-alternatives-are-rising" className="hover:text-white transition decoration-none">Why ManyChat Alternatives Rise</Link></li>
-              <li><Link href="/blog/how-to-craft-high-converting-comment-cta" className="hover:text-white transition decoration-none">Craft High-Converting CTAs</Link></li>
-              <li><Link href="/blog" className="text-emerald-400 font-extrabold hover:underline transition decoration-none flex items-center gap-1 mt-1">Explore All 100 Blogs &rarr;</Link></li>
+              <li><Link href="/blog" className="hover:text-white transition decoration-none font-bold text-emerald-400">Masterclass Blog (100 Guides)</Link></li>
+              <li><Link href="/privacy" className="hover:text-white transition decoration-none">Privacy Policy (GDPR / CCPA)</Link></li>
+              <li><Link href="/terms" className="hover:text-white transition decoration-none">Terms of Service</Link></li>
+              <li><Link href="/data-deletion" className="hover:text-white transition decoration-none">Data Deletion Status</Link></li>
+              <li><Link href="/sitemap.xml" className="hover:text-white transition decoration-none">XML Sitemap</Link></li>
+              <li><Link href="/sitemap_index.xml" className="hover:text-white transition decoration-none">Sitemap Index</Link></li>
             </ul>
           </div>
 
