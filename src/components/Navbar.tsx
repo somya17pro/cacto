@@ -40,9 +40,6 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
             <span className="font-serif text-2xl font-bold tracking-tight text-[#FAF6EE] lowercase group-hover:text-emerald-400 transition-colors">
               cacto
             </span>
-            <span className="text-[10px] uppercase tracking-wider bg-emerald-900/60 text-emerald-300 font-extrabold px-2 py-0.5 rounded-full border border-emerald-500/30">
-              v1.0
-            </span>
           </Link>
 
           {/* Desktop Nav Links */}
