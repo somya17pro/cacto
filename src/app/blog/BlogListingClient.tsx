@@ -153,7 +153,7 @@ export default function BlogListingClient() {
                 {post.image && (
                   <div className="w-full aspect-[16/9] rounded-xl overflow-hidden border border-zinc-200 bg-zinc-50 relative select-none">
                     <img 
-                      src={`${post.image}?v=original_artwork_v6`} 
+                      src={`${post.image}?v=2026_photo_artwork_restored`} 
                       alt={post.title} 
                       className="w-full h-full object-cover transition-transform duration-350 hover:scale-105"
                       loading="lazy"

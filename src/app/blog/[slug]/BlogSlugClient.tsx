@@ -160,7 +160,7 @@ export default function BlogSlugClient({ slug, initialPost }: ClientProps) {
                 style={{ boxShadow: '6px 8px 0 #1A1510' }}
               >
                 <img 
-                  src={`${post.image}?v=original_artwork_v6`} 
+                  src={`${post.image}?v=2026_photo_artwork_restored`} 
                   alt={post.title} 
                   className="w-full h-full object-cover"
                 />
