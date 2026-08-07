@@ -62,7 +62,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "top-5-instagram-automation-strategies",
-    "title": "Top 5 Instagram Automation Strategies to",
+    "title": "Top 5 Instagram Automation Strategies to Scale Your Business in 2026",
     "date": "July 19, 2026",
     "author": "Cacto Team",
     "category": "Lead Generation & Funnels",
@@ -105,7 +105,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "definitive-guide-instagram-comment-auto-reply",
-    "title": "Instagram Comment Auto-Reply: The Definitive",
+    "title": "Instagram Comment Auto-Reply: The Definitive Setup & Growth Guide",
     "date": "July 18, 2026",
     "author": "Cacto Team",
     "category": "Creator & Influencer Economy",
@@ -148,7 +148,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "why-manychat-alternatives-are-rising",
-    "title": "Why Manychat Alternatives are Rising: A Deep",
+    "title": "Why Manychat Alternatives are Rising: A Deep Dive into Flat Pricing",
     "date": "July 17, 2026",
     "author": "Cacto Team",
     "category": "Software & Alternatives",
@@ -191,7 +191,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-craft-high-converting-comment-cta",
-    "title": "How to Craft the Perfect Call-to-Action for",
+    "title": "How to Craft the Perfect Call-to-Action for Instagram Comment Triggers",
     "date": "July 16, 2026",
     "author": "Cacto Team",
     "category": "Content & Conversion Strategy",
@@ -277,7 +277,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "blueprint-scaling-sales-comments-to-checkout",
-    "title": "The Blueprint to Scaling Instagram Sales from",
+    "title": "The Blueprint to Scaling Instagram Sales from Comments to Direct Checkout",
     "date": "July 14, 2026",
     "author": "Cacto Team",
     "category": "Monetization & Sales",
@@ -320,7 +320,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "tiktok-automation-vs-instagram-dm-automation",
-    "title": "TikTok Automation vs. Instagram DM Automation:",
+    "title": "TikTok Automation vs. Instagram DM Automation: Which Channel Drives More Sales?",
     "date": "July 13, 2026",
     "author": "Cacto Team",
     "category": "Creator & Influencer Economy",
@@ -363,7 +363,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-setup-automated-lead-magnet-funnel",
-    "title": "How to Setup an Automated Lead Magnet Delivery",
+    "title": "How to Setup an Automated Lead Magnet Delivery Funnel on Instagram",
     "date": "July 12, 2026",
     "author": "Cacto Team",
     "category": "Creator & Influencer Economy",
@@ -406,7 +406,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "psychology-comment-keyword-to-get-link-campaigns",
-    "title": "The Psychology Behind 'Comment KEYWORD to Get",
+    "title": "The Psychology Behind 'Comment KEYWORD to Get Link' Instagram Campaigns",
     "date": "July 11, 2026",
     "author": "Cacto Team",
     "category": "Content & Conversion Strategy",
@@ -535,7 +535,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "5-high-converting-autodm-examples-for-coaches",
-    "title": "5 High-Converting Auto-DM Script Examples for",
+    "title": "5 High-Converting Auto-DM Script Examples",
     "date": "July 08, 2026",
     "author": "Cacto Team",
     "category": "Content & Conversion Strategy",
@@ -793,7 +793,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-automate-instagram-dms-for-real-estate-leads",
-    "title": "How to Automate Instagram DMs for Qualifying",
+    "title": "How to Automate Instagram DMs for Qualifying Real Estate Buyer Leads",
     "date": "July 24, 2026",
     "author": "Cacto Team",
     "category": "Creator & Influencer Economy",
@@ -836,7 +836,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "best-manychat-alternative-for-shopify",
-    "title": "What is the Best Manychat Alternative with",
+    "title": "What is the Best Manychat Alternative with Flat Pricing for E-Commerce?",
     "date": "July 24, 2026",
     "author": "Cacto Team",
     "category": "Software & Alternatives",
@@ -926,7 +926,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-migrate-from-manychat-without-losing-leads",
-    "title": "How to Migrate Instagram DM Automation from",
+    "title": "How to Migrate Instagram DM Automation from ManyChat Without Losing Leads",
     "date": "July 24, 2026",
     "author": "Cacto Team",
     "category": "Software & Alternatives",
@@ -973,7 +973,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "manychat-alternatives-for-ai-lead-qualification",
-    "title": "What are the Best Manychat Alternatives for",
+    "title": "What are the Best Manychat Alternatives",
     "date": "July 24, 2026",
     "author": "Cacto Team",
     "category": "Automation & Integrations",
@@ -1106,7 +1106,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "reels-bonus-vs-ad-revenue",
-    "title": "What is the Difference Between Reels Bonus and",
+    "title": "What is the Difference Between Reels Bonus",
     "date": "July 24, 2026",
     "author": "Cacto Team",
     "category": "Monetization & Sales",
@@ -1278,7 +1278,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "official-way-to-connect-chatgpt-to-instagram-dms",
-    "title": "Is There an Official Way to Connect ChatGPT to",
+    "title": "Is There an Official Way to Connect ChatGPT",
     "date": "July 24, 2026",
     "author": "Cacto Team",
     "category": "Automation & Integrations",
@@ -1579,7 +1579,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "instagram-reach-drop-bot-shadowban-fix",
-    "title": "Why Did Your Instagram Reach Drop After Using a",
+    "title": "Why Did Your Instagram Reach Drop After Using",
     "date": "July 24, 2026",
     "author": "Cacto Team",
     "category": "Instagram Growth & Reels",
@@ -1665,7 +1665,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-check-instagram-account-status-for-shadowban",
-    "title": "How to Check Instagram Account Status to",
+    "title": "How to Check Instagram Account Status",
     "date": "July 24, 2026",
     "author": "Cacto Team",
     "category": "Instagram Growth & Reels",
@@ -1755,7 +1755,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "5-stage-buyers-journey-instagram-reel-to-sale",
-    "title": "How to Design a 5-Stage Buyer's Journey from",
+    "title": "How to Design a 5-Stage Buyer's Journey",
     "date": "July 24, 2026",
     "author": "Cacto Team",
     "category": "Monetization & Sales",
@@ -1841,7 +1841,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "transition-instagram-content-entertaining-to-converting",
-    "title": "How to Transition Instagram Content from",
+    "title": "How to Transition Instagram Content",
     "date": "July 24, 2026",
     "author": "Cacto Team",
     "category": "Content & Conversion Strategy",
@@ -1880,7 +1880,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "reasons-followers-hesitate-buy-high-ticket-coaching",
-    "title": "What are the Top Reasons Followers Hesitate to",
+    "title": "What are the Top Reasons Followers Hesitate",
     "date": "July 24, 2026",
     "author": "Cacto Team",
     "category": "Monetization & Sales",
@@ -1919,7 +1919,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-draft-re-engagement-dm-cold-prospects",
-    "title": "How to Draft an Empathetic Re-Engagement DM for",
+    "title": "How to Draft an Empathetic Re-Engagement DM",
     "date": "July 24, 2026",
     "author": "Cacto Team",
     "category": "Lead Generation & Funnels",
@@ -2380,7 +2380,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "n8n-vs-saas-instagram-dm-automation",
-    "title": "n8n & Self-Hosted Instagram DM Automation vs.",
+    "title": "n8n & Self-Hosted Instagram DM Automation",
     "date": "July 26, 2026",
     "author": "Cacto Team",
     "category": "Automation & Integrations",
@@ -2552,7 +2552,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "instagram-comment-to-dm-automation-guide",
-    "title": "Instagram Comment-to-DM Automation: How to",
+    "title": "Instagram Comment-to-DM Automation: How",
     "date": "July 26, 2026",
     "author": "Cacto Team",
     "category": "Lead Generation & Funnels",
@@ -2724,7 +2724,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-send-automated-link-in-dm-instagram",
-    "title": "How to Send an Automated Link in DM on",
+    "title": "How to Send an Automated Link in DM",
     "date": "July 26, 2026",
     "author": "Cacto Team",
     "category": "Content & Conversion Strategy",
@@ -2939,7 +2939,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-setup-comment-reply-rotators-cacto",
-    "title": "How to Setup Dynamic Comment Reply Rotators in",
+    "title": "How to Setup Dynamic Comment Reply Rotators",
     "date": "July 26, 2026",
     "author": "Cacto Team",
     "category": "Safety & Account Security",
@@ -3283,7 +3283,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-send-automated-dm-to-new-followers",
-    "title": "How to Send Automated DMs to New Followers on",
+    "title": "How to Send Automated DMs to New Followers",
     "date": "July 26, 2026",
     "author": "Cacto Team",
     "category": "Automation & Integrations",
@@ -3326,7 +3326,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-set-up-comment-to-dm-automation-instagram",
-    "title": "How to Set Up Comment-to-DM Automation on",
+    "title": "How to Set Up Comment-to-DM Automation",
     "date": "July 26, 2026",
     "author": "Cacto Team",
     "category": "Automation & Integrations",
@@ -3412,7 +3412,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-set-up-instagram-dm-automation-beginners",
-    "title": "How to Set Up Instagram DM Automation for",
+    "title": "How to Set Up Instagram DM Automation",
     "date": "July 26, 2026",
     "author": "Cacto Team",
     "category": "Automation & Integrations",
@@ -3455,7 +3455,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-automate-instagram-dm-replies-customer-faqs",
-    "title": "How to Automate Instagram DM Replies to",
+    "title": "How to Automate Instagram DM Replies",
     "date": "July 26, 2026",
     "author": "Cacto Team",
     "category": "Automation & Integrations",
@@ -3541,7 +3541,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-automate-dm-links-in-instagram-reels",
-    "title": "How to Automate DM Links in Instagram Reels to",
+    "title": "How to Automate DM Links in Instagram Reels",
     "date": "July 26, 2026",
     "author": "Cacto Team",
     "category": "Automation & Integrations",
@@ -3584,7 +3584,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-build-automated-welcome-dm-funnel-instagram",
-    "title": "How to Build an Automated Welcome DM Funnel for",
+    "title": "How to Build an Automated Welcome DM Funnel",
     "date": "July 26, 2026",
     "author": "Cacto Team",
     "category": "Automation & Integrations",
@@ -3670,7 +3670,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-set-up-comment-auto-dm-on-instagram",
-    "title": "How to Set Up Comment-to-Link Auto DMs on",
+    "title": "How to Set Up Comment-to-Link Auto DMs",
     "category": "Content & Conversion Strategy",
     "readTime": "7 min read",
     "date": "Jul 27, 2026",
@@ -3915,7 +3915,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "instagram-dm-marketing-for-small-businesses",
-    "title": "Instagram DM Marketing 101: Turn DMs into a",
+    "title": "Instagram DM Marketing 101: Turn DMs into",
     "category": "Monetization & Sales",
     "readTime": "8 min read",
     "date": "Jul 27, 2026",
@@ -4020,7 +4020,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "high-ticket-coaching-lead-qualification-dms",
-    "title": "How High-Ticket Coaches Qualify $5k+ Clients in",
+    "title": "How High-Ticket Coaches Qualify $5k+ Clients in Instagram DMs Automatically",
     "category": "Monetization & Sales",
     "readTime": "8 min read",
     "date": "Jul 27, 2026",
@@ -4090,7 +4090,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-to-fix-instagram-shadowban-action-limits",
-    "title": "How to Fix an Instagram Shadowban & Stay 100%",
+    "title": "How to Fix an Instagram Shadowban & Stay 100% Compliant with Meta Policies",
     "category": "Safety & Account Security",
     "readTime": "7 min read",
     "date": "Jul 27, 2026",
@@ -4125,7 +4125,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "curiosity-gap-reel-hooks-viral-playbook",
-    "title": "25 Scroll-Stopping Curiosity Gap Hooks for",
+    "title": "25 Scroll-Stopping Curiosity Gap Hooks",
     "category": "Instagram Growth & Reels",
     "readTime": "8 min read",
     "date": "Jul 27, 2026",
@@ -5208,7 +5208,7 @@ export const blogPosts: BlogPost[] = [
     author: "Kieran Flanagan & Cacto Growth Team",
     "category": "Content & Conversion Strategy",
     readTime: "12 min read",
-    "image": "/blog_111.jpg?v=2026_photo_artwork_restored",
+    "image": "/blog_1.jpg?v=2026_photo_artwork_restored",
     tldr: [
       "AI content saturation makes feature marketing invisible; winning brands position around immediate buyer problem states.",
       "LLMs drive under 4% of traditional blue link search volume, but visitors convert at 2x higher rates in 1/3 the sessions.",
